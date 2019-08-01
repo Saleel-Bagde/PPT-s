@@ -1,0 +1,83 @@
+use admin
+db.createUser(
+{
+	user: "user01",
+	pwd: "user01",
+	roles:[{role: "userAdmin" , db:"abc"},
+		   {role: "dbAdmin" , db:"abc"},
+		   {role: "readWrite", db:"abc"}]})
+
+db.createUser(
+{
+	user: "user02",
+	pwd: "user02",
+	roles:[{role: "userAdmin" , db:"primaryDB"},
+		   {role: "dbAdmin" , db:"primaryDB"},
+		   {role: "readWrite", db:"primaryDB"}]})
+
+
+
+mongo --host 192.168.100.20 --port 27017 -u user01 -p user01 --authenticationDatabase "admin"
+mongo --host 192.168.100.20 --port 27017 -u user02 -p user02 --authenticationDatabase "admin"
+
+db.createUser(
+  {
+    user: "user03",
+    pwd: "user03",
+    roles: [ { role: "readWrite", db:"abc"}, 
+	         { role: "userAdminAnyDatabase", db: "admin" } ]
+  }
+)
+
+db.createUser(
+{
+	user: "user04",
+	pwd: "user04",
+	roles:[{role: "userAdmin" , db:"abc"},
+		   {role: "dbAdmin" , db:"abc"},
+		   {role: "read", db:"abc"}]})
+
+db.createUser(
+{
+	user: "user01",
+	pwd: "user01",
+	roles:[{role: "read", db:"abc"}]})
+
+
+db.dropUser("user01")
+db.dropUser("user02")
+db.dropUser("user03")
+db.dropUser("user04")
+
+
+
+mongod --auth --dbpath "c:\database" --bind_ip 192.168.100.20 --journal 
+mongo --host 192.168.100.20 --port 27017 [This will not work if mongod is started using --auth]
+
+ 
+ db.getUsers()
+ 
+ 
+mongo -u user01 -p user01 --authenticationDatabase "db1"
+mongo --host 192.168.100.20 --port 27017 -u user01 -p user01 --authenticationDatabase "primaryDB"
+mongo --host 192.168.100.20 --port 27017 -u user02 -p user02 --authenticationDatabase "secondaryDB"
+
+db.createUser({
+      user: "user1",
+      pwd: "user1password",
+      roles: [
+                { role: "userAdmin", db: "sampledb" },
+                { role: "dbAdmin",   db: "sampledb" },
+                { role: "readWrite", db: "sampledb" }
+             ]
+  });
+  
+  
+ use admin
+db.createUser(
+  {
+    user: 'user01',
+    pwd: 'user01',
+    roles: [ { role: 'root', db: 'abc' } ]
+  }
+);
