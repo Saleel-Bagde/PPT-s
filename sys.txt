@@ -1,0 +1,11 @@
+Database Concepts (File System and DBMS), Database Storage Structures (Tablespace, Control files, Data files), Structured and Unstructured data, SQL Commands (DDL, DML & DCL),Introduction to MySQL, Installing and Configuring MySQL, Queries in MySQL, Introduction to MySQL Programming, Dataware Housing concept , No-SQL, Data Models - XML, working with MongoDB Database Security Principles, Authentication Bypass, Data Extraction, Advanced Identification/Exploitation, Order by/group by, Double,encoding/decoding, Injection in Insert/Update,  Injection in stored procedures
+
+------------------------------------------------------------------
+vulnweb.com
+site: php?id=
+------------------------------------------------------------------
+
+
+Introduction to Python, Syntax, Data Types, Variables, Operators, Input/output, Control Structure, Strings, Dictionaries, Tuples and Lists, Classes & Inheritance, Function and Methods, File Handling, Modules, Functional Programming, Exception Handling, Algorithm Complexity, Searching & Sorting Algorithms,  Libraries, Access Permissions,Client scripting, Writing plugins in Python, Testing &Debugging, Task Automation with Python, Databases, Graphical User Interface
+
+
