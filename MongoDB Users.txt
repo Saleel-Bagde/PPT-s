@@ -88,9 +88,40 @@ db.createUser(
 	user: "user01",
 	pwd: "user01",
 	roles:[{role: "userAdmin" , db:"db1"},
-    	       {role: "readWrite", db:"db1"}],
+    	   {role: "readWrite", db:"db1"}],
 	authenticationRestrictions: [ {
         	clientSource: ["192.168.100.26", "192.168.100.20","192.168.100.120","192.168.100.83"],
 	        serverAddress: ["192.168.100.20"]
      } ]
 })
+
+------------------------------------------------------------
+
+
+db.revokeRolesFromUser(
+    "user01",
+    [
+      { role: "readWrite", db: "db1" }
+    ]
+)
+
+db.revokeRolesFromUser(
+    "user01",
+    [
+      { role: "read", db: "db1" }
+    ]
+)
+------------------------------------------------------
+db.grantRolesToUser(
+    "user01",
+    [
+      { role: "read", db: "db1" }
+    ]
+)
+
+db.grantRolesToUser(
+    "user01",
+    [
+      { role: "readWrite", db: "db1" }
+    ]
+)
