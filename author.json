@@ -1,0 +1,273 @@
+db.author.insert([
+  { "_id":1,
+    "author": "Chinua Achebe",
+    "country": "Nigeria",
+	"bookID" : [1, 5, 7]
+  },
+  {
+	"_id":2,
+    "author": "Hans Christian Andersen",
+    "country": "Denmark",
+	"bookID" : [21, 22]
+  },
+  {
+	"_id":3,
+    "author": "Dante Alighieri",
+    "country": "Italy",
+	"bookID" : [18, 19]
+  },
+  {
+    "_id":4,
+	"author": "Unknown",
+    "country": "Sumer and Akkadian Empire",
+	"bookID" : [45, 78]
+  },
+  {
+    "_id":5,
+	"author": "Unknown",
+    "country": "Achaemenid Empire",
+	"bookID" : [48]
+  },
+  {
+    "_id":6,
+	"author": "Unknown",
+    "country": "India/Iran/Iraq/Egypt/Tajikistan",
+	"bookID" : [87]
+  },
+  {
+    "_id":7,
+	"author": "Unknown",
+    "country": "Iceland",
+	"bookID" : [89]
+  },
+  {
+    "_id":8,
+	"author": "Jane Austen",
+    "country": "United Kingdom",
+	"bookID" : [100]
+  },
+  {
+    "_id":9,
+	"author": "Honor\u00e9 de Balzac",
+    "country": "France",
+	"bookID" : [19, 67]
+  },
+  {
+    "_id":10,
+	"author": "Samuel Beckett",
+    "country": "Republic of Ireland",
+	"bookID" : [15, 93]
+  },
+  {
+    "_id":11,
+	"author": "Giovanni Boccaccio",
+    "country": "Italy",
+	"bookID" : [23, 75, 12]
+  },
+  {
+    "_id":12,
+	"author": "Jorge Luis Borges",
+    "country": "Argentina",
+	"bookID" : [56, 89]
+  },
+  {
+    "_id":13,
+	"author": "Emily Bront\u00eb",
+    "country": "United Kingdom",
+	"bookID" : [4]
+  },
+  {
+    "_id":14,
+	"author": "Albert Camus",
+    "country": "Algeria, French Empire",
+	"bookID" : [6]
+  },
+  {
+    "_id":15,
+	"author": "Paul Celan",
+    "country": "Romania, France",
+	"bookID" : [56]
+  },
+  {
+    "_id":16,
+	"author": "Louis-Ferdinand C\u00e9line",
+    "country": "France",
+	"bookID" : [88, 79]
+  },
+  {
+    "_id":17,
+	"author": "Miguel de Cervantes",
+    "country": "Spain",
+	"bookID" : [5, 75]
+  },
+  {
+    "_id":18,
+	"author": "Geoffrey Chaucer",
+    "country": "England",
+	"bookID" : [45, 62]
+  },
+  {
+    "_id":19,
+	"author": "Anton Chekhov",
+    "country": "Russia",
+	"bookID" : [1]
+  },
+  {
+    "_id":20,
+	"author": "Joseph Conrad",
+    "country": "United Kingdom",
+	"bookID" : [2]
+  },
+  {
+    "_id":21,
+	"author": "Denis Diderot",
+    "country": "France",
+	"bookID" : [4]
+  },
+  {
+    "_id":22,
+	"author": "Alfred D\u00f6blin",
+    "country": "Germany",
+	"bookID" : [5]
+  },
+  {
+    "_id":23,
+	"author": "Fyodor Dostoevsky",
+    "country": "Russia",
+	"bookID" : [6]
+  },
+  {
+    "_id":24,
+	"author": "George Eliot",
+    "country": "United Kingdom",
+	"bookID" : [7]
+  },
+  {
+    "_id":25,
+	"author": "Ralph Ellison",
+    "country": "United States",
+	"bookID" : [8]
+  },
+  {
+    "_id":26,
+	"author": "Euripides",
+    "country": "Greece",
+	"bookID" : [9]
+  },
+  {
+    "_id":27,
+	"author": "William Faulkner",
+    "country": "United States",
+	"bookID" : [9]
+  },
+  
+  {
+    "_id":28,
+	"author": "Gustave Flaubert",
+    "country": "France",
+	"bookID" : [10, 11]
+  },
+  {
+    "_id":29,
+	"author": "Federico Garc\u00eda Lorca",
+    "country": "Spain",
+	"bookID" : [10, 11]
+  },
+  {
+    "_id":30,
+	"author": "Gabriel Garc\u00eda M\u00e1rquez",
+    "country": "Colombia",
+	"bookID" : [66, 23]
+  },
+  
+  {
+    "_id":31,
+	"author": "Johann Wolfgang von Goethe",
+    "country": "Saxe-Weimar",
+	"bookID" : [51]
+  },
+  {
+    "_id":32,
+	"author": "Nikolai Gogol",
+    "country": "Russia",
+	"bookID" : [52]
+  },
+  {
+    "_id":33,
+	"author": "G\u00fcnter Grass",
+    "country": "Germany",
+	"bookID" : [58]
+  },
+  {
+    "_id":34,
+	"author": "Jo\u00e3o Guimar\u00e3es Rosa",
+    "country": "Brazil",
+	"bookID" : [91]
+  },
+  {
+    "_id":35,
+	"author": "Knut Hamsun",
+    "country": "Norway",
+	"bookID" : [92]
+  },
+  {
+    "_id":36,
+	"author": "Ernest Hemingway",
+    "country": "United States",
+	"bookID" : [94]
+  },
+  {
+    "_id":37,
+	"author": "Homer",
+    "country": "Greece",
+	"bookID" : [94, 5]
+  },
+  {
+    "_id":38,
+	"author": "Henrik Ibsen",
+    "country": "Norway",
+	"bookID" : [57]
+  },
+  {
+    "_id":39,
+	"author": "James Joyce",
+	"country": "Norway",
+	"bookID" : [58]
+  },
+  {
+    "_id":40,
+	"author": "Franz Kafka",
+    "country": "Czechoslovakia",
+	"bookID" : [59]
+  },
+  {
+    "_id":41,
+	"author": "K\u0101lid\u0101sa",
+    "country": "India",
+	"bookID" : [60]
+  },
+  {
+    "_id":42,
+	"author": "Yasunari Kawabata",
+    "country": "Japan",
+	"bookID" : [53, 15]
+  },
+  {
+    "_id":43,
+	"author": "Nikos Kazantzakis",
+    "country": "Greece",
+	"bookID" : [78,16, 82]
+  },
+  {
+    "_id":44,
+	"author": "D. H. Lawrence",
+    "country": "United Kingdom",
+	"bookID" : [12, 67]
+  },
+    {
+    "_id":45,
+	"author": "Charles Dickens",
+    "country": "United Kingdom",
+	"bookID" : [3]
+  },
+])

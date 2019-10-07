@@ -1,0 +1,1096 @@
+db.books.insert([
+  { 
+    "_id": 1,
+    "imageLink": "images/things-fall-apart.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Things_Fall_Apart",
+    "pages": 209,
+    "title": "Things Fall Apart",
+    "year": 1958,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 2,
+    "imageLink": "images/fairy-tales.jpg",
+    "language": "Danish",
+    "link": "https://en.wikipedia.org/wiki/Fairy_Tales_Told_for_Children._First_Collection",
+    "pages": 784,
+    "title": "Fairy tales",
+    "year": 1836,
+	"price": {"currency":"₹", "rate": 430
+	}
+  },
+  {
+    "_id": 3,
+    "imageLink": "images/the-divine-comedy.jpg",
+    "language": "Italian",
+    "link": "https://en.wikipedia.org/wiki/Divine_Comedy",
+    "pages": 928,
+    "title": "The Divine Comedy",
+    "year": 1315,
+	"price": {"currency":"£", "rate": 430
+	}
+  },
+  {
+    "_id": 4,
+    "imageLink": "images/the-epic-of-gilgamesh.jpg",
+    "language": "Akkadian",
+    "link": "https://en.wikipedia.org/wiki/Epic_of_Gilgamesh",
+    "pages": 160,
+    "title": "The Epic Of Gilgamesh",
+    "year": 1700,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 5,
+    "imageLink": "images/the-book-of-job.jpg",
+    "language": "Hebrew",
+    "link": "https://en.wikipedia.org/wiki/Book_of_Job",
+    "pages": 176,
+    "title": "The Book Of Job",
+    "year": 1800,
+	"price": {"currency":"£", "rate": 430
+	}
+  },
+  {
+    "_id": 6,
+     "imageLink": "images/one-thousand-and-one-nights.jpg",
+    "language": "Arabic",
+    "link": "https://en.wikipedia.org/wiki/One_Thousand_and_One_Nights",
+    "pages": 288,
+    "title": "One Thousand and One Nights",
+    "year": 1200,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 7,
+    "imageLink": "images/njals-saga.jpg",
+    "language": "Old Norse",
+    "link": "https://en.wikipedia.org/wiki/Nj%C3%A1ls_saga",
+    "pages": 384,
+    "title": "Nj\u00e1l's Saga",
+    "year": 1350,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 8,
+    "imageLink": "images/pride-and-prejudice.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Pride_and_Prejudice",
+    "pages": 226,
+    "title": "Pride and Prejudice",
+    "year": 1813,
+	"price": {"currency":"£", "rate": 430
+	}
+  },
+  {
+    "_id": 9,
+    "imageLink": "images/le-pere-goriot.jpg",
+    "language": "French",
+    "link": "https://en.wikipedia.org/wiki/Le_P%C3%A8re_Goriot",
+    "pages": 443,
+    "title": "Le P\u00e8re Goriot",
+    "year": 1835,
+	"price": {"currency":"£", "rate": 430
+	}
+  },
+  {
+    "_id": 10,
+    "imageLink": "images/molloy-malone-dies-the-unnamable.jpg",
+    "language": "French, English",
+    "link": "https://en.wikipedia.org/wiki/Molloy_(novel)",
+    "pages": 256,
+    "title": "Molloy, Malone Dies, The Unnamable, the trilogy",
+    "year": 1952,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 11,
+    "imageLink": "images/the-decameron.jpg",
+    "language": "Italian",
+    "link": "https://en.wikipedia.org/wiki/The_Decameron",
+    "pages": 1024,
+    "title": "The Decameron",
+    "year": 1351,
+	"price": {"currency":"€", "rate": 430
+	}
+  },
+  {
+    "_id": 12,
+    "imageLink": "images/ficciones.jpg",
+    "language": "Spanish",
+    "link": "https://en.wikipedia.org/wiki/Ficciones",
+    "pages": 224,
+    "title": "Ficciones",
+    "year": 1965,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 13,
+    "imageLink": "images/wuthering-heights.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Wuthering_Heights",
+    "pages": 342,
+    "title": "Wuthering Heights",
+    "year": 1847,
+	"price": {"currency":"¥", "rate": 430
+	}
+  },
+  {
+    "_id": 14,
+    "imageLink": "images/l-etranger.jpg",
+    "language": "French",
+    "link": "https://en.wikipedia.org/wiki/The_Stranger_(novel)",
+    "pages": 185,
+    "title": "The Stranger",
+    "year": 1942,
+	"price": {"currency":"£", "rate": 430
+	}
+  },
+  {
+    "_id": 15,
+    "imageLink": "images/poems-paul-celan.jpg",
+    "language": "German",
+    "link": "",
+    "pages": 320,
+    "title": "Poems",
+    "year": 1952
+  },
+  {
+    "_id": 16,
+    "imageLink": "images/voyage-au-bout-de-la-nuit.jpg",
+    "language": "French",
+    "link": "https://en.wikipedia.org/wiki/Journey_to_the_End_of_the_Night",
+    "pages": 505,
+    "title": "Journey to the End of the Night",
+    "year": 1932,
+	"price": {"currency":"₹", "rate": 430
+	}
+  },
+  {
+    "_id": 17,
+    "imageLink": "images/don-quijote-de-la-mancha.jpg",
+    "language": "Spanish",
+    "link": "https://en.wikipedia.org/wiki/Don_Quixote",
+    "pages": 1056,
+    "title": "Don Quijote De La Mancha",
+    "year": 1610,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 18,
+    "imageLink": "images/the-canterbury-tales.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/The_Canterbury_Tales",
+    "pages": 544,
+    "title": "The Canterbury Tales",
+    "year": 1450,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 19,
+    "imageLink": "images/stories-of-anton-chekhov.jpg",
+    "language": "Russian",
+    "link": "https://en.wikipedia.org/wiki/List_of_short_stories_by_Anton_Chekhov",
+    "pages": 194,
+    "title": "Stories",
+    "year": 1886,
+	"price": {"currency":"£", "rate": 430
+	}
+  },
+  {
+    "_id": 20,
+    "imageLink": "images/nostromo.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Nostromo",
+    "pages": 320,
+    "title": "Nostromo",
+    "year": 1904,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 21,
+    "imageLink": "images/great-expectations.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Great_Expectations",
+    "pages": 194,
+    "title": "Great Expectations",
+    "year": 1861,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 22,
+    "imageLink": "images/jacques-the-fatalist.jpg",
+    "language": "French",
+    "link": "https://en.wikipedia.org/wiki/Jacques_the_Fatalist",
+    "pages": 596,
+    "title": "Jacques the Fatalist",
+    "year": 1796,
+	"price": {"currency":"€", "rate": 430
+	}
+  },
+  {
+    "_id": 23,
+    "imageLink": "images/berlin-alexanderplatz.jpg",
+    "language": "German",
+    "link": "https://en.wikipedia.org/wiki/Berlin_Alexanderplatz",
+    "pages": 600,
+    "title": "Berlin Alexanderplatz",
+    "year": 1929,
+	"price": {"currency":"¥", "rate": 430
+	}
+  },
+  {
+    "_id": 24,
+    "imageLink": "images/crime-and-punishment.jpg",
+    "language": "Russian",
+    "link": "https://en.wikipedia.org/wiki/Crime_and_Punishment",
+    "pages": 551,
+    "title": "Crime and Punishment",
+    "year": 1866,
+	"price": {"currency":"€", "rate": 430
+	}
+  },
+  {
+    "_id": 25,
+    "imageLink": "images/the-idiot.jpg",
+    "language": "Russian",
+    "link": "https://en.wikipedia.org/wiki/The_Idiot",
+    "pages": 656,
+    "title": "The Idiot",
+    "year": 1869,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 26,
+    "imageLink": "images/the-possessed.jpg",
+    "language": "Russian",
+    "link": "https://en.wikipedia.org/wiki/Demons_(Dostoyevsky_novel)",
+    "pages": 768,
+    "title": "The Possessed",
+    "year": 1872
+  },
+  {
+    "_id": 27,
+    "imageLink": "images/the-brothers-karamazov.jpg",
+    "language": "Russian",
+    "link": "https://en.wikipedia.org/wiki/The_Brothers_Karamazov",
+    "pages": 824,
+    "title": "The Brothers Karamazov",
+    "year": 1880,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 28,
+    "imageLink": "images/middlemarch.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Middlemarch",
+    "pages": 800,
+    "title": "Middlemarch",
+    "year": 1871,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 29,
+    "imageLink": "images/invisible-man.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Invisible_Man",
+    "pages": 581,
+    "title": "Invisible Man",
+    "year": 1952,
+	"price": {"currency":"€", "rate": 430
+	}
+  },
+  {
+    "_id": 30,
+    "imageLink": "images/medea.jpg",
+    "language": "Greek",
+    "link": "https://en.wikipedia.org/wiki/Medea_(play)",
+    "pages": 104,
+    "title": "Medea",
+    "year": -431,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 31,
+    "imageLink": "images/absalom-absalom.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Absalom,_Absalom!",
+    "pages": 313,
+    "title": "Absalom, Absalom!",
+    "year": 1936,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 32,
+    "imageLink": "images/the-sound-and-the-fury.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/The_Sound_and_the_Fury",
+    "pages": 326,
+    "title": "The Sound and the Fury",
+    "year": 1929,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 33,
+    "imageLink": "images/madame-bovary.jpg",
+    "language": "French",
+    "link": "https://en.wikipedia.org/wiki/Madame_Bovary",
+    "pages": 528,
+    "title": "Madame Bovary",
+    "year": 1857,
+	"price": {"currency":"£", "rate": 430
+	}
+  },
+  {
+    "_id": 34,
+    "imageLink": "images/l-education-sentimentale.jpg",
+    "language": "French",
+    "link": "https://en.wikipedia.org/wiki/Sentimental_Education",
+    "pages": 606,
+    "title": "Sentimental Education",
+    "year": 1869,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 35,
+    "imageLink": "images/gypsy-ballads.jpg",
+    "language": "Spanish",
+    "link": "https://en.wikipedia.org/wiki/Gypsy_Ballads",
+    "pages": 218,
+    "title": "Gypsy Ballads",
+    "year": 1928
+  },
+  {
+    "_id": 36,
+    "imageLink": "images/one-hundred-years-of-solitude.jpg",
+    "language": "Spanish",
+    "link": "https://en.wikipedia.org/wiki/One_Hundred_Years_of_Solitude",
+    "pages": 417,
+    "title": "One Hundred Years of Solitude",
+    "year": 1967,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 37,
+    "imageLink": "images/love-in-the-time-of-cholera.jpg",
+    "language": "Spanish",
+    "link": "https://en.wikipedia.org/wiki/Love_in_the_Time_of_Cholera",
+    "pages": 368,
+    "title": "Love in the Time of Cholera",
+    "year": 1985,
+	"price": {"currency":"₹", "rate": 430
+	}
+  },
+  {
+    "_id": 38,
+    "imageLink": "images/faust.jpg",
+    "language": "German",
+    "link": "https://en.wikipedia.org/wiki/Goethe%27s_Faust",
+    "pages": 158,
+    "title": "Faust",
+    "year": 1832,
+	"price": {"currency":"₹", "rate": 430
+	}
+  },
+  {
+    "_id": 39,
+    "imageLink": "images/dead-souls.jpg",
+    "language": "Russian",
+    "link": "https://en.wikipedia.org/wiki/Dead_Souls",
+    "pages": 432,
+    "title": "Dead Souls",
+    "year": 1842,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 40,
+    "imageLink": "images/the-tin-drum.jpg",
+    "language": "German",
+    "link": "https://en.wikipedia.org/wiki/The_Tin_Drum",
+    "pages": 600,
+    "title": "The Tin Drum",
+    "year": 1959,
+	"price": {"currency":"€", "rate": 430
+	}
+  },
+  {
+    "_id": 41,
+    "imageLink": "images/the-devil-to-pay-in-the-backlands.jpg",
+    "language": "Portuguese",
+    "link": "https://en.wikipedia.org/wiki/The_Devil_to_Pay_in_the_Backlands",
+    "pages": 494,
+    "title": "The Devil to Pay in the Backlands",
+    "year": 1956,
+	"price": {"currency":"€", "rate": 430
+	}
+  },
+  {
+    "_id": 42,
+    "imageLink": "images/hunger.jpg",
+    "language": "Norwegian",
+    "link": "https://en.wikipedia.org/wiki/Hunger_(Hamsun_novel)",
+    "pages": 176,
+    "title": "Hunger",
+    "year": 1890,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 43,
+    "imageLink": "images/the-old-man-and-the-sea.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/The_Old_Man_and_the_Sea",
+    "pages": 128,
+    "title": "The Old Man and the Sea",
+    "year": 1952,
+	"price": {"currency":"£", "rate": 430
+	}
+  },
+  {
+    "_id": 44,
+    "imageLink": "images/the-iliad-of-homer.jpg",
+    "language": "Greek",
+    "link": "https://en.wikipedia.org/wiki/Iliad",
+    "pages": 608,
+    "title": "Iliad",
+    "year": 1835,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 45,
+    "imageLink": "images/the-odyssey-of-homer.jpg",
+    "language": "Greek",
+    "link": "https://en.wikipedia.org/wiki/Odyssey",
+    "pages": 374,
+    "title": "Odyssey",
+    "year": 1850,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 46,
+    "imageLink": "images/a-Dolls-house.jpg",
+    "language": "Norwegian",
+    "link": "https://en.wikipedia.org/wiki/A_Doll%27s_House",
+    "pages": 68,
+    "title": "A Doll's House",
+    "year": 1879,
+	"price": {"currency":"¥", "rate": 430
+	}
+  },
+  {
+    "_id": 47,
+    "imageLink": "images/ulysses.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Ulysses_(novel)",
+    "pages": 228,
+    "title": "Ulysses",
+    "year": 1922,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 48,
+    "imageLink": "images/stories-of-franz-kafka.jpg",
+    "language": "German",
+    "link": "https://en.wikipedia.org/wiki/Franz_Kafka_bibliography#Short_stories",
+    "pages": 488,
+    "title": "Stories",
+    "year": 1924,
+	"price": {"currency":"¥", "rate": 430
+	}
+  },
+  {
+    "_id": 49,
+    "imageLink": "images/the-trial.jpg",
+    "language": "German",
+    "link": "https://en.wikipedia.org/wiki/The_Trial",
+    "pages": 160,
+    "title": "The Trial",
+    "year": 1925,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 50,
+    "imageLink": "images/the-castle.jpg",
+    "language": "German",
+    "link": "https://en.wikipedia.org/wiki/The_Castle_(novel)",
+    "pages": 352,
+    "title": "The Castle",
+    "year": 1926,
+	"price": {"currency":"¥", "rate": 430
+	}
+  },
+  {
+    "_id": 51,
+    "imageLink": "images/the-recognition-of-shakuntala.jpg",
+    "language": "Sanskrit",
+    "link": "https://en.wikipedia.org/wiki/Abhij%C3%B1%C4%81na%C5%9B%C4%81kuntalam",
+    "pages": 147,
+    "title": "The recognition of Shakuntala",
+    "year": 150,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 52,
+    "imageLink": "images/the-sound-of-the-mountain.jpg",
+    "language": "Japanese",
+    "link": "https://en.wikipedia.org/wiki/The_Sound_of_the_Mountain",
+    "pages": 288,
+    "title": "The Sound of the Mountain",
+    "year": 1954,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 53,
+    "imageLink": "images/zorba-the-greek.jpg",
+    "language": "Greek",
+    "link": "https://en.wikipedia.org/wiki/Zorba_the_Greek",
+    "pages": 368,
+    "title": "Zorba the Greek",
+    "year": 1946,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 54,
+    "imageLink": "images/sons-and-lovers.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Sons_and_Lovers",
+    "pages": 432,
+    "title": "Sons and Lovers",
+    "year": 1913,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 55,
+    "imageLink": "images/independent-people.jpg",
+    "language": "Icelandic",
+    "link": "https://en.wikipedia.org/wiki/Independent_People",
+    "pages": 470,
+    "title": "Independent People",
+    "year": 1934,
+	"price": {"currency":"€", "rate": 430
+	}
+  },
+  {
+    "_id": 56,
+    "imageLink": "images/poems-giacomo-leopardi.jpg",
+    "language": "Italian",
+    "link": "",
+    "pages": 184,
+    "title": "Poems",
+    "year": 1818,
+	"price": {"currency":"€", "rate": 430
+	}
+  },
+  {
+    "_id": 57,
+    "imageLink": "images/the-golden-notebook.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/The_Golden_Notebook",
+    "pages": 688,
+    "title": "The Golden Notebook",
+    "year": 1962,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 58,
+    "imageLink": "images/pippi-longstocking.jpg",
+    "language": "Swedish",
+    "link": "https://en.wikipedia.org/wiki/Pippi_Longstocking",
+    "pages": 160,
+    "title": "Pippi Longstocking",
+    "year": 1945,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 59,
+    "imageLink": "images/diary-of-a-madman.jpg",
+    "language": "Chinese",
+    "link": "https://en.wikipedia.org/wiki/A_Madman%27s_Diary",
+    "pages": 389,
+    "title": "Diary of a Madman",
+    "year": 1918,
+	"price": {"currency":"£", "rate": 430
+	}
+  },
+  {
+    "_id": 60,
+    "imageLink": "images/children-of-gebelawi.jpg",
+    "language": "Arabic",
+    "link": "https://en.wikipedia.org/wiki/Children_of_Gebelawi",
+    "pages": 355,
+    "title": "Children of Gebelawi",
+    "year": 1959,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 61,
+    "imageLink": "images/buddenbrooks.jpg",
+    "language": "German",
+    "link": "https://en.wikipedia.org/wiki/Buddenbrooks",
+    "pages": 736,
+    "title": "Buddenbrooks",
+    "year": 1901,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 62,
+    "imageLink": "images/the-magic-mountain.jpg",
+    "language": "German",
+    "link": "https://en.wikipedia.org/wiki/The_Magic_Mountain",
+    "pages": 720,
+    "title": "The Magic Mountain",
+    "year": 1924,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 63,
+    "imageLink": "images/moby-dick.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Moby-Dick",
+    "pages": 378,
+    "title": "Moby Dick",
+    "year": 1851,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 64,
+    "imageLink": "images/essais.jpg",
+    "language": "French",
+    "link": "https://en.wikipedia.org/wiki/Essays_(Montaigne)",
+    "pages": 404,
+    "title": "Essays",
+    "year": 1595,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 65,
+    "imageLink": "images/history.jpg",
+    "language": "Italian",
+    "link": "https://en.wikipedia.org/wiki/History_(novel)",
+    "pages": 600,
+    "title": "History",
+    "year": 1974,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 66,
+    "imageLink": "images/beloved.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Beloved_(novel)",
+    "pages": 321,
+    "title": "Beloved",
+    "year": 1987,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 67,
+    "imageLink": "images/the-tale-of-genji.jpg",
+    "language": "Japanese",
+    "link": "https://en.wikipedia.org/wiki/The_Tale_of_Genji",
+    "pages": 1360,
+    "title": "The Tale of Genji",
+    "year": 1006,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 68,
+    "imageLink": "images/the-man-without-qualities.jpg",
+    "language": "German",
+    "link": "https://en.wikipedia.org/wiki/The_Man_Without_Qualities",
+    "pages": 365,
+    "title": "The Man Without Qualities",
+    "year": 1931,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 69,
+    "imageLink": "images/lolita.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Lolita",
+    "pages": 317,
+    "title": "Lolita",
+    "year": 1955,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 70,
+    "imageLink": "images/nineteen-eighty-four.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Nineteen_Eighty-Four",
+    "pages": 272,
+    "title": "Nineteen Eighty-Four",
+    "year": 1949,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 71,
+    "imageLink": "images/the-metamorphoses-of-ovid.jpg",
+    "language": "Classical Latin",
+    "link": "https://en.wikipedia.org/wiki/Metamorphoses",
+    "pages": 576,
+    "title": "Metamorphoses",
+    "year": 100,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 72,
+    "imageLink": "images/the-book-of-disquiet.jpg",
+    "language": "Portuguese",
+    "link": "https://en.wikipedia.org/wiki/The_Book_of_Disquiet",
+    "pages": 272,
+    "title": "The Book of Disquiet",
+    "year": 1928,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 73,
+    "imageLink": "images/tales-and-poems-of-edgar-allan-poe.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Edgar_Allan_Poe_bibliography#Tales",
+    "pages": 842,
+    "title": "Tales",
+    "year": 1950,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 74,
+    "imageLink": "images/a-la-recherche-du-temps-perdu.jpg",
+    "language": "French",
+    "link": "https://en.wikipedia.org/wiki/In_Search_of_Lost_Time",
+    "pages": 2408,
+    "title": "In Search of Lost Time",
+    "year": 1920,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 75,
+    "imageLink": "images/gargantua-and-pantagruel.jpg",
+    "language": "French",
+    "link": "https://en.wikipedia.org/wiki/Gargantua_and_Pantagruel",
+    "pages": 623,
+    "title": "Gargantua and Pantagruel",
+    "year": 1533,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 76,
+    "imageLink": "images/pedro-paramo.jpg",
+    "language": "Spanish",
+    "link": "https://en.wikipedia.org/wiki/Pedro_P%C3%A1ramo",
+    "pages": 124,
+    "title": "Pedro P\u00e1ramo",
+    "year": 1955,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 77,
+    "imageLink": "images/the-masnavi.jpg",
+    "language": "Persian",
+    "link": "https://en.wikipedia.org/wiki/Masnavi",
+    "pages": 438,
+    "title": "The Masnavi",
+    "year": 1236,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 78,
+    "imageLink": "images/midnights-children.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Midnight%27s_Children",
+    "pages": 536,
+    "title": "Midnight's Children",
+    "year": 1981,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 79,
+    "imageLink": "images/bostan.jpg",
+    "language": "Persian",
+    "link": "https://en.wikipedia.org/wiki/Bustan_(book)",
+    "pages": 298,
+    "title": "Bostan",
+    "year": 1257,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 80,
+    "imageLink": "images/season-of-migration-to-the-north.jpg",
+    "language": "Arabic",
+    "link": "https://en.wikipedia.org/wiki/Season_of_Migration_to_the_North",
+    "pages": 139,
+    "title": "Season of Migration to the North",
+    "year": 1966,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 81,
+    "imageLink": "images/blindness.jpg",
+    "language": "Portuguese",
+    "link": "https://en.wikipedia.org/wiki/Blindness_(novel)",
+    "pages": 352,
+    "title": "Blindness",
+    "year": 1995,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 82,
+    "imageLink": "images/hamlet.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Hamlet",
+    "pages": 432,
+    "title": "Hamlet",
+    "year": 1603,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 83,
+    "imageLink": "images/king-lear.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/King_Lear",
+    "pages": 384,
+    "title": "King Lear",
+    "year": 1608,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 84,
+    "imageLink": "images/othello.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Othello",
+    "pages": 314,
+    "title": "Othello",
+    "year": 1609,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 85,
+    "imageLink": "images/oedipus-the-king.jpg",
+    "language": "Greek",
+    "link": "https://en.wikipedia.org/wiki/Oedipus_the_King",
+    "pages": 88,
+    "title": "Oedipus the King",
+    "year": 1930,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 86,
+    "imageLink": "images/le-rouge-et-le-noir.jpg",
+    "language": "French",
+    "link": "https://en.wikipedia.org/wiki/The_Red_and_the_Black",
+    "pages": 576,
+    "title": "The Red and the Black",
+    "year": 1830,
+	"price": {"currency":"₹", "rate": 430
+	}
+  },
+  {
+    "_id": 87,
+    "imageLink": "images/the-life-and-opinions-of-tristram-shandy.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/The_Life_and_Opinions_of_Tristram_Shandy,_Gentleman",
+    "pages": 640,
+    "title": "The Life And Opinions of Tristram Shandy",
+    "year": 1760,
+	"price": {"currency":"₹", "rate": 430
+	}
+  },
+  {
+    "_id": 88,
+    "imageLink": "images/confessions-of-zeno.jpg",
+    "language": "Italian",
+    "link": "https://en.wikipedia.org/wiki/Zeno%27s_Conscience",
+    "pages": 412,
+    "title": "Confessions of Zeno",
+    "year": 1923,
+	"price": {"currency":"£", "rate": 430
+	}
+  },
+  {
+    "_id": 89,
+    "imageLink": "images/gullivers-travels.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Gulliver%27s_Travels",
+    "pages": 178,
+    "title": "Gulliver's Travels",
+    "year": 1726,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 90,
+    "imageLink": "images/war-and-peace.jpg",
+    "language": "Russian",
+    "link": "https://en.wikipedia.org/wiki/War_and_Peace",
+    "pages": 1296,
+    "title": "War and Peace",
+    "year": 1867,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 91,
+    "imageLink": "images/anna-karenina.jpg",
+    "language": "Russian",
+    "link": "https://en.wikipedia.org/wiki/Anna_Karenina",
+    "pages": 864,
+    "title": "Anna Karenina",
+    "year": 1877,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 92,
+    "imageLink": "images/the-death-of-ivan-ilyich.jpg",
+    "language": "Russian",
+    "link": "https://en.wikipedia.org/wiki/The_Death_of_Ivan_Ilyich",
+    "pages": 92,
+    "title": "The Death of Ivan Ilyich",
+    "year": 1886,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 93,
+    "imageLink": "images/the-adventures-of-huckleberry-finn.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn",
+    "pages": 224,
+    "title": "The Adventures of Huckleberry Finn",
+    "year": 1884,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 94,
+    "imageLink": "images/ramayana.jpg",
+    "language": "Sanskrit",
+    "link": "https://en.wikipedia.org/wiki/Ramayana",
+    "pages": 152,
+    "title": "Ramayana",
+    "year": 1750,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 95,
+    "imageLink": "images/the-aeneid.jpg",
+    "language": "Classical Latin",
+    "link": "https://en.wikipedia.org/wiki/Aeneid",
+    "pages": 442,
+    "title": "The Aeneid",
+    "year": 1867,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 96,
+    "imageLink": "images/the-mahab-harata.jpg",
+    "language": "Sanskrit",
+    "link": "https://en.wikipedia.org/wiki/Mahabharata",
+    "pages": 276,
+    "title": "Mahabharata",
+    "year": 1760,
+	"price": {"currency":"₹", "rate": 430
+	}
+  },
+  {
+    "_id": 97,
+    "imageLink": "images/leaves-of-grass.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Leaves_of_Grass",
+    "pages": 152,
+    "title": "Leaves of Grass",
+    "year": 1855,
+	"price": {"currency":"$", "rate": 430
+	}
+  },
+  {
+    "_id": 98,
+    "imageLink": "images/mrs-dalloway.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/Mrs_Dalloway",
+    "pages": 216,
+    "title": "Mrs Dalloway",
+    "year": 1925,
+	"price": {"currency":"¥", "rate": 430
+	}
+  },
+  {
+    "_id": 99,
+    "imageLink": "images/to-the-lighthouse.jpg",
+    "language": "English",
+    "link": "https://en.wikipedia.org/wiki/To_the_Lighthouse",
+    "pages": 209,
+    "title": "To the Lighthouse",
+    "year": 1927,
+	"price": {"currency":"€", "rate": 430
+	}
+  },
+  {
+    "_id": 100,
+    "imageLink": "images/memoirs-of-hadrian.jpg",
+    "language": "French",
+    "link": "https://en.wikipedia.org/wiki/Memoirs_of_Hadrian",
+    "pages": 408,
+    "title": "Memoirs of Hadrian",
+    "year": 1951,
+	"price": {"currency":"₹", "rate": 430
+	}
+  }
+])

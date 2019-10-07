@@ -1,0 +1,30 @@
+db.artical.insert([
+{_id:'artical1', "title":"mongoDB", "author":"saleel"},
+{_id:'artical2', "title":"oracle", "author":"sharmin"},
+{_id:'artical3', "title":"nodejs", "author":"ruhan"},
+{_id:'artical4', "title":"html", "author":"saleel"},
+{_id:'artical5', "title":"c++", "author":"sharmin"},
+{_id:'artical6', "title":"redis", "author":"neel"},
+{_id:'artical7', "title":"javascript", "author":"deep"}
+])
+
+db.author.insert([
+{_id:'saleel', "city":"pune", "articalId":['artical1', 'artical4']},
+{_id:'sharmin',"city":"pune", "articalId":['artical2', 'artical5']},
+{_id:'ruhan',  "city":"pune", "articalId":['artical3']},
+{_id:'neel',  "city":"baroda", "articalId":['artical6']},
+{_id:'deep',  "city":"baroda", "articalId":['artical7']},
+])
+
+
+db.author.aggregate([
+   {
+     $lookup:
+       {
+		 from: "artical",
+         localField: "articalId",
+         foreignField: "_id",
+         as: "author_docs"
+       }
+  }
+])
