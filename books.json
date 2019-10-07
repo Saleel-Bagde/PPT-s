@@ -6,8 +6,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Things_Fall_Apart",
     "pages": 209,
     "title": "Things Fall Apart",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1958,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 56.00
 	}
   },
   {
@@ -16,9 +17,10 @@ db.books.insert([
     "language": "Danish",
     "link": "https://en.wikipedia.org/wiki/Fairy_Tales_Told_for_Children._First_Collection",
     "pages": 784,
-    "title": "Fairy tales",
+    "title": "Fairy Tales",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1836,
-	"price": {"currency":"₹", "rate": 430
+	"price": {"currency":"₹", "rate": 750.00
 	}
   },
   {
@@ -28,8 +30,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Divine_Comedy",
     "pages": 928,
     "title": "The Divine Comedy",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1315,
-	"price": {"currency":"£", "rate": 430
+	"price": {"currency":"£", "rate": 43.00
 	}
   },
   {
@@ -39,8 +42,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Epic_of_Gilgamesh",
     "pages": 160,
     "title": "The Epic Of Gilgamesh",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1700,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 76.00
 	}
   },
   {
@@ -50,8 +54,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Book_of_Job",
     "pages": 176,
     "title": "The Book Of Job",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1800,
-	"price": {"currency":"£", "rate": 430
+	"price": {"currency":"£", "rate": 28.00
 	}
   },
   {
@@ -61,8 +66,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/One_Thousand_and_One_Nights",
     "pages": 288,
     "title": "One Thousand and One Nights",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1200,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 64.00
 	}
   },
   {
@@ -72,8 +78,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Nj%C3%A1ls_saga",
     "pages": 384,
     "title": "Nj\u00e1l's Saga",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1350,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 52.00
 	}
   },
   {
@@ -83,8 +90,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Pride_and_Prejudice",
     "pages": 226,
     "title": "Pride and Prejudice",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1813,
-	"price": {"currency":"£", "rate": 430
+	"price": {"currency":"£", "rate": 47.00
 	}
   },
   {
@@ -94,8 +102,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Le_P%C3%A8re_Goriot",
     "pages": 443,
     "title": "Le P\u00e8re Goriot",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1835,
-	"price": {"currency":"£", "rate": 430
+	"price": {"currency":"£", "rate": 99.00
 	}
   },
   {
@@ -105,8 +114,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Molloy_(novel)",
     "pages": 256,
     "title": "Molloy, Malone Dies, The Unnamable, the trilogy",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1952,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 87.15
 	}
   },
   {
@@ -116,8 +126,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/The_Decameron",
     "pages": 1024,
     "title": "The Decameron",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1351,
-	"price": {"currency":"€", "rate": 430
+	"price": {"currency":"€", "rate": 85.23
 	}
   },
   {
@@ -127,8 +138,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Ficciones",
     "pages": 224,
     "title": "Ficciones",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1965,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 28.19
 	}
   },
   {
@@ -138,8 +150,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Wuthering_Heights",
     "pages": 342,
     "title": "Wuthering Heights",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1847,
-	"price": {"currency":"¥", "rate": 430
+	"price": {"currency":"¥", "rate": 69.99
 	}
   },
   {
@@ -149,8 +162,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/The_Stranger_(novel)",
     "pages": 185,
     "title": "The Stranger",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1942,
-	"price": {"currency":"£", "rate": 430
+	"price": {"currency":"£", "rate": 65.98
 	}
   },
   {
@@ -160,7 +174,10 @@ db.books.insert([
     "link": "",
     "pages": 320,
     "title": "Poems",
-    "year": 1952
+	"cover" : ['Hardcover', 'Paperback'],
+    "year": 1952,
+	"price": {"currency":"₹", "rate": 1430
+	}
   },
   {
     "_id": 16,
@@ -169,8 +186,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Journey_to_the_End_of_the_Night",
     "pages": 505,
     "title": "Journey to the End of the Night",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1932,
-	"price": {"currency":"₹", "rate": 430
+	"price": {"currency":"₹", "rate": 1200
 	}
   },
   {
@@ -180,8 +198,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Don_Quixote",
     "pages": 1056,
     "title": "Don Quijote De La Mancha",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1610,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 43.94
 	}
   },
   {
@@ -191,8 +210,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/The_Canterbury_Tales",
     "pages": 544,
     "title": "The Canterbury Tales",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1450,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 29.37
 	}
   },
   {
@@ -202,8 +222,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/List_of_short_stories_by_Anton_Chekhov",
     "pages": 194,
     "title": "Stories",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1886,
-	"price": {"currency":"£", "rate": 430
+	"price": {"currency":"£", "rate": 30.35
 	}
   },
   {
@@ -213,8 +234,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Nostromo",
     "pages": 320,
     "title": "Nostromo",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1904,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 47.40
 	}
   },
   {
@@ -224,8 +246,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Great_Expectations",
     "pages": 194,
     "title": "Great Expectations",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1861,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 85.45
 	}
   },
   {
@@ -235,8 +258,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Jacques_the_Fatalist",
     "pages": 596,
     "title": "Jacques the Fatalist",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1796,
-	"price": {"currency":"€", "rate": 430
+	"price": {"currency":"€", "rate": 48.25
 	}
   },
   {
@@ -246,8 +270,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Berlin_Alexanderplatz",
     "pages": 600,
     "title": "Berlin Alexanderplatz",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1929,
-	"price": {"currency":"¥", "rate": 430
+	"price": {"currency":"¥", "rate": 69.22
 	}
   },
   {
@@ -257,8 +282,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Crime_and_Punishment",
     "pages": 551,
     "title": "Crime and Punishment",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1866,
-	"price": {"currency":"€", "rate": 430
+	"price": {"currency":"€", "rate": 37.35
 	}
   },
   {
@@ -268,8 +294,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/The_Idiot",
     "pages": 656,
     "title": "The Idiot",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1869,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 78.50
 	}
   },
   {
@@ -279,7 +306,10 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Demons_(Dostoyevsky_novel)",
     "pages": 768,
     "title": "The Possessed",
-    "year": 1872
+	"cover" : ['Hardcover', 'Paperback'],
+    "year": 1872,
+	"price": {"currency":"$", "rate": 78.25
+	}
   },
   {
     "_id": 27,
@@ -288,8 +318,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/The_Brothers_Karamazov",
     "pages": 824,
     "title": "The Brothers Karamazov",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1880,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 57.35
 	}
   },
   {
@@ -299,8 +330,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Middlemarch",
     "pages": 800,
     "title": "Middlemarch",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1871,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 99.99
 	}
   },
   {
@@ -310,8 +342,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Invisible_Man",
     "pages": 581,
     "title": "Invisible Man",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1952,
-	"price": {"currency":"€", "rate": 430
+	"price": {"currency":"€", "rate": 45.74
 	}
   },
   {
@@ -321,8 +354,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Medea_(play)",
     "pages": 104,
     "title": "Medea",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": -431,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 69.00
 	}
   },
   {
@@ -332,8 +366,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Absalom,_Absalom!",
     "pages": 313,
     "title": "Absalom, Absalom!",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1936,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 94.00
 	}
   },
   {
@@ -343,8 +378,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/The_Sound_and_the_Fury",
     "pages": 326,
     "title": "The Sound and the Fury",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1929,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 47.00
 	}
   },
   {
@@ -354,8 +390,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Madame_Bovary",
     "pages": 528,
     "title": "Madame Bovary",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1857,
-	"price": {"currency":"£", "rate": 430
+	"price": {"currency":"£", "rate": 73.00
 	}
   },
   {
@@ -365,8 +402,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Sentimental_Education",
     "pages": 606,
     "title": "Sentimental Education",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1869,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 72.00
 	}
   },
   {
@@ -376,7 +414,10 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Gypsy_Ballads",
     "pages": 218,
     "title": "Gypsy Ballads",
-    "year": 1928
+	"cover" : ['Hardcover', 'Paperback'],
+    "year": 1928,
+	"price": {"currency":"$", "rate": 37.00
+	}
   },
   {
     "_id": 36,
@@ -385,8 +426,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/One_Hundred_Years_of_Solitude",
     "pages": 417,
     "title": "One Hundred Years of Solitude",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1967,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 22.00
 	}
   },
   {
@@ -396,8 +438,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Love_in_the_Time_of_Cholera",
     "pages": 368,
     "title": "Love in the Time of Cholera",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1985,
-	"price": {"currency":"₹", "rate": 430
+	"price": {"currency":"₹", "rate": 36.00
 	}
   },
   {
@@ -407,8 +450,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Goethe%27s_Faust",
     "pages": 158,
     "title": "Faust",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1832,
-	"price": {"currency":"₹", "rate": 430
+	"price": {"currency":"₹", "rate": 83.00
 	}
   },
   {
@@ -418,8 +462,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Dead_Souls",
     "pages": 432,
     "title": "Dead Souls",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1842,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 85.00
 	}
   },
   {
@@ -429,8 +474,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/The_Tin_Drum",
     "pages": 600,
     "title": "The Tin Drum",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1959,
-	"price": {"currency":"€", "rate": 430
+	"price": {"currency":"€", "rate": 99.00
 	}
   },
   {
@@ -440,8 +486,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/The_Devil_to_Pay_in_the_Backlands",
     "pages": 494,
     "title": "The Devil to Pay in the Backlands",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1956,
-	"price": {"currency":"€", "rate": 430
+	"price": {"currency":"€", "rate": 67.00
 	}
   },
   {
@@ -451,8 +498,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Hunger_(Hamsun_novel)",
     "pages": 176,
     "title": "Hunger",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1890,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 47.00
 	}
   },
   {
@@ -462,8 +510,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/The_Old_Man_and_the_Sea",
     "pages": 128,
     "title": "The Old Man and the Sea",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1952,
-	"price": {"currency":"£", "rate": 430
+	"price": {"currency":"£", "rate": 38.00
 	}
   },
   {
@@ -473,8 +522,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Iliad",
     "pages": 608,
     "title": "Iliad",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1835,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 62.00
 	}
   },
   {
@@ -484,8 +534,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Odyssey",
     "pages": 374,
     "title": "Odyssey",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1850,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 83.00
 	}
   },
   {
@@ -495,8 +546,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/A_Doll%27s_House",
     "pages": 68,
     "title": "A Doll's House",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1879,
-	"price": {"currency":"¥", "rate": 430
+	"price": {"currency":"¥", "rate": 28.00
 	}
   },
   {
@@ -506,8 +558,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Ulysses_(novel)",
     "pages": 228,
     "title": "Ulysses",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1922,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 44.00
 	}
   },
   {
@@ -517,8 +570,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Franz_Kafka_bibliography#Short_stories",
     "pages": 488,
     "title": "Stories",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1924,
-	"price": {"currency":"¥", "rate": 430
+	"price": {"currency":"¥", "rate": 29.00
 	}
   },
   {
@@ -528,8 +582,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/The_Trial",
     "pages": 160,
     "title": "The Trial",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1925,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 21.00
 	}
   },
   {
@@ -539,8 +594,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/The_Castle_(novel)",
     "pages": 352,
     "title": "The Castle",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1926,
-	"price": {"currency":"¥", "rate": 430
+	"price": {"currency":"¥", "rate": 35.00
 	}
   },
   {
@@ -550,8 +606,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Abhij%C3%B1%C4%81na%C5%9B%C4%81kuntalam",
     "pages": 147,
     "title": "The recognition of Shakuntala",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 150,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 27.00
 	}
   },
   {
@@ -561,8 +618,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/The_Sound_of_the_Mountain",
     "pages": 288,
     "title": "The Sound of the Mountain",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1954,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 37.00
 	}
   },
   {
@@ -572,8 +630,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Zorba_the_Greek",
     "pages": 368,
     "title": "Zorba the Greek",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1946,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 26.00
 	}
   },
   {
@@ -583,8 +642,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Sons_and_Lovers",
     "pages": 432,
     "title": "Sons and Lovers",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1913,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 26.00
 	}
   },
   {
@@ -594,8 +654,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Independent_People",
     "pages": 470,
     "title": "Independent People",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1934,
-	"price": {"currency":"€", "rate": 430
+	"price": {"currency":"€", "rate": 84.00
 	}
   },
   {
@@ -605,8 +666,9 @@ db.books.insert([
     "link": "",
     "pages": 184,
     "title": "Poems",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1818,
-	"price": {"currency":"€", "rate": 430
+	"price": {"currency":"€", "rate": 82.00
 	}
   },
   {
@@ -616,8 +678,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/The_Golden_Notebook",
     "pages": 688,
     "title": "The Golden Notebook",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1962,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 92.00
 	}
   },
   {
@@ -627,8 +690,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Pippi_Longstocking",
     "pages": 160,
     "title": "Pippi Longstocking",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1945,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 95.00
 	}
   },
   {
@@ -638,8 +702,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/A_Madman%27s_Diary",
     "pages": 389,
     "title": "Diary of a Madman",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1918,
-	"price": {"currency":"£", "rate": 430
+	"price": {"currency":"£", "rate": 93.00
 	}
   },
   {
@@ -649,8 +714,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Children_of_Gebelawi",
     "pages": 355,
     "title": "Children of Gebelawi",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1959,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 74.00
 	}
   },
   {
@@ -660,8 +726,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Buddenbrooks",
     "pages": 736,
     "title": "Buddenbrooks",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1901,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 45.00
 	}
   },
   {
@@ -671,8 +738,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/The_Magic_Mountain",
     "pages": 720,
     "title": "The Magic Mountain",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1924,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 19.00
 	}
   },
   {
@@ -682,8 +750,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Moby-Dick",
     "pages": 378,
     "title": "Moby Dick",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1851,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 15.00
 	}
   },
   {
@@ -693,8 +762,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Essays_(Montaigne)",
     "pages": 404,
     "title": "Essays",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1595,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 37.00
 	}
   },
   {
@@ -704,8 +774,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/History_(novel)",
     "pages": 600,
     "title": "History",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1974,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 75.00
 	}
   },
   {
@@ -715,8 +786,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Beloved_(novel)",
     "pages": 321,
     "title": "Beloved",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1987,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 56.00
 	}
   },
   {
@@ -726,8 +798,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/The_Tale_of_Genji",
     "pages": 1360,
     "title": "The Tale of Genji",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1006,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 30.60
 	}
   },
   {
@@ -737,8 +810,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/The_Man_Without_Qualities",
     "pages": 365,
     "title": "The Man Without Qualities",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1931,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 26.25
 	}
   },
   {
@@ -748,8 +822,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Lolita",
     "pages": 317,
     "title": "Lolita",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1955,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 37.00
 	}
   },
   {
@@ -759,8 +834,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Nineteen_Eighty-Four",
     "pages": 272,
     "title": "Nineteen Eighty-Four",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1949,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 36.00
 	}
   },
   {
@@ -770,8 +846,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Metamorphoses",
     "pages": 576,
     "title": "Metamorphoses",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 100,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 25.00
 	}
   },
   {
@@ -781,8 +858,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/The_Book_of_Disquiet",
     "pages": 272,
     "title": "The Book of Disquiet",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1928,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 84.00
 	}
   },
   {
@@ -792,8 +870,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Edgar_Allan_Poe_bibliography#Tales",
     "pages": 842,
     "title": "Tales",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1950,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 88.00
 	}
   },
   {
@@ -803,8 +882,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/In_Search_of_Lost_Time",
     "pages": 2408,
     "title": "In Search of Lost Time",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1920,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 77.00
 	}
   },
   {
@@ -814,8 +894,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Gargantua_and_Pantagruel",
     "pages": 623,
     "title": "Gargantua and Pantagruel",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1533,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 64.00
 	}
   },
   {
@@ -825,8 +906,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Pedro_P%C3%A1ramo",
     "pages": 124,
     "title": "Pedro P\u00e1ramo",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1955,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 45.00
 	}
   },
   {
@@ -836,8 +918,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Masnavi",
     "pages": 438,
     "title": "The Masnavi",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1236,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 47.60
 	}
   },
   {
@@ -847,8 +930,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Midnight%27s_Children",
     "pages": 536,
     "title": "Midnight's Children",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1981,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 28.00
 	}
   },
   {
@@ -858,8 +942,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Bustan_(book)",
     "pages": 298,
     "title": "Bostan",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1257,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 14.00
 	}
   },
   {
@@ -869,8 +954,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Season_of_Migration_to_the_North",
     "pages": 139,
     "title": "Season of Migration to the North",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1966,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 45.00
 	}
   },
   {
@@ -880,8 +966,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Blindness_(novel)",
     "pages": 352,
     "title": "Blindness",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1995,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 78.99
 	}
   },
   {
@@ -891,8 +978,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Hamlet",
     "pages": 432,
     "title": "Hamlet",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1603,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 90.00
 	}
   },
   {
@@ -902,8 +990,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/King_Lear",
     "pages": 384,
     "title": "King Lear",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1608,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 75.00
 	}
   },
   {
@@ -913,8 +1002,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Othello",
     "pages": 314,
     "title": "Othello",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1609,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 12.00
 	}
   },
   {
@@ -924,8 +1014,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Oedipus_the_King",
     "pages": 88,
     "title": "Oedipus the King",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1930,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 47.00
 	}
   },
   {
@@ -935,8 +1026,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/The_Red_and_the_Black",
     "pages": 576,
     "title": "The Red and the Black",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1830,
-	"price": {"currency":"₹", "rate": 430
+	"price": {"currency":"₹", "rate": 27.45
 	}
   },
   {
@@ -946,8 +1038,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/The_Life_and_Opinions_of_Tristram_Shandy,_Gentleman",
     "pages": 640,
     "title": "The Life And Opinions of Tristram Shandy",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1760,
-	"price": {"currency":"₹", "rate": 430
+	"price": {"currency":"₹", "rate": 92.60
 	}
   },
   {
@@ -957,8 +1050,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Zeno%27s_Conscience",
     "pages": 412,
     "title": "Confessions of Zeno",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1923,
-	"price": {"currency":"£", "rate": 430
+	"price": {"currency":"£", "rate": 74.00
 	}
   },
   {
@@ -968,8 +1062,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Gulliver%27s_Travels",
     "pages": 178,
     "title": "Gulliver's Travels",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1726,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 83.00
 	}
   },
   {
@@ -979,8 +1074,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/War_and_Peace",
     "pages": 1296,
     "title": "War and Peace",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1867,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 37.70
 	}
   },
   {
@@ -990,8 +1086,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Anna_Karenina",
     "pages": 864,
     "title": "Anna Karenina",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1877,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 28.70
 	}
   },
   {
@@ -1001,8 +1098,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/The_Death_of_Ivan_Ilyich",
     "pages": 92,
     "title": "The Death of Ivan Ilyich",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1886,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 92.20
 	}
   },
   {
@@ -1012,8 +1110,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn",
     "pages": 224,
     "title": "The Adventures of Huckleberry Finn",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1884,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 78.80
 	}
   },
   {
@@ -1023,8 +1122,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Ramayana",
     "pages": 152,
     "title": "Ramayana",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1750,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 75.20
 	}
   },
   {
@@ -1034,8 +1134,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Aeneid",
     "pages": 442,
     "title": "The Aeneid",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1867,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 38.00
 	}
   },
   {
@@ -1045,8 +1146,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Mahabharata",
     "pages": 276,
     "title": "Mahabharata",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1760,
-	"price": {"currency":"₹", "rate": 430
+	"price": {"currency":"₹", "rate": 1548.00
 	}
   },
   {
@@ -1056,8 +1158,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Leaves_of_Grass",
     "pages": 152,
     "title": "Leaves of Grass",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1855,
-	"price": {"currency":"$", "rate": 430
+	"price": {"currency":"$", "rate": 42.70
 	}
   },
   {
@@ -1067,8 +1170,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Mrs_Dalloway",
     "pages": 216,
     "title": "Mrs Dalloway",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1925,
-	"price": {"currency":"¥", "rate": 430
+	"price": {"currency":"¥", "rate": 55.00
 	}
   },
   {
@@ -1078,8 +1182,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/To_the_Lighthouse",
     "pages": 209,
     "title": "To the Lighthouse",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1927,
-	"price": {"currency":"€", "rate": 430
+	"price": {"currency":"€", "rate": 56.10
 	}
   },
   {
@@ -1089,8 +1194,9 @@ db.books.insert([
     "link": "https://en.wikipedia.org/wiki/Memoirs_of_Hadrian",
     "pages": 408,
     "title": "Memoirs of Hadrian",
+	"cover" : ['Hardcover', 'Paperback'],
     "year": 1951,
-	"price": {"currency":"₹", "rate": 430
+	"price": {"currency":"₹", "rate": 1350.00
 	}
   }
 ])
