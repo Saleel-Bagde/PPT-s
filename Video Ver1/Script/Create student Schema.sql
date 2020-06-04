@@ -1,0 +1,5 @@
+CREATE SCHEMA IF NOT EXISTS student;
+CREATE DATABASE IF NOT EXISTS student;
+
+
+USE student;
