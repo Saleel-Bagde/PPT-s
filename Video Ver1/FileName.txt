@@ -1,0 +1,10 @@
+Welcome, In this session we are going to cover SQL Commands.
+
+So these were SQL commands.
+
+With this we have covered all the today’s topics. I hope you understood SQL Commands.
+
+
+1. Introduction to Data-Types V1.0.mp4 
+
+2. SQL Commands V1.0.mp4
