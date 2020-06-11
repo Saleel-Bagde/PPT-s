@@ -6,5 +6,6 @@ With this we have covered all the today’s topics. I hope you understood SQL Co
 
 
 1. Introduction to Data-Types V1.0.mp4 
-
 2. SQL Commands V1.0.mp4
+8. Candidate and Primary key
+9. Primary Key V1.0
