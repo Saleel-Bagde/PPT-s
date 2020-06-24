@@ -18,7 +18,7 @@ CREATE TABLE person
 (
 	ID INT PRIMARY KEY ,
 	name VARCHAR(45),
-	 emailID VARCHAR(128)
+	emailID VARCHAR(128)
 );
 
 CREATE TABLE passportDetails
@@ -40,3 +40,15 @@ INSERT INTO student_address VALUES (1, 1, 'paud road', 'pune');
 INSERT INTO student_address VALUES (2, 2, 'M.G. road', 'baroda');
 INSERT INTO student_address VALUES (3, 3, 'k.k road', 'surat');
 INSERT INTO student_address VALUES (4, 4, 'station road', 'baroda');
+
+
+
+INSERT INTO person VALUES (1, 'ramesh', 'ramesh.patel@gmail.com');
+INSERT INTO person VALUES (2, 'rajesh', 'rajesh.mehta@gmail.com');
+INSERT INTO person VALUES (3, 'vipul', 'shahvipul@yahoomail.com');
+INSERT INTO person VALUES (4, 'kamlesh', 'kamlesh.kaka@gmail.com');
+
+INSERT INTO passportdetails VALUES (1, 'J8758532', 1);
+INSERT INTO passportdetails VALUES (2, 'S9843174', 2);
+INSERT INTO passportdetails VALUES (3, 'A9854533', 3);
+INSERT INTO passportdetails VALUES (4, 'Z9861245', 4);

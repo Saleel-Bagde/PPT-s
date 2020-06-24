@@ -17,10 +17,10 @@ INSERT INTO student (firstName, lastName, DoB, emailID) VALUES ('raj', 'sharma',
 
 
 -- data for student_address TABLE
-INSERT INTO student_address VALUES (1, 'paud road', 'pune');
-INSERT INTO student_address VALUES (2, 'M.G. road', 'baroda');
-INSERT INTO student_address VALUES (3, 'k.k road', 'surat');
-INSERT INTO student_address VALUES (4, 'station road', 'baroda');
+INSERT INTO student_address VALUES (1, 1, 'paud road', 'pune');
+INSERT INTO student_address VALUES (2, 2,'M.G. road', 'baroda');
+INSERT INTO student_address VALUES (3, 3,'k.k road', 'surat');
+INSERT INTO student_address VALUES (4, 4,'station road', 'baroda');
 
 -- data for student_hobbies TABLE
 
