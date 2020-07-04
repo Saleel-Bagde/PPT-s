@@ -1,0 +1,1273 @@
+﻿DROP TABLE IF EXISTS  PRODUCTS;
+DROP TABLE IF EXISTS  A;
+DROP TABLE IF EXISTS  B;
+DROP TABLE IF EXISTS  EMP;
+DROP TABLE IF EXISTS  DEPT;
+DROP TABLE IF EXISTS  REPLACEDEPT;
+DROP TABLE IF EXISTS  BONUS;
+DROP TABLE IF EXISTS  SALGRADE;
+DROP TABLE IF EXISTS  DUMMY;
+DROP TABLE IF EXISTS  ITEM;
+DROP TABLE IF EXISTS  PRICE;
+DROP TABLE IF EXISTS  PRODUCT;
+DROP TABLE IF EXISTS  ORD;
+DROP TABLE IF EXISTS  CUSTOMER;
+DROP TABLE IF EXISTS  EMP1;
+DROP TABLE IF EXISTS  EMP2;
+DROP TABLE IF EXISTS  DEPT1;
+DROP TABLE IF EXISTS  DEPT2;
+DROP TABLE IF EXISTS  DEPT3;
+DROP TABLE IF EXISTS  regexpr;
+DROP TABLE IF EXISTS  temp1;
+DROP TABLE IF EXISTS  SORT;
+DROP TABLE IF EXISTS  Location;
+DROP TABLE IF EXISTS  TableA;
+DROP TABLE IF EXISTS  TableB;
+DROP TABLE IF EXISTS  HOBBY;
+DROP TABLE IF EXISTS  NEW;
+DROP TABLE IF EXISTS  BLANKTABLEA;
+DROP TABLE IF EXISTS  BLANKTABLEB;
+DROP TABLE IF EXISTS  NEAREST;
+DROP TABLE IF EXISTS  DEMODEPT1;
+DROP TABLE IF EXISTS  DEMODEPT2;
+DROP TABLE IF EXISTS  COALESCE;
+DROP TABLE IF EXISTS  DUPLICATE;
+DROP TABLE IF EXISTS  NULLIF;
+DROP TABLE IF EXISTS  STATUS;
+DROP TABLE IF EXISTS  SALESPERSON;
+DROP TABLE IF EXISTS  MENUCARD;
+DROP TABLE IF EXISTS  SOFTDRINK;
+DROP TABLE IF EXISTS  SETA;
+DROP TABLE IF EXISTS  SETB;
+DROP TABLE IF EXISTS  STATES;
+DROP TABLE IF EXISTS  STATION;
+DROP TABLE IF EXISTS  Z;
+DROP TABLE IF EXISTS ORDERS;
+DROP TABLE IF EXISTS CUSTOMERS;
+DROP TABLE IF EXISTS SALESPEOPLE;
+DROP TABLE IF EXISTS TASKS;
+DROP TABLE IF EXISTS r1;
+DROP TABLE IF EXISTS r2;
+
+drop VIEW IF EXISTS SALES;
+
+
+CREATE TABLE IF NOT EXISTS r1 (c1 INT);
+insert into r1 values(1),(2),(3),(4);
+
+CREATE TABLE IF NOT EXISTS r2 (c1 INT, c2 VARCHAR(10));
+insert into r2 values(1,'a'),(2,'b'),(1,'c'),(3,'d'),(2,'e'),(1,'f');
+
+
+CREATE TABLE IF NOT EXISTS TASKS (id INT PRIMARY KEY AUTO_INCREMENT, title VARCHAR(255) NOT NULL,  completed BOOLEAN);
+
+INSERT INTO TASKS VALUE(default, 'Task1', 0);
+INSERT INTO TASKS VALUE(default, 'Task2', 1);
+INSERT INTO TASKS VALUE(default, 'Task3', False);
+INSERT INTO TASKS VALUE(default, 'Task4', True);
+INSERT INTO TASKS VALUE(default, 'Task5', null);
+INSERT INTO TASKS VALUE(default, 'Task6', default);
+INSERT INTO TASKS VALUE(default, 'Task7', 1>2);
+INSERT INTO TASKS VALUE(default, 'Task8', 1<2);
+INSERT INTO TASKS VALUE(default, 'Task9', 12);
+INSERT INTO TASKS VALUE(default, 'Task10', 58);
+INSERT INTO TASKS VALUE(default, 'Task11',.75);
+INSERT INTO TASKS VALUE(default, 'Task12',.15);
+INSERT INTO TASKS VALUE(default, 'Task13', 'a' = 'a');
+
+
+
+CREATE TABLE IF NOT EXISTS revenue (
+    id INT PRIMARY KEY,
+    q1 float(8,2),
+    q2 float(8,2),
+    q3 float(8,2),
+    q4 float(8,2)
+);
+
+INSERT INTO revenue(id,q1,q2,q3,q4)
+VALUES (1,100,120,110,130),
+	(2,250,260,300,317),
+	(3,125,560,100,278),
+	(4,165,626,234,110),
+	(5,500,670,542,310),
+	(6,750,null,235,310),
+	(7,350,160,145,310);
+
+
+ create table products (
+	ProductID int(11) primary key auto_increment,
+	ProductName varchar(40),
+	SupplierID int(11),
+	CategoryID int(11),
+	QuantityPerUnit varchar(20),
+	UnitPrice decimal(10,4) Default 0.0000,
+	UnitsInStock int(2) Default 0,
+	UnitsOnOrder int(2) Default 0,
+	ReorderLevel int(2) Default 0,
+	Discontinued boolean
+);
+
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Chai', 1, 1, '10 boxes x 20 bags', 18.0000,39,0,10,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Chang', 1, 1, '24 - 12 oz bottles', 19.0000,17,40,25,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Aniseed Syrup', 1, 2, '12 - 550 ml bottles', 10.0000,13,70,25,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, "Chef Anton's Cajun Seasoning", 2, 2, '48 - 6 oz jars', 22.0000,53,0,0,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, "Chef Anton's Gumbo Mix", 2, 2, '36 boxes', 21.3500,0,0,0,1);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, "Grandma's Boysenberry Spread", 3, 2, '12 - 8 oz jars', 25.0000,120,0,25,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, "Uncle Bob's Organic Dried Pears", 3, 7, '12 - 1 lb pkgs.', 30.0000,15,0,10,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Northwoods Cranberry Sauce', 3, 2, '12 - 12 oz jars', 40.0000,6,0,0,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Mishi Kobe Niku', 4, 6, '18 - 500 g pkgs.', 97.0000,29,0,0,1);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Ikura', 4, 8, '12 - 200 ml jars', 31.0000,31,0,0,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Queso Cabrales', 5, 4, '1 kg pkg.', 21.0000,22,30,30,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Queso Manchego La Pastora', 5, 4, '10 - 500 g pkgs.', 38.0000,86,0,0,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Konbu', 6, 8, '2 kg box', 6.0000,24,0,5,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Tofu', 6, 7, '40 - 100 g pkgs.', 23.2500,35,0,0,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Genen Shouyu', 6, 2, '40 - 100 g pkgs.', 15.5000,39,0,5,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Pavlova', 7, 3, '32 - 500 g boxes', 17.4500,29,0,10,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Alice Mutton', 7, 6, '20 - 1 kg tins', 39.0000,0,0,0,1);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Carnarvon Tigers', 7, 8, '16 kg pkg.', 62.5000,42,0,0,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Teatime Chocolate Biscuits', 8, 3, '10 boxes x 12 pieces', 9.2000,25,0,5,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, "Sir Rodney's Marmalade", 8, 3, '30 gift boxes', 81.0000,40,0,0,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, "Sir Rodney's Scones", 8, 3, '24 pkgs. x 4 pieces', 10.0000,3,40,5,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, "Gustaf's Knckebrd", 9, 5, '24 - 500 g pkgs.', 21.0000,104,0,25,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Tunnbrd', 9, 5, '12 - 250 g pkgs.', 9.0000,61,0,25,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Guaran Fantstica', 10, 1, '12 - 355 ml cans', 4.5000,20,0,0,1);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'NuNuCa Nu-Nougat-Creme', 11, 3, '20 - 450 g glasses', 14.0000,76,0,30,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Gumbr Gummibrchen', 11, 3, '100 - 250 g bags', 31.2300,15,0,0,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Schoggi Schokolade', 11, 3, '100 - 100 g pieces', 43.9000,49,0,30,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Rssle Sauerkraut', 12, 7, '25 - 825 g cans', 45.6000,26,0,0,1);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Thringer Rostbratwurst', 12, 6, '50 bags x 30 sausgs.', 123.7900,0,0,0,1);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Nord-Ost Matjeshering', 13, 8, '10 - 200 g glasses', 25.8900,10,0,15,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Gorgonzola Telino', 14, 4, '12 - 100 g pkgs', 12.5000,0,70,20,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Mascarpone Fabioli', 14, 4, '24 - 200 g pkgs.', 32.0000,9,40,25,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Geitost', 15, 4, '500 g', 2.5000,112,0,20,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Sasquatch Ale', 16, 1, '24 - 12 oz bottles', 14.0000,111,0,15,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Steeleye Stout', 16, 1, '24 - 12 oz bottles', 18.0000,20,0,15,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Inlagd Sill', 17, 8, '24 - 250 g jars', 19.0000,112,0,20,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Gravad lax', 17, 8, '12 - 500 g pkgs.', 26.0000,11,50,25,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Cte de Blaye', 18, 1, '12 - 75 cl bottles', 263.5000,17,0,15,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Chartreuse verte', 18, 1, '750 cc per bottle', 18.0000,69,0,5,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Boston Crab Meat', 19, 8, '24 - 4 oz tins', 18.4000,123,0,30,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, "Jack's New England Clam Chowder", 19, 8, '12 - 12 oz cans', 9.6500,85,0,10,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Singaporean Hokkien Fried Mee', 20, 5, '32 - 1 kg pkgs.', 14.0000,26,0,0,1);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Ipoh Coffee', 20, 1, '16 - 500 g tins', 46.0000,17,10,25,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Gula Malacca', 20, 2, '20 - 2 kg bags', 19.4500,27,0,15,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Rogede sild', 21, 8, '1k pkg.', 9.5000,5,70,15,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Spegesild', 21, 8, '4 - 450 g glasses', 12.0000,95,0,0,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Zaanse koeken', 22, 3, '10 - 4 oz boxes', 9.5000,36,0,0,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Chocolade', 22, 3, '10 pkgs.', 12.7500,15,70,25,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Maxilaku', 23, 3, '24 - 50 g pkgs.', 20.0000,10,60,15,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Valkoinen suklaa', 23, 3, '12 - 100 g bars', 16.2500,65,0,30,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Manjimup Dried Apples', 24, 7, '50 - 300 g pkgs.', 53.0000,20,0,10,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Filo Mix', 24, 5, '16 - 2 kg boxes', 7.0000,38,0,25,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Perth Pasties', 24, 6, '48 pieces', 32.8000,0,0,0,1);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Tourtire', 25, 6, '16 pies', 7.4500,21,0,10,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Pt chinois', 25, 6, '24 boxes x 2 pies', 24.0000,115,0,20,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Gnocchi di nonna Alice', 26, 5, '24 - 250 g pkgs.', 38.0000,21,10,30,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Ravioli Angelo', 26, 5, '24 - 250 g pkgs.', 19.5000,36,0,20,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Escargots de Bourgogne', 27, 8, '24 pieces', 13.2500,62,0,20,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Raclette Courdavault', 28, 4, '5 kg pkg.', 55.0000,79,0,0,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Camembert Pierrot', 28, 4, '15 - 300 g rounds', 34.0000,19,0,0,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, "Sirop d'rable", 29, 2, '24 - 500 ml bottles', 28.5000,113,0,25,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Tarte au sucre', 29, 3, '48 pies', 49.3000,17,0,0,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Vegie-spread', 7, 2, '15 - 625 g jars', 43.9000,24,0,5,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Wimmers gute Semmelkndel', 12, 5, '20 bags x 4 pieces', 33.2500,22,80,30,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Louisiana Fiery Hot Pepper Sauce', 2, 2, '32 - 8 oz bottles', 21.0500,76,0,0,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Louisiana Hot Spiced Okra', 2, 2, '24 - 8 oz jars', 17.0000,4,100,20,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Laughing Lumberjack Lager', 16, 1, '24 - 12 oz bottles', 14.0000,52,0,10,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Scottish Longbreads', 8, 3, '10 boxes x 8 pieces', 12.5000,6,10,15,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Gudbrandsdalsost', 15, 4, '10 kg pkg.', 36.0000,26,0,15,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Outback Lager', 7, 1, '24 - 355 ml bottles', 15.0000,15,10,30,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Flotemysost', 15, 4, '10 - 500 g pkgs.', 21.5000,26,0,0,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Mozzarella di Giovanni', 14, 4, '24 - 200 g pkgs.', 34.8000,14,0,0,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Rd Kaviar', 17, 8, '24 - 150 g jars', 15.0000,101,0,5,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Longlife Tofu', 4, 7, '5 kg pkg.', 10.0000,4,20,5,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Rhnbru Klosterbier', 12, 1, '24 - 0.5 l bottles', 7.7500,125,0,25,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Lakkalikri', 23, 1, '500 ml', 18.0000,57,0,20,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Original Frankfurter grne Soe', 12, 2, '12 boxes', 13.0000,32,0,15,0);
+
+create table a (c1 int, c2 int);
+
+insert into a values(1,1),(2,2),(3,3),(4,4);
+
+create table b (c3 int, c4 int);
+
+insert into b values(11,1),(12,2),(13,3),(14,4),(15,5),(16,6),(17,7),(18,8),(19,9),(20,2);
+
+
+CREATE TABLE Z (C1 CHAR);
+INSERT INTO Z VALUES('X');
+INSERT INTO Z VALUES('y');
+
+
+CREATE TABLE SALESPERSON (SID INT, SNAME varchar (10));
+
+insert into SALESPERSON values (1001,'ALAN'), (1002,'CALVIN'), (1003,'CLIVE'), (1004,'DENNIS'), (1005,'EVAN'), (1006,'FOX'), (1007,'PETER');
+
+
+CREATE TABLE STATES (STATEID varchar(2), STATENAME varchar(20));
+
+INSERT INTO STATES VALUES ('AK','Alaska'), ('AL','Alabama'), ('AR','Arkansas'), ('AZ','Arizona'),('CA','California'), ('CO','Colorado'), ('CT','Connecticut'), ('FL','Florida'), ('GA','Georgia'), ('GU',NULL), ('HI','Hawaii'), ('IA','Iowa'), ('ID','Idaho'), ('IL','Illinois'), ('IN','Indiana'), ('KS','Kansas'), ('KY','Kentucky'), ('LA','Louisiana'), ('MA','Massachusetts'), ('MD','Maryland'), ('ME','Maine'), ('MI','Michigan'), ('MN','Minnesota'), ('MO','Missouri'), ('MS','Mississippi'), ('MT','Montana'), ('NV','Nevada'), ('NJ','New Jersey'), ('NM','New Mexico'), ('NY','New York'), ('OH','Ohio'), ('PA','Pennsylvania'), ('WA','Washington');
+
+
+CREATE TABLE STATION
+    (ID INT,
+    CITY varchar(21),
+    STATE varchar(2),
+    LAT_N INT,
+    LONG_W INT);
+
+INSERT INTO STATION VALUES (794,'Kissee Mills','MO',140,73), (824,'Loma Mar','CA',49,131), (603,'Sandy Hook','CT',72,148), (478,'Tipton','IN',34,98), (619,'Arlington','CO',75,93), (711,'Turner','AR',50,101), (839,'Slidell','LA',85,152), (411,'Negreet','LA',99,105), (588,'Glencoe','KY',46,136), ( 665,'Chelsea','IA',99,60), (342,'Chignik Lagoon','AK',103,153), (733,'Pelahatchie','MS',39,28), (441,'Hanna City','IL',51,137), (811,'Dorrance','KS',102,122), (698,'Albany','CA',50 ,80), (325,'Monument','KS' ,71, 142), (414,'Manchester','MD' ,74, 37), (113,'Prescott','IA', 40 ,66), (971,'Graettinger','IA' ,95, 150), (266,'Cahone','CO' ,116 ,127), (617,'Sturgis','MS' ,36 ,126), (495,'Upperco','MD', 114 ,30), (473,'Highwood','IL',27,151), (959,'Waipahu','HI',106,34), (438,'Bowdon','GA',89,78), (571,'Tyler','MN',133,59), (92,'Watkins','CO',83,97), (399,'Republic','MI',75,130), (426,'Millville','CA',33,146), (844,'Aguanga','CA',80,66), (321,'Bowdon Junction','GA',86,34), (606,'Morenci','AZ',105,110), (957,'South El Monte','CA',74,80), (833,'Hoskinston','KY',66,66), (843,'Talbert','KY',40,59), (166,'Mccomb','MS',74,43), (339,'Kirk','CO',141 ,136), (909,'Carlock','IL',117,85), (829,'Seward','IL',72,90 ), (766,'Gustine','CA',111,141), (392,'Delano','CA',126,92), (555,'Westphalia','MI',33,144), (33,'Saint Elmo','AL',27,51), (728,'Roy','MT',41,52), (656,'Pattonsburg','MO',138,32), (394,'Centertown','MO',134,93), (366,'Norvell','MI',125,94), (96,'Raymondville','MO',71,148), (867,'Beaver Island','MI',82,165), (977,'Odin','IL',53,116), (741,'Jemison','AL',62,26), (436,'West Hills','CA',68,73), (323,'Barrigada','GU',61,148), (3,'Hesperia','CA',106,71), (814,'Wickliffe','KY',80,46), (375,'Culdesac','ID',48,78), (467,'Roselawn','IN',88,52), (604,'Forest Lakes','AZ',145,114), (551,'San Simeon','CA',38,28), (706,'Little Rock','AR',122,121), (647,'Portland','AR',84,45), (25,'New Century','KS',135,79), (250,'Hampden','MA',76,26), (124,'Pine City','MN',119,129), (547,'Sandborn','IN',56,94), (701,'Seaton','IL',128,78), (197,'Milledgeville','IL',91,113), (613,'East China','MI',109, 42), (630,'Prince Frederick','MD',105,58), (767,'Pomona Park','FL',101,163), (679,'Gretna','LA', 75,143), (896,'Yazoo City','MS',95, 85), (403,'Zionsville','IN',58, 36), (519,'Rio Oso','CA',29 ,106), (482,'Jolon','CA',67,53), (252,'Childs','MD',93,104), (600,'Shreveport','LA',136,39), (14,'Forest','MS',120,50), (260,'Sizerock','KY',116,113), (65,'Buffalo Creek','CO',48,148), (753,'Algonac','MI',119,80), (174,'Onaway','MI',109,56), (263,'Irvington','IL',97,68), (253,'Winsted','MN',69,73), (557,'Woodbury','GA',103,93), (897,'Samantha','AL',75,36), (98,'Hackleburg','AL',120,121), (423,'Soldier','KS',77,153), (361,'Arrowsmith','IL',28,109), (409,'Columbus','GA',67,47), (312,'Bentonville','AR',37,78), (854,'Kirkland','AZ',86,58), (160,'Grosse Pointe','MI',102,91), (735,'Wilton','ME',57,157), (608,'Busby','MT',104,30), (122,'Robertsdale','AL',98,85), (93,'Dale','IN',70,34), (67,'Reeds','MO',31,43), (906,'Hayfork','CA',35,117), (34,'Mcbrides','MI',74,36), (921,'Lee Center','IL',96,77), (401,'Tennessee','IL',55,156), (536,'Henderson','IA',78,78), (953,'Udall','KS',113,60), (370,'Palm Desert','CA',107,146), (614,'Benedict','KS',138, 96), (998,'Oakfield','ME',48,132), (805,'Tamms','IL',60,75), (235,'Haubstadt','IN',28,32), (820,'Chokio','MN',81,134), (650,'Clancy','MT',46,164), (791,'Scotts Valley','CA',120,91), (324,'Norwood','MN',144,35), (442,'Elkton','MD',103,157), (633,'Bertha','MN',40,105), (109,'Bridgeport','MI',51, 80), (780,'Cherry','IL',68,47), (492,'Regina','KY',132,90), (965,'Griffin','GA',39,152), (778,'Pine Bluff','AR',60,146), (337,'Mascotte','FL',121,146), (259,'Baldwin','MD',82,40), (955,'Netawaka','KS' ,109, 120), (752,'East Irvine','CA', 106 ,115), (886,'Pony','MT' ,99, 163), (200,'Franklin','LA' ,82, 32), (384,'Amo','IN' ,104, 159), (518,'Vulcan','MO',109,92), (188,'Prairie Du Rocher','IL',76,71), (161,'Alanson','MI',91,72), (486,'Delta','LA',137,50), (406,'Carver','MN',46,122), (940,'Paron','AR',59,104), (237,'Winchester','ID',38,80), (465,'Jerome','AZ', 122, 34), (591,'Baton Rouge','LA', 130 ,72), (570,'Greenview','CA', 81, 58), (429,'Lucerne Valley','CA', 36, 48), (278,'Cromwell','MN', 129, 54), (927,'Quinter','KS', 60 ,25), (59,'Whitewater','MO' ,83, 71), (218,'Round Pond','ME', 127, 124), (291,'Clarkdale','AZ', 58 ,74), (668,'Rockton','IL', 116 ,87), (682,'Pheba','MS', 91, 127), (775,'Eleele','HI',81,153), (527,'Auburn','IA',95,137), (108,'North Berwick','ME',71, 27), (190,'Oconee','GA',93,119), (232,'Grandville','MI',39,70), (405,'Susanville','CA',128,80), (273,'Rosie','AR',73,162), (813,'Verona','MO',110,153), (444,'Richland','GA',105,113), (899,'Fremont','MI',54,151), (738,'Philipsburg','MT',96,72), (215,'Kensett','IA',56,140), (743,'De Tour Village','MI',25,25), (377,'Koleen','IN' ,138, 111), (727,'Winslow','IL' ,113, 39), (363,'Reasnor','IA', 42, 163), (117,'West Grove','IA', 127, 99), (420,'Frankfort Heights','IL', 72, 30), (888,'Bono','AR',133,150), (784,'Biggsville','IL',86,139), (413,'Linthicum Heights','MD',128 ,68), (695,'Amazonia','MO' ,46 ,148), (609,'Marysville','MI', 86,133), (471,'Cape Girardeau','MO',74,91), (649,'Pengilly','MN',25,154), (946,'Newton Center','MA',48,145), (380,'Crane Lake','MN',73, 43), (383,'Newbury','MA',128,85), (44,'Kismet','KS',100 ,157), (433,'Canton','ME',99,106), (283,'Clipper Mills','CA',114, 57), (474,'Grayslake','IL',61,33), (233,'Pierre Part','LA',52 ,90), (990,'Bison','KS',132,75), (502,'Bellevue','KY',127,122), (327,'Ridgway','CO',77,110), (4,'South Britain','CT',66, 34), (228,'Rydal','GA',36,79), (642,'Lynnville','KY',25,146) , (885,'Deerfield','MO',40,36), (539,'Montreal','MO',129,127), (202,'Hope','MN',140,44), (593,'Aliso Viejo','CA',68,131), (521,'Gowrie','IA',130,128), (938,'Andersonville','GA',141,73), (919,'Knob Lick','KY',136,33), (528,'Crouseville','ME',37,82), (331,'Cranks','KY',56,27), (45,'Rives Junction','MI',94,117), (944,'Ledyard','CT',135,144), (949,'Norway','ME',84,88), (88,'Eros','LA',95,58), (878,'Rantoul','KS',32,119), (35,'Richmond Hill','GA',39,114), (17,'Fredericktown','MO',106,113), (447,'Arkadelphia','AR',99,50), (498,'Glen Carbon','IL',61,141), (351,'Fredericksburg','IN',45, 78), (774,'Manchester','IA',130,123), (116,'Mc Henry','MD',93,113), (963,'Eriline','KY',94,65), (643,'Wellington','KY',100,32), (781,'Hoffman Estates','IL',129, 53), (364,'Howard Lake','MN',126 ,78), (777,'Edgewater','MD',130 ,72), (15 ,'Ducor','CA',141 ,102), (910,'Salem','KY', 87 ,114), (612,'Sturdivant','MO',94, 86), (537,'Hagatna','GU',97,152), (970,'East Haddam','CT',116 ,132), (510,'Eastlake','MI',134, 39), (354,'Larkspur','CA', 107, 66), (983,'Patriot','IN', 83 ,46);
+
+
+CREATE TABLE SETA (c1 INT);
+insert into seta values (1), (2), (3), (4), (5), (6);
+
+
+CREATE TABLE SETB (c1 INT);
+
+insert into setb values (2), (3), (4), (5), (6), (7), (8);
+
+
+CREATE TABLE MENUCARD (ID INT, NAME varchar(35), RATE INT);
+
+insert into MENUCARD values (1 , 'Extra Long Cheeseburger' , 100), (2 , 'Double Stacker' , 125), (3 , 'Double Cheeseburger' , 100), (4 , 'Hamburger' , 85 ), (5 , 'Classic Grilled Dog' , 95 ), (6 , 'Chili Cheese Grilled Dog' , 115 ), (7 , 'Flame Grilled Chicken Burger' , 135 ), (8 , 'Original Chicken Sandwich' , 55), (9 , 'McALLO TIKKI' , 45), (10 , 'Veg Maharaja Mac' , 75 ), (11 , 'Big Spicy Chicken Wrap' , 100 ), (12 , 'McVeggie Schezwan' , 85 );
+  
+
+CREATE TABLE SOFTDRINK
+(ID INT,
+NAME varchar(25),
+RATE INT);
+
+INSERT INTO SOFTDRINK VALUES (1, 'Coca-Cola' , 45 ), (2, 'Mello Yello' , 75 ), (3, 'Diet Coke' , 60), (4, 'Frozen Fanta Cherry ' , 65 ), (5, 'Iced Tea' , 35 );
+
+
+CREATE TABLE STATUS (id INT, status varchar(12));
+
+INSERT into STATUS values(1,'New');
+INSERT into STATUS values(2,'Draft');
+INSERT into STATUS values(4,'Approved');
+INSERT into STATUS values(8,'Rejected');
+INSERT into STATUS values(16,'Cancle');
+
+CREATE TABLE NULLIF
+(
+  c1 INT,
+  c2 INT);
+
+insert into nullif values(1,1);
+insert into nullif values(1,2);
+insert into nullif values(2,1);
+insert into nullif values(3,2);
+insert into nullif values(3,3);
+insert into nullif values(null,null);
+insert into nullif values(3,1);
+insert into nullif values(2,3);
+insert into nullif values(2,2);
+insert into nullif values(1,3);
+insert into nullif values(4,null);
+insert into nullif values(null,5);
+
+
+CREATE TABLE DUPLICATE
+ (    DEPTNO INT(2) NOT NULL,
+      DNAME varchar(10),
+      LOC varchar(10),
+      WALLETID INT
+ );
+
+insert into DUPLICATE values (10, 'SALES', 'PUNE', 1), (20, 'PURCHASE','BARODA', 2), (10, 'SALES','PUNE', 1), (30, 'ACCOUNTS', 'SURAT', 3), (40, 'HR', 'ANAND', 4), (30, 'ACCOUNTS', 'SURAT', 3), (50, 'ADMIN', 'MUMBAI', 5), (60, 'RND', 'DELHI', 6), (50, 'ADMIN', 'MUMBAI', 5), (70, 'OPERATIONS', 'BHARUCH', 7), (10, 'SALES', 'PUNE', 1), (20, 'PURCHASE','BARODA', 2), (10,'SALES','PUNE', 1), (30, 'ACCOUNTS', 'SURAT', 3), (40, 'HR', 'ANAND', 4), (30, 'ACCOUNTS', 'SURAT', 3), (50, 'ADMIN', 'MUMBAI', 5), (60, 'RND', 'DELHI', 6), (50, 'ADMIN', 'MUMBAI', 5), (70, 'OPERATIONS', 'BHARUCH', 7);
+
+
+ CREATE TABLE COALESCE
+  (    PID INT,
+       PNAME varchar(45),
+       APRICE INT,
+       SPRICE INT,
+       DPRICE INT,
+       NORTH varchar(5),
+       SOUTH varchar(5),
+       EAST varchar(5),
+       WEST varchar(5),
+       BPHONE INT,
+       CPHONE INT,
+       HPHONE INT
+  );
+
+INSERT INTO COALESCE (PID, PNAME, SPRICE, NORTH, BPHONE) VALUES ('1001', 'Samsung Galaxy On7 (Gold, 8 GB)', '10975', 'Y', '111');
+INSERT INTO COALESCE (PID, PNAME, DPRICE, SOUTH, CPHONE) VALUES ('1002', 'Samsung Galaxy On5 (Gold, 8 GB)', '9800', 'Y', '222');
+INSERT INTO COALESCE (PID, PNAME, APRICE, DPRICE, EAST, HPHONE) VALUES ('1003', 'Samsung Galaxy On5 (Black, 8 GB)', '16000', '1400', 'Y', '333');
+INSERT INTO COALESCE (PID, PNAME, WEST, BPHONE, HPHONE) VALUES ('1004', 'Moto G (3rd Generation) (Black, 16 GB)', 'Y', '444', '555');
+INSERT INTO COALESCE (PID, PNAME, SPRICE, DPRICE, CPHONE) VALUES ('1005', 'Moto G (3rd Generation) (White, 16 GB)', '17000', '15550', '666');
+INSERT INTO COALESCE (PID, PNAME, APRICE, SPRICE, DPRICE, HPHONE) VALUES ('1006', 'Moto G Turbo Edition (White, 16 GB)', '8000', '8700', '8600', '777');
+INSERT INTO COALESCE (PID, PNAME, APRICE, SPRICE, DPRICE, NORTH, BPHONE, HPHONE) VALUES ('1007', 'Moto G Turbo Edition (Black, 16 GB)', '11200', '12700', '12450', 'Y', '888', '999');
+INSERT INTO COALESCE (PID, PNAME, SOUTH, WEST) VALUES ('1008', 'Moto X Play (Black, 32 GB)', 'Y', 'Y');
+INSERT INTO COALESCE (PID, PNAME, DPRICE, BPHONE) VALUES ('1009', 'Acer Liquid Z530 (Black, 16 GB)', '10500', '8877');
+INSERT INTO COALESCE (PID, PNAME, DPRICE, EAST, WEST, HPHONE) VALUES ('1010', 'Acer Z630S (Black & Gold, 32 GB)', '8600', 'Y', 'Y', '5566');
+INSERT INTO COALESCE (PID, PNAME, SPRICE, BPHONE, CPHONE, HPHONE) VALUES ('1011', 'HTC Desire 828 Dual Sim(Dark Grey, 16 GB)', '17200', '3331', '3332', '2223');
+INSERT INTO COALESCE (PID, PNAME, APRICE, SPRICE, WEST) VALUES ('1012', 'HTC Desire 828 Dual Sim (Pearl White, 16 GB)', '25000', '27000', 'Y');
+INSERT INTO COALESCE (PID, PNAME, APRICE, SOUTH) VALUES ('1013', 'Micromax Canvas Pulse 4G (Grey, 16 GB)', '12200', 'Y');
+INSERT INTO COALESCE (PID, PNAME, SPRICE, NORTH, SOUTH, EAST, WEST, CPHONE) VALUES ('1014', 'Micromax Canvas Pulse 4G (Black, 16 GB)', '14500', 'Y', 'Y', 'Y', 'Y', '44447');
+INSERT INTO COALESCE (PID, PNAME, DPRICE, SOUTH, EAST, WEST) VALUES ('1015', 'Micromax Canvas Pulse 4G (White, 16 GB)', '16500', 'Y', 'Y', 'Y');
+INSERT INTO COALESCE (PID, PNAME, DPRICE, BPHONE, CPHONE) VALUES ('1016', 'Letv Le 1S (Gold, 16 GB)', '17000', '5566', '3475');
+INSERT INTO COALESCE (PID, PNAME, SPRICE, SOUTH, WEST, HPHONE) VALUES ('1017', 'Letv Le 1S (Gold, 32 GB)', '16000', 'Y', 'Y', '55667');
+INSERT INTO COALESCE (PID, PNAME, APRICE, EAST, WEST, HPHONE) VALUES ('1018', 'Letv Le 1S (Black, 16 GB)', '13450', 'Y', 'Y', '7763');
+INSERT INTO COALESCE (PID, PNAME, SPRICE, EAST) VALUES ('1019', 'Letv Le 1S (White, 32 GB)', '12342', 'Y');
+
+create table NEAREST (c1 INT, c2 varchar(10), c3 INT);
+
+insert into NEAREST VALUES (1,'y',1);
+insert into NEAREST VALUES (1,'y',100);
+insert into NEAREST VALUES (2,'z', 1);
+insert into NEAREST VALUES (2,'z',100);
+insert into NEAREST VALUES (2,'z',300);
+insert into NEAREST VALUES (1, 'y',110);
+insert into NEAREST VALUES (1, 'y',140);
+insert into NEAREST VALUES (1, 'y',160);
+insert into NEAREST VALUES (1, 'y',200);
+insert into NEAREST VALUES (1, 'y',210);
+insert into NEAREST VALUES (1, 'y',211);
+insert into NEAREST VALUES (2, 'z',150);
+insert into NEAREST VALUES (2, 'z',250);
+insert into NEAREST VALUES (2, 'z',170);
+insert into NEAREST VALUES (2, 'z',175);
+insert into NEAREST VALUES (2, 'z',177);
+insert into NEAREST VALUES (2, 'z',179);
+
+create table new (c1 INT, c2 INT, c3 INT, old varchar(10), new varchar(10));
+
+create table blankTableA (c1 INT, c2 INT);
+
+insert into blanktableA values(1,1);
+insert into blanktableA values(2,2);
+insert into blanktableA values(null,null);
+insert into blanktableA values(null,null);
+insert into blanktableA values(null,null);
+insert into blanktableA values(3,3);
+insert into blanktableA values(4,4);
+insert into blanktableA values(null,null);
+insert into blanktableA values(5,5);
+insert into blanktableA values(null,null);
+insert into blanktableA values(null,6);
+
+CREATE TABLE blankTableB (c1 float(7,2), c2 float(7,2));
+
+insert into blankTableB values(1.01,1.01);
+insert into blankTableB values(1.02,1.02);
+insert into blankTableB values(1.03,1.03);
+insert into blankTableB values(1.04,1.04);
+insert into blankTableB values(1.05,1.05);
+insert into blankTableB values(1.06,1.06);
+insert into blankTableB values(null,1.07);
+insert into blankTableB values(1.08,1.08);
+insert into blankTableB values(null,null);
+insert into blankTableB values(1.09,1.09);
+insert into blankTableB values(1.10,null);
+
+CREATE TABLE HOBBY (HOBBYID INT, HOBBY CHAR(16), WALLETID  INT);
+
+INSERT INTO HOBBY VALUES (1,'Windsurfing',1);
+INSERT INTO HOBBY VALUES (2,'Fishing',2);
+INSERT INTO HOBBY VALUES (3,'Swimming',3);
+INSERT INTO HOBBY VALUES (4,'Shopping',4);
+INSERT INTO HOBBY VALUES (5,'Bowling',5);
+INSERT INTO HOBBY VALUES (6,'Reading',6);
+INSERT INTO HOBBY VALUES (7,'Dancing',7);
+INSERT INTO HOBBY VALUES (8,'Traveling',8);
+INSERT INTO HOBBY VALUES (9,'Bungee Jumping',9);
+INSERT INTO HOBBY VALUES (10,'Horse Riding',10);
+INSERT INTO HOBBY VALUES (11,'Bowling',11);
+INSERT INTO HOBBY VALUES (12,'Astrology',12);
+INSERT INTO HOBBY VALUES (13,'Hang Gliding',13);
+
+CREATE TABLE DEPT (
+ DEPTNO              INT (2),
+ DNAME               varchar(12),
+ LOC                 varchar(10),
+ PWD				 varchar(20),
+ CONSTRAINT DEPT_PRIMARY_KEY PRIMARY KEY (DEPTNO));
+
+INSERT INTO DEPT VALUES (10,'ACCOUNTING','NEW YORK','r50mpm');
+INSERT INTO DEPT VALUES (20,'RESEARCH','DALLAS','a12recmpm');
+INSERT INTO DEPT VALUES (30,'SALES','CHICAGO','sales@2017');
+INSERT INTO DEPT VALUES (40,'OPERATIONS','BOSTON','opr@123');
+
+
+CREATE TABLE REPLACEDEPT (
+ DEPTNO              INT (2),
+ DNAME               varchar(12),
+ LOC                 varchar(10),
+ CONSTRAINT REPLACEDEPT_PRIMARY_KEY PRIMARY KEY (DEPTNO));
+
+INSERT INTO REPLACEDEPT VALUES (10,'Finance','PUNE');
+INSERT INTO REPLACEDEPT VALUES (20,'Forest','Odisha');
+INSERT INTO REPLACEDEPT VALUES (50,'Tourism','Rajasthan');
+INSERT INTO REPLACEDEPT VALUES (60,'Planning','Mumbai');
+
+
+CREATE TABLE DEMODEPT1 as select * from DEPT;
+ALTER TABLE DEMODEPT1 MODIFY COLUMN DEPTNO INT;
+  
+INSERT INTO DEMODEPT1 VALUES (50,'A','A',null);
+INSERT INTO DEMODEPT1 VALUES (60,'B','B',null);
+INSERT INTO DEMODEPT1 VALUES (70,'C','C',null);
+INSERT INTO DEMODEPT1 VALUES (80,'D','D',null);
+INSERT INTO DEMODEPT1 VALUES (90,'E','E',null);
+INSERT INTO DEMODEPT1 VALUES (100,'F','F',null);
+
+CREATE TABLE DEMODEPT2 as select * from DEPT;
+ALTER TABLE DEMODEPT2 MODIFY COLUMN DEPTNO INT;
+
+INSERT INTO DEMODEPT2 VALUES (110,'A1','A1',null);
+INSERT INTO DEMODEPT2 VALUES (111,'B1','B1',null);
+INSERT INTO DEMODEPT2 VALUES (112,'C1','C1',null);
+INSERT INTO DEMODEPT2 VALUES (113,'D1','D1',null);
+INSERT INTO DEMODEPT2 VALUES (114,'E1','E1',null);
+INSERT INTO DEMODEPT2 VALUES (115,'F1','F1',null);
+
+
+CREATE TABLE EMP (
+ EMPNO               INT(4) NOT NULL,
+ ENAME               varchar(12),
+ JOB                 varchar(20),
+ MGR                 INT(4) ,
+ HIREDATE            date,
+ SAL                 FLOAT(7,2),
+ COMM                FLOAT(7,2),
+ DEPTNO              INT(2) NOT NULL,
+ BONUSID	         INT,
+ `USER NAME`		 varchar(20),
+ PWD				 varchar(20), 
+ isActive			 boolean,
+ CONSTRAINT EMP_FOREIGN_KEY_deptno FOREIGN KEY (DEPTNO) REFERENCES DEPT (DEPTNO),
+ CONSTRAINT EMP_PRIMARY_KEY_empno PRIMARY KEY (EMPNO),
+ CONSTRAINT EMP_FOREIGN_KEY_mgr FOREIGN KEY (MGR) REFERENCES EMP (EMPNO),
+ CONSTRAINT CHK_PWD CHECK (length(PWD)>= 5));
+
+INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7839,'KING','PRESIDENT',NULL,'1981-11-17',5000,NULL,10,1, true);
+INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7698,'BLAKE','MANAGER',7839,'1981-05-01',2850,NULL,30,1, true);
+INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7782,'CLARK','MANAGER',7839,'1981-06-09',2450,NULL,10,3, true);
+INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7566,'JONES','MANAGER',7839,'1981-04-02',2975,NULL,20,4, true);
+INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7654,'MARTIN','SALESMAN',7698,'1981-09-28',1250,1400,30,6, true);
+INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7499,'ALLEN','SALESMAN',7698,'1981-02-20',1600,300,30,4, true);
+INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7844,'TURNER','SALESMAN',7698,'1981-09-08',1500,0,30,5, true);
+INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7900,'JAMES','CLERK',7698,'1981-12-03',950,NULL,30,2, true);
+INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7521,'WARD','SALESMAN',7698,'1981-02-22',1250,500,30,1, true);
+INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7902,'FORD','ANALYST',7566,'1981-12-03',3000,NULL,20,4, false);
+INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7369,'SMITH','CLERK',7902,'1980-12-17',800,NULL,20,2, false);
+INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7788,'SCOTT','ANALYST',7566,'1982-12-09',3000,NULL,20,3,true);
+INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7876,'ADAMS','CLERK',7788,'1983-01-12',1100,NULL,20,1, true);
+INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7934,'MILLER','CLERK',7782,'1982-01-23',1300,NULL,10,2, false);
+INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7949,'ALEX','MANAGER',7698,'1982-01-24',1250,500,30,5, true);
+INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7945,'AARUSH','SALESMAN',7902,'1980-02-14',1350,2700,30,NULL,false);
+INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7415,'AARAV','CLERK',7902,'1981-12-31',3350,NULL,10,null,false);
+INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7919,'HOFFMAN','MANAGER',7566,'1982-03-24',4150,NULL,30,3,true);
+INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7920,'GRASS','SALESMAN',7919,'1980-02-14',2575,2700,30,5,true);
+INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7421,'THOMAS','CLERK',7920,'1981-07-19',1750,NULL,10,1,false);
+
+
+
+CREATE TABLE BONUS (
+ ID INT PRIMARY KEY,
+ RATE float);
+
+INSERT INTO BONUS VALUES(1,.5);
+INSERT INTO BONUS VALUES(2,.75);
+INSERT INTO BONUS VALUES(3,.25);
+INSERT INTO BONUS VALUES(4,.15);
+INSERT INTO BONUS VALUES(5,.55);
+INSERT INTO BONUS VALUES(6,.54);
+INSERT INTO BONUS VALUES(7,.34);
+INSERT INTO BONUS VALUES(8,.14);
+INSERT INTO BONUS VALUES(9,.27);
+INSERT INTO BONUS VALUES(10,.32);
+
+CREATE TABLE SALGRADE (
+ GRADE               INT,
+ LOSAL               INT,
+ HISAL               INT);
+
+INSERT INTO SALGRADE VALUES (1,700,1200);
+INSERT INTO SALGRADE VALUES (2,1201,1400);
+INSERT INTO SALGRADE VALUES (3,1401,2000);
+INSERT INTO SALGRADE VALUES (4,2001,3000);
+INSERT INTO SALGRADE VALUES (5,3001,4000);
+INSERT INTO SALGRADE VALUES (6,4001,5000);
+INSERT INTO SALGRADE VALUES (7,5001,6000);
+INSERT INTO SALGRADE VALUES (8,6001,7000);
+INSERT INTO SALGRADE VALUES (9,7001,8000);
+INSERT INTO SALGRADE VALUES (10,8001,9999);
+
+CREATE TABLE DUMMY (
+ DUMMY               INT );
+
+INSERT INTO DUMMY VALUES (0);
+
+CREATE TABLE CUSTOMER (
+ CUSTID              INT (6) NOT NULL,
+ NAME                varchar(45),
+ ADDRESS             varchar(40),
+ CITY                varchar(30),
+ STATE               varchar(2),
+ ZIP                 varchar(9),
+ AREA                INT (3),
+ PHONE               varchar(9),
+ REPID               INT (4) NOT NULL,
+ CREDITLIMIT         float (9,2),
+ COMMENTS            text,
+ CONSTRAINT CUSTOMER_PRIMARY_KEY PRIMARY KEY (CUSTID),
+ CONSTRAINT CUSTID_ZERO CHECK (CUSTID > 0));
+
+CREATE TABLE ORD  (
+ ORDID               INT (4) NOT NULL,
+ ORDERDATE           datetime,
+ COMMPLAN            varchar(1),
+ CUSTID              INT (6) NOT NULL,
+ SHIPDATE            datetime,
+ TOTAL               float (8,2),
+ CONSTRAINT TOTAL_ZERO CHECK (TOTAL >= 0),
+ CONSTRAINT ORD_FOREIGN_KEY FOREIGN KEY (CUSTID) REFERENCES CUSTOMER (CUSTID),
+ CONSTRAINT ORD_PRIMARY_KEY PRIMARY KEY (ORDID));
+
+CREATE TABLE ITEM  (
+ ORDID               INT (4) NOT NULL,
+ ITEMID              INT (4) NOT NULL,
+ PRODID              INT (6),
+ ACTUALPRICE         float (8,2),
+ QTY                 INT (8),
+ ITEMTOT             float (8,2),
+ CONSTRAINT ITEM_FOREIGN_KEY FOREIGN KEY (ORDID) REFERENCES ORD (ORDID),
+ CONSTRAINT ITEM_PRIMARY_KEY PRIMARY KEY (ORDID,ITEMID));
+
+CREATE TABLE PRODUCT (
+ PRODID              INT (6),
+ DESCRIP             varchar(30),
+ CONSTRAINT PRODUCT_PRIMARY_KEY PRIMARY KEY (PRODID));
+
+CREATE TABLE PRICE (
+ PRODID              INT (6) NOT NULL,
+ STDPRICE            float (8,2),
+ MINPRICE            float (8,2),
+ STARTDATE           datetime,
+ ENDDATE             datetime);
+
+INSERT INTO CUSTOMER (ZIP, STATE, REPID, PHONE, NAME, CUSTID, CREDITLIMIT,
+  CITY, AREA, ADDRESS, COMMENTS)
+VALUES ('96711', 'CA', '7844', '598-6609',
+ 'JOCKSPORTS',
+ '100', '5000', 'BELMONT', '415', '345 VIEWRIDGE',
+ 'Very friendly people to work with -- sales rep likes to be called Mike.');
+
+INSERT INTO CUSTOMER (ZIP, STATE, REPID, PHONE, NAME, CUSTID, CREDITLIMIT,
+  CITY, AREA, ADDRESS, COMMENTS)
+VALUES ('94061', 'CA', '7521', '368-1223',
+ 'TKB SPORT SHOP',
+ '101', '10000', 'REDWOOD CITY', '415', '490 BOLI RD.',
+ 'Rep called 5/8 about change in order - contact shipping.');
+
+INSERT INTO CUSTOMER (ZIP, STATE, REPID, PHONE, NAME, CUSTID, CREDITLIMIT,
+  CITY, AREA, ADDRESS, COMMENTS)
+VALUES ('95133', 'CA', '7654', '644-3341',
+ 'VOLLYRITE',
+ '102', '7000', 'BURLINGAME', '415', '9722 HAMILTON',
+ 'Company doing heavy promotion beginning 10/89. Prepare for large orders during
+ winter.');
+
+INSERT INTO CUSTOMER (ZIP, STATE, REPID, PHONE, NAME, CUSTID, CREDITLIMIT,
+  CITY, AREA, ADDRESS, COMMENTS)
+VALUES ('97544', 'CA', '7521', '677-9312',
+ 'JUST TENNIS',
+ '103', '3000', 'BURLINGAME', '415', 'HILLVIEW MALL',
+ 'Contact rep about new line of tennis rackets.');
+
+INSERT INTO CUSTOMER (ZIP, STATE, REPID, PHONE, NAME, CUSTID, CREDITLIMIT,
+  CITY, AREA, ADDRESS, COMMENTS)
+VALUES ('93301', 'CA', '7499', '996-2323',
+ 'EVERY MOUNTAIN',
+ '104', '10000', 'CUPERTINO', '408', '574 SURRY RD.',
+ 'Customer with high market share (23%) due to aggressive advertising.');
+
+INSERT INTO CUSTOMER (ZIP, STATE, REPID, PHONE, NAME, CUSTID, CREDITLIMIT,
+  CITY, AREA, ADDRESS, COMMENTS)
+VALUES ('91003', 'CA', '7844', '376-9966',
+ 'K + T SPORTS',
+ '105', '5000', 'SANTA CLARA', '408', '3476 EL PASEO',
+ 'Tends to order large amounts of merchandise at once. Accounting is considering
+ raising their credit limit. Usually pays on time.');
+
+INSERT INTO CUSTOMER (ZIP, STATE, REPID, PHONE, NAME, CUSTID, CREDITLIMIT,
+  CITY, AREA, ADDRESS, COMMENTS)
+VALUES ('94301', 'CA', '7521', '364-9777',
+ 'SHAPE UP',
+ '106', '6000', 'PALO ALTO', '415', '908 SEQUOIA',
+ 'Support intensive. Orders small amounts (< 800) of merchandise at a time.');
+
+INSERT INTO CUSTOMER (ZIP, STATE, REPID, PHONE, NAME, CUSTID, CREDITLIMIT,
+  CITY, AREA, ADDRESS, COMMENTS)
+VALUES ('93301', 'CA', '7499', '967-4398',
+ 'WOMENS SPORTS',
+ '107', '10000', 'SUNNYVALE', '408', 'VALCO VILLAGE',
+ 'First sporting goods store geared exclusively towards women. Unusual promotion
+al style and very willing to take chances towards new products!');
+
+INSERT INTO CUSTOMER (ZIP, STATE, REPID, PHONE, NAME, CUSTID, CREDITLIMIT,
+  CITY, AREA, ADDRESS, COMMENTS)
+VALUES ('55649', 'MN', '7844', '566-9123',
+ 'NORTH WOODS HEALTH AND FITNESS SUPPLY CENTER',
+ '108', '8000', 'HIBBING', '612', '98 LONE PINE WAY', null);
+
+INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('101.4', '1987-01-08', '610', '1987-01-07', '101', 'A');
+
+INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('45', '1987-01-11', '611', '1987-01-11', '102', 'B');
+
+INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('5860', '1987-01-20', '612', '1987-01-15', '104', 'C');
+
+INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('2.4', '1986-05-30', '601', '1986-05-01', '106', 'A');
+
+INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('56', '1986-06-20', '602', '1986-06-05', '102', 'B');
+
+INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('698', '1986-06-30', '604', '1986-06-15', '106', 'A');
+
+INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('8324', '1986-07-30', '605', '1986-07-14', '106', 'A');
+
+INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('3.4', '1986-07-30', '606', '1986-07-14', '100', 'A');
+
+INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('97.5', '1986-08-15', '609', '1986-08-01', '100', 'B');
+
+INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('5.6', '1986-07-18', '607', '1986-07-18', '104', 'C');
+
+INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('35.2', '1986-07-25', '608', '1986-07-25', '104', 'C');
+
+INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('224', '1986-06-05', '603', '1986-06-05', '102', null);
+
+INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('4450', '1987-03-12', '620', '1987-03-12', '100', null);
+
+INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('6400', '1987-02-01', '613', '1987-02-01', '108', null);
+
+INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('23940', '1987-02-05', '614', '1987-02-01', '102', null);
+
+INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('764', '1987-02-10', '616', '1987-02-03', '103', null);
+
+INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('1260', '1987-02-04', '619', '1987-02-22', '104', null);
+
+INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('46370', '1987-03-03', '617', '1987-02-05', '105', null);
+
+INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('710', '1987-02-06', '615', '1987-02-01', '107', null);
+
+INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('3510.5', '1987-03-06', '618', '1987-02-15', '102', 'A');
+
+INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('730', '1987-01-01', '621', '1987-03-15', '100', 'A');
+
+
+INSERT INTO ITEM (QTY, PRODID, ORDID, ITEMTOT, ITEMID, ACTUALPRICE)
+ VALUES ('1', '100890', '610', '58', '3', '58');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ( '1', '100861', '611', '45', '1', '45');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ( '100', '100860', '612', '3000', '1', '30');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ( '1', '200376', '601', '2.4', '1', '2.4');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ( '20', '100870', '602', '56', '1', '2.8');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ( '3', '100890', '604', '174', '1', '58');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ( '2', '100861', '604', '84', '2', '42');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ( '10', '100860', '604', '440', '3', '44');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ( '4', '100860', '603', '224', '2', '56');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ( '1', '100860', '610', '35', '1', '35');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ( '3', '100870', '610', '8.4', '2', '2.8');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ( '200', '200376', '613', '440', '4', '2.2');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ( '444', '100860', '614', '15540', '1', '35');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ( '1000', '100870', '614', '2800', '2', '2.8');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ( '20', '100861', '612', '810', '2', '40.5');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('150', '101863', '612', '1500', '3', '10');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('10', '100860', '620', '350', '1', '35');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('1000', '200376', '620', '2400', '2', '2.4');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('500', '102130', '620', '1700', '3', '3.4');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ( '100', '100871', '613', '560', '1', '5.6');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('200', '101860', '613', '4800', '2', '24');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('150', '200380', '613', '600', '3', '4');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('100', '102130', '619', '340', '3', '3.4');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('50', '100860', '617', '1750', '1', '35');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('100', '100861', '617', '4500', '2', '45');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('1000', '100871', '614', '5600', '3', '5.6');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('10', '100861', '616', '450', '1', '45');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('50', '100870', '616', '140', '2', '2.8');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('2', '100890', '616', '116', '3', '58');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('10', '102130', '616', '34', '4', '3.4');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('10', '200376' , '616', '24', '5', '2.4');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('100', '200380', '619', '400', '1', '4');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('100', '200376', '619', '240', '2', '2.4');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('4', '100861', '615', '180', '1', '45');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('1', '100871', '607', '5.6', '1', '5.6');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('100', '100870', '615', '280', '2', '2.8');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('500', '100870', '617', '1400', '3', '2.8');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('500', '100871', '617', '2800', '4', '5.6');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('500', '100890', '617', '29000', '5', '58');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('100', '101860', '617', '2400', '6', '24');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('200', '101863', '617', '2500', '7', '12.5');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('100', '102130', '617', '340', '8', '3.4');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('200', '200376', '617', '480', '9', '2.4');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('300', '200380', '617', '1200', '10', '4');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('5', '100870', '609', '12.5', '2', '2.5');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('1', '100890', '609', '50', '3', '50');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('23', '100860', '618', '805', '1', '35');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('50', '100861', '618', '2255.5', '2', '45.11');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('10', '100870', '618', '450', '3', '45');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('10', '100861', '621', '450', '1', '45');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('100', '100870', '621', '280', '2', '2.8');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('50', '100871', '615', '250', '3', '5');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('1', '101860', '608', '24', '1', '24');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('2', '100871', '608', '11.2', '2', '5.6');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('1', '100861', '609', '35', '1', '35');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('1', '102130', '606', '3.4', '1', '3.4');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('100', '100861', '605', '4500', '1', '45');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('500', '100870', '605', '1400', '2', '2.8');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('5', '100890', '605', '290', '3', '58');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('50', '101860', '605', '1200', '4', '24');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('100', '101863', '605', '900', '5', '9');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('10', '102130', '605', '34', '6', '3.4');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('100', '100871', '612', '550', '4', '5.5');
+
+INSERT INTO ITEM ( QTY , PRODID , ORDID , ITEMTOT , ITEMID , ACTUALPRICE)
+ VALUES ('50', '100871', '619', '280', '4', '5.6');
+
+
+INSERT INTO PRICE (STDPRICE, STARTDATE, PRODID, MINPRICE, ENDDATE)
+ VALUES ('4.8', '1985-01-01', '100871', '3.2', '1985-12-01');
+
+INSERT INTO PRICE (STDPRICE, STARTDATE, PRODID, MINPRICE, ENDDATE)
+ VALUES ('58', '1985-01-01', '100890', '46.4', null);
+
+INSERT INTO PRICE (STDPRICE, STARTDATE, PRODID, MINPRICE, ENDDATE)
+ VALUES ('54', '1984-06-01', '100890', '40.5', '1984-05-31');
+
+INSERT INTO PRICE (STDPRICE, STARTDATE, PRODID, MINPRICE, ENDDATE)
+ VALUES ('35', '1986-06-01', '100860', '28', null);
+
+INSERT INTO PRICE (STDPRICE, STARTDATE, PRODID, MINPRICE, ENDDATE)
+ VALUES ('32', '1986-01-01', '100860', '25.6', '1986-05-31');
+
+INSERT INTO PRICE (STDPRICE, STARTDATE, PRODID, MINPRICE, ENDDATE)
+ VALUES ('30', '1985-01-01', '100860', '24', '1985-12-31');
+
+INSERT INTO PRICE (STDPRICE, STARTDATE, PRODID, MINPRICE, ENDDATE)
+ VALUES ('45', '1986-06-01', '100861', '36', null);
+
+INSERT INTO PRICE (STDPRICE, STARTDATE, PRODID, MINPRICE, ENDDATE)
+ VALUES ('42', '1986-01-01', '100861', '33.6', '1986-05-31');
+
+INSERT INTO PRICE (STDPRICE, STARTDATE, PRODID, MINPRICE, ENDDATE)
+ VALUES ('39', '1985-01-01', '100861', '31.2', '1985-12-31');
+
+INSERT INTO PRICE (STDPRICE, STARTDATE, PRODID, MINPRICE, ENDDATE)
+ VALUES ('2.8', '1986-01-01', '100870', '2.4', null);
+
+INSERT INTO PRICE (STDPRICE, STARTDATE, PRODID, MINPRICE, ENDDATE)
+ VALUES ('2.4', '1985-01-01', '100870', '1.9', '1985-12-01');
+
+INSERT INTO PRICE (STDPRICE, STARTDATE, PRODID, MINPRICE, ENDDATE)
+ VALUES ('5.6', '1986-01-01', '100871', '4.8', null);
+
+INSERT INTO PRICE (STDPRICE, STARTDATE, PRODID, MINPRICE, ENDDATE)
+ VALUES ('24', '1985-02-15', '101860', '18', null);
+
+INSERT INTO PRICE (STDPRICE, STARTDATE, PRODID, MINPRICE, ENDDATE)
+ VALUES ('12.5', '1985-02-15', '101863', '9.4', null);
+
+INSERT INTO PRICE (STDPRICE, STARTDATE, PRODID, MINPRICE, ENDDATE)
+ VALUES ('3.4', '1985-08-18', '102130', '2.8', null);
+
+INSERT INTO PRICE (STDPRICE, STARTDATE, PRODID, MINPRICE, ENDDATE)
+ VALUES ('2.4', '1986-10-15', '200376', '1.75', null);
+
+INSERT INTO PRICE (STDPRICE, STARTDATE, PRODID, MINPRICE, ENDDATE)
+ VALUES ('4', '1986-10-15', '200380', '3.2', null);
+
+CREATE INDEX PRICE_INDEX ON PRICE(PRODID, STARTDATE);
+
+INSERT INTO PRODUCT (PRODID, DESCRIP)
+ VALUES ('100860', 'ACE TENNIS RACKET I');
+
+INSERT INTO PRODUCT (PRODID, DESCRIP)
+ VALUES ('100861', 'ACE TENNIS RACKET II');
+
+INSERT INTO PRODUCT (PRODID, DESCRIP)
+ VALUES ('100870', 'ACE TENNIS BALLS-3 PACK');
+
+INSERT INTO PRODUCT (PRODID, DESCRIP)
+ VALUES ('100871', 'ACE TENNIS BALLS-6 PACK');
+
+INSERT INTO PRODUCT (PRODID, DESCRIP)
+ VALUES ('100890', 'ACE TENNIS NET');
+
+INSERT INTO PRODUCT (PRODID, DESCRIP)
+ VALUES ('101860', 'SP TENNIS RACKET');
+
+INSERT INTO PRODUCT (PRODID, DESCRIP)
+ VALUES ('101863', 'SP JUNIOR RACKET');
+
+INSERT INTO PRODUCT (PRODID, DESCRIP)
+ VALUES ('102130', 'RH: "GUIDE TO TENNIS"');
+
+INSERT INTO PRODUCT (PRODID, DESCRIP)
+ VALUES ('200376', 'SB ENERGY BAR-6 PACK');
+
+INSERT INTO PRODUCT (PRODID, DESCRIP)
+ VALUES ('200380', 'SB VITA SNACK-6 PACK');
+
+
+CREATE VIEW SALES AS
+SELECT REPID, ORD.CUSTID, CUSTOMER.NAME CUSTNAME, PRODUCT.PRODID,
+DESCRIP PRODNAME, SUM(ITEMTOT) AMOUNT
+FROM ORD, ITEM, CUSTOMER, PRODUCT
+WHERE ORD.ORDID = ITEM.ORDID
+AND ORD.CUSTID = CUSTOMER.CUSTID
+AND ITEM.PRODID = PRODUCT.PRODID
+GROUP BY REPID, ORD.CUSTID, NAME, PRODUCT.PRODID, DESCRIP;
+
+CREATE TABLE LOCATION(
+LOCATIONID INT(4),
+LOCATIONNAME varchar(10),
+CONSTRAINT LOCATIONID_PRIMARY_KEY PRIMARY KEY (LOCATIONID));
+
+INSERT INTO LOCATION VALUES (1,'NEW YORK');
+INSERT INTO LOCATION VALUES (2,'DALLAS');
+INSERT INTO LOCATION VALUES (3,'CHICAGO');
+INSERT INTO LOCATION VALUES (4,'BOSTON');
+INSERT INTO LOCATION VALUES (5,upper('California'));
+INSERT INTO LOCATION VALUES (6,upper('Florida'));
+INSERT INTO LOCATION VALUES (7,upper('Indiana'));
+INSERT INTO LOCATION VALUES (8,upper('Maryland'));
+INSERT INTO LOCATION VALUES (9,upper('Nevada'));
+INSERT INTO LOCATION VALUES (10,upper('London'));
+INSERT INTO LOCATION VALUES (11,upper('Geneva'));
+INSERT INTO LOCATION VALUES (12,upper('roma'));
+INSERT INTO LOCATION VALUES (13,upper('sydney'));
+INSERT INTO LOCATION VALUES (14,upper('tokyo'));
+INSERT INTO LOCATION VALUES (15,upper('toronto'));
+INSERT INTO LOCATION VALUES (16,upper('venice'));
+INSERT INTO LOCATION VALUES (17,upper('singapore'));
+INSERT INTO LOCATION VALUES (18,upper('beijing'));
+INSERT INTO LOCATION VALUES (19,upper('new delhi'));
+INSERT INTO LOCATION VALUES (20,upper('mumbai'));
+
+
+
+ CREATE TABLE DEPT1 (
+ DEPTNO        INT(4) NOT NULL,
+ DNAME           varchar(20),
+ LOCATIONID INT(3),
+ CONSTRAINT DEPT1_PRIMARY_KEY1 PRIMARY KEY (DEPTNO));
+
+INSERT INTO DEPT1 VALUES (10,'ACCOUNTING','1');
+INSERT INTO DEPT1 VALUES (20,'RESEARCH','2');
+INSERT INTO DEPT1 VALUES (30,'SALES','3');
+INSERT INTO DEPT1 VALUES (40,'OPERATIONS','4');
+INSERT INTO DEPT1 VALUES (50,'PURCHASE','5');
+INSERT INTO DEPT1 VALUES (60,'PRODUCTION','6');
+INSERT INTO DEPT1 VALUES (70,'CONTROLS','7');
+INSERT INTO DEPT1 VALUES (80,upper('Operations Research'),'8');
+INSERT INTO DEPT1 VALUES (90,'FINANCE','1');
+INSERT INTO DEPT1 VALUES (100,'IT','2');
+INSERT INTO DEPT1 VALUES (110,'IT SUPPORT','3');
+INSERT INTO DEPT1 VALUES (120,'SHIPPING','4');
+INSERT INTO DEPT1 VALUES (130,'IT HELPDESK','1');
+INSERT INTO DEPT1 VALUES (140,'RETAIL SALES','2');
+INSERT INTO DEPT1 VALUES (150,'IT NETWORK','3');
+INSERT INTO DEPT1 VALUES (160,'PUBLIC RELATIONS','4');
+INSERT INTO DEPT1 VALUES (170,upper('Materials Science'),'1');
+INSERT INTO DEPT1 VALUES (180,upper('Career Services'),'2');
+INSERT INTO DEPT1 VALUES (190,upper('Commercial'),'5');
+INSERT INTO DEPT1 VALUES (200,upper('Economics'),'6');
+insert into dept1 values(201,'HRD',5);
+
+CREATE TABLE EMP1 (
+ EMPNO          INT(4) NOT NULL,
+ ENAME          varchar(12),
+ JOB            varchar(20),
+ MGR            INT(4),
+ HIREDATE      datetime,
+ SAL            float(7,2),
+ COMM           float(7,2),
+ DEPTNO         INT(4) NOT NULL,
+ HOBBYID 		char(20),
+ BONUSID		INT,
+ CONSTRAINT EMP1_FOREIGN_KEY1 FOREIGN KEY (DEPTNO) REFERENCES DEPT1 (DEPTNO),
+ CONSTRAINT EMP1_PRIMARY_KEY1 PRIMARY KEY (EMPNO),
+ CONSTRAINT EMP1_SELF_KEY1 FOREIGN KEY (MGR) REFERENCES EMP1 (EMPNO));
+
+
+INSERT INTO EMP1 VALUES (7839,'KING','PRESIDENT',NULL,'1981-11-17 04:20:24',5000,NULL,10,'Windsurfing',1);
+INSERT INTO EMP1 VALUES (7698,'BLAKE','MANAGER',7839,'1981-05-01 05:54:43',2850,NULL,30,'Fishing',3);
+INSERT INTO EMP1 VALUES (7782,'CLARK','MANAGER',7839,'1981-06-09 02:12:12',2450,NULL,10,'Swimming',5);
+INSERT INTO EMP1 VALUES (7566,'JONES','MANAGER',7839,'1981-04-02 12:45:19',2975,NULL,20,'Shopping',7);
+INSERT INTO EMP1 VALUES (7654,'MARTIN','SALESMAN',7698,'1981-09-28 14:26:00',1250,1400,30,'Fishing',4);
+INSERT INTO EMP1 VALUES (7499,'ALLEN','SALESMAN',7698,'1981-02-20 07:30:00',1600,300,30,'Bowling',8);
+INSERT INTO EMP1 VALUES (7844,'TURNER','SALESMAN',7698,'1981-09-08 08:45:00',1500,0,30,NULL,10);
+INSERT INTO EMP1 VALUES (7900,'JAMES','CLERK',7698,'1981-12-03 09:25:00',950,NULL,30,'Swimming',8);
+INSERT INTO EMP1 VALUES (7521,'WARD','SALESMAN',7698,'1981-02-22 10:15:00',1250,500,30,'Windsurfing',3);
+INSERT INTO EMP1 VALUES (7902,'FORD','ANALYST',7566,'1981-12-03 11:00:00',3000,NULL,20,NULL,2);
+INSERT INTO EMP1 VALUES (7369,'SMITH','CLERK',7902,'1980-12-17 17:36:00',800,NULL,20,NULL,1);
+INSERT INTO EMP1 VALUES (7788,'SCOTT','ANALYST',7566,'1982-12-09 16:12:00',3000,NULL,20,'Fishing',1);
+INSERT INTO EMP1 VALUES (7876,'ADAMS','CLERK',7788,'1983-01-12 18:33:00',1100,NULL,20,'Swimming',4);
+INSERT INTO EMP1 VALUES (7934,'MILLER','CLERK',7782,'1982-01-23 20:20:00',1300,NULL,10,'Shopping',3);
+INSERT INTO EMP1 VALUES (5001,'AARON','SALESMAN',7902,'1981-11-17 04:29:24',4500,1200,60,'Reading',9);
+INSERT INTO EMP1 VALUES (5002,upper('Alexander'),'MANAGER',7369,'1981-05-01 05:12:43',2950,NULL,70,'Dancing',10);
+INSERT INTO EMP1 VALUES (5003,upper('Brooke'),'CLERK',5002,'1981-06-09 02:17:12',2222,NULL,100,'Traveling',10);
+INSERT INTO EMP1 VALUES (6001,upper('Bruce'),upper('Personal assistant'),5002,'1981-04-02 12:35:19',4975,NULL,80,'Bungee Jumping',6);
+INSERT INTO EMP1 VALUES (6002,upper('Christopher'),upper('Personal assistant'),7844,'1981-09-28 14:26:00',4250,NULL,180,'Horse Riding',3);
+INSERT INTO EMP1 VALUES (6003,upper('Clive'),upper('Assistant'),7698,'1981-02-20 07:40:00',3600,NULL,120,'Windsurfing',1);
+INSERT INTO EMP1 VALUES (7005,upper('Dirk'),upper('Assistant'),7698,'1981-09-08 08:15:00',1500,NULL,60,'Horse Riding',6);
+INSERT INTO EMP1 VALUES (7006,upper('Eli'),upper('Personal assistant'),7521,'1981-12-03 09:35:00',5400,NULL,70,'Fishing',7);
+INSERT INTO EMP1 VALUES (7007,upper('Ely'),upper('Assistant'),7788,'1981-02-22 10:10:00',5250,NULL,140,'Fishing',7);
+INSERT INTO EMP1 VALUES (8009,upper('Shelley'),'MANAGER',7839,'1981-12-03 11:00:00',6000,NULL,180,NULL,1);
+INSERT INTO EMP1 VALUES (8003,upper('Thomas'),upper('Personal assistant'),8009,'1980-12-17 17:36:00',4900,NULL,50,NULL,2);
+INSERT INTO EMP1 VALUES (7388,upper('Troy'),'ANALYST',8009,'1982-12-09 16:12:00',4100,NULL,160,'Bowling',5);
+INSERT INTO EMP1 VALUES (7877,upper('Stephen'),upper('Assistant'),7788,'1983-01-12 18:33:00',1100,NULL,130,'Bowling',9);
+INSERT INTO EMP1 VALUES (4934,upper('Sherlock'),'CLERK',8009,'1982-01-23 20:20:00',1600,NULL,40,'Fishing',1);
+INSERT INTO EMP1 VALUES (2099,upper('Sherlock'),'CLERK',8009,'1982-01-23 20:22:00',1600,NULL,40,'Bowling',6);
+INSERT INTO EMP1 VALUES (2877,upper('Stephen'),upper('Assistant'),7788,'1983-01-12 18:35:00',1100,NULL,40,'Bowling',3);
+INSERT INTO EMP1 VALUES (3000,'Aaron','Salesman',7877,'1981-11-17 04:29:24',4500,1200,60,'Bowling',4);
+INSERT INTO EMP1 VALUES (3001,('Alexander'),'Manager',7369,'1981-05-01 05:12:43',2950,NULL,90,'Bungee Jumping',1);
+INSERT INTO EMP1 VALUES (3002,('Brooke'),'Clerk',5002,'1981-06-09 02:17:12',2222,NULL,50,'Reading',3);
+INSERT INTO EMP1 VALUES (3003,('Bruce'),('Personal Assistant'),5002,'1981-04-02 12:35:19',4975,NULL,120,'Fishing',5);
+INSERT INTO EMP1 VALUES (3467,('Christopher'),('Personal Assistant'),7844,'1981-09-28 14:26:00',4250,NULL,190,'Reading',7);
+INSERT INTO EMP1 VALUES (3267,('Clive'),('Assistant'),5002,'1981-02-20 07:40:00',3600,NULL,50,'Bungee Jumping',8);
+INSERT INTO EMP1 VALUES (3598,('Dirk'),('Assistant'),7698,'1981-09-08 08:15:00',1500,NULL,60,NULL,6);
+INSERT INTO EMP1 VALUES (3189,('Eli'),('Personal Assistant'),3001,'1981-12-03 09:35:00',5400,NULL,30,'Fishing',1);
+INSERT INTO EMP1 VALUES (3745,lower('Ely'),lower('Assistant'),7788,'1981-02-22 10:10:00',5250,NULL,150,'Astrology',2);
+INSERT INTO EMP1 VALUES (3244,lower('Shelley'),'manager',7839,'1981-12-03 11:00:00',6000,NULL,170,'Fishing',4);
+INSERT INTO EMP1 VALUES (9822,lower('Troy'),'analyst',3000,'1982-12-09 16:12:00',3100,NULL,40,'Bungee Jumping',6);
+INSERT INTO EMP1 VALUES (9341,lower('Thomas'),lower('Personal assistant'),9822,'1980-12-17 17:36:00',4900,NULL,200,NULL,1);
+INSERT INTO EMP1 VALUES (9874,lower('Stephen'),lower('Assistant'),3001,'1983-01-12 18:33:00',1100,NULL,170,NULL,9);
+INSERT INTO EMP1 VALUES (9452,lower('Sherlock'),'clerk',9822,'1982-01-23 20:20:00',1600,NULL,130,NULL,4);
+INSERT INTO EMP1 VALUES (9434,lower('Sherlock'),'clerk',9874,'1982-01-23 20:22:00',1600,NULL,40,NULL,5);
+INSERT INTO EMP1 VALUES (9277,lower('Stephen'),lower('Assistant'),3467,'1983-01-12 18:35:00',1100,NULL,110,NULL,4);
+INSERT INTO EMP1 VALUES (6345,lower('Jay'),'analyst',8009,'1982-12-09 17:12:00',-3100,NULL,50,NULL,null);
+INSERT INTO EMP1 VALUES (6774,lower('Joe'),lower('Assistant'),7788,'1983-01-13 18:33:00',-1100,NULL,190,'Astrology',null);
+INSERT INTO EMP1 VALUES (6342,lower('Joel'),'clerk',8009,'1982-01-23 22:20:00',-1600,NULL,50,NULL,null);
+INSERT INTO EMP1 VALUES (6980,lower('Louis'),'clerk',8009,'1982-01-23 21:22:00',-1600,NULL,30,NULL,null);
+INSERT INTO EMP1 VALUES (6843,lower('Matthew'),lower('Assistant'),7788,'1983-01-12 19:35:00',-1100,NULL,100,NULL,null);
+INSERT INTO EMP1 VALUES (1000,'Alice','Manager',7839,'1983-08-12 19:35:00',9000,NULL,150,'Hang Gliding',1);
+INSERT INTO EMP1 VALUES (1001,'Victor','Assistant Manager',1000,'1983-12-25 11:35:00',8000,NULL,150,'Hang Gliding',4);
+INSERT INTO EMP1 VALUES (1002,'Jack','Assistant',1001,'1983-12-25 11:35:00',7000,NULL,150,NULL,4);
+INSERT INTO EMP1 VALUES (1003,'William','Assistant',1001,'1984-12-30 12:00:00',7000,NULL,150,'Hang Gliding',1);
+INSERT INTO EMP1 VALUES (1004,'Rose','Assistant Manager',1000,'1985-01-30 12:24:00',8000,NULL,150,NULL,7);
+INSERT INTO EMP1 VALUES (1005,'Kate','Assistant Analyst',7388,'1985-01-30 12:24:00',3000,NULL,160,NULL,9);
+INSERT INTO EMP1 VALUES (1006,'William','Salesman',7388,'1980-02-13 21:00:00',23700,1200,160,NULL,8);
+INSERT INTO EMP1 VALUES (1007,'Matthew','Salesman',1005,'1980-02-28 21:00:00',4700,1200,160,'Hang Gliding',3);
+INSERT INTO EMP1 VALUES (1008,'MAI','SALESGIRL',1000,'2001-12-25 11:35:00',8000,111,150,'Traveling',2);
+INSERT INTO EMP1 VALUES (1009,'ZARIA','SALESGIRL',1001,'2002-12-25 11:35:00',7000,555,150,'Traveling',6);
+INSERT INTO EMP1 VALUES (1010,'MAYA','SALESGIRL',1001,'2003-12-30 12:00:00',7000,120,150,'Traveling',7);
+INSERT INTO EMP1 VALUES (1011,'ROSE','SALESGIRL',1000,'2004-01-30 12:24:00',18000,250,150,'Traveling',3);
+INSERT INTO EMP1 VALUES (1012,'KATE','SALESGIRL',7388,'2005-01-30 12:24:00',3000,900,160,'Traveling',9);
+INSERT INTO EMP1 VALUES (1013,'TINA','SALESGIRL',7388,'2006-02-13 21:00:00',13700,2400,160,'Traveling',10);
+INSERT INTO EMP1 VALUES (1014,'MARY','SALESGIRL',1005,'2007-02-28 21:00:00',20000,1550,160,'Traveling',1);
+INSERT INTO EMP1 VALUES (1015,'TESSA','SALESGIRL',1005,'2008-02-28 21:00:00',14700,1100,160,'Traveling',5);
+INSERT INTO EMP1 VALUES (1016,'STEVEN','Assistant',1004,'1983-01-12 18:35:00',-9500,NULL,40,NULL,null);
+
+
+CREATE TABLE EMP2(
+ EMPNO          INT(4) NOT NULL,
+ ENAME          varchar(12),
+ JOB            varchar(20),
+ HIREDATE      datetime,
+ SAL            float(7,2),
+ COMM           float(7,2),
+ DEPTNO         INT(4) NOT NULL,
+ HOBBYID		char(20),
+ BONUSID		INT,
+ CONSTRAINT EMP2_FOREIGN_KEY2 FOREIGN KEY (DEPTNO) REFERENCES DEPT1 (DEPTNO),
+ CONSTRAINT EMP2_PRIMARY_KEY2 PRIMARY KEY (EMPNO));
+
+insert into emp2 select empno,ename,job,hiredate,sal,comm,deptno,hobbyid,BONUSID from emp1;
+
+create table regexpr(C1 varchar(40));
+
+INSERT INTO regexpr VALUES ('abcde');
+INSERT INTO regexpr VALUES ('12345');
+INSERT INTO regexpr VALUES ('1a4A5');
+INSERT INTO regexpr VALUES ('12a45');
+INSERT INTO regexpr VALUES ('12aBC');
+INSERT INTO regexpr VALUES ('12abc');
+INSERT INTO regexpr VALUES ('12ab5');
+INSERT INTO regexpr VALUES ('12aa5');
+INSERT INTO regexpr VALUES ('12AB5');
+INSERT INTO regexpr VALUES ('ABCDE');
+INSERT INTO regexpr VALUES ('123-5');
+INSERT INTO regexpr VALUES ('12.45');
+INSERT INTO regexpr VALUES ('1a4b5');
+INSERT INTO regexpr VALUES ('1 3 5');
+INSERT INTO regexpr VALUES ('1  45');
+INSERT INTO regexpr VALUES ('1   5');
+INSERT INTO regexpr VALUES ('a  b  c  d');
+INSERT INTO regexpr VALUES ('a b  c   d    e');
+INSERT INTO regexpr VALUES ('a              e');
+INSERT INTO regexpr VALUES ('Steven');
+INSERT INTO regexpr VALUES ('Stephen');
+INSERT INTO regexpr VALUES ('STEVEN');
+INSERT INTO regexpr VALUES ('STEPHEN');
+INSERT INTO regexpr VALUES ('111.222.3333');
+INSERT INTO regexpr VALUES ('222.333.4444');
+INSERT INTO regexpr VALUES ('333.444.5555');
+INSERT INTO regexpr VALUES ('abcdefabcdefabcxyz');
+INSERT INTO regexpr VALUES ('SA/1001 SA/1002 SA/1003');
+INSERT INTO regexpr VALUES ('sa/1001 sa/1002 sa/1003 sa/1004');
+INSERT INTO regexpr VALUES ('Sa/1001 Sa/1002 Sa/1003 Sa/1004 Sa/1005');
+	
+
+create table temp1
+(col1 INT(2),
+ col2 varchar(25)
+);
+
+insert into temp1 values(1,'25%');
+insert into temp1 values(2,'1.st%');
+insert into temp1 values(3,'30.12%');
+insert into temp1 values(4,'12^4');
+insert into temp1 values(5,'1^2^3');
+insert into temp1 values(6,'56*12*.12');
+insert into temp1 values(7,'1st INT');
+insert into temp1 values(8,'Rs. 1000');
+insert into temp1 values(9,'$5000');
+insert into temp1 values(10,'ABB+');
+insert into temp1 values(11,'_ABB');
+insert into temp1 values(12,'A_BB');
+insert into temp1 values(13,'CNN');
+insert into temp1 values(14,'C_N_N');
+insert into temp1 values(15,'CN_N');
+insert into temp1 values(16,'ABB_');
+insert into temp1 values(17,'AB_B');
+insert into temp1 values(18,'%ABB');
+insert into temp1 values(19,'A%B%B');
+insert into temp1 values(20,'L&T');
+insert into temp1 values(21,'L_&_T');
+insert into temp1 values(22,'ABB-200');
+insert into temp1 values(23,'ABB:200');
+insert into temp1 values(24,'ABB_200');
+insert into temp1 values(25,'ABB/200/300');
+insert into temp1 values(26,'AC/100, AC/200, AC/300');
+insert into temp1 values(27,'A_B\C');
+insert into temp1 values(28,'A_B_\C');
+insert into temp1 values(29,'A\_BC');
+
+
+create table sort
+(	
+ no varchar(10),
+ no1 char(10)
+);
+
+insert into sort values ('1','1'), ('2','2'), ('3','3'), ('4','4'), ('5','5'), ('6','6'), ('7','7'), ('8','8'), ('9','9'), ('10','10'), ('11','11'), ('12','12'), ('19','19'), ('18','18'), ('13','13'), ('14','14'), ('20','20'), ('27','27'), ('29','29'), ('21','21'), ('22','22'), ('23','23'), ('31','31'), ('45','45'), ('39','39'), ('40','40'), ('400','400'), ('300','300'), ('200','200'), ('100','100'), ('-1','-1'), ('-2','-2'), ('-3','-3'), ('01','01'), ('03','03'), ('02','02');	
+
+
+create table tableA
+(col1 INT,
+ col2 INT);
+
+insert into tablea values (1,2), (3,4), (5,6), (7,8), (9,10), (11,12), (13,14);
+
+
+create table tableB
+(col3 INT,
+ col4 INT);
+
+insert into tableb values (5,7), (3,8), (1,4), (8,7), (Null,10), (11,12);
+
+
+CREATE TABLE SALESPEOPLE (SNUM INT PRIMARY KEY, SNAME VARCHAR(10), CITY VARCHAR(10), COMM FLOAT);
+CREATE TABLE CUSTOMERS (CNUM INT  PRIMARY KEY, CNAME VARCHAR (10), CITY VARCHAR (10), RATING FLOAT, SNUM INT, CONSTRAINT FK_SNUM FOREIGN KEY(SNUM) REFERENCES SALESPEOPLE(SNUM));
+CREATE TABLE ORDERS (ONUM INT PRIMARY KEY, AMT FLOAT, ODATE DATETIME, CNUM INT , SNUM INT,  CONSTRAINT FK_CNUM FOREIGN KEY(CNUM) REFERENCES CUSTOMERS(CNUM) , CONSTRAINT FK_ORDERS_SNUM FOREIGN KEY(SNUM) REFERENCES SALESPEOPLE(SNUM));
+
+INSERT into SALESPEOPLE(SNUM, SNAME, CITY, COMM) values (1001,'Peel','London',.12);
+INSERT into SALESPEOPLE(SNUM, SNAME, CITY, COMM) values (1002,'Serres','San Jose',.13);
+INSERT into SALESPEOPLE(SNUM, SNAME, CITY, COMM) values (1004,'Monika','London',.11);
+INSERT into SALESPEOPLE(SNUM, SNAME, CITY, COMM) values (1007,'Rifkin','Barcelona',.15);
+INSERT into SALESPEOPLE(SNUM, SNAME, CITY, COMM) values (1003,'Axelrod','New York',.10);
+INSERT into SALESPEOPLE(SNUM, SNAME, CITY, COMM) values (1005,'Franc','London',.26);
+
+INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2001,'Hoffman','London',100,1001);
+INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2002,'Giovanni','Rome',200,1003);
+INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2003,'Liu','San Jose',200,1002);
+INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2004,'Grass','Berlin',300,1002);
+INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2006,'Clemens','London',100,1001);
+INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2008,'Cisneros','San Jose',300,1007);
+INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2007,'Pereira','Rome',100,1004);
+INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2009,'Smith','Berlin',300,1007);
+
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3001,18.69,'1996-10-03 12:30', 2008, 1007);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3003,767.19,'1996-10-03 13:45', 2001, 1001);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3002,1900.10,'1996-10-03 12:05',2007,1004);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3005,5160.45,'1996-10-03 14:00',2003,1002);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3006,1098.16,'1996-10-03 13:37',2008,1007);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3009,1713.23,'1996-10-04 15:21',2002,1003);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3007,75.75,'1996-10-04 16:02',2002,1003);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3008,4723.00,'1996-10-05 12:07',2006,1001);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3010,1309.95,'1996-10-06 13:12',2004,1002);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3011,9891.88,'1996-10-06 13:09',2006,1001);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3012,3455.78,'1996-10-04 15:21',2002,1003);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3013,1245.98,'1996-10-04 16:32',2002,1003);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3014,3721.53,'1996-10-05 12:45',2006,1001);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3015,734.50,'1996-10-06 13:16',2004,1002);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3016,1729.67,'1996-10-06 13:07',2006,1001);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3017,18.69,'1996-10-03 12:30', 2001, 1007);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3018,767.19,'1996-10-03 13:45', 2002, 1001);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3019,1900.10,'1996-10-03 12:05',2007,1004);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3020,5160.45,'1996-10-03 14:00',2003,1007);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3021,1098.16,'1996-10-03 13:37',2008,1007);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3022,1713.23,'1996-10-04 15:21',2002,1003);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3023,75.75,'1996-10-04 16:02',2002,1004);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3024,4723.00,'1996-10-05 12:07',2006,1002);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3025,1309.95,'1996-10-06 13:12',2002,1002);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3026,9891.88,'1996-10-06 13:09',2006,1001);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3027,3455.78,'1996-10-04 15:21',2002,1003);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3028,1245.98,'1996-10-04 16:32',2002,1003);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3029,3721.53,'1996-10-05 12:45',2006,1001);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3030,734.50,'1996-10-06 13:16',2004,1002);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3031,1729.67,'1996-10-06 13:07',2006,1007);
+
+update EMP set `user name` = ename;
+update EMP set pwd = (select dept.pwd from dept where emp.deptno = dept.deptno);
+UPDATE EMP SET PWD=NULL WHERE EMPNO=7415;
+UPDATE EMP SET PWD='ABC' WHERE EMPNO=7945;
