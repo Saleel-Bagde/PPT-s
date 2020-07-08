@@ -42,12 +42,29 @@ DROP TABLE SETB cascade constraints purge;
 DROP TABLE STATES cascade constraints purge;
 DROP TABLE STATION cascade constraints purge;
 DROP TABLE Z cascade constraints purge;
+DROP TABLE r1 cascade constraints purge;
+DROP TABLE r2 cascade constraints purge;
 
 DROP VIEW SALES;
 DROP SEQUENCE ORDID;
 DROP SEQUENCE CUSTID;
 DROP SEQUENCE PRODID;
 --alter session set nls_date_format='dd-Mon-rrrr hh24:mi:ss';
+
+CREATE TABLE r1 (c1 number);
+insert into r1 values(1);
+insert into r1 values(2);
+insert into r1 values(3);
+insert into r1 values(4);
+
+CREATE TABLE r2 (c1 number, c2 VARCHAR2(10));
+insert into r2 values(1,'a');
+insert into r2 values(2,'b');
+insert into r2 values(1,'c');
+insert into r2 values(3,'d');
+insert into r2 values(2,'e');
+insert into r2 values(1,'f');
+
 
 CREATE TABLE Z (C1 CHAR);
 INSERT INTO Z VALUES('X');
@@ -512,7 +529,7 @@ insert into blanktable values(5,5);
 insert into blanktable values(null,null);
 insert into blanktable values(null,6);
 
-CREATE TABLE HOBBY (HOBBYID NUMBER(3), HOBBY CHAR(16), WALLETID  NUMBER(5));
+CREATE TABLE HOBBY (HOBBYID NUMBER(3), NAME CHAR(16), WALLETID  NUMBER(5));
 
 INSERT INTO HOBBY VALUES (1,'Windsurfing',1);
 INSERT INTO HOBBY VALUES (2,'Fishing',2);
@@ -1171,80 +1188,80 @@ CREATE TABLE EMP1 (
  SAL            NUMBER(7,2),
  COMM           NUMBER(7,2),
  DEPTNO         NUMBER(4) NOT NULL,
- HOBBYID 		char(20),
+ HOBBYID 		NUMBER,
  BONUSID		NUMBER,
  CONSTRAINT EMP1_FOREIGN_KEY1 FOREIGN KEY (DEPTNO) REFERENCES DEPT1 (DEPTNO),
  CONSTRAINT EMP1_PRIMARY_KEY1 PRIMARY KEY (EMPNO));
 
 --create table emp1 as select * from emp where 1 = 2;
 
-INSERT INTO EMP1 VALUES (7839,'KING','PRESIDENT',NULL,to_date('17-NOV-1981 04:20:24','dd-Mon-yyyy hh24:mi:ss'),5000,NULL,10,'Windsurfing',1);
-INSERT INTO EMP1 VALUES (7698,'BLAKE','MANAGER',7839,to_date('1-MAY-1981 05:54:43','dd-Mon-yyyy hh24:mi:ss'),2850,NULL,30,'Fishing',3);
-INSERT INTO EMP1 VALUES (7782,'CLARK','MANAGER',7839,to_date('9-JUN-1981 02:12:12','dd-Mon-yyyy hh24:mi:ss'),2450,NULL,10,'Swimming',5);
-INSERT INTO EMP1 VALUES (7566,'JONES','MANAGER',7839,to_date('2-APR-1981 12:45:19','dd-Mon-yyyy hh24:mi:ss'),2975,NULL,20,'Shopping',7);
-INSERT INTO EMP1 VALUES (7654,'MARTIN','SALESMAN',7698,to_date('28-SEP-1981 14:26:00','dd-Mon-yyyy hh24:mi:ss'),1250,1400,30,'Fishing',4);
-INSERT INTO EMP1 VALUES (7499,'ALLEN','SALESMAN',7698,to_date('20-FEB-1981 07:30:00','dd-Mon-yyyy hh:mi:ss'),1600,300,30,'Bowling',8);
+INSERT INTO EMP1 VALUES (7839,'KING','PRESIDENT',NULL,to_date('17-NOV-1981 04:20:24','dd-Mon-yyyy hh24:mi:ss'),5000,NULL,10,1,1);
+INSERT INTO EMP1 VALUES (7698,'BLAKE','MANAGER',7839,to_date('1-MAY-1981 05:54:43','dd-Mon-yyyy hh24:mi:ss'),2850,NULL,30,3,3);
+INSERT INTO EMP1 VALUES (7782,'CLARK','MANAGER',7839,to_date('9-JUN-1981 02:12:12','dd-Mon-yyyy hh24:mi:ss'),2450,NULL,10,4,5);
+INSERT INTO EMP1 VALUES (7566,'JONES','MANAGER',7839,to_date('2-APR-1981 12:45:19','dd-Mon-yyyy hh24:mi:ss'),2975,NULL,20,5,7);
+INSERT INTO EMP1 VALUES (7654,'MARTIN','SALESMAN',7698,to_date('28-SEP-1981 14:26:00','dd-Mon-yyyy hh24:mi:ss'),1250,1400,30,8,4);
+INSERT INTO EMP1 VALUES (7499,'ALLEN','SALESMAN',7698,to_date('20-FEB-1981 07:30:00','dd-Mon-yyyy hh:mi:ss'),1600,300,30,1,8);
 INSERT INTO EMP1 VALUES (7844,'TURNER','SALESMAN',7698,to_date('8-SEP-1981 08:45:00','dd-Mon-yyyy hh:mi:ss'),1500,0,30,NULL,10);
-INSERT INTO EMP1 VALUES (7900,'JAMES','CLERK',7698,to_date('3-DEC-1981 09:25:00','dd-Mon-yyyy hh:mi:ss'),950,NULL,30,'Swimming',8);
-INSERT INTO EMP1 VALUES (7521,'WARD','SALESMAN',7698,to_date('22-FEB-1981 10:15:00','dd-Mon-yyyy hh:mi:ss'),1250,500,30,'Windsurfing',3);
+INSERT INTO EMP1 VALUES (7900,'JAMES','CLERK',7698,to_date('3-DEC-1981 09:25:00','dd-Mon-yyyy hh:mi:ss'),950,NULL,30,2,8);
+INSERT INTO EMP1 VALUES (7521,'WARD','SALESMAN',7698,to_date('22-FEB-1981 10:15:00','dd-Mon-yyyy hh:mi:ss'),1250,500,30,13,3);
 INSERT INTO EMP1 VALUES (7902,'FORD','ANALYST',7566,to_date('3-DEC-1981 11:00:00','dd-Mon-yyyy hh:mi:ss'),3000,NULL,20,NULL,2);
 INSERT INTO EMP1 VALUES (7369,'SMITH','CLERK',7902,to_Date('17-DEC-1980 17:36:00','dd-Mon-yyyy hh24:mi:ss'),800,NULL,20,NULL,1);
-INSERT INTO EMP1 VALUES (7788,'SCOTT','ANALYST',7566,to_Date('09-DEC-1982 16:12:00','dd-Mon-yyyy hh24:mi:ss'),3000,NULL,20,'Fishing',1);
-INSERT INTO EMP1 VALUES (7876,'ADAMS','CLERK',7788,to_date('12-JAN-1983 18:33:00','dd-Mon-yyyy hh24:mi:ss'),1100,NULL,20,'Swimming',4);
-INSERT INTO EMP1 VALUES (7934,'MILLER','CLERK',7782,to_date('23-JAN-1982 20:20:00','dd-Mon-yyyy hh24:mi:ss'),1300,NULL,10,'Shopping',3);
-INSERT INTO EMP1 VALUES (5001,'AARON','SALESMAN',7902,to_date('17-NOV-1981 04:29:24','dd-Mon-yyyy hh24:mi:ss'),4500,1200,60,'Reading',9);
-INSERT INTO EMP1 VALUES (5002,upper('Alexander'),'MANAGER',7369,to_date('1-MAY-1981 05:12:43','dd-Mon-yyyy hh24:mi:ss'),2950,NULL,70,'Dancing',10);
-INSERT INTO EMP1 VALUES (5003,upper('Brooke'),'CLERK',5002,to_date('9-JUN-1981 02:17:12','dd-Mon-yyyy hh24:mi:ss'),2222,NULL,100,'Traveling',10);
-INSERT INTO EMP1 VALUES (6001,upper('Bruce'),upper('Personal assistant'),5002,to_date('2-APR-1981 12:35:19','dd-Mon-yyyy hh24:mi:ss'),4975,NULL,80,'Bungee Jumping',6);
-INSERT INTO EMP1 VALUES (6002,upper('Christopher'),upper('Personal assistant'),7844,to_date('28-SEP-1981 14:26:00','dd-Mon-yyyy hh24:mi:ss'),4250,NULL,180,'Horse Riding',3);
-INSERT INTO EMP1 VALUES (6003,upper('Clive'),upper('Assistant'),7698,to_date('20-FEB-1981 07:40:00','dd-Mon-yyyy hh:mi:ss'),3600,NULL,120,'Windsurfing',1);
-INSERT INTO EMP1 VALUES (7005,upper('Dirk'),upper('Assistant'),7698,to_date('8-SEP-1981 08:15:00','dd-Mon-yyyy hh:mi:ss'),1500,NULL,60,'Horse Riding',6);
-INSERT INTO EMP1 VALUES (7006,upper('Eli'),upper('Personal assistant'),7521,to_date('3-DEC-1981 09:35:00','dd-Mon-yyyy hh:mi:ss'),5400,NULL,70,'Fishing',7);
-INSERT INTO EMP1 VALUES (7007,upper('Ely'),upper('Assistant'),7788,to_date('22-FEB-1981 10:10:00','dd-Mon-yyyy hh:mi:ss'),5250,NULL,140,'Fishing',7);
+INSERT INTO EMP1 VALUES (7788,'SCOTT','ANALYST',7566,to_Date('09-DEC-1982 16:12:00','dd-Mon-yyyy hh24:mi:ss'),3000,NULL,20,5,1);
+INSERT INTO EMP1 VALUES (7876,'ADAMS','CLERK',7788,to_date('12-JAN-1983 18:33:00','dd-Mon-yyyy hh24:mi:ss'),1100,NULL,20,6,4);
+INSERT INTO EMP1 VALUES (7934,'MILLER','CLERK',7782,to_date('23-JAN-1982 20:20:00','dd-Mon-yyyy hh24:mi:ss'),1300,NULL,10,2,3);
+INSERT INTO EMP1 VALUES (5001,'AARON','SALESMAN',7902,to_date('17-NOV-1981 04:29:24','dd-Mon-yyyy hh24:mi:ss'),4500,1200,60,5,9);
+INSERT INTO EMP1 VALUES (5002,upper('Alexander'),'MANAGER',7369,to_date('1-MAY-1981 05:12:43','dd-Mon-yyyy hh24:mi:ss'),2950,NULL,70,6,10);
+INSERT INTO EMP1 VALUES (5003,upper('Brooke'),'CLERK',5002,to_date('9-JUN-1981 02:17:12','dd-Mon-yyyy hh24:mi:ss'),2222,NULL,100,1,10);
+INSERT INTO EMP1 VALUES (6001,upper('Bruce'),upper('Personal assistant'),5002,to_date('2-APR-1981 12:35:19','dd-Mon-yyyy hh24:mi:ss'),4975,NULL,80,4,6);
+INSERT INTO EMP1 VALUES (6002,upper('Christopher'),upper('Personal assistant'),7844,to_date('28-SEP-1981 14:26:00','dd-Mon-yyyy hh24:mi:ss'),4250,NULL,180,2,3);
+INSERT INTO EMP1 VALUES (6003,upper('Clive'),upper('Assistant'),7698,to_date('20-FEB-1981 07:40:00','dd-Mon-yyyy hh:mi:ss'),3600,NULL,120,5,1);
+INSERT INTO EMP1 VALUES (7005,upper('Dirk'),upper('Assistant'),7698,to_date('8-SEP-1981 08:15:00','dd-Mon-yyyy hh:mi:ss'),1500,NULL,60,4,6);
+INSERT INTO EMP1 VALUES (7006,upper('Eli'),upper('Personal assistant'),7521,to_date('3-DEC-1981 09:35:00','dd-Mon-yyyy hh:mi:ss'),5400,NULL,70,3,7);
+INSERT INTO EMP1 VALUES (7007,upper('Ely'),upper('Assistant'),7788,to_date('22-FEB-1981 10:10:00','dd-Mon-yyyy hh:mi:ss'),5250,NULL,140,3,7);
 INSERT INTO EMP1 VALUES (8009,upper('Shelley'),'MANAGER',7839,to_date('3-DEC-1981 11:00:00','dd-Mon-yyyy hh:mi:ss'),6000,NULL,180,NULL,1);
 INSERT INTO EMP1 VALUES (8003,upper('Thomas'),upper('Personal assistant'),8009,to_Date('17-DEC-1980 17:36:00','dd-Mon-yyyy hh24:mi:ss'),4900,NULL,50,NULL,2);
-INSERT INTO EMP1 VALUES (7388,upper('Troy'),'ANALYST',8009,to_Date('09-DEC-1982 16:12:00','dd-Mon-yy hh24:mi:ss'),4100,NULL,160,'Bowling',5);
-INSERT INTO EMP1 VALUES (7877,upper('Stephen'),upper('Assistant'),7788,to_date('12-JAN-1983 18:33:00','dd-Mon-yy hh24:mi:ss'),1100,NULL,130,'Bowling',9);
-INSERT INTO EMP1 VALUES (4934,upper('Sherlock'),'CLERK',8009,to_date('23-JAN-1982 20:20:00','dd-Mon-yy hh24:mi:ss'),1600,NULL,40,'Fishing',1);
-INSERT INTO EMP1 VALUES (2099,upper('Sherlock'),'CLERK',8009,to_date('23-JAN-1982 20:22:00','dd-Mon-yy hh24:mi:ss'),1600,NULL,40,'Bowling',6);
-INSERT INTO EMP1 VALUES (2877,upper('Stephen'),upper('Assistant'),7788,to_date('12-JAN-1983 18:35:00','dd-Mon-yy hh24:mi:ss'),1100,NULL,40,'Bowling',3);
-INSERT INTO EMP1 VALUES (3000,'Aaron','Salesman',7877,to_date('17-NOV-1981 04:29:24','dd-Mon-yyyy hh24:mi:ss'),4500,1200,60,'Bowling',4);
-INSERT INTO EMP1 VALUES (3001,('Alexander'),'Manager',7369,to_date('1-MAY-1981 05:12:43','dd-Mon-yyyy hh24:mi:ss'),2950,NULL,90,'Bungee Jumping',1);
-INSERT INTO EMP1 VALUES (3002,('Brooke'),'Clerk',5002,to_date('9-JUN-1981 02:17:12','dd-Mon-yyyy hh24:mi:ss'),2222,NULL,50,'Reading',3);
-INSERT INTO EMP1 VALUES (3003,('Bruce'),('Personal Assistant'),5002,to_date('2-APR-1981 12:35:19','dd-Mon-yyyy hh24:mi:ss'),4975,NULL,120,'Fishing',5);
-INSERT INTO EMP1 VALUES (3467,('Christopher'),('Personal Assistant'),7844,to_date('28-SEP-1981 14:26:00','dd-Mon-yyyy hh24:mi:ss'),4250,NULL,190,'Reading',7);
-INSERT INTO EMP1 VALUES (3267,('Clive'),('Assistant'),5002,to_date('20-FEB-1981 07:40:00','dd-Mon-yyyy hh:mi:ss'),3600,NULL,50,'Bungee Jumping',8);
+INSERT INTO EMP1 VALUES (7388,upper('Troy'),'ANALYST',8009,to_Date('09-DEC-1982 16:12:00','dd-Mon-yy hh24:mi:ss'),4100,NULL,160,7,5);
+INSERT INTO EMP1 VALUES (7877,upper('Stephen'),upper('Assistant'),7788,to_date('12-JAN-1983 18:33:00','dd-Mon-yy hh24:mi:ss'),1100,NULL,130,6,9);
+INSERT INTO EMP1 VALUES (4934,upper('Sherlock'),'CLERK',8009,to_date('23-JAN-1982 20:20:00','dd-Mon-yy hh24:mi:ss'),1600,NULL,40,1,1);
+INSERT INTO EMP1 VALUES (2099,upper('Sherlock'),'CLERK',8009,to_date('23-JAN-1982 20:22:00','dd-Mon-yy hh24:mi:ss'),1600,NULL,40,3,6);
+INSERT INTO EMP1 VALUES (2877,upper('Stephen'),upper('Assistant'),7788,to_date('12-JAN-1983 18:35:00','dd-Mon-yy hh24:mi:ss'),1100,NULL,40,4,3);
+INSERT INTO EMP1 VALUES (3000,'Aaron','Salesman',7877,to_date('17-NOV-1981 04:29:24','dd-Mon-yyyy hh24:mi:ss'),4500,1200,60,7,4);
+INSERT INTO EMP1 VALUES (3001,('Alexander'),'Manager',7369,to_date('1-MAY-1981 05:12:43','dd-Mon-yyyy hh24:mi:ss'),2950,NULL,90,2,1);
+INSERT INTO EMP1 VALUES (3002,('Brooke'),'Clerk',5002,to_date('9-JUN-1981 02:17:12','dd-Mon-yyyy hh24:mi:ss'),2222,NULL,50,5,3);
+INSERT INTO EMP1 VALUES (3003,('Bruce'),('Personal Assistant'),5002,to_date('2-APR-1981 12:35:19','dd-Mon-yyyy hh24:mi:ss'),4975,NULL,120,1,5);
+INSERT INTO EMP1 VALUES (3467,('Christopher'),('Personal Assistant'),7844,to_date('28-SEP-1981 14:26:00','dd-Mon-yyyy hh24:mi:ss'),4250,NULL,190,2,7);
+INSERT INTO EMP1 VALUES (3267,('Clive'),('Assistant'),5002,to_date('20-FEB-1981 07:40:00','dd-Mon-yyyy hh:mi:ss'),3600,NULL,50,3,8);
 INSERT INTO EMP1 VALUES (3598,('Dirk'),('Assistant'),7698,to_date('8-SEP-1981 08:15:00','dd-Mon-yyyy hh:mi:ss'),1500,NULL,60,NULL,6);
-INSERT INTO EMP1 VALUES (3189,('Eli'),('Personal Assistant'),3001,to_date('3-DEC-1981 09:35:00','dd-Mon-yyyy hh:mi:ss'),5400,NULL,30,'Fishing',1);
-INSERT INTO EMP1 VALUES (3745,lower('Ely'),lower('Assistant'),7788,to_date('22-FEB-1981 10:10:00','dd-Mon-yyyy hh:mi:ss'),5250,NULL,150,'Astrology',2);
-INSERT INTO EMP1 VALUES (3244,lower('Shelley'),'manager',7839,to_date('3-DEC-1981 11:00:00','dd-Mon-yyyy hh:mi:ss'),6000,NULL,170,'Fishing',4);
-INSERT INTO EMP1 VALUES (9822,lower('Troy'),'analyst',3000,to_Date('09-DEC-1982 16:12:00','dd-Mon-yy hh24:mi:ss'),3100,NULL,40,'Bungee Jumping',6);
+INSERT INTO EMP1 VALUES (3189,('Eli'),('Personal Assistant'),3001,to_date('3-DEC-1981 09:35:00','dd-Mon-yyyy hh:mi:ss'),5400,NULL,30,4,1);
+INSERT INTO EMP1 VALUES (3745,lower('Ely'),lower('Assistant'),7788,to_date('22-FEB-1981 10:10:00','dd-Mon-yyyy hh:mi:ss'),5250,NULL,150,4,2);
+INSERT INTO EMP1 VALUES (3244,lower('Shelley'),'manager',7839,to_date('3-DEC-1981 11:00:00','dd-Mon-yyyy hh:mi:ss'),6000,NULL,170,5,4);
+INSERT INTO EMP1 VALUES (9822,lower('Troy'),'analyst',3000,to_Date('09-DEC-1982 16:12:00','dd-Mon-yy hh24:mi:ss'),3100,NULL,40,6,6);
 INSERT INTO EMP1 VALUES (9341,lower('Thomas'),lower('Personal assistant'),9822,to_Date('17-DEC-1980 17:36:00','dd-Mon-yyyy hh24:mi:ss'),4900,NULL,200,NULL,1);
 INSERT INTO EMP1 VALUES (9874,lower('Stephen'),lower('Assistant'),3001,to_date('12-JAN-1983 18:33:00','dd-Mon-yy hh24:mi:ss'),1100,NULL,170,NULL,9);
 INSERT INTO EMP1 VALUES (9452,lower('Sherlock'),'clerk',9822,to_date('23-JAN-1982 20:20:00','dd-Mon-yy hh24:mi:ss'),1600,NULL,130,NULL,4);
 INSERT INTO EMP1 VALUES (9434,lower('Sherlock'),'clerk',9874,to_date('23-JAN-1982 20:22:00','dd-Mon-yy hh24:mi:ss'),1600,NULL,40,NULL,5);
 INSERT INTO EMP1 VALUES (9277,lower('Stephen'),lower('Assistant'),3467,to_date('12-JAN-1983 18:35:00','dd-Mon-yy hh24:mi:ss'),1100,NULL,110,NULL,4);
 INSERT INTO EMP1 VALUES (6345,lower('Jay'),'analyst',8009,to_Date('09-DEC-1982 17:12:00','dd-Mon-yy hh24:mi:ss'),-3100,NULL,50,NULL,null);
-INSERT INTO EMP1 VALUES (6774,lower('Joe'),lower('Assistant'),7788,to_date('13-JAN-1983 18:33:00','dd-Mon-yy hh24:mi:ss'),-1100,NULL,190,'Astrology',null);
+INSERT INTO EMP1 VALUES (6774,lower('Joe'),lower('Assistant'),7788,to_date('13-JAN-1983 18:33:00','dd-Mon-yy hh24:mi:ss'),-1100,NULL,190,2,null);
 INSERT INTO EMP1 VALUES (6342,lower('Joel'),'clerk',8009,to_date('23-JAN-1982 22:20:00','dd-Mon-yy hh24:mi:ss'),-1600,NULL,50,NULL,null);
 INSERT INTO EMP1 VALUES (6980,lower('Louis'),'clerk',8009,to_date('23-JAN-1982 21:22:00','dd-Mon-yy hh24:mi:ss'),-1600,NULL,30,NULL,null);
 INSERT INTO EMP1 VALUES (6843,lower('Matthew'),lower('Assistant'),7788,to_date('12-JAN-1983 19:35:00','dd-Mon-yy hh24:mi:ss'),-1100,NULL,100,NULL,null);
-INSERT INTO EMP1 VALUES (1000,'Alice','Manager',7839,to_date('12-Aug-1983 19:35:00','dd-Mon-yy hh24:mi:ss'),9000,NULL,150,'Hang Gliding',1);
-INSERT INTO EMP1 VALUES (1001,'Victor','Assistant Manager',1000,to_date('25-Dec-1983 11:35:00','dd-Mon-yy hh24:mi:ss'),8000,NULL,150,'Hang Gliding',4);
+INSERT INTO EMP1 VALUES (1000,'Alice','Manager',7839,to_date('12-Aug-1983 19:35:00','dd-Mon-yy hh24:mi:ss'),9000,NULL,150,4,1);
+INSERT INTO EMP1 VALUES (1001,'Victor','Assistant Manager',1000,to_date('25-Dec-1983 11:35:00','dd-Mon-yy hh24:mi:ss'),8000,NULL,150,1,4);
 INSERT INTO EMP1 VALUES (1002,'Jack','Assistant',1001,to_date('25-Dec-1983 11:35:00','dd-Mon-yy hh24:mi:ss'),7000,NULL,150,NULL,4);
-INSERT INTO EMP1 VALUES (1003,'William','Assistant',1001,to_date('30-Dec-1984 12:00:00','dd-Mon-yy hh24:mi:ss'),7000,NULL,150,'Hang Gliding',1);
+INSERT INTO EMP1 VALUES (1003,'William','Assistant',1001,to_date('30-Dec-1984 12:00:00','dd-Mon-yy hh24:mi:ss'),7000,NULL,150,4,1);
 INSERT INTO EMP1 VALUES (1004,'Rose','Assistant Manager',1000,to_date('30-Jan-1985 12:24:00','dd-Mon-yy hh24:mi:ss'),8000,NULL,150,NULL,7);
 INSERT INTO EMP1 VALUES (1005,'Kate','Assistant Analyst',7388,to_date('30-Jan-1985 12:24:00','dd-Mon-yy hh24:mi:ss'),3000,NULL,160,NULL,9);
 INSERT INTO EMP1 VALUES (1006,'William','Salesman',7388,to_date('13-Feb-1980 21:00:00','dd-Mon-yy hh24:mi:ss'),23700,1200,160,NULL,8);
-INSERT INTO EMP1 VALUES (1007,'Matthew','Salesman',1005,to_date('28-Feb-1980 21:00:00','dd-Mon-yy hh24:mi:ss'),4700,1200,160,'Hang Gliding',3);
-INSERT INTO EMP1 VALUES (1008,'MAI','SALESGIRL',1000,to_date('25-Dec-2001 11:35:00','dd-Mon-yy hh24:mi:ss'),8000,111,150,'Traveling',2);
-INSERT INTO EMP1 VALUES (1009,'ZARIA','SALESGIRL',1001,to_date('25-Dec-2002 11:35:00','dd-Mon-yy hh24:mi:ss'),7000,555,150,'Traveling',6);
-INSERT INTO EMP1 VALUES (1010,'MAYA','SALESGIRL',1001,to_date('30-Dec-2003 12:00:00','dd-Mon-yy hh24:mi:ss'),7000,120,150,'Traveling',7);
-INSERT INTO EMP1 VALUES (1011,'ROSE','SALESGIRL',1000,to_date('30-Jan-2004 12:24:00','dd-Mon-yy hh24:mi:ss'),18000,250,150,'Traveling',3);
-INSERT INTO EMP1 VALUES (1012,'KATE','SALESGIRL',7388,to_date('30-Jan-2005 12:24:00','dd-Mon-yy hh24:mi:ss'),3000,900,160,'Traveling',9);
-INSERT INTO EMP1 VALUES (1013,'TINA','SALESGIRL',7388,to_date('13-Feb-2006 21:00:00','dd-Mon-yy hh24:mi:ss'),13700,2400,160,'Traveling',10);
-INSERT INTO EMP1 VALUES (1014,'MARY','SALESGIRL',1005,to_date('28-Feb-2007 21:00:00','dd-Mon-yy hh24:mi:ss'),20000,1550,160,'Traveling',1);
-INSERT INTO EMP1 VALUES (1015,'TESSA','SALESGIRL',1005,to_date('28-Feb-2008 21:00:00','dd-Mon-yy hh24:mi:ss'),14700,1100,160,'Traveling',5);
+INSERT INTO EMP1 VALUES (1007,'Matthew','Salesman',1005,to_date('28-Feb-1980 21:00:00','dd-Mon-yy hh24:mi:ss'),4700,1200,160,4,3);
+INSERT INTO EMP1 VALUES (1008,'MAI','SALESGIRL',1000,to_date('25-Dec-2001 11:35:00','dd-Mon-yy hh24:mi:ss'),8000,111,150,5,2);
+INSERT INTO EMP1 VALUES (1009,'ZARIA','SALESGIRL',1001,to_date('25-Dec-2002 11:35:00','dd-Mon-yy hh24:mi:ss'),7000,555,150,3,6);
+INSERT INTO EMP1 VALUES (1010,'MAYA','SALESGIRL',1001,to_date('30-Dec-2003 12:00:00','dd-Mon-yy hh24:mi:ss'),7000,120,150,2,7);
+INSERT INTO EMP1 VALUES (1011,'ROSE','SALESGIRL',1000,to_date('30-Jan-2004 12:24:00','dd-Mon-yy hh24:mi:ss'),18000,250,150,1,3);
+INSERT INTO EMP1 VALUES (1012,'KATE','SALESGIRL',7388,to_date('30-Jan-2005 12:24:00','dd-Mon-yy hh24:mi:ss'),3000,900,160,3,9);
+INSERT INTO EMP1 VALUES (1013,'TINA','SALESGIRL',7388,to_date('13-Feb-2006 21:00:00','dd-Mon-yy hh24:mi:ss'),13700,2400,160,5,10);
+INSERT INTO EMP1 VALUES (1014,'MARY','SALESGIRL',1005,to_date('28-Feb-2007 21:00:00','dd-Mon-yy hh24:mi:ss'),20000,1550,160,2,1);
+INSERT INTO EMP1 VALUES (1015,'TESSA','SALESGIRL',1005,to_date('28-Feb-2008 21:00:00','dd-Mon-yy hh24:mi:ss'),14700,1100,160,3,5);
 INSERT INTO EMP1 VALUES (1016,'STEVEN','Assistant',1004,to_date('12-JAN-1983 18:35:00','dd-Mon-yy hh24:mi:ss'),-9500,NULL,40,NULL,null);
 
 commit;
@@ -1257,7 +1274,7 @@ CREATE TABLE EMP2(
  SAL            NUMBER(7,2),
  COMM           NUMBER(7,2),
  DEPTNO         NUMBER(4) NOT NULL,
- HOBBYID		char(20),
+ HOBBYID		NUMBER,
  BONUSID		NUMBER,
  CONSTRAINT EMP2_FOREIGN_KEY2 FOREIGN KEY (DEPTNO) REFERENCES DEPT1 (DEPTNO),
  CONSTRAINT EMP2_PRIMARY_KEY2 PRIMARY KEY (EMPNO));
@@ -1271,8 +1288,8 @@ LOCATIONNAME VARCHAR2(10));
 
 CREATE TABLE DEPT2 (
  DEPTNO        NUMBER(4) NOT NULL,
- DNAME           VARCHAR2(20),
- LOC 	        LOCATIONTYPE,
+ DNAME         VARCHAR2(20),
+ LOC 	       LOCATIONTYPE,
  CONSTRAINT DEPT2_PRIMARY_KEY2 PRIMARY KEY (DEPTNO));
 
 INSERT INTO DEPT2 VALUES (10,'ACCOUNTING',locationtype('1','NEW YORK'));
@@ -1476,6 +1493,6 @@ select * from dual;
 purge recyclebin;
 
 update emp2 set empno=rownum;
-update emp1 set hobbyid = (select hobbyid from hobby where emp1.hobbyid = hobby.hobby);
+
 commit;
 set define on
