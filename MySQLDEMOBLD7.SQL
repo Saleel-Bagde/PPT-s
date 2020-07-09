@@ -48,9 +48,25 @@ DROP TABLE IF EXISTS SALESPEOPLE;
 DROP TABLE IF EXISTS TASKS;
 DROP TABLE IF EXISTS r1;
 DROP TABLE IF EXISTS r2;
+DROP TABLE IF EXISTS envelope;
+DROP TABLE IF EXISTS docs;
+DROP TABLE IF EXISTS tableA;
+DROP TABLE IF EXISTS tableB;
 
 drop VIEW IF EXISTS SALES;
+CREATE TABLE tableA(id INT, name varchar(10));
+CREATE TABLE tableB(id INT, name varchar(10));
 
+INSERT INTO tableA VALUES(5,'aa'),(1,'a'), (2,'b'), (3,'y'), (null,'d'), (5,null),(1,null),(1,'b'),(8,'a');
+INSERT INTO tableB VALUES(1,'a'), (2,'x'), (4,'b'), (null,'c'), (6,null),(null, null),(7,'z'),(2, null),(5,'z'),(9,'u');
+
+
+CREATE TABLE envelope(id int, user_id int);
+CREATE TABLE docs(idnum int, pageseq int, doctext varchar(100));
+
+INSERT INTO envelope VALUES (1,1), (2,2), (3,3);
+
+INSERT INTO docs(idnum,pageseq) VALUES (1,5), (2,6), (null,0);
 
 CREATE TABLE IF NOT EXISTS r1 (c1 INT);
 insert into r1 values(1),(2),(3),(4);
