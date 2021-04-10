@@ -1,50 +1,51 @@
-﻿DROP TABLE IF EXISTS  PRODUCTS;
-DROP TABLE IF EXISTS  A;
-DROP TABLE IF EXISTS  B;
-DROP TABLE IF EXISTS  EMP;
-DROP TABLE IF EXISTS  DEPT;
-DROP TABLE IF EXISTS  REPLACEDEPT;
-DROP TABLE IF EXISTS  BONUS;
-DROP TABLE IF EXISTS  SALGRADE;
-DROP TABLE IF EXISTS  DUMMY;
-DROP TABLE IF EXISTS  ITEM;
-DROP TABLE IF EXISTS  PRICE;
-DROP TABLE IF EXISTS  PRODUCT;
-DROP TABLE IF EXISTS  ORD;
-DROP TABLE IF EXISTS  CUSTOMER;
-DROP TABLE IF EXISTS  EMP_Cards;
-DROP TABLE IF EXISTS  EMP1;
-DROP TABLE IF EXISTS  EMP2;
-DROP TABLE IF EXISTS  DEPT1;
-DROP TABLE IF EXISTS  DEPT2;
-DROP TABLE IF EXISTS  DEPT3;
-DROP TABLE IF EXISTS  regexpr;
-DROP TABLE IF EXISTS  temp1;
-DROP TABLE IF EXISTS  SORT;
-DROP TABLE IF EXISTS  Location;
-DROP TABLE IF EXISTS  TableA;
-DROP TABLE IF EXISTS  TableB;
-DROP TABLE IF EXISTS  TableAA;
-DROP TABLE IF EXISTS  TableBB;
-DROP TABLE IF EXISTS  HOBBY;
-DROP TABLE IF EXISTS  NEW;
-DROP TABLE IF EXISTS  BLANKTABLEA;
-DROP TABLE IF EXISTS  BLANKTABLEB;
-DROP TABLE IF EXISTS  NEAREST;
-DROP TABLE IF EXISTS  DEMODEPT1;
-DROP TABLE IF EXISTS  DEMODEPT2;
-DROP TABLE IF EXISTS  COALESCE;
-DROP TABLE IF EXISTS  DUPLICATE;
-DROP TABLE IF EXISTS  NULLIF;
-DROP TABLE IF EXISTS  STATUS;
-DROP TABLE IF EXISTS  SALESPERSON;
-DROP TABLE IF EXISTS  MENUCARD;
-DROP TABLE IF EXISTS  SOFTDRINK;
-DROP TABLE IF EXISTS  SETA;
-DROP TABLE IF EXISTS  SETB;
-DROP TABLE IF EXISTS  STATES;
-DROP TABLE IF EXISTS  STATION;
-DROP TABLE IF EXISTS  Z;
+﻿DROP TABLE IF EXISTS PRODUCTS;
+DROP TABLE IF EXISTS A;
+DROP TABLE IF EXISTS B;
+DROP TABLE IF EXISTS EMP;
+DROP TABLE IF EXISTS DEPT;
+DROP TABLE IF EXISTS REPLACEDEPT;
+DROP TABLE IF EXISTS BONUS;
+DROP TABLE IF EXISTS SALGRADE;
+DROP TABLE IF EXISTS DUMMY;
+DROP TABLE IF EXISTS ITEM;
+DROP TABLE IF EXISTS PRICE;
+DROP TABLE IF EXISTS PRODUCT;
+DROP TABLE IF EXISTS ORD;
+DROP TABLE IF EXISTS CUSTOMER;
+DROP TABLE IF EXISTS EMP_Cards;
+DROP TABLE IF EXISTS emp_phone;
+DROP TABLE IF EXISTS EMP1;
+DROP TABLE IF EXISTS EMP2;
+DROP TABLE IF EXISTS DEPT1;
+DROP TABLE IF EXISTS DEPT2;
+DROP TABLE IF EXISTS DEPT3;
+DROP TABLE IF EXISTS regexpr;
+DROP TABLE IF EXISTS temp1;
+DROP TABLE IF EXISTS SORT;
+DROP TABLE IF EXISTS Location;
+DROP TABLE IF EXISTS TableA;
+DROP TABLE IF EXISTS TableB;
+DROP TABLE IF EXISTS TableAA;
+DROP TABLE IF EXISTS TableBB;
+DROP TABLE IF EXISTS HOBBY;
+DROP TABLE IF EXISTS NEW;
+DROP TABLE IF EXISTS BLANKTABLEA;
+DROP TABLE IF EXISTS BLANKTABLEB;
+DROP TABLE IF EXISTS NEAREST;
+DROP TABLE IF EXISTS DEMODEPT1;
+DROP TABLE IF EXISTS DEMODEPT2;
+DROP TABLE IF EXISTS COALESCE;
+DROP TABLE IF EXISTS DUPLICATE;
+DROP TABLE IF EXISTS NULLIF;
+DROP TABLE IF EXISTS STATUS;
+DROP TABLE IF EXISTS SALESPERSON;
+DROP TABLE IF EXISTS MENUCARD;
+DROP TABLE IF EXISTS SOFTDRINK;
+DROP TABLE IF EXISTS SETA;
+DROP TABLE IF EXISTS SETB;
+DROP TABLE IF EXISTS STATES;
+DROP TABLE IF EXISTS STATION;
+DROP TABLE IF EXISTS Z;
 DROP TABLE IF EXISTS ORDERS;
 DROP TABLE IF EXISTS CUSTOMERS;
 DROP TABLE IF EXISTS SALESPEOPLE;
@@ -55,8 +56,412 @@ DROP TABLE IF EXISTS envelope;
 DROP TABLE IF EXISTS docs;
 DROP TABLE IF EXISTS tableA;
 DROP TABLE IF EXISTS tableB;
+DROP TABLE IF EXISTS warehouse;
+DROP TABLE IF EXISTS sales_channel;
+DROP TABLE IF EXISTS comments;
+DROP TABLE IF EXISTS blog;
+DROP TABLE IF EXISTS fifa;
+DROP TABLE IF EXISTS agent;
+DROP TABLE IF EXISTS licence;
+DROP TABLE IF EXISTS client;
+DROP TABLE IF EXISTS books;
+DROP TABLE IF EXISTS newbooks;
+DROP TABLE IF EXISTS key_parts;
 
-drop VIEW IF EXISTS SALES;
+DROP TABLE If EXISTS mass_table;
+DROP TABLE If EXISTS runners;
+DROP TABLE If EXISTS races;
+DROP TABLE If EXISTS revenue;
+DROP TABLE If EXISTS food;
+DROP TABLE If EXISTS company;
+DROP TABLE If EXISTS candidate;
+DROP TABLE If EXISTS votes;
+DROP TABLE If EXISTS points;
+
+
+DROP VIEW IF EXISTS SALES;
+
+create table points (
+  c1 INT
+);
+
+INSERT INTO points VALUES(1),(2),(-1),(3),(-2),(1);
+
+
+CREATE TABLE candidate (
+  id INT PRIMARY KEY,
+  name VARCHAR(45) NULL,
+  totalVotes INT NULL
+);
+
+INSERT INTO candidate (id, name) VALUES (1, 'Sanjay');
+INSERT INTO candidate (id, name) VALUES (2, 'Sumeet');
+INSERT INTO candidate (id, name) VALUES (3, 'Saleel');
+INSERT INTO candidate (id, name) VALUES (4, 'Sagar');
+
+CREATE TABLE votes (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  candidateID INT NULL
+);
+  
+  
+INSERT INTO votes VALUES ('1', '4');
+INSERT INTO votes VALUES ('2', '3');
+INSERT INTO votes VALUES ('3', '1');
+INSERT INTO votes VALUES ('4', '2');
+INSERT INTO votes VALUES ('5', '2');
+INSERT INTO votes VALUES ('6', '1');
+INSERT INTO votes VALUES ('7', '2');
+INSERT INTO votes VALUES ('8', '3');
+INSERT INTO votes VALUES ('9', '1');
+INSERT INTO votes VALUES ('10', '2');
+INSERT INTO votes VALUES ('11', '1');
+INSERT INTO votes VALUES ('12', '2');
+INSERT INTO votes VALUES ('13', '3');
+INSERT INTO votes VALUES ('14', '1');
+INSERT INTO votes VALUES ('15', '1');
+INSERT INTO votes VALUES ('16', '4');
+INSERT INTO votes VALUES ('17', '2');
+INSERT INTO votes VALUES ('18', '4');
+INSERT INTO votes VALUES ('19', '2');
+INSERT INTO votes VALUES ('20', '1');
+INSERT INTO votes VALUES ('21', '2');
+INSERT INTO votes VALUES ('22', '1');
+INSERT INTO votes VALUES ('23', '3');
+INSERT INTO votes VALUES ('24', '3');
+INSERT INTO votes VALUES ('25', '1');
+INSERT INTO votes VALUES ('26', '1');
+INSERT INTO votes VALUES ('27', '3');
+  
+  
+  
+CREATE TABLE food (
+    item_id INT,
+    item_name VARCHAR(45),
+    item_unit VARCHAR(45),
+    company_id INT  
+);
+
+CREATE TABLE company (
+    company_id INT,
+    company_name VARCHAR(45),
+    company_city VARCHAR(45)
+);
+
+INSERT INTO food VALUES (1, 'biscuit', 'packet',18);
+INSERT INTO food VALUES (4, 'cakes', 'Pcs', 15);
+INSERT INTO food VALUES (6, 'cheez', 'packet', 16);
+INSERT INTO food VALUES (5, 'butter', 'packet', 17);
+INSERT INTO food VALUES (2, 'bread', 'packet', 19);
+INSERT INTO food VALUES (7, 'eggs', 'Pcs', NULL);
+INSERT INTO food VALUES (3, 'salt', 'packet', NULL);
+INSERT INTO food VALUES (8, 'jam', 'bottle', 18);
+INSERT INTO food VALUES (9, 'pizza', 'Pcs', 18);
+INSERT INTO food VALUES (10, 'burger', 'Pcs', 16);
+INSERT INTO food VALUES (11, 'juice', 'bottle', 16);
+INSERT INTO food VALUES (12, 'milk', 'bottle', 17);
+INSERT INTO food VALUES (13, 'ice-cream', 'packet', 18);
+INSERT INTO food VALUES (14, 'nuts', 'packets', 17);
+
+INSERT INTO company  VALUES (18, 'Akas Foods', 'pune');
+INSERT INTO company  VALUES (15, 'Foodies', 'baroda');
+INSERT INTO company  VALUES (16, 'Gold Foods', 'surat');
+INSERT INTO company  VALUES (17, 'Natural Foons', 'pune');
+INSERT INTO company  VALUES (19, 'J&S Foods', 'mumbai');
+
+
+
+
+create table key_parts(c1 int, c2 int);
+
+insert into key_parts values row(2,3), row(7,5), row(5,7), row(3,8), row(9,4), row(10,19), row(20,16), row(6,14), row(7,12), row(12,5), row(9,17), row(17,9), row(10,10), row(20,3), row(17,15), row(19,16), row(3,8), row(9,9), row(10,19), row(20,16), row(6,14), row(7,12), row(12,5), row(9,17), row(17,9), row(10,10);
+
+CREATE TABLE books (bookID int PRIMARY KEY, 
+bookName varchar(45), 
+Type varchar(45), 
+Cost int);
+
+INSERT INTO books VALUES(1, 'C', 'PDF File', '1200');
+INSERT INTO books VALUES(2, 'C++', 'Word File', '1000');
+INSERT INTO books VALUES(3, 'DS', 'Hardcover', '950');
+INSERT INTO books VALUES(4, 'MySQL', 'Paperback', '1400');
+INSERT INTO books VALUES(5, 'OSC', 'Paperback', '1225');
+INSERT INTO books VALUES(6, 'HTML', 'PDF File', '650');
+INSERT INTO books VALUES(7, 'JavaScript', 'Paperback', '700');
+INSERT INTO books VALUES(8, 'ASDM', 'PDF File', '500');
+INSERT INTO books VALUES(9, '.NET', 'Hardcover', '2500');
+INSERT INTO books VALUES(10, 'Core Java', 'PDF File', '1500');
+INSERT INTO books VALUES(11, 'Adv. Java', 'Hardcover', '1800');
+
+CREATE TABLE newbooks (bookID int PRIMARY KEY, 
+bookName varchar(45), 
+Type varchar(45), 
+Cost int);
+
+INSERT INTO newbooks VALUES (1, 'JavaScript', 'Paperback', '700');
+INSERT INTO newbooks VALUES (2, 'ASDM', 'PDF File', '500');
+INSERT INTO newbooks VALUES (3, '.NET', 'Hardcover', '2500');
+INSERT INTO newbooks VALUES (4, 'Core Java', 'PDF File', '1500');
+INSERT INTO newbooks VALUES (5, 'Adv. Java', 'Hardcover', '1800');
+INSERT INTO newbooks VALUES (6, 'Oracle', 'PDF File', '1200');
+INSERT INTO newbooks VALUES (7, 'hBase', 'Word File', '1000');
+INSERT INTO newbooks VALUES (8, 'Node', 'Hardcover', '950');
+INSERT INTO newbooks VALUES (9, 'Pig', 'Paperback', '1400');
+INSERT INTO newbooks VALUES (10,'Python', 'Paperback', '1225');
+INSERT INTO newbooks VALUES (11,'Hadoop', 'PDF File', '650');
+
+
+
+CREATE TABLE runners (id int, name varchar(20));
+INSERT INTO runners values(1, 'John Doe');
+INSERT INTO runners values(2, 'Jane Doe');
+INSERT INTO runners values(3, 'Alice Jones');
+INSERT INTO runners values(4, 'Bobby Louis');
+INSERT INTO runners values(5, 'Lisa Romero');
+
+CREATE TABLE races(id int, event varchar(45), winner_id int);
+insert INTO races values(1, '100 meter dash', 2);
+insert INTO races values(2, '500 meter dash', 3);
+insert INTO races values(3, 'cross-country', 2);
+insert INTO races values(4, 'triathalon', NULL);
+
+CREATE TABLE mass_table (weight float(4,2));
+
+insert into mass_table values(26.43), (54.65), (34.463), (60.223), (62.73), (35.63), (47.43), (63.47);
+
+CREATE TABLE agent (
+agentID int PRIMARY KEY auto_increment,
+agentName varchar(20),
+phone varchar(10)
+);
+
+
+INSERT INTO agent(agentName, phone) VALUES ('Sai Travels', '9850883667');
+INSERT INTO agent(agentName, phone) VALUES ('Raj Travels', '9922295489');
+INSERT INTO agent(agentName, phone) VALUES ('Prime Travels', '9867889227');
+INSERT INTO agent(agentName) VALUES ('4 Star Travles');
+INSERT INTO agent(agentName, phone) VALUES ('7 Seas Travels', '9869884778');
+INSERT INTO agent(agentName) VALUES ('Abhinav Travels');
+
+
+CREATE TABLE licence (
+  ID INT PRIMARY KEY,
+  customerID INT,
+  licenceClass VARCHAR(45),
+  licenceType VARCHAR(128),
+  licenceNumber VARCHAR(45),
+  ValidFrom VARCHAR(45),
+  ValidTo VARCHAR(45),
+  agentID INT );
+
+INSERT INTO licence VALUES ('1', '1', 'LMV', 'Light motor vehicles including motorcars, jeeps, taxis, delivery vans', 'RQFY8GZNDF9E', '********', '********', '1');
+INSERT INTO licence VALUES ('2', '2', 'LMV', 'Light motor vehicles including motorcars, jeeps, taxis, delivery vans', 'ZFVHYH4OAHGS', '********', '********', '2');
+INSERT INTO licence VALUES ('3', '1', 'HMV', 'Heavy Motor Vehicles', '20CMZQ6ERXJ4', '********', '********', '3');
+INSERT INTO licence VALUES ('4', '2', 'HMV', 'Heavy Motor Vehicles', 'DNIE1K9R5BG6', '********', '********', '1');
+INSERT INTO licence VALUES ('5', '3', 'LMV', 'Light motor vehicles including motorcars, jeeps, taxis, delivery vans', 'Y3CNWQ6MKPCG', '********', '********', '2');
+INSERT INTO licence VALUES ('6', '3', 'HMV', 'Heavy Motor Vehicles', 'Y6DC2IRD2EWZ', '********', '********', '1');
+INSERT INTO licence VALUES ('7', '4', 'HGMV', 'Heavy Goods Motor Vehicle', '2EFFSXY04OAW', '********', '********', '3');
+INSERT INTO licence VALUES ('8', '5', 'HMV', 'Heavy Motor Vehicles', 'GC1BMWKCTVQ4', '********', '********', '2');
+INSERT INTO licence VALUES ('9', '6', 'LMV', 'Light motor vehicles including motorcars, jeeps, taxis, delivery vans', '2148PC50IR3P', '********', '********', '1');
+INSERT INTO licence VALUES ('10', '7', 'HPMV', 'Heavy passenger motor vehicle/Heavy transport vehicle', 'N4NODNCFJENP', '********', '********', '2');
+INSERT INTO licence VALUES ('11', '8', 'HGMV', 'Heavy Goods Motor Vehicle', 'EBPW9M34FKOI', '********', '********', '2');
+INSERT INTO licence VALUES ('12', '9', 'HPMV', 'Heavy passenger motor vehicle/Heavy transport vehicle', '940MGEL4HO00', '********', '********', '3');
+INSERT INTO licence VALUES ('13', '10', 'LMV', 'Light motor vehicles including motorcars, jeeps, taxis, delivery vans', 'JWRDAETHDU5Z', '********', '********', '1');
+INSERT INTO licence VALUES ('14', '11', 'HGMV', 'Heavy Goods Motor Vehicle', 'Z95XCS7W9NAU', '********', '********', '2');
+INSERT INTO licence VALUES ('15', '12', 'HGMV', 'Heavy Goods Motor Vehicle', '1YJ12NQX8HAJ', '********', '********', '1');
+INSERT INTO licence VALUES ('16', '13', 'LMV', 'Light motor vehicles including motorcars, jeeps, taxis, delivery vans', '1XMTETH8E6JS', '********', '********', '1');
+INSERT INTO licence VALUES ('17', '14', 'HPMV', 'Heavy passenger motor vehicle/Heavy transport vehicle', '0WEMMTPVTBPM', '********', '********', '2');
+
+
+CREATE TABLE fifa (
+ID int  PRIMARY KEY,
+RNK int,
+Team varchar(45),
+TotalPoints int,
+PreviousPoint int,
+re int
+);
+
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('1', '1', 'Belgium', '1765', '1765', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('2', '2', 'France', '1733', '1733', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('3', '3', 'Brazil', '1712', '1712', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('4', '4', 'England', '1661', '1661', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('5', '5', 'Uruguay', '1645', '1645', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('6', '6', 'Croatia', '1642', '1642', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('7', '7', 'Portugal', '1639', '1639', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('8', '8', 'Spain', '1636', '1636', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('9', '9', 'Argentina', '1623', '1623', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('10', '10', 'Colombia', '1622', '1622', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('11', '11', 'Mexico', '1621', '1621', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('12', '12', 'Switzerland', '1608', '1608', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('13', '13', 'Italy', '1607', '1607', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('14', '14', 'Netherlands', '1604', '1604', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('15', '15', 'Germany', '1602', '1602', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('16', '16', 'Denmark', '1598', '1598', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('17', '17', 'Chile', '1579', '1579', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('18', '17', 'Sweden', '1579', '1579', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('19', '19', 'Poland', '1559', '1559', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('20', '20', 'Senegal', '1555', '1555', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('21', '21', 'Peru', '1544', '1544', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('22', '22', 'USA', '1542', '1542', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('23', '23', 'Wales', '1540', '1540', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('24', '24', 'Ukraine', '1537', '1537', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('25', '25', 'Venezuela', '1517', '1517', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('26', '26', 'Austria', '1507', '1507', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('27', '27', 'Tunisia', '1506', '1506', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('28', '28', 'Japan', '1500', '1500', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('29', '29', 'Serbia', '1494', '1494', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('30', '29', 'Turkey', '1494', '1494', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('31', '31', 'Nigeria', '1493', '1493', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('32', '32', 'Slovakia', '1490', '1490', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('33', '33', 'IR Iran', '1489', '1489', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('34', '34', 'Republic of Ireland', '1486', '1486', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('35', '35', 'Algeria', '1482', '1482', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('36', '36', 'Northern Ireland', '1476', '1476', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('37', '37', 'Romania', '1475', '1475', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('38', '38', 'Russia', '1470', '1470', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('39', '39', 'Iceland', '1465', '1465', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('40', '40', 'Korea Republic', '1464', '1464', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('41', '41', 'Paraguay', '1461', '1461', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('42', '42', 'Australia', '1457', '1457', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('43', '43', 'Morocco', '1456', '1456', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('44', '44', 'Norway', '1451', '1451', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('45', '45', 'Czech Republic', '1446', '1446', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('46', '46', 'Costa Rica', '1439', '1439', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('47', '46', 'Ghana', '1439', '1439', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('48', '48', 'Jamaica', '1438', '1437', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('49', '49', 'Bosnia and Herzegovina', '1430', '1430', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('50', '50', 'Scotland', '1422', '1422', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('51', '51', 'Egypt', '1420', '1420', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('52', '52', 'Hungary', '1416', '1416', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('53', '53', 'Cameroon', '1413', '1413', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('54', '54', 'Greece', '1409', '1409', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('55', '55', 'Qatar', '1396', '1396', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('56', '56', 'Congo DR', '1389', '1389', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('57', '56', 'Mali', '1389', '1389', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('58', '58', 'Finland', '1386', '1386', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('59', '59', 'Bulgaria', '1381', '1381', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('60', '59', 'Burkina Faso', '1381', '1381', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('61', '61', 'Côte d\'Ivoire', '1378', '1378', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('62', '62', 'Honduras', '1377', '1377', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('63', '63', 'Ecuador', '1368', '1368', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('64', '64', 'Montenegro', '1365', '1365', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('65', '64', 'Slovenia', '1365', '1365', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('66', '66', 'Albania', '1356', '1356', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('67', '67', 'Saudi Arabia', '1351', '1351', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('68', '68', 'North Macedonia', '1347', '1347', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('69', '69', 'El Salvador', '1346', '1346', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('70', '70', 'Iraq', '1344', '1344', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('71', '71', 'South Africa', '1334', '1334', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('72', '71', 'United Arab Emirates', '1334', '1334', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('73', '73', 'Canada', '1332', '1332', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('74', '74', 'Guinea', '1328', '1328', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('75', '75', 'Bolivia', '1324', '1324', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('76', '76', 'China PR', '1323', '1323', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('77', '77', 'Uganda', '1321', '1321', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('78', '78', 'Cabo Verde', '1318', '1318', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('79', '79', 'Syria', '1314', '1314', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('80', '80', 'Curaçao', '1313', '1313', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('81', '81', 'Panama', '1305', '1304', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('82', '82', 'Oman', '1303', '1303', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('83', '83', 'Gabon', '1297', '1297', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('84', '84', 'Benin', '1295', '1295', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('85', '85', 'Uzbekistan', '1286', '1289', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('86', '86', 'Haiti', '1285', '1285', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('87', '87', 'Belarus', '1283', '1280', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('88', '88', 'Zambia', '1279', '1279', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('89', '89', 'Congo', '1269', '1269', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('90', '89', 'Lebanon', '1269', '1269', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('91', '91', 'Georgia', '1267', '1267', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('92', '91', 'Madagascar', '1267', '1267', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('93', '93', 'Israel', '1260', '1260', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('94', '94', 'Vietnam', '1258', '1258', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('95', '95', 'Cyprus', '1251', '1251', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('96', '96', 'Kyrgyz Republic', '1240', '1240', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('97', '97', 'Jordan', '1238', '1238', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('98', '98', 'Luxembourg', '1236', '1236', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('99', '99', 'Bahrain', '1225', '1225', '0');
+INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('100', '100', 'Mauritania', '1223', '1223', '0');
+
+
+CREATE TABLE blog (
+ID int primary key,
+blog text,
+blogDate date
+);
+
+INSERT INTO blog (ID, blog, blogDate) VALUES ('1', 'WordPress.org - Among the best blog sites, the self-hosted version of WordPress is, by far the most popular blogging platform in the world. WordPress powers over 90 percent of all the blogs on the Internet. It’s often confused with its close cousin WordPress.com. We will cover the latter as well. You can learn more about the differences between the two platforms in this article.', '2019-03-17');
+INSERT INTO blog (ID, blog, blogDate) VALUES ('2', ' WordPress.com: WordPress.com is a blog site hosting service by Automattic. You can get a free blog with basic features. For advanced functionality, you need to opt for one of their paid plans. It can be a great starting point for blogging. If you ever decide to have more control over your site, it’s relatively easy to move from WordPress.com to WordPress.org.', '2019-07-21');
+INSERT INTO blog (ID, blog, blogDate) VALUES ('3', 'Wix.com: Wix is similar to Squarespace. It allows you to put together your web presence via drag and drop and comes with blogging ability that you can add to your site. You can read about adding Wix in this article.', '2019-03-19');
+INSERT INTO blog (ID, blog, blogDate) VALUES ('4', 'Joomla.com: Next on our list of the best blog sites is another open-source content management system that you can use to build all kinds of websites. We have detailed information about it in WordPress vs. Joomla vs. Drupal and in the post on how to create a website with Joomla.', '2019-05-25');
+INSERT INTO blog (ID, blog, blogDate) VALUES ('5', 'Medium.com: Medium is a publishing platform founded in 2012 by one of the people behind Twitter. By now, it has become a popular community for writers, bloggers, and journalists. In addition to the ability to write blog posts, it also comes with limited social networking functions. You can comment on other people’s content and “like” it (likes are called “claps” on Medium). The audience is built into the platform.', '2019-10-09');
+INSERT INTO blog (ID, blog, blogDate) VALUES ('6', 'Ghost.org: This is a publishing platform focused only on blogging. The idea was to make a more streamlined and modern version of WordPress. As a consequence, the platform is built on JavaScript. It’s also available for a hosted or self-hosted version.', '2019-11-21');
+INSERT INTO blog (ID, blog, blogDate) VALUES ('7', 'Squarespace.com: Squarespace is a drag-and-drop website builder which is aimed at small business owners. It’s a great all-in-one solution for non-technical people and offers hosting, domain registration, and the possibility for e-commerce. It also has blogging capabilities which are the reason why it’s among the best blog sites out there.', '2019-05-16');
+INSERT INTO blog (ID, blog, blogDate) VALUES ('8', 'Weebly.com: Weebly is another site builder with a modular approach and a web-based interface. Pick a template and position your content as blocks in different areas.', '2019-07-27');
+INSERT INTO blog (ID, blog, blogDate) VALUES ('9', 'Blogger.com: This free blog hosting service has been around for a long time. It was founded in 1999 and acquired by Google in 2003. As a consequence, you can sign up easily with your existing Google account.', '2019-08-14');
+INSERT INTO blog (ID, blog, blogDate) VALUES ('10', 'Tumblr.com: The final entry for the best blog sites is Tumblr. The service is a micro-blogging platform optimized for short-form content. It also has a community behind it and social network features. Think of it as a middle ground between WordPress and Twitter.', '2019-12-30');
+
+CREATE TABLE comments (
+   ID INT PRIMARY KEY, 
+   comment TEXT, 
+   commentDate DATETIME,
+   blogID INT,
+   FOREIGN KEY(blogID) REFERENCES blog(ID)
+) ;
+
+
+INSERT INTO comments (ID, comment, commentDate, blogID) VALUES ('1', 'Some Comment for blog#1.1', '2019-03-17', '1');
+INSERT INTO comments (ID, comment, commentDate, blogID) VALUES ('2', 'Some Comment for blog#4.1', '2019-05-25', '4');
+INSERT INTO comments (ID, comment, commentDate, blogID) VALUES ('3', 'Some Comment for blog#2.1', '2019-07-21', '2');
+INSERT INTO comments (ID, comment, commentDate, blogID) VALUES ('4', 'Some Comment for blog#4.2', '2019-05-25', '4');
+INSERT INTO comments (ID, comment, commentDate, blogID) VALUES ('5', 'Some Comment for blog#5.1', '2019-10-10', '5');
+INSERT INTO comments (ID, comment, commentDate, blogID) VALUES ('6', 'Some Comment for blog#4.3', '2019-05-25', '4');
+INSERT INTO comments (ID, comment, commentDate, blogID) VALUES ('7', 'Some Comment for blog#4.4', '2019-05-26', '4');
+INSERT INTO comments (ID, comment, commentDate, blogID) VALUES ('8', 'Some Comment for blog#8', '2019-07-27', '8');
+INSERT INTO comments (ID, comment, commentDate, blogID) VALUES ('9', 'Some Comment for blog#10.1', '2019-12-30', '10');
+INSERT INTO comments (ID, comment) VALUES ('10', 'Some Comment');
+INSERT INTO comments (ID, comment, commentDate, blogID) VALUES ('11', 'Some Comment for blog#9.1', '2019-08-14', '9');
+INSERT INTO comments (ID, comment, commentDate, blogID) VALUES ('12', 'Some Comment for blog#10.2', '2019-12-31', '10');
+INSERT INTO comments (ID, comment, commentDate, blogID) VALUES ('13', 'Some Comment for blog#6.1', '2019-11-21', '6');
+INSERT INTO comments (ID, comment, commentDate, blogID) VALUES ('14', 'Some Comment for blog#3.1', '2019-03-19', '3');
+INSERT INTO comments (ID, comment, commentDate, blogID) VALUES ('15', 'Some Comment for blog#1.2', '2019-03-18', '1');
+INSERT INTO comments (ID, comment, commentDate, blogID) VALUES ('16', 'Some Comment for blog#10.3', '2019-12-31', '10');
+INSERT INTO comments (ID, comment, commentDate, blogID) VALUES ('17', 'Some Comment for blog#9.2', '2019-08-15', '9');
+INSERT INTO comments (ID, comment, commentDate, blogID) VALUES ('18', 'Some Comment for blog#10.4', '2019-12-31', '10');
+INSERT INTO comments (ID, comment, commentDate, blogID) VALUES ('19', 'Some Comment for blog#2.2', '2019-07-21', '2');
+INSERT INTO comments (ID, comment, commentDate, blogID) VALUES ('20', 'Some Comment for blog#4.5', '2019-05-27', '4');
+INSERT INTO comments (ID, comment, commentDate, blogID) VALUES ('21', 'Some Comment for blog#1.3', '2019-03-20', '1');
+INSERT INTO comments (ID, comment, commentDate, blogID) VALUES ('22', 'Some Comment for blog#5.2', '2019-10-12', '5');
+INSERT INTO comments (ID, comment, commentDate, blogID) VALUES ('23', 'Some Comment for blog#3.2', '2019-03-19', '3');
+INSERT INTO comments (ID, comment, commentDate, blogID) VALUES ('24', 'Some Comment for blog#4.6', '2019-05-27', '4');
+INSERT INTO comments (ID, comment, commentDate, blogID) VALUES ('25', 'Some Comment for blog#1.4', '2019-03-19', '1');
+INSERT INTO comments (ID, comment, commentDate, blogID) VALUES ('26', 'Some Comment for blog#6.2', '2019-11-21', '6');
+INSERT INTO comments (ID, comment, commentDate, blogID) VALUES ('27', 'Some Comment for blog#3.3', '2019-03-19', '3');
+
+
+CREATE TABLE sales_channel (  
+channel_id int,  
+channel varchar(255)
+);
+
+insert into sales_channel values('1', 'Wholesale');
+insert into sales_channel values('2', 'Retail');
+insert into sales_channel values('3', 'Agents');
+insert into sales_channel values('4', 'eCommerce');
+
+CREATE TABLE warehouse (
+warehouse_id int,
+warehouse_name varchar(255),
+channel_id int);
+
+insert into warehouse values ('143', 'AC Warehouse', '1');
+insert into warehouse values ('156', 'National', '2');
+insert into warehouse values ('231', 'Global', '3');
+insert into warehouse values ('254', 'NON-STOP', '2');
+insert into warehouse values ('321', 'Migrant System', '2');
+insert into warehouse values ('464', 'Blaze', '1');
+
+
 CREATE TABLE tableA(id INT, name varchar(10));
 CREATE TABLE tableB(id INT, name varchar(10));
 
@@ -80,6 +485,8 @@ insert into r2 values(1,'a'),(2,'b'),(1,'c'),(3,'d'),(2,'e'),(1,'f');
 
 CREATE TABLE IF NOT EXISTS TASKS (id INT PRIMARY KEY AUTO_INCREMENT, title VARCHAR(255) NOT NULL,  completed BOOLEAN);
 
+INSERT INTO TASKS VALUE(default, 'Task-1', 1);
+INSERT INTO TASKS VALUE(default, 'Task0', 0);
 INSERT INTO TASKS VALUE(default, 'Task1', 0);
 INSERT INTO TASKS VALUE(default, 'Task2', 1);
 INSERT INTO TASKS VALUE(default, 'Task3', False);
@@ -93,6 +500,7 @@ INSERT INTO TASKS VALUE(default, 'Task10', 58);
 INSERT INTO TASKS VALUE(default, 'Task11',.75);
 INSERT INTO TASKS VALUE(default, 'Task12',.15);
 INSERT INTO TASKS VALUE(default, 'Task13', 'a' = 'a');
+INSERT INTO TASKS VALUE(default, 'Task14', null);
 
 
 
@@ -299,7 +707,7 @@ insert into DUPLICATE values (10, 'SALES', 'PUNE', 1), (20, 'PURCHASE','BARODA',
 
 
  CREATE TABLE COALESCE
-  (    PID INT,
+  (    PID INT primary key,
        PNAME varchar(45),
        APRICE INT,
        SPRICE INT,
@@ -308,9 +716,10 @@ insert into DUPLICATE values (10, 'SALES', 'PUNE', 1), (20, 'PURCHASE','BARODA',
        SOUTH varchar(5),
        EAST varchar(5),
        WEST varchar(5),
-       BPHONE INT,
-       CPHONE INT,
-       HPHONE INT
+	   primaryPhone int,
+       BPHONE BIGINT(12),
+       CPHONE BIGINT(12),
+       HPHONE BIGINT(12)
   );
 
 INSERT INTO COALESCE (PID, PNAME, SPRICE, NORTH, BPHONE) VALUES ('1001', 'Samsung Galaxy On7 (Gold, 8 GB)', '10975', 'Y', '111');
@@ -332,6 +741,43 @@ INSERT INTO COALESCE (PID, PNAME, DPRICE, BPHONE, CPHONE) VALUES ('1016', 'Letv 
 INSERT INTO COALESCE (PID, PNAME, SPRICE, SOUTH, WEST, HPHONE) VALUES ('1017', 'Letv Le 1S (Gold, 32 GB)', '16000', 'Y', 'Y', '55667');
 INSERT INTO COALESCE (PID, PNAME, APRICE, EAST, WEST, HPHONE) VALUES ('1018', 'Letv Le 1S (Black, 16 GB)', '13450', 'Y', 'Y', '7763');
 INSERT INTO COALESCE (PID, PNAME, SPRICE, EAST) VALUES ('1019', 'Letv Le 1S (White, 32 GB)', '12342', 'Y');
+
+
+UPDATE coalesce SET `BPHONE` = '9922059378' WHERE (`PID` = '1001');
+UPDATE coalesce SET `CPHONE` = '9850883662' WHERE (`PID` = '1002');
+UPDATE coalesce SET `HPHONE` = '9750993114' WHERE (`PID` = '1003');
+UPDATE coalesce SET `BPHONE` = '9799471220', `HPHONE` = '9860123442' WHERE (`PID` = '1004');
+UPDATE coalesce SET `CPHONE` = '7700754312' WHERE (`PID` = '1005');
+UPDATE coalesce SET `HPHONE` = '9850990887' WHERE (`PID` = '1006');
+UPDATE coalesce SET `BPHONE` = '9850990889', `HPHONE` = '9850112331' WHERE (`PID` = '1007');
+UPDATE coalesce SET `BPHONE` = '9850008776' WHERE (`PID` = '1009');
+UPDATE coalesce SET `HPHONE` = '9850001001' WHERE (`PID` = '1010');
+UPDATE coalesce SET `BPHONE` = '9850000111', `CPHONE` = '9850000112', `HPHONE` = '9850000113' WHERE (`PID` = '1011');
+UPDATE coalesce SET `CPHONE` = '9850000113' WHERE (`PID` = '1014');
+UPDATE coalesce SET `BPHONE` = '9850000114', `CPHONE` = '9850000115' WHERE (`PID` = '1016');
+UPDATE coalesce SET `HPHONE` = '9850000116' WHERE (`PID` = '1017');
+UPDATE coalesce SET `HPHONE` = '9850000117' WHERE (`PID` = '1018');
+
+UPDATE coalesce SET `primaryPhone` = '1' WHERE (`PID` = '1001');
+UPDATE coalesce SET `primaryPhone` = '2' WHERE (`PID` = '1002');
+UPDATE coalesce SET `primaryPhone` = '1' WHERE (`PID` = '1003');
+UPDATE coalesce SET `primaryPhone` = '3' WHERE (`PID` = '1004');
+UPDATE coalesce SET `primaryPhone` = '2' WHERE (`PID` = '1005');
+UPDATE coalesce SET `primaryPhone` = '3' WHERE (`PID` = '1006');
+UPDATE coalesce SET `primaryPhone` = '1' WHERE (`PID` = '1007');
+UPDATE coalesce SET `primaryPhone` = '1' WHERE (`PID` = '1008');
+UPDATE coalesce SET `primaryPhone` = '2' WHERE (`PID` = '1009');
+UPDATE coalesce SET `primaryPhone` = '1' WHERE (`PID` = '1010');
+UPDATE coalesce SET `primaryPhone` = '2' WHERE (`PID` = '1011');
+UPDATE coalesce SET `primaryPhone` = '3' WHERE (`PID` = '1012');
+UPDATE coalesce SET `primaryPhone` = '2' WHERE (`PID` = '1013');
+UPDATE coalesce SET `primaryPhone` = '2' WHERE (`PID` = '1014');
+UPDATE coalesce SET `primaryPhone` = '1' WHERE (`PID` = '1015');
+UPDATE coalesce SET `primaryPhone` = '2' WHERE (`PID` = '1016');
+UPDATE coalesce SET `primaryPhone` = '3' WHERE (`PID` = '1017');
+UPDATE coalesce SET `primaryPhone` = '2' WHERE (`PID` = '1018');
+UPDATE coalesce SET `primaryPhone` = '1' WHERE (`PID` = '1019');
+
 
 create table NEAREST (c1 INT, c2 varchar(10), c3 INT);
 
@@ -456,7 +902,8 @@ CREATE TABLE EMP (
  DEPTNO              INT NOT NULL,
  BONUSID	         INT,
  `USER NAME`		 varchar(20),
- PWD				 varchar(20), 
+ PWD				 varchar(20),
+ phone 				 varchar(45),
  isActive			 boolean,
  CONSTRAINT EMP_FOREIGN_KEY_deptno FOREIGN KEY (DEPTNO) REFERENCES DEPT (DEPTNO),
  CONSTRAINT EMP_PRIMARY_KEY_empno PRIMARY KEY (EMPNO),
@@ -483,6 +930,22 @@ INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, i
 INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7919,'HOFFMAN','MANAGER',7566,'1982-03-24',4150,NULL,30,3,true);
 INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7920,'GRASS','SALESMAN',7919,'1980-02-14',2575,2700,30,5,true);
 INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7421,'THOMAS','CLERK',7920,'1981-07-19',1750,NULL,10,1,false);
+
+
+UPDATE emp SET phone = '7032300023' WHERE (EMPNO = '7369');
+UPDATE emp SET phone = '7032300084' WHERE (EMPNO = '7415');
+UPDATE emp SET phone = '7032300011' WHERE (EMPNO = '7421');
+UPDATE emp SET phone = '7032300096' WHERE (EMPNO = '7499');
+UPDATE emp SET phone = '7132300034' WHERE (EMPNO = '7521');
+UPDATE emp SET phone = '7132300039' WHERE (EMPNO = '7566');
+UPDATE emp SET phone = '7132300050' WHERE (EMPNO = '7654');
+UPDATE emp SET phone = '7132300027' WHERE (EMPNO = '7698');
+UPDATE emp SET phone = '7032300001' WHERE (EMPNO = '7782');
+UPDATE emp SET phone = '7132300081' WHERE (EMPNO = '7839');
+UPDATE emp SET phone = '7132300086' WHERE (EMPNO = '7876');
+UPDATE emp SET phone = '7132300042' WHERE (EMPNO = '7900');
+UPDATE emp SET phone = '7132300055' WHERE (EMPNO = '7934');
+UPDATE emp SET phone = '7156567183' WHERE (EMPNO = '7949');
 
 
 
@@ -1276,6 +1739,57 @@ INSERT INTO emp_cards (empID, name, isActive) VALUES (1014, 'PAN', '1');
 INSERT INTO emp_cards (empID, name, isActive) VALUES (1016, 'Voter ID', '1');
 
 
+CREATE TABLE emp_phone (
+  ID INT primary key,
+  empID INT,
+  number varchar(45),
+  isActive bool,
+  FOREIGN KEY(empID) REFERENCES emp1(empno));
+  
+  
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('1', '7839', '7032300034', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('2', '7698', '7032300039', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('3', '7782', '7032300050', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('4', '7566', '7032300027', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('5', '7654', '7032300001', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('6', '7499', '7032300079', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('7', '7844', '7032300081', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('8', '7900', '7032300054', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('9', '7521', '7032300059', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('10', '7902', '7032300086', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('11', '7369', '7032300082', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('12', '7788', '7032300042', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('13', '7876', '7032300055', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('14', '5003', '7032300013', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('15', '7005', '7032300099', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('16', '7006', '7032300023', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('17', '8009', '7032300084', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('18', '8003', '7032300011', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('19', '7388', '7032300066', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('20', '3267', '7032300096', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('21', '7839', '7132300034', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('22', '7698', '7132300039', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('23', '7782', '7132300050', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('24', '7566', '7132300027', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('25', '7654', '7032300001', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('26', '7499', '7132300079', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('27', '1011', '7132300081', '0');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('28', '1016', '7132300054', '0');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('29', '1015', '7132300059', '0');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('30', '1016', '7132300086', '0');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('31', '2099', '7132300082', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('32', '2099', '7132300042', '0');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('33', '7876', '7132300055', '0');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('34', '7876', '7132300055', '0');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('35', '7876', '7132300055', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('36', '7499', '7134567123', '0');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('37', '1000', '7156567123', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('38', '1002', '7156567134', '1');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('39', '1003', '7156563423', '0');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('40', '1004', '7156567183', '0');
+INSERT INTO emp_phone (ID, empID, number, isActive) VALUES ('41', '1005', '7146566412', '1');
+  
+
 CREATE TABLE EMP2(
  EMPNO          INT NOT NULL,
  ENAME          varchar(12),
@@ -1363,12 +1877,18 @@ insert into temp1 values(29,'A\_BC');
 
 create table sort
 (	
- no varchar(10),
- no1 char(10)
+ no1 INT,
+ no2 char(10)
 );
 
-insert into sort values ('1','1'), ('2','2'), ('3','3'), ('4','4'), ('5','5'), ('6','6'), ('7','7'), ('8','8'), ('9','9'), ('10','10'), ('11','11'), ('12','12'), ('19','19'), ('18','18'), ('13','13'), ('14','14'), ('20','20'), ('27','27'), ('29','29'), ('21','21'), ('22','22'), ('23','23'), ('31','31'), ('45','45'), ('39','39'), ('40','40'), ('400','400'), ('300','300'), ('200','200'), ('100','100'), ('-1','-1'), ('-2','-2'), ('-3','-3'), ('01','01'), ('03','03'), ('02','02');	
-
+insert into sort values ('1','1'), ('2','2'), ('3','3'), ('4','4'), ('5','5'), 
+('6','6'), ('7','7'), ('8','8'), ('9','9'), ('10','10'), ('11','11'), ('12','12'),
+ ('19','19'), ('18','18'), ('13','13'), ('14','14'),(99,NULL),(102,NULL),(null,NULL),(0,NULL),(NULL,NULL),
+ ('20','20'), ('27','27'), ('29','29'), ('21','21'), 
+ ('22','22'), ('23','23'), ('31','31'), ('45','45'), ('39','39'), ('40','40'), ('400','400'), 
+ ('300','300'), ('200','200'), ('100','100'), ('-1','-1'), ('-2','-2'), ('-3','-3'), (NULL,'01'), 
+ (NULL,'03'), (NULL,'02');
+ 
 
 create table tableAA
 (col1 INT,
@@ -1388,21 +1908,26 @@ CREATE TABLE SALESPEOPLE (SNUM INT PRIMARY KEY, SNAME VARCHAR(10), CITY VARCHAR(
 CREATE TABLE CUSTOMERS (CNUM INT  PRIMARY KEY, CNAME VARCHAR (10), CITY VARCHAR (10), RATING FLOAT, SNUM INT, CONSTRAINT FK_SNUM FOREIGN KEY(SNUM) REFERENCES SALESPEOPLE(SNUM));
 CREATE TABLE ORDERS (ONUM INT PRIMARY KEY, AMT FLOAT, ODATE DATETIME, CNUM INT , SNUM INT,  CONSTRAINT FK_CNUM FOREIGN KEY(CNUM) REFERENCES CUSTOMERS(CNUM) , CONSTRAINT FK_ORDERS_SNUM FOREIGN KEY(SNUM) REFERENCES SALESPEOPLE(SNUM));
 
-INSERT into SALESPEOPLE(SNUM, SNAME, CITY, COMM) values (1001,'Peel','London',.12);
-INSERT into SALESPEOPLE(SNUM, SNAME, CITY, COMM) values (1002,'Serres','San Jose',.13);
+INSERT into SALESPEOPLE(SNUM, SNAME, CITY, COMM) values (1001,'Rajan','London',.12);
+INSERT into SALESPEOPLE(SNUM, SNAME, CITY, COMM) values (1002,'Natasha','San Jose',.13);
 INSERT into SALESPEOPLE(SNUM, SNAME, CITY, COMM) values (1004,'Monika','London',.11);
-INSERT into SALESPEOPLE(SNUM, SNAME, CITY, COMM) values (1007,'Rifkin','Barcelona',.15);
-INSERT into SALESPEOPLE(SNUM, SNAME, CITY, COMM) values (1003,'Axelrod','New York',.10);
-INSERT into SALESPEOPLE(SNUM, SNAME, CITY, COMM) values (1005,'Franc','London',.26);
+INSERT into SALESPEOPLE(SNUM, SNAME, CITY, COMM) values (1007,'James','Derby',.15);
+INSERT into SALESPEOPLE(SNUM, SNAME, CITY, COMM) values (1003,'Alax','New York',.10);
+INSERT into SALESPEOPLE(SNUM, SNAME, CITY, COMM) values (1005,'Moor','London',.26);
+INSERT into SALESPEOPLE(SNUM, SNAME, CITY, COMM) values (1006,'Jack','Leeds',.26);
+INSERT into SALESPEOPLE(SNUM, SNAME, CITY, COMM) values (1008,'Cooper','Wells',.19);
+INSERT into SALESPEOPLE(SNUM, SNAME, CITY, COMM) values (1009,'Leo','Wells',.26);
 
-INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2001,'Hoffman','London',100,1001);
-INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2002,'Giovanni','Rome',200,1003);
-INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2003,'Liu','San Jose',200,1002);
+INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2001,'Santosh','London',100,1001);
+INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2002,'Joe','Rome',200,1003);
+INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2003,'Raj','San Jose',200,1002);
 INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2004,'Grass','Berlin',300,1002);
-INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2006,'Clemens','London',100,1001);
-INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2008,'Cisneros','San Jose',300,1007);
-INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2007,'Pereira','Rome',100,1004);
+INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2006,'Raja','London',100,1001);
+INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2008,'William','San Jose',300,1007);
+INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2007,'Jackson','Rome',100,1004);
 INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2009,'Smith','Berlin',300,1007);
+INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2010,'ADAMS','Berlin',250,1007);
+
 
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3001,18.69,'1996-10-03 12:30', 2008, 1007);
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3003,767.19,'1996-10-03 13:45', 2001, 1001);
@@ -1434,6 +1959,25 @@ INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3028,1245.98,'1996-10-0
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3029,3721.53,'1996-10-05 12:45',2006,1001);
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3030,734.50,'1996-10-06 13:16',2004,1002);
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3031,1729.67,'1996-10-06 13:07',2006,1007);
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (3032, 3434, '1996-01-26 17:09:12', 2006,1007);
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (3033, 522, '1996-12-24 14:23:00', 2002,1002);
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (3074, 457, '1996-04-19 05:13:00', 2008,1007);
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (3049, 500, '1996-03-14 07:45:19', 2001,1003);
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (3119, 125, '1996-07-26 18:37:00', 2007,1001);
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (4001, 145, '1996-05-13 20:47:00', 2008,1003);
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (4012, 245, '1996-03-06 13:07:00', 2001,1002);
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (4021, 600, '1996-08-12 13:07:00', 2001,1002);
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (4054, 1200, '1996-11-22 13:07:00',2004,1003);
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (5015, 2133, '1996-06-23 13:07:00',2004,1007);
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (5053, 1500, '1996-01-01 13:07:00',2006,1007);
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (5099, 790, '1996-04-24 13:07:00', 2002,1007);
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (5014, 980, '1996-08-23 13:07:00', 2002,1007);
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (5015, 1000, '1996-03-12 13:07:00',2002,1007);
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (6501, 125, '1996-06-13 13:07:00', 2001,1001);
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (5011, 138, '1996-09-14 13:07:00', 2001,1007);
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (6502, 535, '1996-08-24 13:07:00', 2006,1004);
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (6503, 1100, '1996-07-26 13:07:00',2006,1007);
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (6504, 1350, '1996-07-21 13:07:00',2008,1007);
 
 
 UPDATE ord SET STATUS = 'In Process' WHERE (ORDID = '601');
@@ -1458,8 +2002,41 @@ UPDATE ord SET STATUS = 'Cancelled' WHERE (ORDID = '620');
 UPDATE ord SET STATUS = 'In Process' WHERE (ORDID = '614');
 UPDATE ord SET STATUS = 'Resolved' WHERE (ORDID = '616');
 
-
 update EMP set `user name` = ename;
+update EMP set `user name` = upper("Always Teste") where empno = 7499;
+update EMP set `user name` = upper("Big Ben") where empno = 7698;
+update EMP set `user name` = upper("Crazy Anyone") where empno = 7876;
+update EMP set `user name` = upper("Crazy Leader") where empno = 7900;
+update EMP set `user name` = upper("ConBrio") where empno = 7902;
+update EMP set `user name` = upper("Interval") where empno = 7919;
+update EMP set `user name` = upper("QuarterNote") where empno = 7934;
+update EMP set `user name` = upper("QuarterRest") where empno = 7949;
+update EMP set `user name` = upper("Tritone") where empno = 7369;
+update EMP set `user name` = upper("Honeycomb") where empno = 7566;
+update EMP set `user name` = upper("Life Racer") where empno = 7654;
+update EMP set `user name` = upper("White Sand") where empno = 7788;
+update EMP set `user name` = upper("Sand Dust") where empno = 7844;
+
+
+
 update EMP set pwd = (select dept.pwd from dept where emp.deptno = dept.deptno);
 UPDATE EMP SET PWD=NULL WHERE EMPNO=7415;
 UPDATE EMP SET PWD='ABCDEF' WHERE EMPNO=7945;
+delete from emp_cards where  not exists (select True from emp where emp_cards.empid = emp.empno);
+delete from emp_phone where not exists (select True from emp where emp_phone.empid = emp.empno);
+
+
+UPDATE emp_phone SET number = '7132300253' WHERE (ID = '33');
+UPDATE emp_phone SET number = '7132307673' WHERE (ID = '34');
+UPDATE emp_phone SET number = '7132300235' WHERE (ID = '21');
+UPDATE emp_phone SET number = '7132387250' WHERE (ID = '23');
+UPDATE emp_phone SET number = '7132398039' WHERE (ID = '22');
+UPDATE emp_phone SET number = '7032306752' WHERE (ID = '5');
+
+
+create table client (clientID int, clientName varchar(10), city varchar(10)) as select cnum clientID, cname clientName, city from customers;
+
+set @cnt :=0;
+update client set clientId = @cnt := @cnt + 1;
+
+insert into client values (10, 'Omkar','Pune'),  (11, 'Sumit', 'Baroda'), (12, 'Martin', 'Rome'), (13, 'Smith', 'Rome'), (14, 'Vasant', 'Pune'), (15, 'ABC','Pune'),  (16, 'PQR', 'Baroda'), (17, 'XYZ', 'Rome');
