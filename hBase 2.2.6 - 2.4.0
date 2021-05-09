@@ -1,0 +1,168 @@
+Note: After edit ~/.bashrc file give source ~/.bashrc
+
+Step: Switch to created user for further installation (in my case my user is hadoopusr)
+
+command:~
+
+(1) clear
+(2) su - hadoopusr 	i.e. su - <your use_rname> 
+_____________________________________________________________________________________________________________________________
+
+
+Step:  download hBase software
+ 
+ command:- 
+ 
+hBase download link:
+
+(1) https://hbase.apache.org/downloads.html	(bin Download)
+
+Download any version of hBase you wish (i have downloaded 2.2.6)
+
+Note: by default  hBase will be downloaded on /home/ubuntu/Downloads
+
+_____________________________________________________________________________________________________________________________
+
+
+Step: extract the file 
+
+goto /home/ubuntu/Downloads folder and unpack hbase-2.2.6-bin.tar.gz file
+
+command:- 
+(1) cd /home/ubuntu/Downloads
+(2) sudo tar -xvzf hbase-2.2.6-bin.tar.gz 
+
+Note: It will create hbase-2.2.6/ folder in /home/ubuntu/Downloads 
+
+_____________________________________________________________________________________________________________________________
+
+Step: move the extracted hBase file to created user
+
+command:- 
+
+(1) sudo mv /home/ubuntu/Downloads/hbase-2.2.6 /usr/local/hbase 
+_____________________________________________________________________________________________________________________________
+
+Step: goto /usr/local/hbase 
+
+command:- 
+
+(1) cd /usr/local/hbase
+(2) pwd (to check present working dir)
+(3) ll
+
+_____________________________________________________________________________________________________________________________
+
+Step: then give the ownership to the directory where file is moved eg:-
+
+command:- 
+
+(1) sudo chown -R hadoopusr /usr/local/
+
+
+Note:- This command will give ownership to all file and folders
+
+_____________________________________________________________________________________________________________________________
+
+Step: edit ~/.bashrc file
+
+command:~
+
+(1) sudo nano ~/.bashrc
+
+(2)  Copy the below lines and paste at the end of ~/.bashrc file
+
+        export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+	export HADOOP_HOME=/usr/local/hadoop
+	export PATH=$PATH:$HADOOP_HOME/bin
+	export PATH=$PATH:$HADOOP_HOME/sbin
+	export HADOOP_MAPRED_HOME=$HADOOP_HOME
+	export HADOOP_COMMON_HOME=$HADOOP_HOME
+	export HADOOP_HDFS_HOME=$HADOOP_HOME
+	export YARN_HOME=$HADOOP_HOME
+	export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+	export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib"
+	
+	***********
+	export HBASE_HOME=/usr/local/hbase
+	export PATH=$PATH:$HBASE_HOME/bin
+	***********
+	
+	Save the file by pressing ctrl + X and press "Y" and enter key.
+
+(3) source ~/.bashrc
+
+_____________________________________________________________________________________________________________________________
+
+Step: edit hbase-env.sh file
+
+command:~ 
+
+(1) cd /usr/local/hbase/conf
+(2) sudo nano hbase-env.sh
+(3) Copy the below lines and paste at the end of hbase-env.sh file
+
+	export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+	
+	Save the file by pressing ctrl + X and press "Y" and enter key.
+
+_____________________________________________________________________________________________________________________________
+
+Step: edit hbase-site.xml file
+
+command:~ 
+
+(1) cd /usr/local/hbase/conf
+(2) sudo nano hbase-site.xml
+
+(3) Copy the below lines and paste in <configuration> </configuration> tag of hbase-site.xml file
+
+    <property>
+      <name>hbase.rootdir</name>
+      <value>file:/home/hadoopusr/HBase/HFiles</value>
+   </property>
+	
+   <property>
+      <name>hbase.zookeeper.property.dataDir</name>
+      <value>/home/hadoopusr/zookeeper</value>
+   </property>
+		
+	Save the file by pressing ctrl + X and press "Y" and enter key.
+
+_____________________________________________________________________________________________________________________________
+
+Step: To start hbase (make sure that your hadoop is running)
+
+command:~
+
+(1) cd /usr/local/hbase/bin
+(2) sudo ./start-hbase.sh
+(3) jps
+_____________________________________________________________________________________________________________________________
+
+Step: To start hbase shell
+
+command:~
+
+(1) ./hbase shell
+
+to exit from hbase shell
+
+hbase(main):001:0> exit
+
+_____________________________________________________________________________________________________________________________
+
+
+Step: To start hbase
+
+command:~
+
+(1) cd /usr/local/hbase/bin
+(2) sudo ./stop-hbase.sh
+
+
+to stop hadoop
+
+(1) stop-all.sh 
+
+

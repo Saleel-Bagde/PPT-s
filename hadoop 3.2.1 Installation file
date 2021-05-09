@@ -1,0 +1,362 @@
+Readlink folder
+
+command:~ readlink -f symlinkName
+
+
+Step: download google chrome
+
+command:~ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+
+install google chrome
+command: 
+(1) sudo apt install ./google-chrome-stable_current_amd64.deb
+(2) google-chrome (To start chrome)
+_______________________________________________________________________________________________________________________
+
+Step: Install jdk 8
+
+command:~ 
+Note: Check java if available with command:~$ (java -version)
+
+(1) sudo apt-get update 
+(2) sudo apt-get install openjdk-8-jdk 
+(3) java -version (check java version)
+_________________________________________________________________________________________________________________________________
+
+Step: create a group
+
+command:~
+
+(1) sudo addgroup hadoop (i.e. hadoop is a GROUPNAME)
+____________________________________________
+
+Step:  create user within group
+
+command:~
+
+(1) sudo adduser --ingroup hadoop hadoopusr (hadoop - group)
+					       hadoopusr - user)
+	Adding user `hadoopusr' ...
+	Adding new user `hadoopusr' (1001) with group `hadoop' ...
+	Creating home directory `/home/hadoopusr' ...
+	Copying files from `/etc/skel' ...
+		New password: 	      (Enter the password for hadoopusr user)
+		Retype new password:  ( Re-enter the password for hadoopusr user)
+	passwd: password updated successfully
+	Changing the user information for hadoopusr
+	Enter the new value, or press ENTER for the default
+		Full Name []: 	 (keep it blank and Press Enter)
+		Room Number []: (keep it blank and Press Enter)
+		Work Phone []:  (keep it blank and Press Enter)
+		Home Phone []:  (keep it blank and Press Enter)
+		Other []:       (keep it blank and Press Enter)
+		Is the information correct? [Y/n] y (Press "y")
+
+(2) sudo adduser hadoopusr sudo
+
+	you will get following OUTPUT
+	
+	Adding user `hadoopusr' to group `sudo' ...
+	Adding user hadoopusr to group sudo
+	Done.
+_____________________________________________________________________________________________________________________________
+
+Step:  Install open SSH server
+
+command:~
+ 
+(1) sudo apt install openssh-server (Press "Y" to continue and wait to complete the process. )
+_____________________________________________________________________________________________________________________________
+
+Step: Switch to created user for further installation (in my case my user is hadoopusr)
+
+command:~
+
+(1) clear
+(2) su - hadoopusr 	i.e. su - <your use_rname> 
+_____________________________________________________________________________________________________________________________
+ 
+Step:  download hadoop software
+ 
+ command:- 
+ 
+hadoop download link:
+
+(1) https://mirrors.estointernet.in/apache/hadoop/common/ ( for omkar and saleel)
+
+(2) https://hadoop.apache.org/releases.html   (Binary download for students)
+
+Download any version of hadoop you wish (i have downloaded 3.2.1)
+
+Note: by default Hadoop will be downloaded on /home/ubuntu/Downloads
+ folder.
+_____________________________________________________________________________________________________________________________
+
+Step: extract the file 
+
+goto /home/ubuntu/Downloads folder and unpack hadoop-3.2.1.tar.gz file
+
+command:- 
+(1) cd /home/ubuntu/Downloads
+(2) sudo tar -xvzf hadoop-3.2.1.tar.gz 
+
+Note: It will create hadoop-3.2.1 folder in /home/ubuntu/Downloads 
+_____________________________________________________________________________________________________________________________
+
+Step: move the extracted hadoop file to created user
+
+command:- 
+
+(1) sudo mv /home/ubuntu/Downloads/hadoop-3.2.1 /usr/local/hadoop 
+_____________________________________________________________________________________________________________________________
+
+Step: goto /usr/local/hadoop 
+
+command:- 
+
+(1) cd /usr/local/hadoop
+(2) pwd (to check present working dir)
+(3) ll
+_____________________________________________________________________________________________________________________________
+
+Step: then give the ownership to the directory where file is moved eg:-
+
+command:- 
+
+(1) sudo chown -R hadoopusr /usr/local/
+
+
+Note:- This command will give ownership to all file and folders
+_____________________________________________________________________________________________________________________
+
+Step: To create a ssh key
+
+command:~
+
+(1) ssh-keygen -t rsa -P ""
+
+
+	Will get following output
+
+	Generating public/private rsa key pair.
+	Enter file in which to save the key (/home/hadoopusr/.ssh/id_rsa): 
+	Created directory '/home/hadoopusr/.ssh'.
+	*** Your identification has been saved in /home/hadoopusr/.ssh/id_rsa ***
+	*** Your public key has been saved in /home/hadoopusr/.ssh/id_rsa.pub ***
+The key fingerprint is:
+SHA256:uOsH+3KvUGkc61HdH8E9gOyeK0SMs2FpCBIQS4d2bwQ hadoopusr@ubuntu-HP-ProDesk-600-G1-SFF
+The key's randomart image is:
++---[RSA 3072]----+
+|++oE.     . ..o..|
+|.=.o .     + . oo|
+|o o + . = o . ...|
+|     + X B .   ..|
+|    . + S . .   .|
+|      .* o o     |
+|      ooo   .    |
+|      ooo. .     |
+|     .o=ooo      |
++----[SHA256]-----+
+
+
+
+(2) cat $HOME/.ssh/id_rsa.pub >> $HOME/.ssh/authorized_keys
+(3) chmod 0600 ~/.ssh/authorized_keys
+(4) ssh localhost   (to connect to localhost)
+(5) exit	     (to logout from localhost)
+_____________________________________________________________________________________________________
+
+
+Step: edit ~/.bashrc file
+
+command:~
+
+(1) sudo nano ~/.bashrc
+
+(2)  Copy the below lines and paste at the end of ~/.bashrc file
+
+        export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+	export HADOOP_HOME=/usr/local/hadoop
+	export PATH=$PATH:$HADOOP_HOME/bin
+	export PATH=$PATH:$HADOOP_HOME/sbin
+	export HADOOP_MAPRED_HOME=$HADOOP_HOME
+	export HADOOP_COMMON_HOME=$HADOOP_HOME
+	export HADOOP_HDFS_HOME=$HADOOP_HOME
+	export YARN_HOME=$HADOOP_HOME
+	export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+	export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib"
+	
+	Save the file by pressing ctrl + X and press "Y" and enter key.
+
+(3) source ~/.bashrc
+_____________________________________________________________________________________________________
+
+Step: edit hadoop-env.sh file
+
+command:~ 
+
+(1) cd /usr/local/hadoop/etc/hadoop/
+(2) sudo nano hadoop-env.sh
+(3) Copy the below lines and paste at the end of hadoop-env.sh file
+
+	export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+	
+	Save the file by pressing ctrl + X and press "Y" and enter key.
+_____________________________________________________________________________________________________
+
+Step: edit core-site.xml file
+
+command:~ 
+
+(1) cd /usr/local/hadoop/etc/hadoop/
+(2) sudo nano core-site.xml
+
+(3) Copy the below lines and paste in <configuration> </configuration> tag of core-site.xml file
+
+	<property>
+		<name>fs.default.name</name>
+		<value>hdfs://localhost:9000</value>
+	</property>
+	
+	Save the file by pressing ctrl + X and press "Y" and enter key.
+_____________________________________________________________________________________________________
+
+Step: edit hdfs-site.xml
+
+command:~
+
+(1) cd /usr/local/hadoop/etc/hadoop/
+(2) sudo nano hdfs-site.xml
+(3) Copy the below lines and paste in <configuration> </configuration> tag of hdfs-site.xml file
+
+	<property>
+		<name>dfs.replication</name>
+		<value>1</value>
+	</property>
+	<property>
+		<name>dfs.namenode.name.dir</name>
+		<value>file:/usr/local/hadoop_tmp/hdfs/namenode</value>
+	</property>
+	<property>
+		<name>dfs.datanode.data.dir</name>
+		<value>file:/usr/local/hadoop_tmp/hdfs/datanode</value>
+	</property>
+	
+	Save the file by pressing ctrl + X and press "Y" and enter key.
+_____________________________________________________________________________________________________
+
+Step: edit yarn-site.xml
+
+command:~
+
+(1) cd /usr/local/hadoop/etc/hadoop/
+(2) sudo nano yarn-site.xml
+(3) Copy the below lines and paste in <configuration> </configuration> tag of yarn-site.xml file
+
+	<property>
+		<name>yarn.nodemanager.aux-services</name>
+		<value>mapreduce_shuffle</value>
+	</property>
+	<property>
+		<name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+		<value>org.apache.hadoop.mapred.ShuffleHandler</value>
+	</property>
+	
+	Save the file by pressing ctrl + X and press "Y" and enter key.
+_____________________________________________________________________________________________________
+
+Step: edit mapred-site.xml
+
+command:~
+
+(1) cd /usr/local/hadoop/etc/hadoop/
+(2) sudo nano mapred-site.xml
+(3) Copy the below lines and paste in <configuration> </configuration> tag of mapred-site.xml file
+
+	<property>
+		<name>mapreduce.framework.name</name>
+		<value>yarn</value>
+	</property>
+	
+	Save the file by pressing ctrl + X and press "Y" and enter key.
+_____________________________________________________________________________________________________
+
+Step: Make directory for namenode and datanode because both are necessary for hadoop architecture
+
+command:~
+
+(1) cd and press enter
+(2) sudo mkdir -p /usr/local/hadoop_space
+(3) sudo mkdir -p /usr/local/hadoop_space/namenode
+(4) sudo mkdir -p /usr/local/hadoop_space/datanode
+_____________________________________________________________________________________________________
+
+Step: *** PUT OWNER PERMISSIONS TO THE FOLDER ***
+
+command:~
+
+(1) sudo chown -R hadoopusr /usr/local/hadoop_space
+(2) cd
+(3) pwd (you must be in /home/hadoopusr folder)
+_____________________________________________________________________________________________________
+
+Step: *** FORMAT HDFS NAMENODE ***
+
+command:~
+
+(1) hdfs namenode -format
+
+_____________________________________________________________________________________________________
+
+Step: To start hadoop
+
+command:~
+
+(1) start-all.sh (to start all)
+
+	OR 
+
+(1) start-dfs.sh (to start dfs dameons namenode, datanode).
+(2) start-yarn.sh (to start resources).
+
+Note :- MOSTLY type command start-all.sh to start all services !!
+_________________________________________________________________________
+
+Step: To check all running services ;
+
+command:~
+
+(1) jps
+
+	**output:-**
+
+		69013 NameNode
+		73206 Jps
+		69769 NodeManager
+		69163 DataNode
+		69596 ResourceManager
+		69343 SecondaryNameNode
+
+
+Step: To hadoop UI in browser .
+
+command:~
+
+(1) localhost:9870 (9870 is default port)
+_______________________________________________________________________________________-
+
+Step: To stop hadoop
+
+command:~
+
+(1) stop-all.sh (to stop all)
+
+	OR 
+
+(1) stop-dfs.sh (to stop dfs dameons namenode, datanode).
+(2) stop-yarn.sh (to stop resources).
+
+Note :- MOSTLY type command stop-all.sh to stop all services.
+
+
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
