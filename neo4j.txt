@@ -1,0 +1,41 @@
+ author(name,location,emailid): ------> (a1)saleel, (a2)sharmin, (a3)ruhan, (a4)vrushali
+		
+              books(isbn,name): ------> (b1)redis, (b2)mongodb, (b3)hbase, (b4)neo4j, (b5)node, (b6)c++, (b7)java
+	  
+                *(R)uthor_book: ------> saleel(redis, mongodb)
+                              : ------> sharmin(redis, neo4j)
+                              : ------> ruhan(node, c++, mongodb)
+                              : ------> vrushali(hbase, neo4j, redis)
+			 
+          ost(price, currency): ------> 1200
+                              : ------> 980
+                              : ------> 975
+                      
+                 *(R)book_cost: ------> redis(1200)
+                              : ------> mongodb(980)
+                              : ------> hbase(980)
+                              : ------> neo4j(1200)
+                              : ------> node(975)
+                              : ------> c++(975)
+                              : ------> java(1200)
+	   
+publisher(name,location,phone): ------> golden print, techmedia publisher, raj publisher 
+ 
+            (R)publisher_books: ------> golden print        (redis,hbase,node)
+                              : ------> techmedia publisher (mongodb,neo4j,node, redis, hbase)
+                              : ------> raj publisher       (redis,c++,java,hbase)
+	         
+---------------------------------------------------------------------------------------------------------------	
+	
+	create(a1:author{name:'saleel', emailid:'saleel@gmail.com'}), 
+			(a2:author{name:'sharmin', emailid:'sharmin@gmail.com'}),
+			(a3:author{name:'ruhan', emailid:'ruhan@gmail.com'}),
+			(a4:author{name:'vrushali', emailid:'vrushali@gmail.com'})
+			
+	create(b1:book{isbn:'redis-001', name:'redis'}),
+			(b2:book{isbn:'mongodb-001', name:'mongodb'}),
+			(b3:book{isbn:'hbase-001', name:'hbase'}),
+			(b4:book{isbn:'neo4j-001', name:'neo4j'}),
+			(b5:book{isbn:'node-001', name:'node'}),
+			(b6:book{isbn:'c++-001', name:'c++'}),
+			(b7:book{isbn:'java-001', name:'java'})
