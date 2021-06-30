@@ -1,41 +1,87 @@
- author(name,location,emailid): ------> (a1)saleel, (a2)sharmin, (a3)ruhan, (a4)vrushali
+ author(name,location,emailid): ------> (a1)saleel,(a2)sharmin,(a3)ruhan,(a4)vrushali,(a5)nitish,(a6)sangita
 		
-              books(isbn,name): ------> (b1)redis, (b2)mongodb, (b3)hbase, (b4)neo4j, (b5)node, (b6)c++, (b7)java
-	  
-                *(R)uthor_book: ------> saleel(redis, mongodb)
-                              : ------> sharmin(redis, neo4j)
-                              : ------> ruhan(node, c++, mongodb)
-                              : ------> vrushali(hbase, neo4j, redis)
+		              category: ------> object oriented programming
+							  :	------> data science
+							  :	------> relational database
+							  :	------> no-sql
+		
+  books(isbn,name,cover,pages): ------> (b1)redis,(b2)mongodb,(b3)hbase,(b4)neo4j,(b5)hive,(b6)c++,(b7)java
+	                            ------> (b8)python,(b9)R,b10)oracle,(b11)mysql,(b12)big table 
+								
+               *(R)author_book: ------> saleel(redis,mongodb)
+                              : ------> sharmin(redis,neo4j)
+                              : ------> ruhan(hive,c++,mongodb)
+                              : ------> vrushali(hbase,neo4j,redis)
+							  : ------> nitish(python,R,hive)
+                              : ------> sangita(oracle,mysql,big table)
+					
+             *(R)book_category: ------> object oriented programming(c++,java)
+							  :	------> data science(python,R)
+							  :	------> relational database(oracle,mysql)
+							  :	------> no-sql(redis,mongodb,hbase,neo4j,hive,big table)					
 			 
-          ost(price, currency): ------> 1200
+          cost(price,currency): ------> 1200
                               : ------> 980
                               : ------> 975
-                      
+                              : ------> 1600
+					          : ------> 2200
+					          : ------> 1260
+							  
                  *(R)book_cost: ------> redis(1200)
-                              : ------> mongodb(980)
-                              : ------> hbase(980)
+                              : ------> mongodb(1260)
+                              : ------> hbase(1600)
                               : ------> neo4j(1200)
                               : ------> node(975)
                               : ------> c++(975)
                               : ------> java(1200)
-	   
+	                          : ------> python(1600)
+	                          : ------> R(2200)
+	                          : ------> oracle(1260)
+	                          : ------> mysql(1260)
+	                          : ------> big table(2200)
+		   
 publisher(name,location,phone): ------> golden print, techmedia publisher, raj publisher 
  
-            (R)publisher_books: ------> golden print        (redis,hbase,node)
-                              : ------> techmedia publisher (mongodb,neo4j,node, redis, hbase)
-                              : ------> raj publisher       (redis,c++,java,hbase)
-	         
+            (R)publisher_books: ------> golden print (redis,hbase,node)
+                              : ------> techmedia publisher (mongodb,neo4j,node,redis,hbase)
+                              : ------> raj publisher (redis,c++,java,hbase)
+							  : ------> red gate books (neo4j,python,hbase)
+							  : ------> simple talk (python,R,oracle)
+	                          : ------> inTech (big table,hbase,neo4j,redis)
 ---------------------------------------------------------------------------------------------------------------	
 	
-	create(a1:author{name:'saleel', emailid:'saleel@gmail.com'}), 
-			(a2:author{name:'sharmin', emailid:'sharmin@gmail.com'}),
-			(a3:author{name:'ruhan', emailid:'ruhan@gmail.com'}),
-			(a4:author{name:'vrushali', emailid:'vrushali@gmail.com'})
+	create(au1:author{name:'saleel', location:'baroda', emailid:'saleel@gmail.com'}), 
+			(au2:author{name:'sharmin', location:'pune', emailid:'sharmin@gmail.com'}),
+			(au3:author{name:'ruhan', location:'pune', emailid:'ruhan@gmail.com'}),
+			(au4:author{name:'vrushali', location:'mumbai', emailid:'vrushali@gmail.com'}),
+			(au5:author{name:'nitish', location:'mumbai', emailid:'nitish@hotmail.com'}),
+			(au6:author{name:'sangita', location:'baroda', emailid:'sangita@hotmail.com'})
+	
+	create(ca1:category{name:'object oriented programming'}),
+			(ca2:category{name:'data science'}),
+			(ca3:category{name:'relational database'}),
+			(ca4:category{name:'no-sql'})
+	
+	create(b1:book{isbn:'redis-001', name:'redis', cover:'paperback', pages:1000}),
+			(b2:book{isbn:'mongodb-001', name:'mongodb', cover:'hardcover', pages:1250}),
+			(b3:book{isbn:'hbase-001', name:'hbase', cover:'ebook', pages:1200}),
+			(b4:book{isbn:'neo4j-001', name:'neo4j', cover:'paperback', pages:1000}),
+			(b5:book{isbn:'hive-001', name:'hive', cover:'hardcover', pages:1250}),
+			(b6:book{isbn:'c++-001', name:'c++', cover:'ebook', pages:890}),
+			(b7:book{isbn:'java-001', name:'java', cover:'paperback', pages:890}),
+			(b8:book{isbn:'python-001', name:'python', cover:'ebook', pages:700}), 
+			(b9:book{isbn:'R-001', name:'R', cover:'ebook', pages:1200}),
+			(b10:book{isbn:'oracle-001', name:'oracle', cover:'ebook', pages:790}),
+			(b11:book{isbn:'mysql-001', name:'mysql', cover:'ebook', pages:800}),
+			(b12:book{isbn:'big table-001', name:'big table', cover:'ebook', pages:890})
 			
-	create(b1:book{isbn:'redis-001', name:'redis'}),
-			(b2:book{isbn:'mongodb-001', name:'mongodb'}),
-			(b3:book{isbn:'hbase-001', name:'hbase'}),
-			(b4:book{isbn:'neo4j-001', name:'neo4j'}),
-			(b5:book{isbn:'node-001', name:'node'}),
-			(b6:book{isbn:'c++-001', name:'c++'}),
-			(b7:book{isbn:'java-001', name:'java'})
+	create(co1:cost{name:'indian Rs.', price:1200}),
+			(co2:cost{name:'indian Rs.', price:980}),
+			(co3:cost{name:'indian Rs.', price:975}),
+			(co4:cost{name:'indian Rs.', price:1600}),
+			(co5:cost{name:'indian Rs.', price:2200}),
+			(co6:cost{name:'indian Rs.', price:1260})
+			
+			
+            
+            
