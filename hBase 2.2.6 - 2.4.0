@@ -166,3 +166,9 @@ to stop hadoop
 (1) stop-all.sh 
 
 
+Step: To hbase UI in browser .
+
+command:~
+http://localhost:16010/master-status ---------> (hmaster WEB UI)
+http://localhost:16030/rs-status ---------> (region server WEB UI)
+
