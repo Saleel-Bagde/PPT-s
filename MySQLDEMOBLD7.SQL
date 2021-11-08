@@ -77,9 +77,15 @@ DROP TABLE If EXISTS company;
 DROP TABLE If EXISTS candidate;
 DROP TABLE If EXISTS votes;
 DROP TABLE If EXISTS points;
-
+DROP TABLE If EXISTS andor;
 
 DROP VIEW IF EXISTS SALES;
+
+create table andor (id int, c1 varchar(10), city varchar(10));
+insert into andor values(1,'saleel','pune');
+insert into andor values(2,'sharmin','pune');
+insert into andor values(3,'ruhan','baroda');
+insert into andor values(4,'saleel','baroda');
 
 create table points (
   c1 INT
