@@ -78,8 +78,13 @@ DROP TABLE If EXISTS candidate;
 DROP TABLE If EXISTS votes;
 DROP TABLE If EXISTS points;
 DROP TABLE If EXISTS andor;
+DROP TABLE If EXISTS stadium;
 
 DROP VIEW IF EXISTS SALES;
+
+create table stadium (id int primary key, visit_date date, people int);
+
+insert into stadium values(1, "2017-01-01", 10), (2, "2017-01-02", 109), (3, "2017-01-03", 150), (4, "2017-01-04", 99 ), (5, "2017-01-05", 145), (6, "2017-01-06", 1455), (7, "2017-01-07", 199), (8, "2017-01-09", 188), (9, "2017-01-10", 98), (10, "2017-11-09", 188);
 
 create table andor (id int, c1 varchar(10), city varchar(10));
 insert into andor values(1,'saleel','pune');
