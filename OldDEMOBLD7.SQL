@@ -44,12 +44,167 @@ DROP TABLE STATION cascade constraints purge;
 DROP TABLE Z cascade constraints purge;
 DROP TABLE r1 cascade constraints purge;
 DROP TABLE r2 cascade constraints purge;
+DROP TABLE agent cascade constraints purge;
+DROP TABLE licence cascade constraints purge;
+DROP TABLE fifa cascade constraints purge;
+
+
+
 
 DROP VIEW SALES;
 DROP SEQUENCE ORDID;
 DROP SEQUENCE CUSTID;
 DROP SEQUENCE PRODID;
 --alter session set nls_date_format='dd-Mon-rrrr hh24:mi:ss';
+
+CREATE TABLE agent (agentID number GENERATED ALWAYS as IDENTITY, agentName varchar2(20), phone varchar2(10));
+
+													INSERT INTO agent(agentName, phone) VALUES ('Sai Travels', '9850883667');
+INSERT INTO agent(agentName, phone) VALUES ('Raj Travels', '9922295489');
+INSERT INTO agent(agentName, phone) VALUES ('Prime Travels', '9867889227');
+INSERT INTO agent(agentName) VALUES ('4 Star Travles');
+INSERT INTO agent(agentName, phone) VALUES ('7 Seas Travels', '9869884778');
+INSERT INTO agent(agentName) VALUES ('Abhinav Travels');
+
+CREATE TABLE licence (
+  ID NUMBER PRIMARY KEY,
+  customerID NUMBER,
+  licenceClass VARCHAR2(45),
+  licenceType VARCHAR2(128),
+  licenceNumber VARCHAR2(45),
+  ValidFrom VARCHAR2(45),
+  ValidTo VARCHAR2(45),
+  agentID NUMBER );
+
+INSERT INTO licence VALUES ('1', '1', 'LMV', 'Light motor vehicles including motorcars, jeeps, taxis, delivery vans', 'RQFY8GZNDF9E', '********', '********', '1');
+INSERT INTO licence VALUES ('2', '2', 'LMV', 'Light motor vehicles including motorcars, jeeps, taxis, delivery vans', 'ZFVHYH4OAHGS', '********', '********', '2');
+INSERT INTO licence VALUES ('3', '1', 'HMV', 'Heavy Motor Vehicles', '20CMZQ6ERXJ4', '********', '********', '3');
+INSERT INTO licence VALUES ('4', '2', 'HMV', 'Heavy Motor Vehicles', 'DNIE1K9R5BG6', '********', '********', '1');
+INSERT INTO licence VALUES ('5', '3', 'LMV', 'Light motor vehicles including motorcars, jeeps, taxis, delivery vans', 'Y3CNWQ6MKPCG', '********', '********', '2');
+INSERT INTO licence VALUES ('6', '3', 'HMV', 'Heavy Motor Vehicles', 'Y6DC2IRD2EWZ', '********', '********', '1');
+INSERT INTO licence VALUES ('7', '4', 'HGMV', 'Heavy Goods Motor Vehicle', '2EFFSXY04OAW', '********', '********', '3');
+INSERT INTO licence VALUES ('8', '5', 'HMV', 'Heavy Motor Vehicles', 'GC1BMWKCTVQ4', '********', '********', '2');
+INSERT INTO licence VALUES ('9', '6', 'LMV', 'Light motor vehicles including motorcars, jeeps, taxis, delivery vans', '2148PC50IR3P', '********', '********', '1');
+INSERT INTO licence VALUES ('10', '7', 'HPMV', 'Heavy passenger motor vehicle/Heavy transport vehicle', 'N4NODNCFJENP', '********', '********', '2');
+INSERT INTO licence VALUES ('11', '8', 'HGMV', 'Heavy Goods Motor Vehicle', 'EBPW9M34FKOI', '********', '********', '2');
+INSERT INTO licence VALUES ('12', '9', 'HPMV', 'Heavy passenger motor vehicle/Heavy transport vehicle', '940MGEL4HO00', '********', '********', '3');
+INSERT INTO licence VALUES ('13', '10', 'LMV', 'Light motor vehicles including motorcars, jeeps, taxis, delivery vans', 'JWRDAETHDU5Z', '********', '********', '1');
+INSERT INTO licence VALUES ('14', '11', 'HGMV', 'Heavy Goods Motor Vehicle', 'Z95XCS7W9NAU', '********', '********', '2');
+INSERT INTO licence VALUES ('15', '12', 'HGMV', 'Heavy Goods Motor Vehicle', '1YJ12NQX8HAJ', '********', '********', '1');
+INSERT INTO licence VALUES ('16', '13', 'LMV', 'Light motor vehicles including motorcars, jeeps, taxis, delivery vans', '1XMTETH8E6JS', '********', '********', '1');
+INSERT INTO licence VALUES ('17', '14', 'HPMV', 'Heavy passenger motor vehicle/Heavy transport vehicle', '0WEMMTPVTBPM', '********', '********', '2');
+
+
+CREATE TABLE fifa (
+ID NUMBER  PRIMARY KEY,
+RNK NUMBER,
+Team varchar2(45),
+TotalPoints NUMBER,
+PreviousPoint NUMBER,
+re number
+);
+
+INSERT INTO fifa VALUES ('1', '1', 'Belgium', '1765', '1765', '0');
+INSERT INTO fifa VALUES ('2', '2', 'France', '1733', '1733', '0');
+INSERT INTO fifa VALUES ('3', '3', 'Brazil', '1712', '1712', '0');
+INSERT INTO fifa VALUES ('4', '4', 'England', '1661', '1661', '0');
+INSERT INTO fifa VALUES ('5', '5', 'Uruguay', '1645', '1645', '0');
+INSERT INTO fifa VALUES ('6', '6', 'Croatia', '1642', '1642', '0');
+INSERT INTO fifa VALUES ('7', '7', 'Portugal', '1639', '1639', '0');
+INSERT INTO fifa VALUES ('8', '8', 'Spain', '1636', '1636', '0');
+INSERT INTO fifa VALUES ('9', '9', 'Argentina', '1623', '1623', '0');
+INSERT INTO fifa VALUES ('10', '10', 'Colombia', '1622', '1622', '0');
+INSERT INTO fifa VALUES ('11', '11', 'Mexico', '1621', '1621', '0');
+INSERT INTO fifa VALUES ('12', '12', 'Switzerland', '1608', '1608', '0');
+INSERT INTO fifa VALUES ('13', '13', 'Italy', '1607', '1607', '0');
+INSERT INTO fifa VALUES ('14', '14', 'Netherlands', '1604', '1604', '0');
+INSERT INTO fifa VALUES ('15', '15', 'Germany', '1602', '1602', '0');
+INSERT INTO fifa VALUES ('16', '16', 'Denmark', '1598', '1598', '0');
+INSERT INTO fifa VALUES ('17', '17', 'Chile', '1579', '1579', '0');
+INSERT INTO fifa VALUES ('18', '17', 'Sweden', '1579', '1579', '0');
+INSERT INTO fifa VALUES ('19', '19', 'Poland', '1559', '1559', '0');
+INSERT INTO fifa VALUES ('20', '20', 'Senegal', '1555', '1555', '0');
+INSERT INTO fifa VALUES ('21', '21', 'Peru', '1544', '1544', '0');
+INSERT INTO fifa VALUES ('22', '22', 'USA', '1542', '1542', '0');
+INSERT INTO fifa VALUES ('23', '23', 'Wales', '1540', '1540', '0');
+INSERT INTO fifa VALUES ('24', '24', 'Ukraine', '1537', '1537', '0');
+INSERT INTO fifa VALUES ('25', '25', 'Venezuela', '1517', '1517', '0');
+INSERT INTO fifa VALUES ('26', '26', 'Austria', '1507', '1507', '0');
+INSERT INTO fifa VALUES ('27', '27', 'Tunisia', '1506', '1506', '0');
+INSERT INTO fifa VALUES ('28', '28', 'Japan', '1500', '1500', '0');
+INSERT INTO fifa VALUES ('29', '29', 'Serbia', '1494', '1494', '0');
+INSERT INTO fifa VALUES ('30', '29', 'Turkey', '1494', '1494', '0');
+INSERT INTO fifa VALUES ('31', '31', 'Nigeria', '1493', '1493', '0');
+INSERT INTO fifa VALUES ('32', '32', 'Slovakia', '1490', '1490', '0');
+INSERT INTO fifa VALUES ('33', '33', 'IR Iran', '1489', '1489', '0');
+INSERT INTO fifa VALUES ('34', '34', 'Republic of Ireland', '1486', '1486', '0');
+INSERT INTO fifa VALUES ('35', '35', 'Algeria', '1482', '1482', '0');
+INSERT INTO fifa VALUES ('36', '36', 'Northern Ireland', '1476', '1476', '0');
+INSERT INTO fifa VALUES ('37', '37', 'Romania', '1475', '1475', '0');
+INSERT INTO fifa VALUES ('38', '38', 'Russia', '1470', '1470', '0');
+INSERT INTO fifa VALUES ('39', '39', 'Iceland', '1465', '1465', '0');
+INSERT INTO fifa VALUES ('40', '40', 'Korea Republic', '1464', '1464', '0');
+INSERT INTO fifa VALUES ('41', '41', 'Paraguay', '1461', '1461', '0');
+INSERT INTO fifa VALUES ('42', '42', 'Australia', '1457', '1457', '0');
+INSERT INTO fifa VALUES ('43', '43', 'Morocco', '1456', '1456', '0');
+INSERT INTO fifa VALUES ('44', '44', 'Norway', '1451', '1451', '0');
+INSERT INTO fifa VALUES ('45', '45', 'Czech Republic', '1446', '1446', '0');
+INSERT INTO fifa VALUES ('46', '46', 'Costa Rica', '1439', '1439', '0');
+INSERT INTO fifa VALUES ('47', '46', 'Ghana', '1439', '1439', '0');
+INSERT INTO fifa VALUES ('48', '48', 'Jamaica', '1438', '1437', '0');
+INSERT INTO fifa VALUES ('49', '49', 'Bosnia and Herzegovina', '1430', '1430', '0');
+INSERT INTO fifa VALUES ('50', '50', 'Scotland', '1422', '1422', '0');
+INSERT INTO fifa VALUES ('51', '51', 'Egypt', '1420', '1420', '0');
+INSERT INTO fifa VALUES ('52', '52', 'Hungary', '1416', '1416', '0');
+INSERT INTO fifa VALUES ('53', '53', 'Cameroon', '1413', '1413', '0');
+INSERT INTO fifa VALUES ('54', '54', 'Greece', '1409', '1409', '0');
+INSERT INTO fifa VALUES ('55', '55', 'Qatar', '1396', '1396', '0');
+INSERT INTO fifa VALUES ('56', '56', 'Congo DR', '1389', '1389', '0');
+INSERT INTO fifa VALUES ('57', '56', 'Mali', '1389', '1389', '0');
+INSERT INTO fifa VALUES ('58', '58', 'Finland', '1386', '1386', '0');
+INSERT INTO fifa VALUES ('59', '59', 'Bulgaria', '1381', '1381', '0');
+INSERT INTO fifa VALUES ('60', '59', 'Burkina Faso', '1381', '1381', '0');
+INSERT INTO fifa VALUES ('61', '61', 'Côte d\'Ivoire', '1378', '1378', '0');
+INSERT INTO fifa VALUES ('62', '62', 'Honduras', '1377', '1377', '0');
+INSERT INTO fifa VALUES ('63', '63', 'Ecuador', '1368', '1368', '0');
+INSERT INTO fifa VALUES ('64', '64', 'Montenegro', '1365', '1365', '0');
+INSERT INTO fifa VALUES ('65', '64', 'Slovenia', '1365', '1365', '0');
+INSERT INTO fifa VALUES ('66', '66', 'Albania', '1356', '1356', '0');
+INSERT INTO fifa VALUES ('67', '67', 'Saudi Arabia', '1351', '1351', '0');
+INSERT INTO fifa VALUES ('68', '68', 'North Macedonia', '1347', '1347', '0');
+INSERT INTO fifa VALUES ('69', '69', 'El Salvador', '1346', '1346', '0');
+INSERT INTO fifa VALUES ('70', '70', 'Iraq', '1344', '1344', '0');
+INSERT INTO fifa VALUES ('71', '71', 'South Africa', '1334', '1334', '0');
+INSERT INTO fifa VALUES ('72', '71', 'United Arab Emirates', '1334', '1334', '0');
+INSERT INTO fifa VALUES ('73', '73', 'Canada', '1332', '1332', '0');
+INSERT INTO fifa VALUES ('74', '74', 'Guinea', '1328', '1328', '0');
+INSERT INTO fifa VALUES ('75', '75', 'Bolivia', '1324', '1324', '0');
+INSERT INTO fifa VALUES ('76', '76', 'China PR', '1323', '1323', '0');
+INSERT INTO fifa VALUES ('77', '77', 'Uganda', '1321', '1321', '0');
+INSERT INTO fifa VALUES ('78', '78', 'Cabo Verde', '1318', '1318', '0');
+INSERT INTO fifa VALUES ('79', '79', 'Syria', '1314', '1314', '0');
+INSERT INTO fifa VALUES ('80', '80', 'Curaçao', '1313', '1313', '0');
+INSERT INTO fifa VALUES ('81', '81', 'Panama', '1305', '1304', '0');
+INSERT INTO fifa VALUES ('82', '82', 'Oman', '1303', '1303', '0');
+INSERT INTO fifa VALUES ('83', '83', 'Gabon', '1297', '1297', '0');
+INSERT INTO fifa VALUES ('84', '84', 'Benin', '1295', '1295', '0');
+INSERT INTO fifa VALUES ('85', '85', 'Uzbekistan', '1286', '1289', '0');
+INSERT INTO fifa VALUES ('86', '86', 'Haiti', '1285', '1285', '0');
+INSERT INTO fifa VALUES ('87', '87', 'Belarus', '1283', '1280', '0');
+INSERT INTO fifa VALUES ('88', '88', 'Zambia', '1279', '1279', '0');
+INSERT INTO fifa VALUES ('89', '89', 'Congo', '1269', '1269', '0');
+INSERT INTO fifa VALUES ('90', '89', 'Lebanon', '1269', '1269', '0');
+INSERT INTO fifa VALUES ('91', '91', 'Georgia', '1267', '1267', '0');
+INSERT INTO fifa VALUES ('92', '91', 'Madagascar', '1267', '1267', '0');
+INSERT INTO fifa VALUES ('93', '93', 'Israel', '1260', '1260', '0');
+INSERT INTO fifa VALUES ('94', '94', 'Vietnam', '1258', '1258', '0');
+INSERT INTO fifa VALUES ('95', '95', 'Cyprus', '1251', '1251', '0');
+INSERT INTO fifa VALUES ('96', '96', 'Kyrgyz Republic', '1240', '1240', '0');
+INSERT INTO fifa VALUES ('97', '97', 'Jordan', '1238', '1238', '0');
+INSERT INTO fifa VALUES ('98', '98', 'Luxembourg', '1236', '1236', '0');
+INSERT INTO fifa VALUES ('99', '99', 'Bahrain', '1225', '1225', '0');
+INSERT INTO fifa VALUES ('100', '100', 'Mauritania', '1223', '1223', '0');
+
 
 CREATE TABLE r1 (c1 number);
 insert into r1 values(1);
@@ -586,27 +741,30 @@ CREATE TABLE EMP (
  SAL                 NUMBER(7,2),
  COMM                NUMBER(7,2),
  DEPTNO              NUMBER(2) NOT NULL,
- BONUSID	     NUMBER,
+ BONUSID	     	 NUMBER,
+ TOTAL				 NUMBER GENERATED ALWAYS AS (SAL + NVL(COMM, 0)) VIRTUAL,
+ PASSWD              VARCHAR2(10) ENCRYPT,
+ PIN				 NUMBER(3) invisible,
  CONSTRAINT EMP_FOREIGN_KEY FOREIGN KEY (DEPTNO) REFERENCES DEPT (DEPTNO),
  CONSTRAINT EMP_PRIMARY_KEY PRIMARY KEY (EMPNO));
 
-INSERT INTO EMP VALUES (7839,'KING','PRESIDENT',NULL,'17-NOV-81',5000,NULL,10,1);
-INSERT INTO EMP VALUES (7698,'BLAKE','MANAGER',7839,'1-MAY-81',2850,NULL,30,1);
-INSERT INTO EMP VALUES (7782,'CLARK','MANAGER',7839,'9-JUN-81',2450,NULL,10,3);
-INSERT INTO EMP VALUES (7566,'JONES','MANAGER',7839,'2-APR-81',2975,NULL,20,4);
-INSERT INTO EMP VALUES (7654,'MARTIN','SALESMAN',7698,'28-SEP-81',1250,1400,30,6);
-INSERT INTO EMP VALUES (7499,'ALLEN','SALESMAN',7698,'20-FEB-81',1600,300,30,4);
-INSERT INTO EMP VALUES (7844,'TURNER','SALESMAN',7698,'8-SEP-81',1500,0,30,5);
-INSERT INTO EMP VALUES (7900,'JAMES','CLERK',7698,'3-DEC-81',950,NULL,30,2);
-INSERT INTO EMP VALUES (7521,'WARD','SALESMAN',7698,'22-FEB-81',1250,500,30,1);
-INSERT INTO EMP VALUES (7902,'FORD','ANALYST',7566,'3-DEC-81',3000,NULL,20,4);
-INSERT INTO EMP VALUES (7369,'SMITH','CLERK',7902,'17-DEC-80',800,NULL,20,2);
-INSERT INTO EMP VALUES (7788,'SCOTT','ANALYST',7566,'09-DEC-82',3000,NULL,20,3);
-INSERT INTO EMP VALUES (7876,'ADAMS','CLERK',7788,'12-JAN-83',1100,NULL,20,1);
-INSERT INTO EMP VALUES (7934,'MILLER','CLERK',7782,'23-JAN-82',1300,NULL,10,2);
-INSERT INTO EMP VALUES (7949,'ALEX','MANAGER',7698,'24-JAN-82',1250,500,30,5);
-INSERT INTO EMP VALUES (7945,'ALIBABA','SALESMAN',7902,'14-FEB-80',1350,2700,30,NULL);
-INSERT INTO EMP VALUES (7415,'ABRAMA','CLERK',7902,'31-DEC-81',3350,NULL,10,null);
+INSERT INTO EMP(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, TOTAL, PASSWD, PIN) VALUES (7839,'KING','PRESIDENT',NULL,'17-NOV-81',5000,NULL,10,1, default, (select dbms_random.string('x', 6) from dual),(select trunc(dbms_random.value(1,9)) || trunc(dbms_random.value(1,9))|| trunc(dbms_random.value(1,9)) from dual));
+INSERT INTO EMP(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, TOTAL, PASSWD, PIN) VALUES (7698,'BLAKE','MANAGER',7839,'1-MAY-81',2850,NULL,30,1, default, (select dbms_random.string('x', 6) from dual),(select trunc(dbms_random.value(1,9)) || trunc(dbms_random.value(1,9))|| trunc(dbms_random.value(1,9)) from dual));
+INSERT INTO EMP(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, TOTAL, PASSWD, PIN) VALUES (7782,'CLARK','MANAGER',7839,'9-JUN-81',2450,NULL,10,3, default, (select dbms_random.string('x', 6) from dual),(select trunc(dbms_random.value(1,9)) || trunc(dbms_random.value(1,9))|| trunc(dbms_random.value(1,9)) from dual));
+INSERT INTO EMP(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, TOTAL, PASSWD, PIN) VALUES (7566,'JONES','MANAGER',7839,'2-APR-81',2975,NULL,20,4, default, (select dbms_random.string('x', 6) from dual),(select trunc(dbms_random.value(1,9)) || trunc(dbms_random.value(1,9))|| trunc(dbms_random.value(1,9)) from dual));
+INSERT INTO EMP(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, TOTAL, PASSWD, PIN) VALUES (7654,'MARTIN','SALESMAN',7698,'28-SEP-81',1250,1400,30,6, default, (select dbms_random.string('x', 6) from dual),(select trunc(dbms_random.value(1,9)) || trunc(dbms_random.value(1,9))|| trunc(dbms_random.value(1,9)) from dual));
+INSERT INTO EMP(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, TOTAL, PASSWD, PIN) VALUES (7499,'ALLEN','SALESMAN',7698,'20-FEB-81',1600,300,30,4, default, (select dbms_random.string('x', 6) from dual),(select trunc(dbms_random.value(1,9)) || trunc(dbms_random.value(1,9))|| trunc(dbms_random.value(1,9)) from dual));
+INSERT INTO EMP(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, TOTAL, PASSWD, PIN) VALUES (7844,'TURNER','SALESMAN',7698,'8-SEP-81',1500,0,30,5, default, (select dbms_random.string('x', 6) from dual),(select trunc(dbms_random.value(1,9)) || trunc(dbms_random.value(1,9))|| trunc(dbms_random.value(1,9)) from dual));
+INSERT INTO EMP(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, TOTAL, PASSWD, PIN) VALUES (7900,'JAMES','CLERK',7698,'3-DEC-81',950,NULL,30,2, default, (select dbms_random.string('x', 6) from dual),(select trunc(dbms_random.value(1,9)) || trunc(dbms_random.value(1,9))|| trunc(dbms_random.value(1,9)) from dual));
+INSERT INTO EMP(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, TOTAL, PASSWD, PIN) VALUES (7521,'WARD','SALESMAN',7698,'22-FEB-81',1250,500,30,1, default, (select dbms_random.string('x', 6) from dual),(select trunc(dbms_random.value(1,9)) || trunc(dbms_random.value(1,9))|| trunc(dbms_random.value(1,9)) from dual));
+INSERT INTO EMP(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, TOTAL, PASSWD, PIN) VALUES (7902,'FORD','ANALYST',7566,'3-DEC-81',3000,NULL,20,4, default, (select dbms_random.string('x', 6) from dual),(select trunc(dbms_random.value(1,9)) || trunc(dbms_random.value(1,9))|| trunc(dbms_random.value(1,9)) from dual));
+INSERT INTO EMP(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, TOTAL, PASSWD, PIN) VALUES (7369,'SMITH','CLERK',7902,'17-DEC-80',800,NULL,20,2, default, (select dbms_random.string('x', 6) from dual),(select trunc(dbms_random.value(1,9)) || trunc(dbms_random.value(1,9))|| trunc(dbms_random.value(1,9)) from dual));
+INSERT INTO EMP(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, TOTAL, PASSWD, PIN) VALUES (7788,'SCOTT','ANALYST',7566,'09-DEC-82',3000,NULL,20,3, default, (select dbms_random.string('x', 6) from dual),(select trunc(dbms_random.value(1,9)) || trunc(dbms_random.value(1,9))|| trunc(dbms_random.value(1,9)) from dual));
+INSERT INTO EMP(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, TOTAL, PASSWD, PIN) VALUES (7876,'ADAMS','CLERK',7788,'12-JAN-83',1100,NULL,20,1, default, (select dbms_random.string('x', 6) from dual),(select trunc(dbms_random.value(1,9)) || trunc(dbms_random.value(1,9))|| trunc(dbms_random.value(1,9)) from dual));
+INSERT INTO EMP(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, TOTAL, PASSWD, PIN) VALUES (7934,'MILLER','CLERK',7782,'23-JAN-82',1300,NULL,10,2, default, (select dbms_random.string('x', 6) from dual),(select trunc(dbms_random.value(1,9)) || trunc(dbms_random.value(1,9))|| trunc(dbms_random.value(1,9)) from dual));
+INSERT INTO EMP(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, TOTAL, PASSWD, PIN) VALUES (7949,'ALEX','MANAGER',7698,'24-JAN-82',1250,500,30,5, default, (select dbms_random.string('x', 6) from dual),(select trunc(dbms_random.value(1,9)) || trunc(dbms_random.value(1,9))|| trunc(dbms_random.value(1,9)) from dual));
+INSERT INTO EMP(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, TOTAL, PASSWD, PIN) VALUES (7945,'ALIBABA','SALESMAN',7902,'14-FEB-80',1350,2700,30,NULL, default, (select dbms_random.string('x', 6) from dual),(select trunc(dbms_random.value(1,9)) || trunc(dbms_random.value(1,9))|| trunc(dbms_random.value(1,9)) from dual));
+INSERT INTO EMP(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, TOTAL, PASSWD, PIN) VALUES (7415,'ABRAMA','CLERK',7902,'31-DEC-81',3350,NULL,10,null, default, (select dbms_random.string('x', 6) from dual),(select trunc(dbms_random.value(1,9)) || trunc(dbms_random.value(1,9))|| trunc(dbms_random.value(1,9)) from dual));
 
 
 CREATE TABLE BONUS (
