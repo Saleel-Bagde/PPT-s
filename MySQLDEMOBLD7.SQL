@@ -60,7 +60,6 @@ DROP TABLE IF EXISTS warehouse;
 DROP TABLE IF EXISTS sales_channel;
 DROP TABLE IF EXISTS comments;
 DROP TABLE IF EXISTS blog;
-DROP TABLE IF EXISTS fifa;
 DROP TABLE IF EXISTS agent;
 DROP TABLE IF EXISTS licence;
 DROP TABLE IF EXISTS client;
@@ -79,8 +78,98 @@ DROP TABLE If EXISTS votes;
 DROP TABLE If EXISTS points;
 DROP TABLE If EXISTS andor;
 DROP TABLE If EXISTS stadium;
-
+DROP TABLE IF EXISTS transactions;
+DROP TABLE IF EXISTS empj;
 DROP VIEW IF EXISTS SALES;
+
+CREATE TABLE `empj` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `document` json DEFAULT NULL,
+  `insertedDate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+insert into empj values( default, '{"empid":1020,"ename":"king","address": {"building": "1007", "coord": [-73.856077, 40.848447], "street": "Morris Park Ave", "zipcode": "10462"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["blue","black"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"93478", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}], "job":"president","mgr":null,"hiredate":{"$date":"1981-11-17T00:00:00.000Z"},"sal":5000,"comm":null,"deptno":10}', now());
+insert into empj values( default, '{"empid":1021,"ename":"smith","address": {"building": "469", "coord": [-73.961704, 40.662942], "street": "Flatbush Avenue", "zipcode": "11225"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["red", "cyan", "gray"], "fruit": ["grapes", "Orange"],"cards": [ {"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}, {"PAN":{"PAN-No" :"smh838", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"aadhar":{"aadhar-No" :"43564", "isActive":true}}],"job":"manager","mgr":1020,"hiredate":{"$date":"1981-05-01T00:00:00.000Z"},"sal":3400,"comm":null,"deptno":10}', now());
+insert into empj values( default, '{"empid":1022,"ename":"james","address": {"building": "351", "coord": [-73.98513559999999, 40.7676919], "street": "West   57 Street", "zipcode": "10019"},"isDocActive": true,"gender": "male","canVote": true, "canDrive":true,"color": ["Red","Blue","Green","Yellow"], "fruit": ["Indian Fig"],"cards": [ {"PAN":{"PAN-No" :"Kinj093", "isActive":false}}, { "aadhar":{"aadhar-No" :"73826", "isActive":true}}, {"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"manager","mgr":1020,"hiredate":{"$date":"1981-07-09T00:00:00.000Z"},"sal":4700,"comm":null,"deptno":20}', now());
+insert into empj values( default, '{"empid":1023,"ename":"jack","address": {"building": "2780", "coord": [-73.98241999999999, 40.579505], "street": "Stillwell Avenue", "zipcode": "11224"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Air Force Blue","Apple Green"], "fruit": ["Orange"],"cards": [ {"voter":{"voterID":"Ind03o3", "isActive":true}}, { "aadhar":{"aadhar-No" :"12321", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}}, {"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"accountant","mgr":1022,"hiredate":{"$date":"1981-04-02T00:00:00.000Z"},"sal":2700,"comm":null,"deptno":30}', now());
+insert into empj values( default, '{"empid":1023,"ename":"scott","address": {"building": "97-22", "coord": [-73.8601152, 40.7311739], "street": "63 Road", "zipcode": "11374"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Ash Grey", "White"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"93872", "isActive":true}}, {"voter":{"voterID":"Ind03o3","isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}}], "job":"salesman", "mgr":1023, "hiredate":{"$date":"1981-09-28T00:00:00.000Z"},"sal":2500,"comm":350,"deptno":30}', now());
+insert into empj values( default, '{"empid":1024,"ename":"martin","address": {"building": "8825", "coord": [-73.8803827, 40.7643124], "street": "Astoria Boulevard", "zipcode": "11369"},"isDocActive": true,"gender": "male","canVote": true, "canDrive":true,"color": ["Banana Yellow"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"72877", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}], "job":"salesman", "mgr":1023, "hiredate":{"$date":"1981-02-20T00:00:00.000Z"},"sal":2900,"comm":735,"deptno":30}', now());
+insert into empj values( default, '{"empid":1025,"ename":"crow","address": {"building": "2206", "coord": [-74.1377286, 40.6119572], "street": "Victory Boulevard", "zipcode": "10314"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Apple Green","Ash Grey"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"77876", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}], "job":"salesman", "mgr":1023,"hiredate":{"$date":"1981-09-08T00:00:00.000Z"},"sal":3200,"comm":null,"deptno":20}', now());
+insert into empj values( default, '{"empid":1026,"ename":"blake","address": {"building": "7114", "coord": [-73.9068506, 40.6199034], "street": "Avenue U", "zipcode": "11234"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Brass","Bright Green"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"12321", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}], "job":"clerk", "mgr":1024,"hiredate":{"$date":"1981-12-03T00:00:00.000Z"},"sal":1200,"comm":null,"deptno":30}', now());
+insert into empj values( default, '{"empid":1027,"ename":"richards","address": {"building": "6409", "coord": [-74.00528899999999, 40.628886], "street": "11 Avenue", "zipcode": "11219"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Charcoal","Cherry"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"83972", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}], "job":"clerk","mgr":1024,"hiredate":{"$date":"1981-02-22T00:00:00.000Z"},"sal":1500,"comm":null,"deptno":10}', now());
+insert into empj values( default, '{"empid":1028,"ename":"peter","address": {"building": "1839", "coord": [-73.9482609, 40.6408271], "street": "Nostrand Avenue", "zipcode": "11226"},"isDocActive": true,"gender": "male","canVote": true, "canDrive":true,"color": ["Brown"], "fruit": ["banana","Jackfruit"],"cards": [ { "aadhar":{"aadhar-No" :"92783", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}], "job":"analyst", "mgr":1025,"hiredate":{"$date":"1981-12-03T00:00:00.000Z"},"sal":3500,"comm":null,"deptno":30}', now());
+insert into empj values( default, '{"empid":1029,"ename":"bob","address": {"building": "2300", "coord": [-73.8786113, 40.8502883], "street": "Southern Boulevard", "zipcode": "10460"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Copper"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"73122", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}], "job":"manager", "mgr":1020,"hiredate":{"$date":"1980-12-17T00:00:00.000Z"},"sal":4900,"comm":null,"deptno":30}', now());
+insert into empj values( default, '{"empid":1030,"ename":"saleel","address": {"building": "7715", "coord": [-73.9973325, 40.61174889999999], "street": "18 Avenue", "zipcode": "11214"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Coral"], "fruit": ["Dates","Orange"],"cards": [ { "aadhar":{"aadhar-No" :"73822", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}}, {"licence":{"licence-No":"LMV9478", "issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}, {"voter":{"voterID":"Ind03o3", "isActive":true}}], "job":"programmer", "mgr":1020, "hiredate":{"$date":"1982-12-09T00:00:00.000Z"},"sal":2900,"comm":null,"deptno":10}', now());
+insert into empj values( default, '{"empid":1031,"ename":"sharmin","address": {"building": "1269", "coord": [-73.871194, 40.6730975], "street": "Sutter Avenue", "zipcode": "11208"},"isDocActive": false,"gender": "female","canVote": true, "canDrive":true,"color": ["Cream"], "fruit": ["Indian Fig"],"cards": [ { "aadhar":{"aadhar-No" :"16523", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478", "issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}], "job":"programmer", "mgr":1020,"hiredate":{"$date":"1983-01-12T00:00:00.000Z"},"sal":4999,"comm":null,"deptno":40}', now());
+insert into empj values( default, '{"empid":1032,"ename":"vrushali","address": {"building": "1", "coord": [-73.96926909999999, 40.7685235], "street": "East   66 Street", "zipcode": "10065"},"isDocActive": true,"gender": "female","canVote": true, "canDrive":true,"color": ["Iceberg"], "fruit": ["Orange","Papaya", "Kiwi"],"cards": [ { "aadhar":{"aadhar-No" :"22343", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478", "issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"analyst", "mgr":1030, "hiredate":{"$date":"1982-02-23T00:00:00.000Z"}, "sal":4999, "comm":null, "deptno":20}', now());
+insert into empj values( default, '{"empid":1033,"ename":"vasant","address": {"building": "705", "coord": [-73.9653967, 40.6064339], "street": "Kings Highway", "zipcode": "11223"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Bright Green"], "fruit": [],"cards": [ {"voter":{"voterID":"Ind03o3", "isActive":true}}, { "aadhar":{"aadhar-No" :"93824", "isActive":true}}, {"licence":{"licence-No":"LMV9478", "issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}}], "job":"salesman", "mgr":1029, "hiredate":{"$date":"1982-02-24T00:00:00.000Z"},"sal":2200,"comm":0,"deptno":40}', now());
+insert into empj values( default, '{"empid":1034,"ename":"vasu","address": {"building": "203", "coord": [-73.97822040000001, 40.6435254], "street": "Church Avenue", "zipcode": "11218"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["India Green"], "fruit": ["Dates"],"cards": [{"PAN":{"PAN-No" :"Kinj093", "isActive":false}}, { "aadhar":{"aadhar-No" :"19826", "isActive":true}}, {"licence": {"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"debit": {"bank":"BOI", "isActive":true}} ],"job":"salesman","mgr":1029,"hiredate":{"$date":"1980-02-14T00:00:00.000Z"},"sal":2200,"comm":250,"deptno":40}', now());
+insert into empj values( default, '{"empid":1035,"ename":"rahul","address": {"building": "265-15", "coord": [-73.7032601, 40.7386417], "street": "Hillside Avenue", "zipcode": "11004"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Indian Red"], "fruit": ["Lychee","Indian Fig"],"cards": [ {"credit":{"bank":"SBI", "isActive":true}}, { "aadhar":{"aadhar-No" :"00998", "isActive":true}},{"OCI":{"country":"usa", "state":"NJ", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"clerk","mgr":1029,"hiredate":{"$date":"1981-12-31T00:00:00.000Z"},"sal":1200,"comm":null,"deptno":40}', now());
+insert into empj values( default, '{"empid":1036,"ename":"raju","address": {"building": "6909", "coord": [-74.0259567, 40.6353674], "street": "3 Avenue", "zipcode": "11209"},"isDocActive": true,"gender": "male","canVote": true, "canDrive":true,"color": ["Indian Yellow"], "fruit": ["Crab apples"],"cards": [ { "aadhar":{"aadhar-No" :"55622", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"OCI":{"country":"usa", "state":"NJ", "isActive":true}}, {"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478", "issueDate":"2020-01-01", "expireDate":"2040-01-01", "isActive":true}}], "job":"administrator", "mgr":1031, "hiredate":{"$date":"1983-06-15T00:00:00.000Z"}, "sal":3400, "comm":null, "deptno":50}', now());
+insert into empj values( default, '{"empid":1037,"ename":"ramu","address": {"building": "522", "coord": [-73.95171, 40.767461], "street": "East   74 Street", "zipcode": "10021"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Lemon"], "fruit": ["Jackfruit","banana", "Apple"],"cards": [ {"ATM":{"bank":"canara", "from":"2021-10-20", "to":"2025:12:21", "isActive":true}}, { "aadhar":{"aadhar-No" :"00983", "isActive":true}},{"ATM":{"bank":"BOI", "from":"2021-10-04", "to":"2027:12:21", "isActive":true}}, {"OCI":{"country":"usa", "state":"CA", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"clerk","mgr":1031,"hiredate":{"$date":"1983-07-12T00:00:00.000Z"},"sal":1400,"comm":null,"deptno":50}', now());
+insert into empj values( default, '{"empid":1038,"ename":"neel","address": {"building": "284", "coord": [-73.9829239, 40.6580753], "street": "Prospect Park West", "zipcode": "11215"},"isDocActive": true,"gender": "male","canVote": true, "canDrive":true,"color": ["Apple Green"], "fruit": [],"cards": [{"OCI":{"country":"usa", "state":"IN", "isActive":true}}, { "aadhar":{"aadhar-No" :"00098", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"administrator","mgr":1030,"hiredate":{"$date":"1983-03-14T00:00:00.000Z"},"sal":4200,"comm":null,"deptno":10}', now());
+insert into empj values( default, '{"empid":1039,"ename":"saleel","address": {"building": "129-08", "coord": [-73.839297, 40.78147], "street": "20 Avenue", "zipcode": "11356"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Cherry","Charcoal"], "fruit": [],"cards": [ {"ATM":{"bank":"BOI", "from":"2021-10-04", "to":"2027:12:21", "isActive":true}}, {"OCI":{"country":"usa", "state":"NY", "isActive":true}}, {"debit":{"bank":"BOI", "from":"2021-10-04", "to":"2027:12:21", "isActive":true}},{ "aadhar":{"aadhar-No" :"66675", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"analyst","mgr":1022,"hiredate":{"$date":"1982-12-09T00:00:00.000Z"},"sal":3700,"comm":null,"deptno":50}', now());
+insert into empj values( default, '{"empid":1040,"ename":"amit","address": {"building": "759", "coord": [-73.9925306, 40.7309346], "street": "Broadway", "zipcode": "10003"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Indian Red"], "fruit": ["Crab apples"],"cards": [ { "aadhar":{"aadhar-No" :"66623", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"administrator","mgr":1029,"hiredate":{"$date":"1982-12-08T00:00:00.000Z"},"sal":3500,"comm":null,"deptno":50,"phone":[8.5088422e+07,{"$numberLong":"9822884228"}]}', now());
+insert into empj values( default, '{"empid":1041,"ename":"dinesh","address": {"building": "3406", "coord": [-73.94024739999999, 40.7623288], "street": "10 Street", "zipcode": "11106"},"isDocActive": true,"gender": "male","canVote": true, "canDrive":true,"color": ["Air Force Blue"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"77767", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"programmer","mgr":1021,"hiredate":{"$date":"1982-12-09T00:00:00.000Z"},"sal":3500,"comm":null,"deptno":50,"phone":[8.5088422e+07,{"$numberLong":"9822884228"}],"skills":{"languages":["C++","JAVA"],"web":["php","java","jquery"]}}', now());
+insert into empj values( default, '{"empid":1042,"ename":"amit","address": {"building": "502", "coord": [-73.976112, 40.786714], "street": "Amsterdam Avenue", "zipcode": "10024"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Orange"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"77787", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"administrator","mgr":1029,"hiredate":{"$date":"1981-11-03T00:00:00.000Z"},"sal":3500,"comm":null,"deptno":50,"phone":["9850884228","9822884228"]}', now());
+insert into empj values( default, '{"empid":1043,"ename":"dinesh","address": {"building": "730", "coord": [-73.96805719999999, 40.7925587], "street": "Columbus Avenue", "zipcode": "10025"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Navy Blue"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"77789", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"programmer","mgr":1021,"hiredate":{"$date":"1981-11-04T00:00:00.000Z"},"sal":3500,"comm":null,"deptno":50,"phone":["020-25420200",{"$numberLong":"9822336644"}],"skills":{"languages":["C++","JAVA"],"web":["php","java","jquery"]}}', now());
+insert into empj values( default, '{"empid":1044,"ename":"rudra","address": {"building": "18", "coord": [-73.996984, 40.72589], "street": "West Houston Street", "zipcode": "10012"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Lime"], "fruit": ["Indian Fig"],"cards": [ { "aadhar":{"aadhar-No" :"55543", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"programmer","mgr":1021,"hiredate":{"$date":"1981-11-04T00:00:00.000Z"},"sal":2400,"comm":null,"deptno":50,"phone":"020-25420212","skills":{"web":["php","java","jquery"],"database":["oracle","ms-sql server","mongodb"]}}', now());
+insert into empj values( default, '{"empid":1045,"ename":"pankaj","address": {"building": "531", "coord": [-73.9634876, 40.6940001], "street": "Myrtle Avenue", "zipcode": "11205"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["White"], "fruit": ["Peach"],"cards": [ { "aadhar":{"aadhar-No" :"55565", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"programmer","mgr":1023,"hiredate":{"$date":"1980-02-17T00:00:00.000Z"},"sal":3600,"comm":null,"deptno":40,"phone":"022-2548345","skills":{"language":".NET","database":"ms-sql server"}}', now());
+insert into empj values( default, '{"empid":1046,"ename":"anoop","address": {"building": "103-05", "coord": [-73.8642349, 40.75356], "street": "37 Avenue", "zipcode": "11368"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Navy Blue"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"83722", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"programmer","mgr":1029,"hiredate":{"$date":"1980-02-17T00:00:00.000Z"},"sal":2300,"comm":1200,"deptno":50,"phone":"022-2548345","skills":{"language":[".NET","java"],"database":"oracle","web":["json","jquery","javascript"]}}', now());
+insert into empj values( default, '{"empid":1047,"ename":"nitish","address": {"building": "60", "coord": [-74.0085357, 40.70620539999999], "street": "Wall Street", "zipcode": "10005"},"isDocActive": true,"gender": "male","canVote": true, "canDrive":true,"color": ["Coral","Cream"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"99890", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"programmer","mgr":1039,"hiredate":{"$date":"1980-03-14T00:00:00.000Z"},"sal":1300,"comm":1200,"deptno":50,"phone":"022-2548345","skills":{"language":[".NET","java"],"database":{"rdbms":["oracle","db2"],"nosql":["mongodb","hive"]},"web":["json","jquery","javascript","php"]}}', now());
+insert into empj values( default, '{"empid":1048,"ename":"neel","address": {"building": "195", "coord": [-73.9246028, 40.6522396], "street": "East   56 Street", "zipcode": "11203"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Orange"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"99099", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"programmer","mgr":1039,"hiredate":{"$date":"1980-03-14T00:00:00.000Z"},"sal":1800,"comm":1400,"deptno":50,"phone":"022-2534565","skills":{"language":"ruby","database":{"rdbms":["oracle","db2"],"nosql":["mongodb","hive","hbase"]}}}', now());
+insert into empj values( default, '{"empid":1049,"ename":"arjun","address": {"building": "107", "coord": [-74.00920839999999, 40.7132925], "street": "Church Street", "zipcode": "10007"},"isDocActive": true,"gender": "male","canVote": true, "canDrive":true,"color": ["Sky Blue","Navy Blue","Blue"], "fruit": ["Lychee"],"cards": [ { "aadhar":{"aadhar-No" :"55434", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"auditor","mgr":1020,"hiredate":{"$date":"1984-05-05T00:00:00.000Z"},"sal":3200,"comm":null,"hra":1500,"da":1200,"deptno":20}', now());
+insert into empj values( default, '{"empid":1050,"ename":"amol","address": {"building": "1006", "coord": [-73.84856870000002, 40.8903781], "street": "East 233 Street", "zipcode": "10466"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Snow White"], "fruit": ["Orange"],"cards": [ { "aadhar":{"aadhar-No" :"44445", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"auditor","mgr":1047,"hiredate":{"$date":"1984-05-06T00:00:00.000Z"},"sal":3800,"comm":null,"hra":1000,"da":900,"deptno":20}', now());
+insert into empj values( default, '{"empid":1051,"ename":"sangita","address": {"building": "56", "coord": [-73.991495, 40.692273], "street": "Court Street", "zipcode": "11201"},"isDocActive": false,"gender": "female","canVote": true, "canDrive":true,"color": ["White"], "fruit": ["Papaya"],"cards": [ { "aadhar":{"aadhar-No" :"99983", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"auditor","mgr":1040,"hiredate":{"$date":"1984-03-30T00:00:00.000Z"},"sal":3100,"comm":null,"hra":1000,"da":1500,"deptno":20}', now());
+insert into empj values( default, '{"empid":1052,"ename":"gita","address": {"building": "7615", "coord": [-74.0228449, 40.6281815], "street": "5 Avenue", "zipcode": "11209"},"isDocActive": true,"gender": "female","canVote": true, "canDrive":true,"color": ["Indian Red"], "fruit": ["Kiwi"],"cards": [ { "aadhar":{"aadhar-No" :"44460", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"writer","language":["english","hindi"],"mgr":1049,"hiredate":{"$date":"1984-03-29T00:00:00.000Z"},"sal":2150,"comm":750,"hra":1300,"da":1700,"deptno":40}', now());
+insert into empj values( default, '{"empid":1053,"ename":"sita","address": {"building": "120", "coord": [-73.9998042, 40.7251256], "street": "Prince Street", "zipcode": "10012"},"isDocActive": false,"gender": "female","canVote": true, "canDrive":true,"color": ["Snow White"], "fruit": ["Guava"],"cards": [ { "aadhar":{"aadhar-No" :"12233", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"writer","language":["english","hindi","marathi"],"mgr":1049,"hiredate":{"$date":"1984-03-30T00:00:00.000Z"},"sal":3755,"comm":750,"hra":1100,"da":1100,"deptno":40}', now());
+insert into empj values( default, '{"empid":2001,"ename":"pinky","address": {"building": "1236", "coord": [-73.8893654, 40.81376179999999], "street": "238 Spofford Ave", "zipcode": "10474"},"isDocActive": true,"gender": "female","canVote": true, "canDrive":true,"color": ["India Green"], "fruit": ["banana","Jackfruit"],"cards": [ { "aadhar":{"aadhar-No" :"33434", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}}, {"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}], "job":"Computer Programmer","mgr":1039, "hiredate":{"$date":"1983-07-17T00:00:00.000Z"}, "sal":3500,"comm":null,"deptno":10}', now());
+insert into empj values( default, '{"empid":2002,"ename":"priti","address": {"building": "625", "coord": [-73.990494, 40.7569545], "street": "8 Avenue", "zipcode": "10018"},"isDocActive": false,"gender": "female","canVote": true, "canDrive":true,"color": ["Violet"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"55565", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478", "issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"Computer Programmer", "mgr":1037, "hiredate":{"$date":"1983-07-17T00:00:00.000Z"}, "sal":5500,"comm":null,"deptno":20}', now());
+
+CREATE TABLE transactions (
+  _id int NOT NULL AUTO_INCREMENT,
+  custId int DEFAULT NULL,
+  transactionDate datetime DEFAULT NULL,
+  type char(1) DEFAULT NULL,
+  amount int DEFAULT NULL,
+  PRIMARY KEY (_id)
+);
+
+INSERT INTO transactions VALUES
+(default,1002,'2021-01-01 10:24:34','c',30000),
+(default,1001,'2021-01-01 12:45:13','c',30000),
+(default,1003,'2021-01-01 14:00:04','c',30000),
+(default,1002,'2021-01-01 12:24:34','c',370000),
+(default,1001,'2021-01-01 14:45:13','c',370000),
+(default,1003,'2021-01-01 15:00:04','c',370000),
+(default,1002,'2021-01-01 10:24:34','d',7000),
+(default,1001,'2021-01-01 12:45:13','d',7500),
+(default,1003,'2021-01-01 14:00:04','d',7000),
+(default,1001,'2021-01-01 11:20:10','d',2000),
+(default,1002,'2021-02-12 12:00:42','d',4000),
+(default,1001,'2021-02-23 10:24:34','d',1500),
+(default,1003,'2021-01-12 09:23:09','d',1000),
+(default,1001,'2021-02-28 11:43:13','c',500),
+(default,1002,'2021-03-13 12:23:31','d',500),
+(default,1002,'2021-03-01 11:20:43','c',1500),
+(default,1003,'2021-02-24 11:34:32','c',200),
+(default,1002,'2021-04-30 14:20:32','d',6000),
+(default,1001,'2021-02-27 11:43:10','d',2000),
+(default,1001,'2021-03-17 09:15:23','c',1200),
+(default,1003,'2021-04-06 09:13:22','d',4500),
+(default,1003,'2021-02-04 11:32:43','d',4200),
+(default,1001,'2021-05-14 10:17:10','c',600),
+(default,1003,'2021-02-07 14:45:33','c',400),
+(default,1002,'2021-04-29 15:53:23','c',1200),
+(default,1002,'2021-06-23 09:53:54','c',1600),
+(default,1003,'2021-03-06 11:50:34','d',3000),
+(default,1002,'2021-04-30 14:20:33','d',3000),
+(default,1001,'2021-05-14 10:17:13','c',600),
+(default,1003,'2021-01-01 14:00:05','d',7000),
+(default,1002,'2021-06-23 09:53:57','c',250),
+(default,1001,'2021-05-14 10:17:18','d',5600),
+(default,1003,'2021-03-06 11:50:37','c',200);
 
 create table stadium (id int primary key, visit_date date, people int);
 
@@ -282,117 +371,6 @@ INSERT INTO licence VALUES ('14', '11', 'HGMV', 'Heavy Goods Motor Vehicle', 'Z9
 INSERT INTO licence VALUES ('15', '12', 'HGMV', 'Heavy Goods Motor Vehicle', '1YJ12NQX8HAJ', '********', '********', '1');
 INSERT INTO licence VALUES ('16', '13', 'LMV', 'Light motor vehicles including motorcars, jeeps, taxis, delivery vans', '1XMTETH8E6JS', '********', '********', '1');
 INSERT INTO licence VALUES ('17', '14', 'HPMV', 'Heavy passenger motor vehicle/Heavy transport vehicle', '0WEMMTPVTBPM', '********', '********', '2');
-
-
-CREATE TABLE fifa (
-ID int  PRIMARY KEY,
-RNK int,
-Team varchar(45),
-TotalPoints int,
-PreviousPoint int,
-re int
-);
-
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('1', '1', 'Belgium', '1765', '1765', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('2', '2', 'France', '1733', '1733', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('3', '3', 'Brazil', '1712', '1712', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('4', '4', 'England', '1661', '1661', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('5', '5', 'Uruguay', '1645', '1645', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('6', '6', 'Croatia', '1642', '1642', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('7', '7', 'Portugal', '1639', '1639', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('8', '8', 'Spain', '1636', '1636', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('9', '9', 'Argentina', '1623', '1623', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('10', '10', 'Colombia', '1622', '1622', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('11', '11', 'Mexico', '1621', '1621', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('12', '12', 'Switzerland', '1608', '1608', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('13', '13', 'Italy', '1607', '1607', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('14', '14', 'Netherlands', '1604', '1604', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('15', '15', 'Germany', '1602', '1602', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('16', '16', 'Denmark', '1598', '1598', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('17', '17', 'Chile', '1579', '1579', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('18', '17', 'Sweden', '1579', '1579', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('19', '19', 'Poland', '1559', '1559', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('20', '20', 'Senegal', '1555', '1555', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('21', '21', 'Peru', '1544', '1544', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('22', '22', 'USA', '1542', '1542', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('23', '23', 'Wales', '1540', '1540', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('24', '24', 'Ukraine', '1537', '1537', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('25', '25', 'Venezuela', '1517', '1517', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('26', '26', 'Austria', '1507', '1507', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('27', '27', 'Tunisia', '1506', '1506', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('28', '28', 'Japan', '1500', '1500', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('29', '29', 'Serbia', '1494', '1494', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('30', '29', 'Turkey', '1494', '1494', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('31', '31', 'Nigeria', '1493', '1493', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('32', '32', 'Slovakia', '1490', '1490', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('33', '33', 'IR Iran', '1489', '1489', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('34', '34', 'Republic of Ireland', '1486', '1486', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('35', '35', 'Algeria', '1482', '1482', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('36', '36', 'Northern Ireland', '1476', '1476', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('37', '37', 'Romania', '1475', '1475', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('38', '38', 'Russia', '1470', '1470', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('39', '39', 'Iceland', '1465', '1465', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('40', '40', 'Korea Republic', '1464', '1464', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('41', '41', 'Paraguay', '1461', '1461', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('42', '42', 'Australia', '1457', '1457', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('43', '43', 'Morocco', '1456', '1456', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('44', '44', 'Norway', '1451', '1451', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('45', '45', 'Czech Republic', '1446', '1446', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('46', '46', 'Costa Rica', '1439', '1439', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('47', '46', 'Ghana', '1439', '1439', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('48', '48', 'Jamaica', '1438', '1437', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('49', '49', 'Bosnia and Herzegovina', '1430', '1430', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('50', '50', 'Scotland', '1422', '1422', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('51', '51', 'Egypt', '1420', '1420', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('52', '52', 'Hungary', '1416', '1416', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('53', '53', 'Cameroon', '1413', '1413', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('54', '54', 'Greece', '1409', '1409', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('55', '55', 'Qatar', '1396', '1396', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('56', '56', 'Congo DR', '1389', '1389', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('57', '56', 'Mali', '1389', '1389', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('58', '58', 'Finland', '1386', '1386', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('59', '59', 'Bulgaria', '1381', '1381', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('60', '59', 'Burkina Faso', '1381', '1381', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('61', '61', 'Côte d\'Ivoire', '1378', '1378', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('62', '62', 'Honduras', '1377', '1377', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('63', '63', 'Ecuador', '1368', '1368', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('64', '64', 'Montenegro', '1365', '1365', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('65', '64', 'Slovenia', '1365', '1365', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('66', '66', 'Albania', '1356', '1356', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('67', '67', 'Saudi Arabia', '1351', '1351', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('68', '68', 'North Macedonia', '1347', '1347', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('69', '69', 'El Salvador', '1346', '1346', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('70', '70', 'Iraq', '1344', '1344', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('71', '71', 'South Africa', '1334', '1334', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('72', '71', 'United Arab Emirates', '1334', '1334', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('73', '73', 'Canada', '1332', '1332', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('74', '74', 'Guinea', '1328', '1328', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('75', '75', 'Bolivia', '1324', '1324', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('76', '76', 'China PR', '1323', '1323', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('77', '77', 'Uganda', '1321', '1321', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('78', '78', 'Cabo Verde', '1318', '1318', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('79', '79', 'Syria', '1314', '1314', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('80', '80', 'Curaçao', '1313', '1313', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('81', '81', 'Panama', '1305', '1304', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('82', '82', 'Oman', '1303', '1303', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('83', '83', 'Gabon', '1297', '1297', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('84', '84', 'Benin', '1295', '1295', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('85', '85', 'Uzbekistan', '1286', '1289', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('86', '86', 'Haiti', '1285', '1285', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('87', '87', 'Belarus', '1283', '1280', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('88', '88', 'Zambia', '1279', '1279', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('89', '89', 'Congo', '1269', '1269', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('90', '89', 'Lebanon', '1269', '1269', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('91', '91', 'Georgia', '1267', '1267', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('92', '91', 'Madagascar', '1267', '1267', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('93', '93', 'Israel', '1260', '1260', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('94', '94', 'Vietnam', '1258', '1258', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('95', '95', 'Cyprus', '1251', '1251', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('96', '96', 'Kyrgyz Republic', '1240', '1240', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('97', '97', 'Jordan', '1238', '1238', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('98', '98', 'Luxembourg', '1236', '1236', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('99', '99', 'Bahrain', '1225', '1225', '0');
-INSERT INTO fifa (ID, RNK, Team, TotalPoints, PreviousPoint, re) VALUES ('100', '100', 'Mauritania', '1223', '1223', '0');
 
 
 CREATE TABLE blog (
@@ -714,7 +692,7 @@ CREATE TABLE DUPLICATE
       WALLETID INT
  );
 
-insert into DUPLICATE values (10, 'SALES', 'PUNE', 1), (20, 'PURCHASE','BARODA', 2), (10, 'SALES','PUNE', 1), (30, 'ACCOUNTS', 'SURAT', 3), (40, 'HR', 'ANAND', 4), (30, 'ACCOUNTS', 'SURAT', 3), (50, 'ADMIN', 'MUMBAI', 5), (60, 'RND', 'DELHI', 6), (50, 'ADMIN', 'MUMBAI', 5), (70, 'OPERATIONS', 'BHARUCH', 7), (10, 'SALES', 'PUNE', 1), (20, 'PURCHASE','BARODA', 2), (10,'SALES','PUNE', 1), (30, 'ACCOUNTS', 'SURAT', 3), (40, 'HR', 'ANAND', 4), (30, 'ACCOUNTS', 'SURAT', 3), (50, 'ADMIN', 'MUMBAI', 5), (60, 'RND', 'DELHI', 6), (50, 'ADMIN', 'MUMBAI', 5), (70, 'OPERATIONS', 'BHARUCH', 7);
+insert into DUPLICATE values (10, 'SALES', 'PUNE', 1), (20, 'PURCHASE','BARODA', 2), (10, 'SALES','PUNE', 1), (30, 'ACCOUNTS', 'SURAT', 3), (40, 'HR', 'ANAND', 4), (30, 'ACCOUNTS', 'SURAT', 3), (50, 'ADMIN', 'MUMBAI', 5), (60, 'RND', 'DELHI', 6), (50, 'ADMIN', 'MUMBAI', 5), (70, 'OPERATIONS', 'BHARUCH', 7), (10, 'SALES', 'PUNE', 1), (20, 'PURCHASE','BARODA', 2), (10,'SALES','PUNE', 1), (30, 'ACCOUNTS', 'SURAT', 3), (40, 'HR', 'ANAND', 4), (30, 'ACCOUNTS', 'SURAT', 3), (50, 'ADMIN', 'MUMBAI', 5), (60, 'RND', 'DELHI', 6), (50, 'ADMIN', 'MUMBAI', 5), (70, 'OPERATIONS', 'BHARUCH', 7),(10, 'SALES', 'PUNE', 1), (20, 'PURCHASE','BARODA', 2), (10, 'SALES','PUNE', 1), (30, 'ACCOUNTS', 'SURAT', 3), (40, 'HR', 'ANAND', 4), (30, 'ACCOUNTS', 'SURAT', 3), (50, 'ADMIN', 'MUMBAI', 5), (60, 'RND', 'DELHI', 6), (50, 'ADMIN', 'MUMBAI', 5), (70, 'OPERATIONS', 'BHARUCH', 7), (10, 'SALES', 'PUNE', 1), (20, 'PURCHASE','BARODA', 2);
 
 
  CREATE TABLE COALESCE
@@ -861,12 +839,14 @@ CREATE TABLE DEPT (
  DNAME               varchar(12),
  LOC                 varchar(10),
  PWD				 varchar(20),
+ STARTEDON			 varchar(10),
  CONSTRAINT DEPT_PRIMARY_KEY PRIMARY KEY (DEPTNO));
 
-INSERT INTO DEPT VALUES (10,'ACCOUNTING','NEW YORK','r50mpm');
-INSERT INTO DEPT VALUES (20,'RESEARCH','DALLAS','a12recmpm');
-INSERT INTO DEPT VALUES (30,'SALES','CHICAGO','sales@2017');
-INSERT INTO DEPT VALUES (40,'OPERATIONS','BOSTON','opr@123');
+INSERT INTO DEPT VALUES (10,'ACCOUNTING','NEW YORK','r50mpm', '24/03/1989');
+INSERT INTO DEPT VALUES (20,'RESEARCH','DALLAS','a12recmpm', '12/04/1989');
+INSERT INTO DEPT VALUES (30,'SALES','CHICAGO','sales@2017', '13/04/1989');
+INSERT INTO DEPT VALUES (40,'OPERATIONS','BOSTON','opr@123', '12/07/1989');
+INSERT INTO DEPT VALUES (50,'HR','PUNE','PUN@8877', '22/12/1989');
 
 
 CREATE TABLE REPLACEDEPT (
@@ -905,6 +885,7 @@ INSERT INTO DEMODEPT2 VALUES (115,'F1','F1',null);
 CREATE TABLE EMP (
  EMPNO               INT NOT NULL,
  ENAME               varchar(12),
+ GENDER				 char,
  JOB                 varchar(20),
  MGR                 INT,
  HIREDATE            date,
@@ -914,33 +895,42 @@ CREATE TABLE EMP (
  BONUSID	         INT,
  `USER NAME`		 varchar(20),
  PWD				 varchar(20),
- phone 				 varchar(45),
+ PHONE 				 varchar(45),
  isActive			 boolean,
  CONSTRAINT EMP_FOREIGN_KEY_deptno FOREIGN KEY (DEPTNO) REFERENCES DEPT (DEPTNO),
  CONSTRAINT EMP_PRIMARY_KEY_empno PRIMARY KEY (EMPNO),
  CONSTRAINT EMP_FOREIGN_KEY_mgr FOREIGN KEY (MGR) REFERENCES EMP (EMPNO),
  CONSTRAINT CHK_PWD CHECK (length(PWD)>= 5));
 
-INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7839,'KING','PRESIDENT',NULL,'1981-11-17',5000,NULL,10,1, true);
-INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7698,'BLAKE','MANAGER',7839,'1981-05-01',2850,NULL,30,1, true);
-INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7782,'CLARK','MANAGER',7839,'1981-06-09',2450,NULL,10,3, true);
-INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7566,'JONES','MANAGER',7839,'1981-04-02',2975,NULL,20,4, true);
-INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7654,'MARTIN','SALESMAN',7698,'1981-09-28',1250,1400,30,6, true);
-INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7499,'ALLEN','SALESMAN',7698,'1981-02-20',1600,300,30,4, true);
-INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7844,'TURNER','SALESMAN',7698,'1981-09-08',1500,0,30,5, true);
-INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7900,'JAMES','CLERK',7698,'1981-12-03',950,NULL,30,2, true);
-INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7521,'WARD','SALESMAN',7698,'1981-02-22',1250,500,30,1, true);
-INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7902,'FORD','ANALYST',7566,'1981-12-03',3000,NULL,20,4, false);
-INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7369,'SMITH','CLERK',7902,'1980-12-17',800,NULL,20,2, false);
-INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7788,'SCOTT','ANALYST',7566,'1982-12-09',3000,NULL,20,3,true);
-INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7876,'ADAMS','CLERK',7788,'1983-01-12',1100,NULL,20,1, true);
-INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7934,'MILLER','CLERK',7782,'1982-01-23',1300,NULL,10,2, false);
-INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7949,'ALEX','MANAGER',7698,'1982-01-24',1250,500,30,5, true);
-INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7945,'AARUSH','SALESMAN',7902,'1980-02-14',1350,2700,30,NULL,false);
-INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7415,'AARAV','CLERK',7902,'1981-12-31',3350,NULL,10,null,false);
-INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7919,'HOFFMAN','MANAGER',7566,'1982-03-24',4150,NULL,30,3,true);
-INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7920,'GRASS','SALESMAN',7919,'1980-02-14',2575,2700,30,5,true);
-INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7421,'THOMAS','CLERK',7920,'1981-07-19',1750,NULL,10,1,false);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7839,'KING','M','PRESIDENT',NULL,'1981-11-17',5000,NULL,10,1, true);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7698,'BLAKE','M','MANAGER',7839,'1981-05-01',2850,NULL,30,1, true);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7782,'CLARK','M','MANAGER',7839,'1981-06-09',2450,NULL,10,3, true);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7566,'JONES','M','MANAGER',7839,'1981-04-02',2975,NULL,20,4, true);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7654,'MARTIN','M','SALESMAN',7698,'1981-09-28',1250,1400,30,6, true);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7499,'ALLEN','M','SALESMAN',7698,'1981-02-20',1600,300,30,4, true);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7844,'TURNER','M','SALESMAN',7698,'1981-09-08',1500,0,30,5, true);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7900,'JAMES','M','CLERK',7698,'1981-12-03',950,NULL,30,2, true);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7521,'WARD','M','SALESMAN',7698,'1981-02-22',1250,500,30,1, true);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7902,'FORD','M','ANALYST',7566,'1981-12-03',3000,NULL,20,4, false);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7369,'SMITH','M','CLERK',7902,'1980-12-17',800,NULL,20,2, false);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7788,'SCOTT','M','ANALYST',7566,'1982-12-09',3000,NULL,20,3,true);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7876,'ADAMS','M','CLERK',7788,'1983-01-12',1100,NULL,20,1, true);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7934,'MILLER','M','CLERK',7782,'1982-01-23',1300,NULL,10,2, false);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7949,'ALEX','M','MANAGER',7698,'1982-01-24',1250,500,30,5, true);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7945,'AARUSH','M','SALESMAN',7902,'1980-02-14',1350,2700,30,NULL,false);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7415,'AARAV','M','CLERK',7902,'1981-12-31',3350,NULL,10,null,false);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7919,'HOFFMAN','M','MANAGER',7566,'1982-03-24',4150,NULL,30,3,true);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7920,'GRASS','M','SALESMAN',7919,'1980-02-14',2575,2700,30,5,true);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7421,'THOMAS','M','CLERK',7920,'1981-07-19',1750,NULL,10,1,false);
+
+
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (6001,'GITA','F','Compliance officers',7920,'1981-07-19',1750,NULL,30,1,true);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (6473,'SHARMIN','F','Public Relation',7920,'1981-07-19',1750,NULL,20,1,true);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (6129,'VRUSHALI','F','Compliance officers',7920,'1981-07-19',1750,NULL,10,1,true);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (6781,'BANDISH','F','Public Relation',7920,'1981-07-19',1750,NULL,20,1,true);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (9473,'SUPRIYA','F','ANALYST',7920,'1981-07-19',1750,NULL,10,1,true);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (8433,'NATASHA','F','CLERK',7920,'1981-07-19',1750,NULL,30,1,true);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (9400,'SANGITA','F','Compliance officers',7920,'1981-07-19',1750,NULL,50,1,true);
 
 
 UPDATE emp SET phone = '7032300023' WHERE (EMPNO = '7369');
@@ -1917,7 +1907,7 @@ insert into tablebb values (5,7), (3,8), (1,4), (8,7), (Null,10), (11,12);
 
 CREATE TABLE SALESPEOPLE (SNUM INT PRIMARY KEY, SNAME VARCHAR(10), CITY VARCHAR(10), COMM FLOAT);
 CREATE TABLE CUSTOMERS (CNUM INT  PRIMARY KEY, CNAME VARCHAR (10), CITY VARCHAR (10), RATING FLOAT, SNUM INT, CONSTRAINT FK_SNUM FOREIGN KEY(SNUM) REFERENCES SALESPEOPLE(SNUM));
-CREATE TABLE ORDERS (ONUM INT PRIMARY KEY, AMT FLOAT, ODATE DATETIME, CNUM INT , SNUM INT,  CONSTRAINT FK_CNUM FOREIGN KEY(CNUM) REFERENCES CUSTOMERS(CNUM) , CONSTRAINT FK_ORDERS_SNUM FOREIGN KEY(SNUM) REFERENCES SALESPEOPLE(SNUM));
+CREATE TABLE ORDERS (ONUM INT PRIMARY KEY, AMT FLOAT, ODATE DATETIME, CNUM INT , SNUM INT, type varchar(10),  CONSTRAINT FK_CNUM FOREIGN KEY(CNUM) REFERENCES CUSTOMERS(CNUM) , CONSTRAINT FK_ORDERS_SNUM FOREIGN KEY(SNUM) REFERENCES SALESPEOPLE(SNUM));
 
 INSERT into SALESPEOPLE(SNUM, SNAME, CITY, COMM) values (1001,'Rajan','London',.12);
 INSERT into SALESPEOPLE(SNUM, SNAME, CITY, COMM) values (1002,'Natasha','San Jose',.13);
@@ -1940,55 +1930,67 @@ INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2009,'Smith','Ber
 INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2010,'ADAMS','Berlin',250,1007);
 
 
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3001,18.69,'1996-10-03 12:30', 2008, 1007);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3003,767.19,'1996-10-03 13:45', 2001, 1001);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3002,1900.10,'1996-10-03 12:05',2007,1004);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3005,5160.45,'1996-10-03 14:00',2003,1002);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3006,1098.16,'1996-10-03 13:37',2008,1007);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3009,1713.23,'1996-10-04 15:21',2002,1003);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3007,75.75,'1996-10-04 16:02',2002,1003);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3008,4723.00,'1996-10-05 12:07',2006,1001);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3010,1309.95,'1996-10-06 13:12',2004,1002);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3011,9891.88,'1996-10-06 13:09',2006,1001);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3012,3455.78,'1996-10-04 15:21',2002,1003);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3013,1245.98,'1996-10-04 16:32',2002,1003);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3014,3721.53,'1996-10-05 12:45',2006,1001);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3015,734.50,'1996-10-06 13:16',2004,1002);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3016,1729.67,'1996-10-06 13:07',2006,1001);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3017,18.69,'1996-10-03 12:30', 2001, 1007);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3018,767.19,'1996-10-03 13:45', 2002, 1001);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3019,1900.10,'1996-10-03 12:05',2007,1004);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3020,5160.45,'1996-10-03 14:00',2003,1007);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3021,1098.16,'1996-10-03 13:37',2008,1007);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3022,1713.23,'1996-10-04 15:21',2002,1003);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3023,75.75,'1996-10-04 16:02',2002,1004);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3024,4723.00,'1996-10-05 12:07',2006,1002);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3025,1309.95,'1996-10-06 13:12',2002,1002);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3026,9891.88,'1996-10-06 13:09',2006,1001);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3027,3455.78,'1996-10-04 15:21',2002,1003);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3028,1245.98,'1996-10-04 16:32',2002,1003);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3029,3721.53,'1996-10-05 12:45',2006,1001);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3030,734.50,'1996-10-06 13:16',2004,1002);
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM) values (3031,1729.67,'1996-10-06 13:07',2006,1007);
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (3032, 3434, '1996-01-26 17:09:12', 2006,1007);
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (3033, 522, '1996-12-24 14:23:00', 2002,1002);
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (3074, 457, '1996-04-19 05:13:00', 2008,1007);
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (3049, 500, '1996-03-14 07:45:19', 2001,1003);
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (3119, 125, '1996-07-26 18:37:00', 2007,1001);
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (4001, 145, '1996-05-13 20:47:00', 2008,1003);
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (4012, 245, '1996-03-06 13:07:00', 2001,1002);
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (4021, 600, '1996-08-12 13:07:00', 2001,1002);
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (4054, 1200, '1996-11-22 13:07:00',2004,1003);
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (5015, 2133, '1996-06-23 13:07:00',2004,1007);
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (5053, 1500, '1996-01-01 13:07:00',2006,1007);
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (5099, 790, '1996-04-24 13:07:00', 2002,1007);
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (5014, 980, '1996-08-23 13:07:00', 2002,1007);
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (5015, 1000, '1996-03-12 13:07:00',2002,1007);
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (6501, 125, '1996-06-13 13:07:00', 2001,1001);
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (5011, 138, '1996-09-14 13:07:00', 2001,1007);
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (6502, 535, '1996-08-24 13:07:00', 2006,1004);
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (6503, 1100, '1996-07-26 13:07:00',2006,1007);
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM) VALUES (6504, 1350, '1996-07-21 13:07:00',2008,1007);
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3001,18.69,'1996-10-03 12:30', 2008, 1007, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3003,767.19,'1996-10-03 13:45', 2001, 1001, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3002,1900.10,'1996-10-03 12:05',2007,1004, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3005,5160.45,'1996-10-03 14:00',2003,1002, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3006,1098.16,'1996-10-03 13:37',2008,1007, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3009,1713.23,'1996-10-04 15:21',2002,1003, 'Online');
+/*
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (6601,1900.10,'1996-11-03 12:05',null,1004, 'direct');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (6602,5160.45,'1996-10-03 14:00',null,1002, 'direct');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (6603,1098.16,'1996-10-03 13:37',null,1007, 'direct');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (6604,1713.23,'1996-11-04 15:21',null,1003, 'direct');
+*/
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3007,75.75,'1996-10-04 16:02',2002,1003, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3008,4723.00,'1996-10-05 12:07',2006,1001, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3010,1309.95,'1996-10-06 13:12',2004,1002, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3011,9891.88,'1996-10-06 13:09',2006,1001, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3012,3455.78,'1996-10-04 15:21',2002,1003, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3013,1245.98,'1996-10-04 16:32',2002,1003, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3014,3721.53,'1996-10-05 12:45',2006,1001, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3015,734.50,'1996-10-06 13:16',2004,1002, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3016,1729.67,'1996-10-06 13:07',2006,1001, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3017,18.69,'1996-10-03 12:30', 2001, 1007, 'Online');
+
+/*INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (6605,1900.10,'1996-10-03 12:05',null,1004, 'direct');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (6606,5160.45,'1996-10-03 14:00',null,1002, 'direct');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (6607,1098.16,'1996-11-03 13:37',null,1007, 'direct');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (6608,1713.23,'1996-11-04 15:21',null,1003, 'direct');
+*/
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3018,767.19,'1996-10-03 13:45', 2002, 1001, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3019,1900.10,'1996-10-03 12:05',2007,1004, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3020,5160.45,'1996-10-03 14:00',2003,1007, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3021,1098.16,'1996-10-03 13:37',2008,1007, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3022,1713.23,'1996-10-04 15:21',2002,1003, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3023,75.75,'1996-10-04 16:02',2002,1004, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3024,4723.00,'1996-10-05 12:07',2006,1002, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3025,1309.95,'1996-10-06 13:12',2002,1002, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3026,9891.88,'1996-10-06 13:09',2006,1001, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3027,3455.78,'1996-10-04 15:21',2002,1003, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3028,1245.98,'1996-10-04 16:32',2002,1003, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3029,3721.53,'1996-10-05 12:45',2006,1001, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3030,734.50,'1996-10-06 13:16',2004,1002, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3031,1729.67,'1996-10-06 13:07',2006,1007, 'Online');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (3032, 3434, '1996-01-26 17:09:12', 2006,1007, 'Online');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (3033, 522, '1996-12-24 14:23:00', 2002,1002, 'Online');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (3074, 457, '1996-04-19 05:13:00', 2008,1007, 'Online');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (3049, 500, '1996-03-14 07:45:19', 2001,1003, 'Online');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (3119, 125, '1996-07-26 18:37:00', 2007,1001, 'Online');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (4001, 145, '1996-05-13 20:47:00', 2008,1003, 'Online');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (4012, 245, '1996-03-06 13:07:00', 2001,1002, 'Online');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (4021, 600, '1996-08-12 13:07:00', 2001,1002, 'Online');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (4054, 1200, '1996-11-22 13:07:00',2004,1003, 'Online');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (5015, 2133, '1996-06-23 13:07:00',2004,1007, 'Online');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (5053, 1500, '1996-01-01 13:07:00',2006,1007, 'Online');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (5099, 790, '1996-04-24 13:07:00', 2002,1007, 'Online');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (5014, 980, '1996-08-23 13:07:00', 2002,1007, 'Online');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (5016, 1000, '1996-03-12 13:07:00',2002,1007, 'Online');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (6501, 125, '1996-06-13 13:07:00', 2001,1001, 'Online');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (5011, 138, '1996-09-14 13:07:00', 2001,1007, 'Online');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (6502, 535, '1996-08-24 13:07:00', 2006,1004, 'Online');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (6503, 1100, '1996-07-26 13:07:00',2006,1007, 'Online');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (6504, 1350, '1996-07-21 13:07:00',2008,1007, 'Online');
 
 
 UPDATE ord SET STATUS = 'In Process' WHERE (ORDID = '601');
@@ -2033,6 +2035,9 @@ update EMP set `user name` = upper("Sand Dust") where empno = 7844;
 update EMP set pwd = (select dept.pwd from dept where emp.deptno = dept.deptno);
 UPDATE EMP SET PWD=NULL WHERE EMPNO=7415;
 UPDATE EMP SET PWD='ABCDEF' WHERE EMPNO=7945;
+UPDATE EMP SET PWD=NULL WHERE EMPNO=9400;
+UPDATE EMP SET PWD='XYZ' WHERE EMPNO=9473;
+
 delete from emp_cards where  not exists (select True from emp where emp_cards.empid = emp.empno);
 delete from emp_phone where not exists (select True from emp where emp_phone.empid = emp.empno);
 
