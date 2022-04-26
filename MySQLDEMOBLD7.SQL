@@ -647,8 +647,11 @@ insert into setb values (2), (3), (4), (5), (6), (7), (8);
 
 CREATE TABLE MENUCARD (ID INT, NAME varchar(35), RATE INT);
 
-insert into MENUCARD values (1 , 'Extra Long Cheeseburger' , 100), (2 , 'Double Stacker' , 125), (3 , 'Double Cheeseburger' , 100), (4 , 'Hamburger' , 85 ), (5 , 'Classic Grilled Dog' , 95 ), (6 , 'Chili Cheese Grilled Dog' , 115 ), (7 , 'Flame Grilled Chicken Burger' , 135 ), (8 , 'Original Chicken Sandwich' , 55), (9 , 'McALLO TIKKI' , 45), (10 , 'Veg Maharaja Mac' , 75 ), (11 , 'Big Spicy Chicken Wrap' , 100 ), (12 , 'McVeggie Schezwan' , 85 );
-  
+insert into MENUCARD values (14, 'Onion Hamburger', 115), (6 , 'Extra Long Cheeseburger' , 100), (2 , 'Double Stacker' , 125), (8 , 'Double Cheeseburger' , 100),(13, 'Cheese Hamburger', 125), (4 , 'Hamburger' , 85 ), (11 , 'Classic Grilled Dog' , 95 ), (1 , 'Chili Cheese Grilled Dog' , 115 ), (7 , 'Flame Grilled Chicken Burger' , 135 ), (3 , 'Original Chicken Sandwich' , 55), (9 , 'McALLO TIKKI' , 45), (12 , 'Veg Maharaja Mac' , 75 ), (5 , 'Big Spicy Chicken Wrap' , 100 ), (15, 'Cheese Onion Hamburger', 145), (10 , 'McVeggie Schezwan' , 85 );
+
+
+
+
 
 CREATE TABLE SOFTDRINK
 (ID INT,
