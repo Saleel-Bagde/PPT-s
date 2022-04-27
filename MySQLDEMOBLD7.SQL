@@ -80,6 +80,7 @@ DROP TABLE If EXISTS andor;
 DROP TABLE If EXISTS stadium;
 DROP TABLE IF EXISTS transactions;
 DROP TABLE IF EXISTS empj;
+drop table if EXISTS emp_attendance;
 DROP VIEW IF EXISTS SALES;
 
 CREATE TABLE `empj` (
@@ -2061,6 +2062,7 @@ update client set clientId = @cnt := @cnt + 1;
 insert into client values (10, 'Omkar','Pune'),  (11, 'Sumit', 'Baroda'), (12, 'Martin', 'Rome'), (13, 'Smith', 'Rome'), (14, 'Vasant', 'Pune'), (15, 'ABC','Pune'),  (16, 'PQR', 'Baroda'), (17, 'XYZ', 'Rome');
 
 
+
 create table emp_attendance (empno int, datePresent varchar(80));
 insert into emp_attendance(empno) select empno from emp;
 
@@ -2085,13 +2087,13 @@ update emp_attendance set datepresent= '1,2,5,7,9,10,12,15' where empno=7698;
 update emp_attendance set datepresent= '1,2,5,7,9,10,12,15' where empno=7844;
 update emp_attendance set datepresent= '1,2,5,7,9,10,12,15' where empno=7900;
 update emp_attendance set datepresent= '1,2,3,4,5,7,9,10,12,15,21,22,23,24,25,26,27' where empno=7919;
-update emp_attendance set datepresent= '1,2,3,4,5,6,7,,8,9,10,12,15' where empno=7920;
-update emp_attendance set datepresent= '1,2,3,4,5,6,7,,8,9,10,12,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30' where empno=7945;
-update emp_attendance set datepresent= '1,2,3,4,5,6,7,,8,9,10,12,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30' where empno=7949;
-update emp_attendance set datepresent= '1,2,3,4,5,6,7,,8,9,10,12,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30' where empno=8433;
-update emp_attendance set datepresent= '1,2,3,4,5,6,7,,8,9,10,12,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30' where empno=6129;
-update emp_attendance set datepresent= '1,2,3,4,5,6,7,,8,9,10,12,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30' where empno=9400;
-update emp_attendance set datepresent= '1,2,3,4,5,6,7,,8,9,10,12,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30' where empno=9473;
+update emp_attendance set datepresent= '1,2,3,4,5,6,7,8,9,10,12,15' where empno=7920;
+update emp_attendance set datepresent= '1,2,3,4,5,6,7,8,9,10,12,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30' where empno=7945;
+update emp_attendance set datepresent= '1,2,3,4,5,6,7,8,9,10,12,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30' where empno=7949;
+update emp_attendance set datepresent= '1,2,3,4,5,6,7,8,9,10,12,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30' where empno=8433;
+update emp_attendance set datepresent= '1,2,3,4,5,6,7,8,9,10,12,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30' where empno=6129;
+update emp_attendance set datepresent= '1,2,3,4,5,6,7,8,9,10,12,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30' where empno=9400;
+update emp_attendance set datepresent= '1,2,3,4,5,6,7,8,9,10,12,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30' where empno=9473;
 
 
 
