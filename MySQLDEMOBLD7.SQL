@@ -81,7 +81,40 @@ DROP TABLE If EXISTS stadium;
 DROP TABLE IF EXISTS transactions;
 DROP TABLE IF EXISTS empj;
 drop table if EXISTS emp_attendance;
+drop table if EXISTS vote_response;
+drop table if EXISTS quarter_revenue;
+drop table if EXISTS numberString;
+
 DROP VIEW IF EXISTS SALES;
+
+create table numberString (c1 varchar(40));
+insert into numberString select concat(empno,ename) from emp;
+
+create table quarter_revenue(id int, year year, quarter varchar(10), amount float(8,2));
+
+insert into quarter_revenue values(1, 2020, 'Q1', 45000.57);
+insert into quarter_revenue values(2, 2020, 'Q2', 55000.00);
+insert into quarter_revenue values(3, 2020, 'Q3', 23000.13);
+insert into quarter_revenue values(4, 2020, 'Q4', 66000.00);
+
+insert into quarter_revenue values(5, 2021, 'Q1', 12500.35);
+insert into quarter_revenue values(6, 2021, 'Q2', 15000.55);
+insert into quarter_revenue values(7, 2021, 'Q3', 17000.27);
+insert into quarter_revenue values(8, 2021, 'Q4', 27000.35);
+
+insert into quarter_revenue values(9, 2022, 'Q1', 15000.45);
+insert into quarter_revenue values(10, 2022, 'Q2', 25000.64);
+insert into quarter_revenue values(11, 2022, 'Q3', 33000.73);
+insert into quarter_revenue values(12, 2022, 'Q4', 46000.75);
+
+create table vote_response(candidateID int, response varchar(180));
+
+insert into vote_response values(3, 'n,n,n,y,y,y,y,n,y,n,y,y,n,n,y,n,n,n,n,n,n,n,n,y,y,y,y,y,y,y,n,y,n,y,y,y,n,n,n,y,y,y,y,n,n,n,n,n,y');
+insert into vote_response values(1, 'y,n,n,y,y,y,y,n,y,n,y,y,n,n,y,n,n,y,n,y,n,y,n,y,y,y,y,y,y,y,n,y,n,y,y,y,n,n,n,y,y,y,yy,y,y,n,y,n,y,n,y,n,n,n,y,y,y,n');
+insert into vote_response values(2, 'y,y,y,y,y,y,y,n,y,y,y,y,n,y,y,y,y,y,n,y,y,y,y,y,y,y,y,y,y,y,n,y,y,y,y,y,n,y,y,y,y,y,y,y,n,y,n');
+insert into vote_response values(4, 'n,n,n,y,y,n,n,n,y,n,y,y,n,n,y,n,y,n,n,y,n,y,n,y,y,n,y,n,y,y,n,y,n,y,n,y,n,n,n,y,y,n,n');
+
+
 
 CREATE TABLE `empj` (
   `id` int NOT NULL AUTO_INCREMENT,
