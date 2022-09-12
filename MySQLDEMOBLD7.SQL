@@ -84,11 +84,128 @@ drop table if EXISTS emp_attendance;
 drop table if EXISTS vote_response;
 drop table if EXISTS quarter_revenue;
 drop table if EXISTS numberString;
+drop table if EXISTS stringNumber;
+
+drop table if EXISTS plumber;
+drop table if EXISTS service;
+drop table if EXISTS plumber_service_map;
+drop table if EXISTS r;
+drop table if EXISTS Leading_Zeroes;
+
+
 
 DROP VIEW IF EXISTS SALES;
 
-create table numberString (c1 varchar(40));
-insert into numberString select concat(empno,ename) from emp;
+create table Leading_Zeroes(c1 varchar(10));
+insert into Leading_zeroes values('1'),('0000000003'), ('120'),('0000000067'), ('132');
+
+create table r(c1 int); 
+insert into r values(-2), (1),(2),(-1),(3),(-2), (1), (2), (1);
+
+
+create table plumber(pid int, name varchar(20));
+create table service(sid int, name varchar(20));
+create table plumber_service_map(plumberID int, serviceID int);
+
+insert into plumber values(1,'ramesh');
+insert into plumber values(2,'keyur');
+insert into plumber values(3,'rajesh');
+insert into plumber values(4,'rajat');
+insert into plumber values(5,'babu');
+insert into plumber values(6,'bhavin');
+insert into plumber values(7,'vasant');
+insert into plumber values(8,'omkar');
+insert into plumber values(9,'ninda');
+insert into plumber values(10,'kapil');
+insert into plumber values(11,'suraj');
+insert into plumber values(12,'lalu');
+insert into plumber values(13,'neeraj');
+insert into plumber values(14,'vrajesh');
+insert into plumber values(15,'anoop');
+insert into plumber values(16,'jay');
+insert into plumber values(17,'bhavin');
+insert into plumber values(18,'jayesh');
+insert into plumber values(19,'mangesh');
+
+insert into service values(1,'s1');
+insert into service values(2,'s2');
+insert into service values(3,'s3');
+insert into service values(4,'s3');
+insert into service values(5,'s5');
+insert into service values(6,'s6');
+insert into service values(7,'s7');
+insert into service values(8,'s8');
+insert into service values(9,'s9');
+insert into service values(10,'s10');
+insert into service values(11,'s11');
+insert into service values(12,'s12');
+insert into service values(13,'s13');
+insert into service values(14,'s14');
+insert into service values(15,'s15');
+insert into service values(16,'s16');
+insert into service values(17,'s17');
+insert into service values(18,'s18');
+insert into service values(19,'s19');
+insert into service values(20,'s20');
+insert into service values(21,'s21');
+
+
+insert into plumber_service_map values(1,1);
+insert into plumber_service_map values(1,2);
+insert into plumber_service_map values(1,3);
+insert into plumber_service_map values(1,7);
+insert into plumber_service_map values(1,10);
+insert into plumber_service_map values(2,3);
+insert into plumber_service_map values(2,6);
+insert into plumber_service_map values(2,5);
+insert into plumber_service_map values(2,3);
+insert into plumber_service_map values(3,7);
+insert into plumber_service_map values(4,9);
+insert into plumber_service_map values(5,10);
+insert into plumber_service_map values(6,4);
+insert into plumber_service_map values(6,7);
+insert into plumber_service_map values(6,2);
+insert into plumber_service_map values(6,1);
+insert into plumber_service_map values(6,10);
+insert into plumber_service_map values(7,10);
+insert into plumber_service_map values(7,11);
+insert into plumber_service_map values(7,12);
+insert into plumber_service_map values(8,6);
+insert into plumber_service_map values(8,20);
+insert into plumber_service_map values(9,16);
+insert into plumber_service_map values(9,21);
+insert into plumber_service_map values(10,21);
+insert into plumber_service_map values(11,4);
+insert into plumber_service_map values(11,5);
+insert into plumber_service_map values(11,6);
+insert into plumber_service_map values(12,9);
+insert into plumber_service_map values(12,10);
+insert into plumber_service_map values(13,1);
+insert into plumber_service_map values(13,9);
+insert into plumber_service_map values(13,10);
+insert into plumber_service_map values(14,3);
+insert into plumber_service_map values(14,4);
+insert into plumber_service_map values(14,6);
+insert into plumber_service_map values(15,7);
+insert into plumber_service_map values(15,8);
+insert into plumber_service_map values(15,19);
+insert into plumber_service_map values(16,17);
+insert into plumber_service_map values(16,18);
+insert into plumber_service_map values(16,6);
+insert into plumber_service_map values(17,13);
+insert into plumber_service_map values(17,14);
+insert into plumber_service_map values(17,15);
+
+insert into plumber_service_map values(18,3);
+insert into plumber_service_map values(18,2);
+insert into plumber_service_map values(18,7);
+insert into plumber_service_map values(18,8);
+
+insert into plumber_service_map values(19,1);
+insert into plumber_service_map values(19,2);
+insert into plumber_service_map values(19,7);
+insert into plumber_service_map values(19,9);
+insert into plumber_service_map values(19,19);
 
 create table quarter_revenue(id int, year year, quarter varchar(10), amount float(8,2));
 
@@ -684,9 +801,6 @@ CREATE TABLE MENUCARD (ID INT, NAME varchar(35), RATE INT);
 insert into MENUCARD values (14, 'Onion Hamburger', 115), (6 , 'Extra Long Cheeseburger' , 100), (2 , 'Double Stacker' , 125), (8 , 'Double Cheeseburger' , 100),(13, 'Cheese Hamburger', 125), (4 , 'Hamburger' , 85 ), (11 , 'Classic Grilled Dog' , 95 ), (1 , 'Chili Cheese Grilled Dog' , 115 ), (7 , 'Flame Grilled Chicken Burger' , 135 ), (3 , 'Original Chicken Sandwich' , 55), (9 , 'McALLO TIKKI' , 45), (12 , 'Veg Maharaja Mac' , 75 ), (5 , 'Big Spicy Chicken Wrap' , 100 ), (15, 'Cheese Onion Hamburger', 145), (10 , 'McVeggie Schezwan' , 85 );
 
 
-
-
-
 CREATE TABLE SOFTDRINK
 (ID INT,
 NAME varchar(25),
@@ -901,22 +1015,22 @@ INSERT INTO REPLACEDEPT VALUES (60,'Planning','Mumbai');
 CREATE TABLE DEMODEPT1 as select * from DEPT;
 ALTER TABLE DEMODEPT1 MODIFY COLUMN DEPTNO INT;
   
-INSERT INTO DEMODEPT1 VALUES (50,'A','A',null);
-INSERT INTO DEMODEPT1 VALUES (60,'B','B',null);
-INSERT INTO DEMODEPT1 VALUES (70,'C','C',null);
-INSERT INTO DEMODEPT1 VALUES (80,'D','D',null);
-INSERT INTO DEMODEPT1 VALUES (90,'E','E',null);
-INSERT INTO DEMODEPT1 VALUES (100,'F','F',null);
+INSERT INTO DEMODEPT1 VALUES (50,'A','A',null,null);
+INSERT INTO DEMODEPT1 VALUES (60,'B','B',null,null);
+INSERT INTO DEMODEPT1 VALUES (70,'C','C',null,null);
+INSERT INTO DEMODEPT1 VALUES (80,'D','D',null,null);
+INSERT INTO DEMODEPT1 VALUES (90,'E','E',null,null);
+INSERT INTO DEMODEPT1 VALUES (100,'F','F',null,null);
 
 CREATE TABLE DEMODEPT2 as select * from DEPT;
 ALTER TABLE DEMODEPT2 MODIFY COLUMN DEPTNO INT;
 
-INSERT INTO DEMODEPT2 VALUES (110,'A1','A1',null);
-INSERT INTO DEMODEPT2 VALUES (111,'B1','B1',null);
-INSERT INTO DEMODEPT2 VALUES (112,'C1','C1',null);
-INSERT INTO DEMODEPT2 VALUES (113,'D1','D1',null);
-INSERT INTO DEMODEPT2 VALUES (114,'E1','E1',null);
-INSERT INTO DEMODEPT2 VALUES (115,'F1','F1',null);
+INSERT INTO DEMODEPT2 VALUES (110,'A1','A1',null,null);
+INSERT INTO DEMODEPT2 VALUES (111,'B1','B1',null,null);
+INSERT INTO DEMODEPT2 VALUES (112,'C1','C1',null,null);
+INSERT INTO DEMODEPT2 VALUES (113,'D1','D1',null,null);
+INSERT INTO DEMODEPT2 VALUES (114,'E1','E1',null,null);
+INSERT INTO DEMODEPT2 VALUES (115,'F1','F1',null,null);
 
 
 CREATE TABLE EMP (
@@ -963,11 +1077,13 @@ INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BO
 
 INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (6001,'GITA','F','Compliance officers',7920,'1981-07-19',1750,NULL,30,1,true);
 INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (6473,'SHARMIN','F','Public Relation',7920,'1981-07-19',1750,NULL,20,1,true);
-INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (6129,'VRUSHALI','F','Compliance officers',7920,'1981-07-19',1750,NULL,10,1,true);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (6129,'VRUSHALI','F','Compliance officers',7920,'1981-07-19',1750,NULL,50,1,true);
 INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (6781,'BANDISH','F','Public Relation',7920,'1981-07-19',1750,NULL,20,1,true);
-INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (9473,'SUPRIYA','F','ANALYST',7920,'1981-07-19',1750,NULL,10,1,true);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (9473,'SUPRIYA','F','ANALYST',7920,'1981-07-19',1750,NULL,50,1,true);
 INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (8433,'NATASHA','F','CLERK',7920,'1981-07-19',1750,NULL,30,1,true);
 INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (9400,'SANGITA','F','Compliance officers',7920,'1981-07-19',1750,NULL,50,1,true);
+
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7840,'FRED','M','vice PRESIDENT',7839,'1983-08-09',5000,NULL,20,1, true);
 
 
 UPDATE emp SET phone = '7032300023' WHERE (EMPNO = '7369');
@@ -1613,20 +1729,20 @@ INSERT INTO EMP1 VALUES (6843,lower('Matthew'),lower('Assistant'),7788,'1983-01-
 INSERT INTO EMP1 VALUES (1000,'Alice','Manager',7839,'1983-08-12 19:35:00',9000,NULL,150,'13',1);
 INSERT INTO EMP1 VALUES (1001,'Victor','Assistant Manager',1000,'1983-12-25 11:35:00',8000,NULL,150,'13',4);
 INSERT INTO EMP1 VALUES (1002,'Jack','Assistant',1001,'1983-12-25 11:35:00',7000,NULL,150,NULL,4);
-INSERT INTO EMP1 VALUES (1003,'William','Assistant',1001,'1984-12-30 12:00:00',7000,NULL,150,'13',1);
+INSERT INTO EMP1 VALUES (1003,'William','Assistant',1001,'1984-12-30 12:00:02',7000,NULL,150,'13',1);
 INSERT INTO EMP1 VALUES (1004,'Rose','Assistant Manager',1000,'1985-01-30 12:24:00',8000,NULL,150,NULL,7);
 INSERT INTO EMP1 VALUES (1005,'Kate','Assistant Analyst',7388,'1985-01-30 12:24:00',3000,NULL,160,NULL,9);
 INSERT INTO EMP1 VALUES (1006,'William','Salesman',7388,'1980-02-13 21:00:00',23700,1200,160,NULL,8);
-INSERT INTO EMP1 VALUES (1007,'Matthew','Salesman',1005,'1980-02-28 21:00:00',4700,1200,160,'13',3);
+INSERT INTO EMP1 VALUES (1007,'Matthew','Salesman',1005,'1980-02-28 21:00:07',4700,1200,160,'13',3);
 INSERT INTO EMP1 VALUES (1008,'MAI','SALESGIRL',1000,'2001-12-25 11:35:00',8000,111,150,'8',2);
 INSERT INTO EMP1 VALUES (1009,'ZARIA','SALESGIRL',1001,'2002-12-25 11:35:00',7000,555,150,'8',6);
 INSERT INTO EMP1 VALUES (1010,'MAYA','SALESGIRL',1001,'2003-12-30 12:00:00',7000,120,150,'8',7);
-INSERT INTO EMP1 VALUES (1011,'ROSE','SALESGIRL',1000,'2004-01-30 12:24:00',18000,250,150,'8',3);
+INSERT INTO EMP1 VALUES (1011,'ROSE','SALESGIRL',1000,'2004-01-30 12:24:09',18000,250,150,'8',3);
 INSERT INTO EMP1 VALUES (1012,'KATE','SALESGIRL',7388,'2005-01-30 12:24:00',3000,900,160,'8',9);
 INSERT INTO EMP1 VALUES (1013,'TINA','SALESGIRL',7388,'2006-02-13 21:00:00',13700,2400,160,'8',10);
 INSERT INTO EMP1 VALUES (1014,'MARY','SALESGIRL',1005,'2007-02-28 21:00:00',20000,1550,160,'8',1);
 INSERT INTO EMP1 VALUES (1015,'TESSA','SALESGIRL',1005,'2008-02-28 21:00:00',14700,1100,160,'8',5);
-INSERT INTO EMP1 VALUES (1016,'STEVEN','Assistant',1004,'1983-01-12 18:35:00',-9500,NULL,40,NULL,null);
+INSERT INTO EMP1 VALUES (1016,'STEVEN','Assistant',1004,'1983-01-12 18:35:07',-9500,NULL,40,NULL,null);
 
 UPDATE EMP1 SET SAL = '8000.48' WHERE (EMPNO = '1004');
 UPDATE EMP1 SET SAL = '7000.79' WHERE (EMPNO = '1003');
@@ -2066,14 +2182,14 @@ update EMP set `user name` = upper("Honeycomb") where empno = 7566;
 update EMP set `user name` = upper("Life Racer") where empno = 7654;
 update EMP set `user name` = upper("White Sand") where empno = 7788;
 update EMP set `user name` = upper("Sand Dust") where empno = 7844;
-
+update EMP set `user name` = upper("Sand Stone") where empno = 7840;
 
 
 update EMP set pwd = (select dept.pwd from dept where emp.deptno = dept.deptno);
 UPDATE EMP SET PWD=NULL WHERE EMPNO=7415;
 UPDATE EMP SET PWD='ABCDEF' WHERE EMPNO=7945;
 UPDATE EMP SET PWD=NULL WHERE EMPNO=9400;
-UPDATE EMP SET PWD='XYZ' WHERE EMPNO=9473;
+UPDATE EMP SET PWD='XYZ@1234' WHERE EMPNO=9473;
 
 delete from emp_cards where  not exists (select True from emp where emp_cards.empid = emp.empno);
 delete from emp_phone where not exists (select True from emp where emp_phone.empid = emp.empno);
@@ -2129,10 +2245,27 @@ update emp_attendance set datepresent= '1,2,3,4,5,6,7,8,9,10,12,15,16,17,18,19,2
 update emp_attendance set datepresent= '1,2,3,4,5,6,7,8,9,10,12,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30' where empno=9473;
 
 
+create table numberString (c1 varchar(45) primary key);
+insert into numberString select concat(empno,ename) from emp;
 
+insert into numberString values('1saleel');
+insert into numberString values('34sharmin');
+insert into numberString values('743ruhan');
+insert into numberString values('56731vrushali');
+insert into numberString values('836379bandish');
+insert into numberString values('7657822ajay');
 
+create table stringNumber as select * from numberString where 1=2;
+insert into stringNumber select concat(ename,empno) from emp;
+	
+insert into stringNumber values('saleel1');
+insert into stringNumber values('sharmin34');
+insert into stringNumber values('ruhan743');
+insert into stringNumber values('vrushali56731');
+insert into stringNumber values('bandish836379');
+insert into stringNumber values('ajay7657822');
 
-
+commit;
 
 
 
