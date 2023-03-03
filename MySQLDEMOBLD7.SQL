@@ -90,14 +90,9 @@ drop table if EXISTS plumber;
 drop table if EXISTS service;
 drop table if EXISTS plumber_service_map;
 drop table if EXISTS r;
-drop table if EXISTS Leading_Zeroes;
-
-
 
 DROP VIEW IF EXISTS SALES;
 
-create table Leading_Zeroes(c1 varchar(10));
-insert into Leading_zeroes values('1'),('0000000003'), ('120'),('0000000067'), ('132');
 
 create table r(c1 int); 
 insert into r values(-2), (1),(2),(-1),(3),(-2), (1), (2), (1);
@@ -227,7 +222,7 @@ insert into quarter_revenue values(12, 2022, 'Q4', 46000.75);
 create table vote_response(candidateID int, response varchar(180));
 
 insert into vote_response values(3, 'n,n,n,y,y,y,y,n,y,n,y,y,n,n,y,n,n,n,n,n,n,n,n,y,y,y,y,y,y,y,n,y,n,y,y,y,n,n,n,y,y,y,y,n,n,n,n,n,y');
-insert into vote_response values(1, 'y,n,n,y,y,y,y,n,y,n,y,y,n,n,y,n,n,y,n,y,n,y,n,y,y,y,y,y,y,y,n,y,n,y,y,y,n,n,n,y,y,y,yy,y,y,n,y,n,y,n,y,n,n,n,y,y,y,n');
+insert into vote_response values(1, 'y,n,n,y,y,y,y,n,y,n,y,y,n,n,y,n,n,y,n,y,n,y,n,y,y,y,y,y,y,y,n,y,n,y,y,y,n,n,n,y,y,y,y,y,y,y,n,y,n,y,n,y,n,n,n,y,y,y,n');
 insert into vote_response values(2, 'y,y,y,y,y,y,y,n,y,y,y,y,n,y,y,y,y,y,n,y,y,y,y,y,y,y,y,y,y,y,n,y,y,y,y,y,n,y,y,y,y,y,y,y,n,y,n');
 insert into vote_response values(4, 'n,n,n,y,y,n,n,n,y,n,y,y,n,n,y,n,y,n,n,y,n,y,n,y,y,n,y,n,y,y,n,y,n,y,n,y,n,n,n,y,y,n,n');
 
@@ -427,39 +422,29 @@ create table key_parts(c1 int, c2 int);
 
 insert into key_parts values row(2,3), row(7,5), row(5,7), row(3,8), row(9,4), row(10,19), row(20,16), row(6,14), row(7,12), row(12,5), row(9,17), row(17,9), row(10,10), row(20,3), row(17,15), row(19,16), row(3,8), row(9,9), row(10,19), row(20,16), row(6,14), row(7,12), row(12,5), row(9,17), row(17,9), row(10,10);
 
-CREATE TABLE books (bookID int PRIMARY KEY, 
+CREATE TABLE books (bookID int, 
 bookName varchar(45), 
 Type varchar(45), 
 Cost int);
 
-INSERT INTO books VALUES(1, 'C', 'PDF File', '1200');
-INSERT INTO books VALUES(2, 'C++', 'Word File', '1000');
-INSERT INTO books VALUES(3, 'DS', 'Hardcover', '950');
-INSERT INTO books VALUES(4, 'MySQL', 'Paperback', '1400');
-INSERT INTO books VALUES(5, 'OSC', 'Paperback', '1225');
-INSERT INTO books VALUES(6, 'HTML', 'PDF File', '650');
-INSERT INTO books VALUES(7, 'JavaScript', 'Paperback', '700');
-INSERT INTO books VALUES(8, 'ASDM', 'PDF File', '500');
-INSERT INTO books VALUES(9, '.NET', 'Hardcover', '2500');
-INSERT INTO books VALUES(10, 'Core Java', 'PDF File', '1500');
-INSERT INTO books VALUES(11, 'Adv. Java', 'Hardcover', '1800');
+INSERT INTO books VALUES(1, 'DS', 'Hardcover', '950');
+INSERT INTO books VALUES(1, 'DS', 'Hardcover', '950');
+INSERT INTO books VALUES (2, 'JavaScript', 'Paperback', '700');
+INSERT INTO books VALUES (2, 'JavaScript', 'Paperback', '700');
 
-CREATE TABLE newbooks (bookID int PRIMARY KEY, 
+
+CREATE TABLE newbooks (bookID int, 
 bookName varchar(45), 
 Type varchar(45), 
 Cost int);
 
-INSERT INTO newbooks VALUES (1, 'JavaScript', 'Paperback', '700');
-INSERT INTO newbooks VALUES (2, 'ASDM', 'PDF File', '500');
-INSERT INTO newbooks VALUES (3, '.NET', 'Hardcover', '2500');
-INSERT INTO newbooks VALUES (4, 'Core Java', 'PDF File', '1500');
-INSERT INTO newbooks VALUES (5, 'Adv. Java', 'Hardcover', '1800');
-INSERT INTO newbooks VALUES (6, 'Oracle', 'PDF File', '1200');
-INSERT INTO newbooks VALUES (7, 'hBase', 'Word File', '1000');
-INSERT INTO newbooks VALUES (8, 'Node', 'Hardcover', '950');
-INSERT INTO newbooks VALUES (9, 'Pig', 'Paperback', '1400');
-INSERT INTO newbooks VALUES (10,'Python', 'Paperback', '1225');
-INSERT INTO newbooks VALUES (11,'Hadoop', 'PDF File', '650');
+INSERT INTO newbooks VALUES (1, 'Redis', 'Paperback', '850');
+INSERT INTO newbooks VALUES (1, 'Redis', 'Paperback', '850');
+INSERT INTO newbooks VALUES (2, 'JavaScript', 'Paperback', '700');
+INSERT INTO newbooks VALUES (2, 'JavaScript', 'Paperback', '700');
+
+
+
 
 
 
