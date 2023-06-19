@@ -1,109 +1,96 @@
-﻿DROP TABLE IF EXISTS PRODUCTS;
-DROP TABLE IF EXISTS A;
-DROP TABLE IF EXISTS B;
-DROP TABLE IF EXISTS EMP;
-DROP TABLE IF EXISTS DEPT;
-DROP TABLE IF EXISTS REPLACEDEPT;
-DROP TABLE IF EXISTS BONUS;
-DROP TABLE IF EXISTS SALGRADE;
-DROP TABLE IF EXISTS DUMMY;
-DROP TABLE IF EXISTS ITEM;
-DROP TABLE IF EXISTS PRICE;
-DROP TABLE IF EXISTS PRODUCT;
-DROP TABLE IF EXISTS ORD;
-DROP TABLE IF EXISTS CUSTOMER;
-DROP TABLE IF EXISTS EMP_Cards;
-DROP TABLE IF EXISTS emp_phone;
-DROP TABLE IF EXISTS EMP1;
-DROP TABLE IF EXISTS EMP2;
-DROP TABLE IF EXISTS DEPT1;
-DROP TABLE IF EXISTS DEPT2;
-DROP TABLE IF EXISTS DEPT3;
-DROP TABLE IF EXISTS regexpr;
-DROP TABLE IF EXISTS temp1;
-DROP TABLE IF EXISTS SORT;
-DROP TABLE IF EXISTS Location;
-DROP TABLE IF EXISTS TableA;
-DROP TABLE IF EXISTS TableB;
-DROP TABLE IF EXISTS TableAA;
-DROP TABLE IF EXISTS TableBB;
-DROP TABLE IF EXISTS HOBBY;
-DROP TABLE IF EXISTS NEW;
-DROP TABLE IF EXISTS BLANKTABLEA;
-DROP TABLE IF EXISTS BLANKTABLEB;
-DROP TABLE IF EXISTS NEAREST;
-DROP TABLE IF EXISTS DEMODEPT1;
-DROP TABLE IF EXISTS DEMODEPT2;
-DROP TABLE IF EXISTS COALESCE;
-DROP TABLE IF EXISTS DUPLICATE;
-DROP TABLE IF EXISTS NULLIF;
-DROP TABLE IF EXISTS STATUS;
-DROP TABLE IF EXISTS SALESPERSON;
-DROP TABLE IF EXISTS MENUCARD;
-DROP TABLE IF EXISTS SOFTDRINK;
-DROP TABLE IF EXISTS SETA;
-DROP TABLE IF EXISTS SETB;
-DROP TABLE IF EXISTS STATES;
-DROP TABLE IF EXISTS STATION;
-DROP TABLE IF EXISTS Z;
-DROP TABLE IF EXISTS ORDERS;
-DROP TABLE IF EXISTS CUSTOMERS;
-DROP TABLE IF EXISTS SALESPEOPLE;
-DROP TABLE IF EXISTS TASKS;
-DROP TABLE IF EXISTS r1;
-DROP TABLE IF EXISTS r2;
-DROP TABLE IF EXISTS envelope;
-DROP TABLE IF EXISTS docs;
-DROP TABLE IF EXISTS tableA;
-DROP TABLE IF EXISTS tableB;
-DROP TABLE IF EXISTS warehouse;
-DROP TABLE IF EXISTS sales_channel;
-DROP TABLE IF EXISTS comments;
-DROP TABLE IF EXISTS blog;
-DROP TABLE IF EXISTS agent;
-DROP TABLE IF EXISTS licence;
-DROP TABLE IF EXISTS client;
-DROP TABLE IF EXISTS books;
-DROP TABLE IF EXISTS newbooks;
-DROP TABLE IF EXISTS key_parts;
+﻿DROP TABLE IF EXISTS PRODUCTS CASCADE;
+DROP TABLE IF EXISTS A CASCADE;
+DROP TABLE IF EXISTS B CASCADE;
+DROP TABLE IF EXISTS EMP CASCADE;
+DROP TABLE IF EXISTS DEPT CASCADE;
+DROP TABLE IF EXISTS EMPJ CASCADE;
+DROP TABLE IF EXISTS REPLACEDEPT CASCADE;
+DROP TABLE IF EXISTS BONUS CASCADE;
+DROP TABLE IF EXISTS SALGRADE CASCADE;
+DROP TABLE IF EXISTS DUMMY CASCADE;
+DROP TABLE IF EXISTS ITEM CASCADE;
+DROP TABLE IF EXISTS PRICE CASCADE;
+DROP TABLE IF EXISTS PRODUCT CASCADE;
+DROP TABLE IF EXISTS ORD CASCADE;
+DROP TABLE IF EXISTS CUSTOMER CASCADE;
+DROP TABLE IF EXISTS EMP_Cards CASCADE;
+DROP TABLE IF EXISTS emp_phone CASCADE;
+DROP TABLE IF EXISTS EMP1 CASCADE;
+DROP TABLE IF EXISTS EMP2 CASCADE;
+DROP TABLE IF EXISTS DEPT1 CASCADE;
+DROP TABLE IF EXISTS DEPT2 CASCADE;
+DROP TABLE IF EXISTS DEPT3 CASCADE;
+DROP TABLE IF EXISTS regexpr CASCADE;
+DROP TABLE IF EXISTS temp1 CASCADE;
+DROP TABLE IF EXISTS SORT CASCADE;
+DROP TABLE IF EXISTS Location CASCADE;
+DROP TABLE IF EXISTS TableA CASCADE;
+DROP TABLE IF EXISTS TableB CASCADE;
+DROP TABLE IF EXISTS TableAA CASCADE;
+DROP TABLE IF EXISTS TableBB CASCADE;
+DROP TABLE IF EXISTS HOBBY CASCADE;
+DROP TABLE IF EXISTS NEW CASCADE;
+DROP TABLE IF EXISTS BLANKTABLEA CASCADE;
+DROP TABLE IF EXISTS BLANKTABLEB CASCADE;
+DROP TABLE IF EXISTS NEAREST CASCADE;
+DROP TABLE IF EXISTS DEMODEPT1 CASCADE;
+DROP TABLE IF EXISTS DEMODEPT2 CASCADE;
+DROP TABLE IF EXISTS COALESCE CASCADE;
+DROP TABLE IF EXISTS DUPLICATE CASCADE;
+DROP TABLE IF EXISTS NULLIF CASCADE;
+DROP TABLE IF EXISTS STATUS CASCADE;
+DROP TABLE IF EXISTS SALESPERSON CASCADE;
+DROP TABLE IF EXISTS MENUCARD CASCADE;
+DROP TABLE IF EXISTS SOFTDRINK CASCADE;
+DROP TABLE IF EXISTS SETA CASCADE;
+DROP TABLE IF EXISTS SETB CASCADE;
+DROP TABLE IF EXISTS STATES CASCADE;
+DROP TABLE IF EXISTS STATION CASCADE;
+DROP TABLE IF EXISTS Z CASCADE;
+DROP TABLE IF EXISTS ORDERS CASCADE;
+DROP TABLE IF EXISTS CUSTOMERS CASCADE;
+DROP TABLE IF EXISTS SALESPEOPLE CASCADE;
+DROP TABLE IF EXISTS TASKS CASCADE;
+DROP TABLE IF EXISTS r1 CASCADE;
+DROP TABLE IF EXISTS r2 CASCADE;
+DROP TABLE IF EXISTS envelope CASCADE;
+DROP TABLE IF EXISTS docs CASCADE;
+DROP TABLE IF EXISTS tableA CASCADE;
+DROP TABLE IF EXISTS tableB CASCADE;
+DROP TABLE IF EXISTS warehouse CASCADE;
+DROP TABLE IF EXISTS sales_channel CASCADE;
+DROP TABLE IF EXISTS comments CASCADE;
+DROP TABLE IF EXISTS blog CASCADE;
+DROP TABLE IF EXISTS agent CASCADE;
+DROP TABLE IF EXISTS licence CASCADE;
+DROP TABLE IF EXISTS client CASCADE;
+DROP TABLE IF EXISTS books CASCADE;
+DROP TABLE IF EXISTS newbooks CASCADE;
+DROP TABLE IF EXISTS key_parts CASCADE;
 
-DROP TABLE If EXISTS mass_table;
-DROP TABLE If EXISTS runners;
-DROP TABLE If EXISTS races;
-DROP TABLE If EXISTS revenue;
-DROP TABLE If EXISTS food;
-DROP TABLE If EXISTS company;
-DROP TABLE If EXISTS candidate;
-DROP TABLE If EXISTS votes;
-DROP TABLE If EXISTS points;
-DROP TABLE If EXISTS andor;
-DROP TABLE If EXISTS stadium;
-DROP TABLE IF EXISTS transactions;
-DROP TABLE IF EXISTS empj;
-drop table if EXISTS emp_attendance;
-drop table if EXISTS vote_response;
-drop table if EXISTS quarter_revenue;
-drop table if EXISTS numberString;
-drop table if EXISTS stringNumber;
-
-drop table if EXISTS server;
-drop table if EXISTS runningServer;
-
-drop table if EXISTS plumber;
-drop table if EXISTS service;
-drop table if EXISTS plumber_service_map;
-drop table if EXISTS r;
+DROP TABLE If EXISTS mass_table CASCADE;
+DROP TABLE If EXISTS runners CASCADE;
+DROP TABLE If EXISTS races CASCADE;
+DROP TABLE If EXISTS revenue CASCADE;
+DROP TABLE If EXISTS food CASCADE;
+DROP TABLE If EXISTS company CASCADE;
+DROP TABLE If EXISTS candidate CASCADE;
+DROP TABLE If EXISTS votes CASCADE;
+DROP TABLE If EXISTS points CASCADE;
+DROP TABLE If EXISTS andor CASCADE;
+DROP TABLE If EXISTS stadium CASCADE;
+DROP TABLE IF EXISTS transactions CASCADE;
+drop table if EXISTS emp_attendance CASCADE;
+drop table if EXISTS vote_response CASCADE;
+drop table if EXISTS quarter_revenue CASCADE;
+drop table if EXISTS numberString CASCADE;
+drop table if EXISTS stringNumber CASCADE;
+drop table if EXISTS plumber CASCADE;
+drop table if EXISTS service CASCADE;
+drop table if EXISTS plumber_service_map CASCADE;
+drop table if EXISTS r CASCADE;
 
 DROP VIEW IF EXISTS SALES;
-
-create table server(id int primary key, serverName varchar(20));
-
-insert into server values(1,'server-1'), (2, 'server-2'), (3,'server-3'), (4, 'server-4'), (5,'server-5'), (6, 'server-6'), (7,'server-7'), (8, 'server-8'), (9,'server-9'), (10, 'server-10'), (11,'server-11'), (12, 'server-12'), (13, 'server-13'), (14, 'server-14'), (15, 'server-15'), (16, 'server-16'), (17, 'server-17'), (18, 'server-18'), (19, 'server-19'), (20, 'server-20'), (21, 'server-21'), (22, 'server-22');
-
-create table runningServer(id int primary key, serverName varchar(20));
-
-insert into runningServer values(6,'server-6'), (9,'server-9'), (7,'server-7'), (10,'server-10'), (14,'server-14'), (17,'server-17');
-
 
 
 create table r(c1 int); 
@@ -214,7 +201,7 @@ insert into plumber_service_map values(19,7);
 insert into plumber_service_map values(19,9);
 insert into plumber_service_map values(19,19);
 
-create table quarter_revenue(id int, year year, quarter varchar(10), amount float(8,2));
+create table quarter_revenue(id int, Qyear INT, quarter varchar(10), amount NUMERIC(8,2));
 
 insert into quarter_revenue values(1, 2020, 'Q1', 45000.57);
 insert into quarter_revenue values(2, 2020, 'Q2', 55000.00);
@@ -240,50 +227,6 @@ insert into vote_response values(4, 'n,n,n,y,y,n,n,n,y,n,y,y,n,n,y,n,y,n,n,y,n,y
 
 
 
-CREATE TABLE `empj` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `document` json DEFAULT NULL,
-  `insertedDate` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-);
-
-insert into empj values( default, '{"empid":1020,"ename":"king","address": {"building": "1007", "coord": [-73.856077, 40.848447], "street": "Morris Park Ave", "zipcode": "10462"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["blue","black"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"93478", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}], "job":"president","mgr":null,"hiredate":{"$date":"1981-11-17T00:00:00.000Z"},"sal":5000,"comm":null,"deptno":10}', now());
-insert into empj values( default, '{"empid":1021,"ename":"smith","address": {"building": "469", "coord": [-73.961704, 40.662942], "street": "Flatbush Avenue", "zipcode": "11225"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["red", "cyan", "gray"], "fruit": ["grapes", "Orange"],"cards": [ {"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}, {"PAN":{"PAN-No" :"smh838", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"aadhar":{"aadhar-No" :"43564", "isActive":true}}],"job":"manager","mgr":1020,"hiredate":{"$date":"1981-05-01T00:00:00.000Z"},"sal":3400,"comm":null,"deptno":10}', now());
-insert into empj values( default, '{"empid":1022,"ename":"james","address": {"building": "351", "coord": [-73.98513559999999, 40.7676919], "street": "West   57 Street", "zipcode": "10019"},"isDocActive": true,"gender": "male","canVote": true, "canDrive":true,"color": ["Red","Blue","Green","Yellow"], "fruit": ["Indian Fig"],"cards": [ {"PAN":{"PAN-No" :"Kinj093", "isActive":false}}, { "aadhar":{"aadhar-No" :"73826", "isActive":true}}, {"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"manager","mgr":1020,"hiredate":{"$date":"1981-07-09T00:00:00.000Z"},"sal":4700,"comm":null,"deptno":20}', now());
-insert into empj values( default, '{"empid":1023,"ename":"jack","address": {"building": "2780", "coord": [-73.98241999999999, 40.579505], "street": "Stillwell Avenue", "zipcode": "11224"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Air Force Blue","Apple Green"], "fruit": ["Orange"],"cards": [ {"voter":{"voterID":"Ind03o3", "isActive":true}}, { "aadhar":{"aadhar-No" :"12321", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}}, {"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"accountant","mgr":1022,"hiredate":{"$date":"1981-04-02T00:00:00.000Z"},"sal":2700,"comm":null,"deptno":30}', now());
-insert into empj values( default, '{"empid":1023,"ename":"scott","address": {"building": "97-22", "coord": [-73.8601152, 40.7311739], "street": "63 Road", "zipcode": "11374"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Ash Grey", "White"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"93872", "isActive":true}}, {"voter":{"voterID":"Ind03o3","isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}}], "job":"salesman", "mgr":1023, "hiredate":{"$date":"1981-09-28T00:00:00.000Z"},"sal":2500,"comm":350,"deptno":30}', now());
-insert into empj values( default, '{"empid":1024,"ename":"martin","address": {"building": "8825", "coord": [-73.8803827, 40.7643124], "street": "Astoria Boulevard", "zipcode": "11369"},"isDocActive": true,"gender": "male","canVote": true, "canDrive":true,"color": ["Banana Yellow"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"72877", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}], "job":"salesman", "mgr":1023, "hiredate":{"$date":"1981-02-20T00:00:00.000Z"},"sal":2900,"comm":735,"deptno":30}', now());
-insert into empj values( default, '{"empid":1025,"ename":"crow","address": {"building": "2206", "coord": [-74.1377286, 40.6119572], "street": "Victory Boulevard", "zipcode": "10314"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Apple Green","Ash Grey"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"77876", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}], "job":"salesman", "mgr":1023,"hiredate":{"$date":"1981-09-08T00:00:00.000Z"},"sal":3200,"comm":null,"deptno":20}', now());
-insert into empj values( default, '{"empid":1026,"ename":"blake","address": {"building": "7114", "coord": [-73.9068506, 40.6199034], "street": "Avenue U", "zipcode": "11234"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Brass","Bright Green"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"12321", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}], "job":"clerk", "mgr":1024,"hiredate":{"$date":"1981-12-03T00:00:00.000Z"},"sal":1200,"comm":null,"deptno":30}', now());
-insert into empj values( default, '{"empid":1027,"ename":"richards","address": {"building": "6409", "coord": [-74.00528899999999, 40.628886], "street": "11 Avenue", "zipcode": "11219"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Charcoal","Cherry"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"83972", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}], "job":"clerk","mgr":1024,"hiredate":{"$date":"1981-02-22T00:00:00.000Z"},"sal":1500,"comm":null,"deptno":10}', now());
-insert into empj values( default, '{"empid":1028,"ename":"peter","address": {"building": "1839", "coord": [-73.9482609, 40.6408271], "street": "Nostrand Avenue", "zipcode": "11226"},"isDocActive": true,"gender": "male","canVote": true, "canDrive":true,"color": ["Brown"], "fruit": ["banana","Jackfruit"],"cards": [ { "aadhar":{"aadhar-No" :"92783", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}], "job":"analyst", "mgr":1025,"hiredate":{"$date":"1981-12-03T00:00:00.000Z"},"sal":3500,"comm":null,"deptno":30}', now());
-insert into empj values( default, '{"empid":1029,"ename":"bob","address": {"building": "2300", "coord": [-73.8786113, 40.8502883], "street": "Southern Boulevard", "zipcode": "10460"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Copper"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"73122", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}], "job":"manager", "mgr":1020,"hiredate":{"$date":"1980-12-17T00:00:00.000Z"},"sal":4900,"comm":null,"deptno":30}', now());
-insert into empj values( default, '{"empid":1030,"ename":"saleel","address": {"building": "7715", "coord": [-73.9973325, 40.61174889999999], "street": "18 Avenue", "zipcode": "11214"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Coral"], "fruit": ["Dates","Orange"],"cards": [ { "aadhar":{"aadhar-No" :"73822", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}}, {"licence":{"licence-No":"LMV9478", "issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}, {"voter":{"voterID":"Ind03o3", "isActive":true}}], "job":"programmer", "mgr":1020, "hiredate":{"$date":"1982-12-09T00:00:00.000Z"},"sal":2900,"comm":null,"deptno":10}', now());
-insert into empj values( default, '{"empid":1031,"ename":"sharmin","address": {"building": "1269", "coord": [-73.871194, 40.6730975], "street": "Sutter Avenue", "zipcode": "11208"},"isDocActive": false,"gender": "female","canVote": true, "canDrive":true,"color": ["Cream"], "fruit": ["Indian Fig"],"cards": [ { "aadhar":{"aadhar-No" :"16523", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478", "issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}], "job":"programmer", "mgr":1020,"hiredate":{"$date":"1983-01-12T00:00:00.000Z"},"sal":4999,"comm":null,"deptno":40}', now());
-insert into empj values( default, '{"empid":1032,"ename":"vrushali","address": {"building": "1", "coord": [-73.96926909999999, 40.7685235], "street": "East   66 Street", "zipcode": "10065"},"isDocActive": true,"gender": "female","canVote": true, "canDrive":true,"color": ["Iceberg"], "fruit": ["Orange","Papaya", "Kiwi"],"cards": [ { "aadhar":{"aadhar-No" :"22343", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478", "issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"analyst", "mgr":1030, "hiredate":{"$date":"1982-02-23T00:00:00.000Z"}, "sal":4999, "comm":null, "deptno":20}', now());
-insert into empj values( default, '{"empid":1033,"ename":"vasant","address": {"building": "705", "coord": [-73.9653967, 40.6064339], "street": "Kings Highway", "zipcode": "11223"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Bright Green"], "fruit": [],"cards": [ {"voter":{"voterID":"Ind03o3", "isActive":true}}, { "aadhar":{"aadhar-No" :"93824", "isActive":true}}, {"licence":{"licence-No":"LMV9478", "issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}}], "job":"salesman", "mgr":1029, "hiredate":{"$date":"1982-02-24T00:00:00.000Z"},"sal":2200,"comm":0,"deptno":40}', now());
-insert into empj values( default, '{"empid":1034,"ename":"vasu","address": {"building": "203", "coord": [-73.97822040000001, 40.6435254], "street": "Church Avenue", "zipcode": "11218"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["India Green"], "fruit": ["Dates"],"cards": [{"PAN":{"PAN-No" :"Kinj093", "isActive":false}}, { "aadhar":{"aadhar-No" :"19826", "isActive":true}}, {"licence": {"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"debit": {"bank":"BOI", "isActive":true}} ],"job":"salesman","mgr":1029,"hiredate":{"$date":"1980-02-14T00:00:00.000Z"},"sal":2200,"comm":250,"deptno":40}', now());
-insert into empj values( default, '{"empid":1035,"ename":"rahul","address": {"building": "265-15", "coord": [-73.7032601, 40.7386417], "street": "Hillside Avenue", "zipcode": "11004"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Indian Red"], "fruit": ["Lychee","Indian Fig"],"cards": [ {"credit":{"bank":"SBI", "isActive":true}}, { "aadhar":{"aadhar-No" :"00998", "isActive":true}},{"OCI":{"country":"usa", "state":"NJ", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"clerk","mgr":1029,"hiredate":{"$date":"1981-12-31T00:00:00.000Z"},"sal":1200,"comm":null,"deptno":40}', now());
-insert into empj values( default, '{"empid":1036,"ename":"raju","address": {"building": "6909", "coord": [-74.0259567, 40.6353674], "street": "3 Avenue", "zipcode": "11209"},"isDocActive": true,"gender": "male","canVote": true, "canDrive":true,"color": ["Indian Yellow"], "fruit": ["Crab apples"],"cards": [ { "aadhar":{"aadhar-No" :"55622", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"OCI":{"country":"usa", "state":"NJ", "isActive":true}}, {"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478", "issueDate":"2020-01-01", "expireDate":"2040-01-01", "isActive":true}}], "job":"administrator", "mgr":1031, "hiredate":{"$date":"1983-06-15T00:00:00.000Z"}, "sal":3400, "comm":null, "deptno":50}', now());
-insert into empj values( default, '{"empid":1037,"ename":"ramu","address": {"building": "522", "coord": [-73.95171, 40.767461], "street": "East   74 Street", "zipcode": "10021"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Lemon"], "fruit": ["Jackfruit","banana", "Apple"],"cards": [ {"ATM":{"bank":"canara", "from":"2021-10-20", "to":"2025:12:21", "isActive":true}}, { "aadhar":{"aadhar-No" :"00983", "isActive":true}},{"ATM":{"bank":"BOI", "from":"2021-10-04", "to":"2027:12:21", "isActive":true}}, {"OCI":{"country":"usa", "state":"CA", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"clerk","mgr":1031,"hiredate":{"$date":"1983-07-12T00:00:00.000Z"},"sal":1400,"comm":null,"deptno":50}', now());
-insert into empj values( default, '{"empid":1038,"ename":"neel","address": {"building": "284", "coord": [-73.9829239, 40.6580753], "street": "Prospect Park West", "zipcode": "11215"},"isDocActive": true,"gender": "male","canVote": true, "canDrive":true,"color": ["Apple Green"], "fruit": [],"cards": [{"OCI":{"country":"usa", "state":"IN", "isActive":true}}, { "aadhar":{"aadhar-No" :"00098", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"administrator","mgr":1030,"hiredate":{"$date":"1983-03-14T00:00:00.000Z"},"sal":4200,"comm":null,"deptno":10}', now());
-insert into empj values( default, '{"empid":1039,"ename":"saleel","address": {"building": "129-08", "coord": [-73.839297, 40.78147], "street": "20 Avenue", "zipcode": "11356"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Cherry","Charcoal"], "fruit": [],"cards": [ {"ATM":{"bank":"BOI", "from":"2021-10-04", "to":"2027:12:21", "isActive":true}}, {"OCI":{"country":"usa", "state":"NY", "isActive":true}}, {"debit":{"bank":"BOI", "from":"2021-10-04", "to":"2027:12:21", "isActive":true}},{ "aadhar":{"aadhar-No" :"66675", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"analyst","mgr":1022,"hiredate":{"$date":"1982-12-09T00:00:00.000Z"},"sal":3700,"comm":null,"deptno":50}', now());
-insert into empj values( default, '{"empid":1040,"ename":"amit","address": {"building": "759", "coord": [-73.9925306, 40.7309346], "street": "Broadway", "zipcode": "10003"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Indian Red"], "fruit": ["Crab apples"],"cards": [ { "aadhar":{"aadhar-No" :"66623", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"administrator","mgr":1029,"hiredate":{"$date":"1982-12-08T00:00:00.000Z"},"sal":3500,"comm":null,"deptno":50,"phone":[8.5088422e+07,{"$numberLong":"9822884228"}]}', now());
-insert into empj values( default, '{"empid":1041,"ename":"dinesh","address": {"building": "3406", "coord": [-73.94024739999999, 40.7623288], "street": "10 Street", "zipcode": "11106"},"isDocActive": true,"gender": "male","canVote": true, "canDrive":true,"color": ["Air Force Blue"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"77767", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"programmer","mgr":1021,"hiredate":{"$date":"1982-12-09T00:00:00.000Z"},"sal":3500,"comm":null,"deptno":50,"phone":[8.5088422e+07,{"$numberLong":"9822884228"}],"skills":{"languages":["C++","JAVA"],"web":["php","java","jquery"]}}', now());
-insert into empj values( default, '{"empid":1042,"ename":"amit","address": {"building": "502", "coord": [-73.976112, 40.786714], "street": "Amsterdam Avenue", "zipcode": "10024"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Orange"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"77787", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"administrator","mgr":1029,"hiredate":{"$date":"1981-11-03T00:00:00.000Z"},"sal":3500,"comm":null,"deptno":50,"phone":["9850884228","9822884228"]}', now());
-insert into empj values( default, '{"empid":1043,"ename":"dinesh","address": {"building": "730", "coord": [-73.96805719999999, 40.7925587], "street": "Columbus Avenue", "zipcode": "10025"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Navy Blue"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"77789", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"programmer","mgr":1021,"hiredate":{"$date":"1981-11-04T00:00:00.000Z"},"sal":3500,"comm":null,"deptno":50,"phone":["020-25420200",{"$numberLong":"9822336644"}],"skills":{"languages":["C++","JAVA"],"web":["php","java","jquery"]}}', now());
-insert into empj values( default, '{"empid":1044,"ename":"rudra","address": {"building": "18", "coord": [-73.996984, 40.72589], "street": "West Houston Street", "zipcode": "10012"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Lime"], "fruit": ["Indian Fig"],"cards": [ { "aadhar":{"aadhar-No" :"55543", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"programmer","mgr":1021,"hiredate":{"$date":"1981-11-04T00:00:00.000Z"},"sal":2400,"comm":null,"deptno":50,"phone":"020-25420212","skills":{"web":["php","java","jquery"],"database":["oracle","ms-sql server","mongodb"]}}', now());
-insert into empj values( default, '{"empid":1045,"ename":"pankaj","address": {"building": "531", "coord": [-73.9634876, 40.6940001], "street": "Myrtle Avenue", "zipcode": "11205"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["White"], "fruit": ["Peach"],"cards": [ { "aadhar":{"aadhar-No" :"55565", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"programmer","mgr":1023,"hiredate":{"$date":"1980-02-17T00:00:00.000Z"},"sal":3600,"comm":null,"deptno":40,"phone":"022-2548345","skills":{"language":".NET","database":"ms-sql server"}}', now());
-insert into empj values( default, '{"empid":1046,"ename":"anoop","address": {"building": "103-05", "coord": [-73.8642349, 40.75356], "street": "37 Avenue", "zipcode": "11368"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Navy Blue"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"83722", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"programmer","mgr":1029,"hiredate":{"$date":"1980-02-17T00:00:00.000Z"},"sal":2300,"comm":1200,"deptno":50,"phone":"022-2548345","skills":{"language":[".NET","java"],"database":"oracle","web":["json","jquery","javascript"]}}', now());
-insert into empj values( default, '{"empid":1047,"ename":"nitish","address": {"building": "60", "coord": [-74.0085357, 40.70620539999999], "street": "Wall Street", "zipcode": "10005"},"isDocActive": true,"gender": "male","canVote": true, "canDrive":true,"color": ["Coral","Cream"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"99890", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"programmer","mgr":1039,"hiredate":{"$date":"1980-03-14T00:00:00.000Z"},"sal":1300,"comm":1200,"deptno":50,"phone":"022-2548345","skills":{"language":[".NET","java"],"database":{"rdbms":["oracle","db2"],"nosql":["mongodb","hive"]},"web":["json","jquery","javascript","php"]}}', now());
-insert into empj values( default, '{"empid":1048,"ename":"neel","address": {"building": "195", "coord": [-73.9246028, 40.6522396], "street": "East   56 Street", "zipcode": "11203"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Orange"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"99099", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"programmer","mgr":1039,"hiredate":{"$date":"1980-03-14T00:00:00.000Z"},"sal":1800,"comm":1400,"deptno":50,"phone":"022-2534565","skills":{"language":"ruby","database":{"rdbms":["oracle","db2"],"nosql":["mongodb","hive","hbase"]}}}', now());
-insert into empj values( default, '{"empid":1049,"ename":"arjun","address": {"building": "107", "coord": [-74.00920839999999, 40.7132925], "street": "Church Street", "zipcode": "10007"},"isDocActive": true,"gender": "male","canVote": true, "canDrive":true,"color": ["Sky Blue","Navy Blue","Blue"], "fruit": ["Lychee"],"cards": [ { "aadhar":{"aadhar-No" :"55434", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"auditor","mgr":1020,"hiredate":{"$date":"1984-05-05T00:00:00.000Z"},"sal":3200,"comm":null,"hra":1500,"da":1200,"deptno":20}', now());
-insert into empj values( default, '{"empid":1050,"ename":"amol","address": {"building": "1006", "coord": [-73.84856870000002, 40.8903781], "street": "East 233 Street", "zipcode": "10466"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Snow White"], "fruit": ["Orange"],"cards": [ { "aadhar":{"aadhar-No" :"44445", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"auditor","mgr":1047,"hiredate":{"$date":"1984-05-06T00:00:00.000Z"},"sal":3800,"comm":null,"hra":1000,"da":900,"deptno":20}', now());
-insert into empj values( default, '{"empid":1051,"ename":"sangita","address": {"building": "56", "coord": [-73.991495, 40.692273], "street": "Court Street", "zipcode": "11201"},"isDocActive": false,"gender": "female","canVote": true, "canDrive":true,"color": ["White"], "fruit": ["Papaya"],"cards": [ { "aadhar":{"aadhar-No" :"99983", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"auditor","mgr":1040,"hiredate":{"$date":"1984-03-30T00:00:00.000Z"},"sal":3100,"comm":null,"hra":1000,"da":1500,"deptno":20}', now());
-insert into empj values( default, '{"empid":1052,"ename":"gita","address": {"building": "7615", "coord": [-74.0228449, 40.6281815], "street": "5 Avenue", "zipcode": "11209"},"isDocActive": true,"gender": "female","canVote": true, "canDrive":true,"color": ["Indian Red"], "fruit": ["Kiwi"],"cards": [ { "aadhar":{"aadhar-No" :"44460", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"writer","language":["english","hindi"],"mgr":1049,"hiredate":{"$date":"1984-03-29T00:00:00.000Z"},"sal":2150,"comm":750,"hra":1300,"da":1700,"deptno":40}', now());
-insert into empj values( default, '{"empid":1053,"ename":"sita","address": {"building": "120", "coord": [-73.9998042, 40.7251256], "street": "Prince Street", "zipcode": "10012"},"isDocActive": false,"gender": "female","canVote": true, "canDrive":true,"color": ["Snow White"], "fruit": ["Guava"],"cards": [ { "aadhar":{"aadhar-No" :"12233", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"writer","language":["english","hindi","marathi"],"mgr":1049,"hiredate":{"$date":"1984-03-30T00:00:00.000Z"},"sal":3755,"comm":750,"hra":1100,"da":1100,"deptno":40}', now());
-insert into empj values( default, '{"empid":2001,"ename":"pinky","address": {"building": "1236", "coord": [-73.8893654, 40.81376179999999], "street": "238 Spofford Ave", "zipcode": "10474"},"isDocActive": true,"gender": "female","canVote": true, "canDrive":true,"color": ["India Green"], "fruit": ["banana","Jackfruit"],"cards": [ { "aadhar":{"aadhar-No" :"33434", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}}, {"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}], "job":"Computer Programmer","mgr":1039, "hiredate":{"$date":"1983-07-17T00:00:00.000Z"}, "sal":3500,"comm":null,"deptno":10}', now());
-insert into empj values( default, '{"empid":2002,"ename":"priti","address": {"building": "625", "coord": [-73.990494, 40.7569545], "street": "8 Avenue", "zipcode": "10018"},"isDocActive": false,"gender": "female","canVote": true, "canDrive":true,"color": ["Violet"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"55565", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478", "issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"Computer Programmer", "mgr":1037, "hiredate":{"$date":"1983-07-17T00:00:00.000Z"}, "sal":5500,"comm":null,"deptno":20}', now());
 
 CREATE TABLE transactions (
   _id int NOT NULL AUTO_INCREMENT,
@@ -331,7 +274,7 @@ INSERT INTO transactions VALUES
 
 create table stadium (id int primary key, visit_date date, people int);
 
-insert into stadium values(1, "2017-01-01", 10), (2, "2017-01-02", 109), (3, "2017-01-03", 150), (4, "2017-01-04", 99 ), (5, "2017-01-05", 145), (6, "2017-01-06", 1455), (7, "2017-01-07", 199), (8, "2017-01-09", 188), (9, "2017-01-10", 98), (10, "2017-11-09", 188);
+insert into stadium values(1, '2017-01-01', 10), (2, '2017-01-02', 109), (3, '2017-01-03', 150), (4, '2017-01-04', 99 ), (5, '2017-01-05', 145), (6, '2017-01-06', 1455), (7, '2017-01-07', 199), (8, '2017-01-09', 188), (9, '2017-01-10', 98), (10, '2017-11-09', 188);
 
 create table andor (id int, c1 varchar(10), city varchar(10));
 insert into andor values(1,'saleel','pune');
@@ -471,7 +414,7 @@ insert INTO races values(2, '500 meter dash', 3);
 insert INTO races values(3, 'cross-country', 2);
 insert INTO races values(4, 'triathalon', NULL);
 
-CREATE TABLE mass_table (weight float(4,2));
+CREATE TABLE mass_table (weight NUMERIC(4,2));
 
 insert into mass_table values(26.43), (54.65), (34.463), (60.223), (62.73), (35.63), (47.43), (63.47);
 
@@ -620,31 +563,31 @@ insert into r2 values(1,'a'),(2,'b'),(1,'c'),(3,'d'),(2,'e'),(1,'f');
 
 CREATE TABLE IF NOT EXISTS TASKS (id INT PRIMARY KEY AUTO_INCREMENT, title VARCHAR(255) NOT NULL,  completed BOOLEAN);
 
-INSERT INTO TASKS VALUE(default, 'Task-1', 1);
-INSERT INTO TASKS VALUE(default, 'Task0', 0);
-INSERT INTO TASKS VALUE(default, 'Task1', 0);
-INSERT INTO TASKS VALUE(default, 'Task2', 1);
-INSERT INTO TASKS VALUE(default, 'Task3', False);
-INSERT INTO TASKS VALUE(default, 'Task4', True);
-INSERT INTO TASKS VALUE(default, 'Task5', null);
-INSERT INTO TASKS VALUE(default, 'Task6', default);
-INSERT INTO TASKS VALUE(default, 'Task7', 1>2);
-INSERT INTO TASKS VALUE(default, 'Task8', 1<2);
-INSERT INTO TASKS VALUE(default, 'Task9', 12);
-INSERT INTO TASKS VALUE(default, 'Task10', 58);
-INSERT INTO TASKS VALUE(default, 'Task11',.75);
-INSERT INTO TASKS VALUE(default, 'Task12',.15);
-INSERT INTO TASKS VALUE(default, 'Task13', 'a' = 'a');
-INSERT INTO TASKS VALUE(default, 'Task14', null);
+INSERT INTO TASKS VALUES(default, 'Task-1', 1);
+INSERT INTO TASKS VALUES(default, 'Task0', 0);
+INSERT INTO TASKS VALUES(default, 'Task1', 0);
+INSERT INTO TASKS VALUES(default, 'Task2', 1);
+INSERT INTO TASKS VALUES(default, 'Task3', False);
+INSERT INTO TASKS VALUES(default, 'Task4', True);
+INSERT INTO TASKS VALUES(default, 'Task5', null);
+INSERT INTO TASKS VALUES(default, 'Task6', default);
+INSERT INTO TASKS VALUES(default, 'Task7', 1>2);
+INSERT INTO TASKS VALUES(default, 'Task8', 1<2);
+INSERT INTO TASKS VALUES(default, 'Task9', 12);
+INSERT INTO TASKS VALUES(default, 'Task10', 58);
+INSERT INTO TASKS VALUES(default, 'Task11',.75);
+INSERT INTO TASKS VALUES(default, 'Task12',.15);
+INSERT INTO TASKS VALUES(default, 'Task13', 'a' = 'a');
+INSERT INTO TASKS VALUES(default, 'Task14', null);
 
 
 
 CREATE TABLE IF NOT EXISTS revenue (
     id INT PRIMARY KEY,
-    q1 float(8,2),
-    q2 float(8,2),
-    q3 float(8,2),
-    q4 float(8,2)
+    q1 NUMERIC(8,2),
+    q2 NUMERIC(8,2),
+    q3 NUMERIC(8,2),
+    q4 NUMERIC(8,2)
 );
 
 INSERT INTO revenue(id,q1,q2,q3,q4)
@@ -673,10 +616,10 @@ VALUES (1,100,120,110,130),
 insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Chai', 1, 1, '10 boxes x 20 bags', 18.0000,39,0,10,0);
 insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Chang', 1, 1, '24 - 12 oz bottles', 19.0000,17,40,25,0);
 insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Aniseed Syrup', 1, 2, '12 - 550 ml bottles', 10.0000,13,70,25,0);
-insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, "Chef Anton's Cajun Seasoning", 2, 2, '48 - 6 oz jars', 22.0000,53,0,0,0);
-insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, "Chef Anton's Gumbo Mix", 2, 2, '36 boxes', 21.3500,0,0,0,1);
-insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, "Grandma's Boysenberry Spread", 3, 2, '12 - 8 oz jars', 25.0000,120,0,25,0);
-insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, "Uncle Bob's Organic Dried Pears", 3, 7, '12 - 1 lb pkgs.', 30.0000,15,0,10,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Chef Anton''s Cajun Seasoning', 2, 2, '48 - 6 oz jars', 22.0000,53,0,0,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Chef Anton''s Gumbo Mix', 2, 2, '36 boxes', 21.3500,0,0,0,1);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Grandma''s Boysenberry Spread', 3, 2, '12 - 8 oz jars', 25.0000,120,0,25,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Uncle Bob''s Organic Dried Pears', 3, 7, '12 - 1 lb pkgs.', 30.0000,15,0,10,0);
 insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Northwoods Cranberry Sauce', 3, 2, '12 - 12 oz jars', 40.0000,6,0,0,0);
 insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Mishi Kobe Niku', 4, 6, '18 - 500 g pkgs.', 97.0000,29,0,0,1);
 insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Ikura', 4, 8, '12 - 200 ml jars', 31.0000,31,0,0,0);
@@ -689,9 +632,9 @@ insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPer
 insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Alice Mutton', 7, 6, '20 - 1 kg tins', 39.0000,0,0,0,1);
 insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Carnarvon Tigers', 7, 8, '16 kg pkg.', 62.5000,42,0,0,0);
 insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Teatime Chocolate Biscuits', 8, 3, '10 boxes x 12 pieces', 9.2000,25,0,5,0);
-insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, "Sir Rodney's Marmalade", 8, 3, '30 gift boxes', 81.0000,40,0,0,0);
-insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, "Sir Rodney's Scones", 8, 3, '24 pkgs. x 4 pieces', 10.0000,3,40,5,0);
-insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, "Gustaf's Knckebrd", 9, 5, '24 - 500 g pkgs.', 21.0000,104,0,25,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Sir Rodney''s Marmalade', 8, 3, '30 gift boxes', 81.0000,40,0,0,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Sir Rodney''s Scones', 8, 3, '24 pkgs. x 4 pieces', 10.0000,3,40,5,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Gustaf''s Knckebrd', 9, 5, '24 - 500 g pkgs.', 21.0000,104,0,25,0);
 insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Tunnbrd', 9, 5, '12 - 250 g pkgs.', 9.0000,61,0,25,0);
 insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Guaran Fantstica', 10, 1, '12 - 355 ml cans', 4.5000,20,0,0,1);
 insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'NuNuCa Nu-Nougat-Creme', 11, 3, '20 - 450 g glasses', 14.0000,76,0,30,0);
@@ -710,7 +653,7 @@ insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPer
 insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Cte de Blaye', 18, 1, '12 - 75 cl bottles', 263.5000,17,0,15,0);
 insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Chartreuse verte', 18, 1, '750 cc per bottle', 18.0000,69,0,5,0);
 insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Boston Crab Meat', 19, 8, '24 - 4 oz tins', 18.4000,123,0,30,0);
-insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, "Jack's New England Clam Chowder", 19, 8, '12 - 12 oz cans', 9.6500,85,0,10,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Jack''s New England Clam Chowder', 19, 8, '12 - 12 oz cans', 9.6500,85,0,10,0);
 insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Singaporean Hokkien Fried Mee', 20, 5, '32 - 1 kg pkgs.', 14.0000,26,0,0,1);
 insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Ipoh Coffee', 20, 1, '16 - 500 g tins', 46.0000,17,10,25,0);
 insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Gula Malacca', 20, 2, '20 - 2 kg bags', 19.4500,27,0,15,0);
@@ -730,7 +673,7 @@ insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPer
 insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Escargots de Bourgogne', 27, 8, '24 pieces', 13.2500,62,0,20,0);
 insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Raclette Courdavault', 28, 4, '5 kg pkg.', 55.0000,79,0,0,0);
 insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Camembert Pierrot', 28, 4, '15 - 300 g rounds', 34.0000,19,0,0,0);
-insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, "Sirop d'rable", 29, 2, '24 - 500 ml bottles', 28.5000,113,0,25,0);
+insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Sirop d''rable', 29, 2, '24 - 500 ml bottles', 28.5000,113,0,25,0);
 insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Tarte au sucre', 29, 3, '48 pies', 49.3000,17,0,0,0);
 insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Vegie-spread', 7, 2, '15 - 625 g jars', 43.9000,24,0,5,0);
 insert into products(ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued) values(default, 'Wimmers gute Semmelkndel', 12, 5, '20 bags x 4 pieces', 33.2500,22,80,30,0);
@@ -780,8 +723,6 @@ CREATE TABLE STATION
     LONG_W INT);
 
 INSERT INTO STATION VALUES (794,'Kissee Mills','MO',140,73), (824,'Loma Mar','CA',49,131), (603,'Sandy Hook','CT',72,148), (478,'Tipton','IN',34,98), (619,'Arlington','CO',75,93), (711,'Turner','AR',50,101), (839,'Slidell','LA',85,152), (411,'Negreet','LA',99,105), (588,'Glencoe','KY',46,136), ( 665,'Chelsea','IA',99,60), (342,'Chignik Lagoon','AK',103,153), (733,'Pelahatchie','MS',39,28), (441,'Hanna City','IL',51,137), (811,'Dorrance','KS',102,122), (698,'Albany','CA',50 ,80), (325,'Monument','KS' ,71, 142), (414,'Manchester','MD' ,74, 37), (113,'Prescott','IA', 40 ,66), (971,'Graettinger','IA' ,95, 150), (266,'Cahone','CO' ,116 ,127), (617,'Sturgis','MS' ,36 ,126), (495,'Upperco','MD', 114 ,30), (473,'Highwood','IL',27,151), (959,'Waipahu','HI',106,34), (438,'Bowdon','GA',89,78), (571,'Tyler','MN',133,59), (92,'Watkins','CO',83,97), (399,'Republic','MI',75,130), (426,'Millville','CA',33,146), (844,'Aguanga','CA',80,66), (321,'Bowdon Junction','GA',86,34), (606,'Morenci','AZ',105,110), (957,'South El Monte','CA',74,80), (833,'Hoskinston','KY',66,66), (843,'Talbert','KY',40,59), (166,'Mccomb','MS',74,43), (339,'Kirk','CO',141 ,136), (909,'Carlock','IL',117,85), (829,'Seward','IL',72,90 ), (766,'Gustine','CA',111,141), (392,'Delano','CA',126,92), (555,'Westphalia','MI',33,144), (33,'Saint Elmo','AL',27,51), (728,'Roy','MT',41,52), (656,'Pattonsburg','MO',138,32), (394,'Centertown','MO',134,93), (366,'Norvell','MI',125,94), (96,'Raymondville','MO',71,148), (867,'Beaver Island','MI',82,165), (977,'Odin','IL',53,116), (741,'Jemison','AL',62,26), (436,'West Hills','CA',68,73), (323,'Barrigada','GU',61,148), (3,'Hesperia','CA',106,71), (814,'Wickliffe','KY',80,46), (375,'Culdesac','ID',48,78), (467,'Roselawn','IN',88,52), (604,'Forest Lakes','AZ',145,114), (551,'San Simeon','CA',38,28), (706,'Little Rock','AR',122,121), (647,'Portland','AR',84,45), (25,'New Century','KS',135,79), (250,'Hampden','MA',76,26), (124,'Pine City','MN',119,129), (547,'Sandborn','IN',56,94), (701,'Seaton','IL',128,78), (197,'Milledgeville','IL',91,113), (613,'East China','MI',109, 42), (630,'Prince Frederick','MD',105,58), (767,'Pomona Park','FL',101,163), (679,'Gretna','LA', 75,143), (896,'Yazoo City','MS',95, 85), (403,'Zionsville','IN',58, 36), (519,'Rio Oso','CA',29 ,106), (482,'Jolon','CA',67,53), (252,'Childs','MD',93,104), (600,'Shreveport','LA',136,39), (14,'Forest','MS',120,50), (260,'Sizerock','KY',116,113), (65,'Buffalo Creek','CO',48,148), (753,'Algonac','MI',119,80), (174,'Onaway','MI',109,56), (263,'Irvington','IL',97,68), (253,'Winsted','MN',69,73), (557,'Woodbury','GA',103,93), (897,'Samantha','AL',75,36), (98,'Hackleburg','AL',120,121), (423,'Soldier','KS',77,153), (361,'Arrowsmith','IL',28,109), (409,'Columbus','GA',67,47), (312,'Bentonville','AR',37,78), (854,'Kirkland','AZ',86,58), (160,'Grosse Pointe','MI',102,91), (735,'Wilton','ME',57,157), (608,'Busby','MT',104,30), (122,'Robertsdale','AL',98,85), (93,'Dale','IN',70,34), (67,'Reeds','MO',31,43), (906,'Hayfork','CA',35,117), (34,'Mcbrides','MI',74,36), (921,'Lee Center','IL',96,77), (401,'Tennessee','IL',55,156), (536,'Henderson','IA',78,78), (953,'Udall','KS',113,60), (370,'Palm Desert','CA',107,146), (614,'Benedict','KS',138, 96), (998,'Oakfield','ME',48,132), (805,'Tamms','IL',60,75), (235,'Haubstadt','IN',28,32), (820,'Chokio','MN',81,134), (650,'Clancy','MT',46,164), (791,'Scotts Valley','CA',120,91), (324,'Norwood','MN',144,35), (442,'Elkton','MD',103,157), (633,'Bertha','MN',40,105), (109,'Bridgeport','MI',51, 80), (780,'Cherry','IL',68,47), (492,'Regina','KY',132,90), (965,'Griffin','GA',39,152), (778,'Pine Bluff','AR',60,146), (337,'Mascotte','FL',121,146), (259,'Baldwin','MD',82,40), (955,'Netawaka','KS' ,109, 120), (752,'East Irvine','CA', 106 ,115), (886,'Pony','MT' ,99, 163), (200,'Franklin','LA' ,82, 32), (384,'Amo','IN' ,104, 159), (518,'Vulcan','MO',109,92), (188,'Prairie Du Rocher','IL',76,71), (161,'Alanson','MI',91,72), (486,'Delta','LA',137,50), (406,'Carver','MN',46,122), (940,'Paron','AR',59,104), (237,'Winchester','ID',38,80), (465,'Jerome','AZ', 122, 34), (591,'Baton Rouge','LA', 130 ,72), (570,'Greenview','CA', 81, 58), (429,'Lucerne Valley','CA', 36, 48), (278,'Cromwell','MN', 129, 54), (927,'Quinter','KS', 60 ,25), (59,'Whitewater','MO' ,83, 71), (218,'Round Pond','ME', 127, 124), (291,'Clarkdale','AZ', 58 ,74), (668,'Rockton','IL', 116 ,87), (682,'Pheba','MS', 91, 127), (775,'Eleele','HI',81,153), (527,'Auburn','IA',95,137), (108,'North Berwick','ME',71, 27), (190,'Oconee','GA',93,119), (232,'Grandville','MI',39,70), (405,'Susanville','CA',128,80), (273,'Rosie','AR',73,162), (813,'Verona','MO',110,153), (444,'Richland','GA',105,113), (899,'Fremont','MI',54,151), (738,'Philipsburg','MT',96,72), (215,'Kensett','IA',56,140), (743,'De Tour Village','MI',25,25), (377,'Koleen','IN' ,138, 111), (727,'Winslow','IL' ,113, 39), (363,'Reasnor','IA', 42, 163), (117,'West Grove','IA', 127, 99), (420,'Frankfort Heights','IL', 72, 30), (888,'Bono','AR',133,150), (784,'Biggsville','IL',86,139), (413,'Linthicum Heights','MD',128 ,68), (695,'Amazonia','MO' ,46 ,148), (609,'Marysville','MI', 86,133), (471,'Cape Girardeau','MO',74,91), (649,'Pengilly','MN',25,154), (946,'Newton Center','MA',48,145), (380,'Crane Lake','MN',73, 43), (383,'Newbury','MA',128,85), (44,'Kismet','KS',100 ,157), (433,'Canton','ME',99,106), (283,'Clipper Mills','CA',114, 57), (474,'Grayslake','IL',61,33), (233,'Pierre Part','LA',52 ,90), (990,'Bison','KS',132,75), (502,'Bellevue','KY',127,122), (327,'Ridgway','CO',77,110), (4,'South Britain','CT',66, 34), (228,'Rydal','GA',36,79), (642,'Lynnville','KY',25,146) , (885,'Deerfield','MO',40,36), (539,'Montreal','MO',129,127), (202,'Hope','MN',140,44), (593,'Aliso Viejo','CA',68,131), (521,'Gowrie','IA',130,128), (938,'Andersonville','GA',141,73), (919,'Knob Lick','KY',136,33), (528,'Crouseville','ME',37,82), (331,'Cranks','KY',56,27), (45,'Rives Junction','MI',94,117), (944,'Ledyard','CT',135,144), (949,'Norway','ME',84,88), (88,'Eros','LA',95,58), (878,'Rantoul','KS',32,119), (35,'Richmond Hill','GA',39,114), (17,'Fredericktown','MO',106,113), (447,'Arkadelphia','AR',99,50), (498,'Glen Carbon','IL',61,141), (351,'Fredericksburg','IN',45, 78), (774,'Manchester','IA',130,123), (116,'Mc Henry','MD',93,113), (963,'Eriline','KY',94,65), (643,'Wellington','KY',100,32), (781,'Hoffman Estates','IL',129, 53), (364,'Howard Lake','MN',126 ,78), (777,'Edgewater','MD',130 ,72), (15 ,'Ducor','CA',141 ,102), (910,'Salem','KY', 87 ,114), (612,'Sturdivant','MO',94, 86), (537,'Hagatna','GU',97,152), (970,'East Haddam','CT',116 ,132), (510,'Eastlake','MI',134, 39), (354,'Larkspur','CA', 107, 66), (983,'Patriot','IN', 83 ,46);
-
-
 CREATE TABLE SETA (c1 INT);
 insert into seta values (1), (2), (3), (4), (5), (6);
 
@@ -852,9 +793,9 @@ insert into DUPLICATE values (10, 'SALES', 'PUNE', 1), (20, 'PURCHASE','BARODA',
        EAST varchar(5),
        WEST varchar(5),
 	   primaryPhone int,
-       BPHONE BIGINT(12),
-       CPHONE BIGINT(12),
-       HPHONE BIGINT(12)
+       BPHONE BIGINT,
+       CPHONE BIGINT,
+       HPHONE BIGINT
   );
 
 INSERT INTO COALESCE (PID, PNAME, SPRICE, NORTH, BPHONE) VALUES ('1001', 'Samsung Galaxy On7 (Gold, 8 GB)', '10975', 'Y', '111');
@@ -950,7 +891,7 @@ insert into blanktableA values(5,5);
 insert into blanktableA values(null,null);
 insert into blanktableA values(null,6);
 
-CREATE TABLE blankTableB (c1 float(7,2), c2 float(7,2));
+CREATE TABLE blankTableB (c1 NUMERIC(7,2), c2 NUMERIC(7,2));
 
 insert into blankTableB values(1.01,1.01);
 insert into blankTableB values(1.02,1.02);
@@ -1008,7 +949,7 @@ INSERT INTO REPLACEDEPT VALUES (60,'Planning','Mumbai');
 
 
 CREATE TABLE DEMODEPT1 as select * from DEPT;
-ALTER TABLE DEMODEPT1 MODIFY COLUMN DEPTNO INT;
+ALTER TABLE DEMODEPT1 ALTER COLUMN DEPTNO SET DATA TYPE INT;
   
 INSERT INTO DEMODEPT1 VALUES (50,'A','A',null,null);
 INSERT INTO DEMODEPT1 VALUES (60,'B','B',null,null);
@@ -1018,7 +959,7 @@ INSERT INTO DEMODEPT1 VALUES (90,'E','E',null,null);
 INSERT INTO DEMODEPT1 VALUES (100,'F','F',null,null);
 
 CREATE TABLE DEMODEPT2 as select * from DEPT;
-ALTER TABLE DEMODEPT2 MODIFY COLUMN DEPTNO INT;
+ALTER TABLE DEMODEPT2 ALTER COLUMN DEPTNO SET DATA TYPE INT;
 
 INSERT INTO DEMODEPT2 VALUES (110,'A1','A1',null,null);
 INSERT INTO DEMODEPT2 VALUES (111,'B1','B1',null,null);
@@ -1100,7 +1041,7 @@ UPDATE emp SET phone = '7156567183' WHERE (EMPNO = '7949');
 
 CREATE TABLE BONUS (
  ID INT PRIMARY KEY,
- RATE float);
+ RATE NUMERIC);
 
 INSERT INTO BONUS VALUES(1,.5);
 INSERT INTO BONUS VALUES(2,.75);
@@ -1144,7 +1085,7 @@ CREATE TABLE CUSTOMER (
  AREA                INT,
  PHONE               varchar(9),
  REPID               INT NOT NULL,
- CREDITLIMIT         float (9,2),
+ CREDITLIMIT         NUMERIC (9,2),
  COMMENTS            text,
  CONSTRAINT CUSTOMER_PRIMARY_KEY PRIMARY KEY (CUSTID),
  CONSTRAINT CUSTID_ZERO CHECK (CUSTID > 0));
@@ -1156,7 +1097,7 @@ CREATE TABLE ORD  (
  CUSTID              INT NOT NULL,
  SHIPDATE            datetime,
  STATUS 			 VARCHAR(45),
- TOTAL               float (8,2),
+ TOTAL               NUMERIC (8,2),
  CONSTRAINT TOTAL_ZERO CHECK (TOTAL >= 0),
  CONSTRAINT ORD_FOREIGN_KEY FOREIGN KEY (CUSTID) REFERENCES CUSTOMER (CUSTID),
  CONSTRAINT ORD_PRIMARY_KEY PRIMARY KEY (ORDID));
@@ -1165,9 +1106,9 @@ CREATE TABLE ITEM  (
  ORDID               INT NOT NULL,
  ITEMID              INT NOT NULL,
  PRODID              INT,
- ACTUALPRICE         float (8,2),
+ ACTUALPRICE         NUMERIC (8,2),
  QTY                 INT,
- ITEMTOT             float (8,2),
+ ITEMTOT             NUMERIC (8,2),
  CONSTRAINT ITEM_FOREIGN_KEY FOREIGN KEY (ORDID) REFERENCES ORD (ORDID),
  CONSTRAINT ITEM_PRIMARY_KEY PRIMARY KEY (ORDID,ITEMID));
 
@@ -1178,8 +1119,8 @@ CREATE TABLE PRODUCT (
 
 CREATE TABLE PRICE (
  PRODID              INT NOT NULL,
- STDPRICE            float (8,2),
- MINPRICE            float (8,2),
+ STDPRICE            NUMERIC (8,2),
+ MINPRICE            NUMERIC (8,2),
  STARTDATE           datetime,
  ENDDATE             datetime);
 
@@ -1580,7 +1521,7 @@ INSERT INTO PRODUCT (PRODID, DESCRIP)
  VALUES ('101863', 'SP JUNIOR RACKET');
 
 INSERT INTO PRODUCT (PRODID, DESCRIP)
- VALUES ('102130', 'RH: "GUIDE TO TENNIS"');
+ VALUES ('102130', 'RH:''GUIDE TO TENNIS');
 
 INSERT INTO PRODUCT (PRODID, DESCRIP)
  VALUES ('200376', 'SB ENERGY BAR-6 PACK');
@@ -1660,8 +1601,8 @@ CREATE TABLE EMP1 (
  JOB            varchar(20),
  MGR            INT,
  HIREDATE       datetime,
- SAL            float(7,2),
- COMM           float(7,2),
+ SAL            NUMERIC(7,2),
+ COMM           NUMERIC(7,2),
  DEPTNO         INT NOT NULL,
  HOBBYID 		INT,
  BONUSID		INT,
@@ -1944,8 +1885,8 @@ CREATE TABLE EMP2(
  ENAME          varchar(12),
  JOB            varchar(20),
  HIREDATE       datetime,
- SAL            float(7,2),
- COMM           float(7,2),
+ SAL            NUMERIC(7,2),
+ COMM           NUMERIC(7,2),
  DEPTNO         INT NOT NULL,
  HOBBYID		INT,
  BONUSID		INT,
@@ -2053,9 +1994,9 @@ create table tableBB
 insert into tablebb values (5,7), (3,8), (1,4), (8,7), (Null,10), (11,12);
 
 
-CREATE TABLE SALESPEOPLE (SNUM INT PRIMARY KEY, SNAME VARCHAR(10), CITY VARCHAR(10), COMM FLOAT);
-CREATE TABLE CUSTOMERS (CNUM INT  PRIMARY KEY, CNAME VARCHAR (10), CITY VARCHAR (10), RATING FLOAT, SNUM INT, CONSTRAINT FK_SNUM FOREIGN KEY(SNUM) REFERENCES SALESPEOPLE(SNUM));
-CREATE TABLE ORDERS (ONUM INT PRIMARY KEY, AMT FLOAT, ODATE DATETIME, CNUM INT , SNUM INT, type varchar(10),  CONSTRAINT FK_CNUM FOREIGN KEY(CNUM) REFERENCES CUSTOMERS(CNUM) , CONSTRAINT FK_ORDERS_SNUM FOREIGN KEY(SNUM) REFERENCES SALESPEOPLE(SNUM));
+CREATE TABLE SALESPEOPLE (SNUM INT PRIMARY KEY, SNAME VARCHAR(10), CITY VARCHAR(10), COMM NUMERIC);
+CREATE TABLE CUSTOMERS (CNUM INT  PRIMARY KEY, CNAME VARCHAR (10), CITY VARCHAR (10), RATING NUMERIC, SNUM INT, CONSTRAINT FK_SNUM FOREIGN KEY(SNUM) REFERENCES SALESPEOPLE(SNUM));
+CREATE TABLE ORDERS (ONUM INT PRIMARY KEY, AMT NUMERIC, ODATE DATETIME, CNUM INT , SNUM INT, type varchar(10),  CONSTRAINT FK_CNUM FOREIGN KEY(CNUM) REFERENCES CUSTOMERS(CNUM) , CONSTRAINT FK_ORDERS_SNUM FOREIGN KEY(SNUM) REFERENCES SALESPEOPLE(SNUM));
 
 INSERT into SALESPEOPLE(SNUM, SNAME, CITY, COMM) values (1001,'Rajan','London',.12);
 INSERT into SALESPEOPLE(SNUM, SNAME, CITY, COMM) values (1002,'Natasha','San Jose',.13);
@@ -2164,20 +2105,20 @@ UPDATE ord SET STATUS = 'In Process' WHERE (ORDID = '614');
 UPDATE ord SET STATUS = 'Resolved' WHERE (ORDID = '616');
 
 update EMP set `user name` = ename;
-update EMP set `user name` = upper("Always Teste") where empno = 7499;
-update EMP set `user name` = upper("Big Ben") where empno = 7698;
-update EMP set `user name` = upper("Crazy Anyone") where empno = 7876;
-update EMP set `user name` = upper("Crazy Leader") where empno = 7900;
-update EMP set `user name` = upper("ConBrio") where empno = 7902;
-update EMP set `user name` = upper("Interval") where empno = 7919;
-update EMP set `user name` = upper("QuarterNote") where empno = 7934;
-update EMP set `user name` = upper("QuarterRest") where empno = 7949;
-update EMP set `user name` = upper("Tritone") where empno = 7369;
-update EMP set `user name` = upper("Honeycomb") where empno = 7566;
-update EMP set `user name` = upper("Life Racer") where empno = 7654;
-update EMP set `user name` = upper("White Sand") where empno = 7788;
-update EMP set `user name` = upper("Sand Dust") where empno = 7844;
-update EMP set `user name` = upper("Sand Stone") where empno = 7840;
+update EMP set `user name` = upper('Always Teste') where empno = 7499;
+update EMP set `user name` = upper('Big Ben') where empno = 7698;
+update EMP set `user name` = upper('Crazy Anyone') where empno = 7876;
+update EMP set `user name` = upper('Crazy Leader') where empno = 7900;
+update EMP set `user name` = upper('ConBrio') where empno = 7902;
+update EMP set `user name` = upper('Interval') where empno = 7919;
+update EMP set `user name` = upper('QuarterNote') where empno = 7934;
+update EMP set `user name` = upper('QuarterRest') where empno = 7949;
+update EMP set `user name` = upper('Tritone') where empno = 7369;
+update EMP set `user name` = upper('Honeycomb') where empno = 7566;
+update EMP set `user name` = upper('Life Racer') where empno = 7654;
+update EMP set `user name` = upper('White Sand') where empno = 7788;
+update EMP set `user name` = upper('Sand Dust') where empno = 7844;
+update EMP set `user name` = upper('Sand Stone') where empno = 7840;
 
 
 update EMP set pwd = (select dept.pwd from dept where emp.deptno = dept.deptno);
@@ -2260,9 +2201,51 @@ insert into stringNumber values('vrushali56731');
 insert into stringNumber values('bandish836379');
 insert into stringNumber values('ajay7657822');
 
+
+
+
+CREATE TABLE `empj` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `document` json DEFAULT NULL,
+  `insertedDate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+insert into empj values( default, '{"empid":1020,"ename":"king","address": {"building": "1007", "coord": [-73.856077, 40.848447], "street": "Morris Park Ave", "zipcode": "10462"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["blue","black"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"93478", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}], "job":"president","mgr":null,"hiredate":{"$date":"1981-11-17T00:00:00.000Z"},"sal":5000,"comm":null,"deptno":10}', now());
+insert into empj values( default, '{"empid":1021,"ename":"smith","address": {"building": "469", "coord": [-73.961704, 40.662942], "street": "Flatbush Avenue", "zipcode": "11225"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["red", "cyan", "gray"], "fruit": ["grapes", "Orange"],"cards": [ {"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}, {"PAN":{"PAN-No" :"smh838", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"aadhar":{"aadhar-No" :"43564", "isActive":true}}],"job":"manager","mgr":1020,"hiredate":{"$date":"1981-05-01T00:00:00.000Z"},"sal":3400,"comm":null,"deptno":10}', now());
+insert into empj values( default, '{"empid":1022,"ename":"james","address": {"building": "351", "coord": [-73.98513559999999, 40.7676919], "street": "West   57 Street", "zipcode": "10019"},"isDocActive": true,"gender": "male","canVote": true, "canDrive":true,"color": ["Red","Blue","Green","Yellow"], "fruit": ["Indian Fig"],"cards": [ {"PAN":{"PAN-No" :"Kinj093", "isActive":false}}, { "aadhar":{"aadhar-No" :"73826", "isActive":true}}, {"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"manager","mgr":1020,"hiredate":{"$date":"1981-07-09T00:00:00.000Z"},"sal":4700,"comm":null,"deptno":20}', now());
+insert into empj values( default, '{"empid":1023,"ename":"jack","address": {"building": "2780", "coord": [-73.98241999999999, 40.579505], "street": "Stillwell Avenue", "zipcode": "11224"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Air Force Blue","Apple Green"], "fruit": ["Orange"],"cards": [ {"voter":{"voterID":"Ind03o3", "isActive":true}}, { "aadhar":{"aadhar-No" :"12321", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}}, {"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"accountant","mgr":1022,"hiredate":{"$date":"1981-04-02T00:00:00.000Z"},"sal":2700,"comm":null,"deptno":30}', now());
+insert into empj values( default, '{"empid":1023,"ename":"scott","address": {"building": "97-22", "coord": [-73.8601152, 40.7311739], "street": "63 Road", "zipcode": "11374"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Ash Grey", "White"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"93872", "isActive":true}}, {"voter":{"voterID":"Ind03o3","isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}}], "job":"salesman", "mgr":1023, "hiredate":{"$date":"1981-09-28T00:00:00.000Z"},"sal":2500,"comm":350,"deptno":30}', now());
+insert into empj values( default, '{"empid":1024,"ename":"martin","address": {"building": "8825", "coord": [-73.8803827, 40.7643124], "street": "Astoria Boulevard", "zipcode": "11369"},"isDocActive": true,"gender": "male","canVote": true, "canDrive":true,"color": ["Banana Yellow"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"72877", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}], "job":"salesman", "mgr":1023, "hiredate":{"$date":"1981-02-20T00:00:00.000Z"},"sal":2900,"comm":735,"deptno":30}', now());
+insert into empj values( default, '{"empid":1025,"ename":"crow","address": {"building": "2206", "coord": [-74.1377286, 40.6119572], "street": "Victory Boulevard", "zipcode": "10314"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Apple Green","Ash Grey"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"77876", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}], "job":"salesman", "mgr":1023,"hiredate":{"$date":"1981-09-08T00:00:00.000Z"},"sal":3200,"comm":null,"deptno":20}', now());
+insert into empj values( default, '{"empid":1026,"ename":"blake","address": {"building": "7114", "coord": [-73.9068506, 40.6199034], "street": "Avenue U", "zipcode": "11234"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Brass","Bright Green"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"12321", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}], "job":"clerk", "mgr":1024,"hiredate":{"$date":"1981-12-03T00:00:00.000Z"},"sal":1200,"comm":null,"deptno":30}', now());
+insert into empj values( default, '{"empid":1027,"ename":"richards","address": {"building": "6409", "coord": [-74.00528899999999, 40.628886], "street": "11 Avenue", "zipcode": "11219"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Charcoal","Cherry"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"83972", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}], "job":"clerk","mgr":1024,"hiredate":{"$date":"1981-02-22T00:00:00.000Z"},"sal":1500,"comm":null,"deptno":10}', now());
+insert into empj values( default, '{"empid":1028,"ename":"peter","address": {"building": "1839", "coord": [-73.9482609, 40.6408271], "street": "Nostrand Avenue", "zipcode": "11226"},"isDocActive": true,"gender": "male","canVote": true, "canDrive":true,"color": ["Brown"], "fruit": ["banana","Jackfruit"],"cards": [ { "aadhar":{"aadhar-No" :"92783", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}], "job":"analyst", "mgr":1025,"hiredate":{"$date":"1981-12-03T00:00:00.000Z"},"sal":3500,"comm":null,"deptno":30}', now());
+insert into empj values( default, '{"empid":1029,"ename":"bob","address": {"building": "2300", "coord": [-73.8786113, 40.8502883], "street": "Southern Boulevard", "zipcode": "10460"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Copper"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"73122", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}], "job":"manager", "mgr":1020,"hiredate":{"$date":"1980-12-17T00:00:00.000Z"},"sal":4900,"comm":null,"deptno":30}', now());
+insert into empj values( default, '{"empid":1030,"ename":"saleel","address": {"building": "7715", "coord": [-73.9973325, 40.61174889999999], "street": "18 Avenue", "zipcode": "11214"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Coral"], "fruit": ["Dates","Orange"],"cards": [ { "aadhar":{"aadhar-No" :"73822", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}}, {"licence":{"licence-No":"LMV9478", "issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}, {"voter":{"voterID":"Ind03o3", "isActive":true}}], "job":"programmer", "mgr":1020, "hiredate":{"$date":"1982-12-09T00:00:00.000Z"},"sal":2900,"comm":null,"deptno":10}', now());
+insert into empj values( default, '{"empid":1031,"ename":"sharmin","address": {"building": "1269", "coord": [-73.871194, 40.6730975], "street": "Sutter Avenue", "zipcode": "11208"},"isDocActive": false,"gender": "female","canVote": true, "canDrive":true,"color": ["Cream"], "fruit": ["Indian Fig"],"cards": [ { "aadhar":{"aadhar-No" :"16523", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478", "issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}], "job":"programmer", "mgr":1020,"hiredate":{"$date":"1983-01-12T00:00:00.000Z"},"sal":4999,"comm":null,"deptno":40}', now());
+insert into empj values( default, '{"empid":1032,"ename":"vrushali","address": {"building": "1", "coord": [-73.96926909999999, 40.7685235], "street": "East   66 Street", "zipcode": "10065"},"isDocActive": true,"gender": "female","canVote": true, "canDrive":true,"color": ["Iceberg"], "fruit": ["Orange","Papaya", "Kiwi"],"cards": [ { "aadhar":{"aadhar-No" :"22343", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478", "issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"analyst", "mgr":1030, "hiredate":{"$date":"1982-02-23T00:00:00.000Z"}, "sal":4999, "comm":null, "deptno":20}', now());
+insert into empj values( default, '{"empid":1033,"ename":"vasant","address": {"building": "705", "coord": [-73.9653967, 40.6064339], "street": "Kings Highway", "zipcode": "11223"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Bright Green"], "fruit": [],"cards": [ {"voter":{"voterID":"Ind03o3", "isActive":true}}, { "aadhar":{"aadhar-No" :"93824", "isActive":true}}, {"licence":{"licence-No":"LMV9478", "issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}}], "job":"salesman", "mgr":1029, "hiredate":{"$date":"1982-02-24T00:00:00.000Z"},"sal":2200,"comm":0,"deptno":40}', now());
+insert into empj values( default, '{"empid":1034,"ename":"vasu","address": {"building": "203", "coord": [-73.97822040000001, 40.6435254], "street": "Church Avenue", "zipcode": "11218"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["India Green"], "fruit": ["Dates"],"cards": [{"PAN":{"PAN-No" :"Kinj093", "isActive":false}}, { "aadhar":{"aadhar-No" :"19826", "isActive":true}}, {"licence": {"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"debit": {"bank":"BOI", "isActive":true}} ],"job":"salesman","mgr":1029,"hiredate":{"$date":"1980-02-14T00:00:00.000Z"},"sal":2200,"comm":250,"deptno":40}', now());
+insert into empj values( default, '{"empid":1035,"ename":"rahul","address": {"building": "265-15", "coord": [-73.7032601, 40.7386417], "street": "Hillside Avenue", "zipcode": "11004"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Indian Red"], "fruit": ["Lychee","Indian Fig"],"cards": [ {"credit":{"bank":"SBI", "isActive":true}}, { "aadhar":{"aadhar-No" :"00998", "isActive":true}},{"OCI":{"country":"usa", "state":"NJ", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"clerk","mgr":1029,"hiredate":{"$date":"1981-12-31T00:00:00.000Z"},"sal":1200,"comm":null,"deptno":40}', now());
+insert into empj values( default, '{"empid":1036,"ename":"raju","address": {"building": "6909", "coord": [-74.0259567, 40.6353674], "street": "3 Avenue", "zipcode": "11209"},"isDocActive": true,"gender": "male","canVote": true, "canDrive":true,"color": ["Indian Yellow"], "fruit": ["Crab apples"],"cards": [ { "aadhar":{"aadhar-No" :"55622", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"OCI":{"country":"usa", "state":"NJ", "isActive":true}}, {"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478", "issueDate":"2020-01-01", "expireDate":"2040-01-01", "isActive":true}}], "job":"administrator", "mgr":1031, "hiredate":{"$date":"1983-06-15T00:00:00.000Z"}, "sal":3400, "comm":null, "deptno":50}', now());
+insert into empj values( default, '{"empid":1037,"ename":"ramu","address": {"building": "522", "coord": [-73.95171, 40.767461], "street": "East   74 Street", "zipcode": "10021"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Lemon"], "fruit": ["Jackfruit","banana", "Apple"],"cards": [ {"ATM":{"bank":"canara", "from":"2021-10-20", "to":"2025:12:21", "isActive":true}}, { "aadhar":{"aadhar-No" :"00983", "isActive":true}},{"ATM":{"bank":"BOI", "from":"2021-10-04", "to":"2027:12:21", "isActive":true}}, {"OCI":{"country":"usa", "state":"CA", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"clerk","mgr":1031,"hiredate":{"$date":"1983-07-12T00:00:00.000Z"},"sal":1400,"comm":null,"deptno":50}', now());
+insert into empj values( default, '{"empid":1038,"ename":"neel","address": {"building": "284", "coord": [-73.9829239, 40.6580753], "street": "Prospect Park West", "zipcode": "11215"},"isDocActive": true,"gender": "male","canVote": true, "canDrive":true,"color": ["Apple Green"], "fruit": [],"cards": [{"OCI":{"country":"usa", "state":"IN", "isActive":true}}, { "aadhar":{"aadhar-No" :"00098", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"administrator","mgr":1030,"hiredate":{"$date":"1983-03-14T00:00:00.000Z"},"sal":4200,"comm":null,"deptno":10}', now());
+insert into empj values( default, '{"empid":1039,"ename":"saleel","address": {"building": "129-08", "coord": [-73.839297, 40.78147], "street": "20 Avenue", "zipcode": "11356"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Cherry","Charcoal"], "fruit": [],"cards": [ {"ATM":{"bank":"BOI", "from":"2021-10-04", "to":"2027:12:21", "isActive":true}}, {"OCI":{"country":"usa", "state":"NY", "isActive":true}}, {"debit":{"bank":"BOI", "from":"2021-10-04", "to":"2027:12:21", "isActive":true}},{ "aadhar":{"aadhar-No" :"66675", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"analyst","mgr":1022,"hiredate":{"$date":"1982-12-09T00:00:00.000Z"},"sal":3700,"comm":null,"deptno":50}', now());
+insert into empj values( default, '{"empid":1040,"ename":"amit","address": {"building": "759", "coord": [-73.9925306, 40.7309346], "street": "Broadway", "zipcode": "10003"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Indian Red"], "fruit": ["Crab apples"],"cards": [ { "aadhar":{"aadhar-No" :"66623", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"administrator","mgr":1029,"hiredate":{"$date":"1982-12-08T00:00:00.000Z"},"sal":3500,"comm":null,"deptno":50,"phone":[8.5088422e+07,{"$numberLong":"9822884228"}]}', now());
+insert into empj values( default, '{"empid":1041,"ename":"dinesh","address": {"building": "3406", "coord": [-73.94024739999999, 40.7623288], "street": "10 Street", "zipcode": "11106"},"isDocActive": true,"gender": "male","canVote": true, "canDrive":true,"color": ["Air Force Blue"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"77767", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"programmer","mgr":1021,"hiredate":{"$date":"1982-12-09T00:00:00.000Z"},"sal":3500,"comm":null,"deptno":50,"phone":[8.5088422e+07,{"$numberLong":"9822884228"}],"skills":{"languages":["C++","JAVA"],"web":["php","java","jquery"]}}', now());
+insert into empj values( default, '{"empid":1042,"ename":"amit","address": {"building": "502", "coord": [-73.976112, 40.786714], "street": "Amsterdam Avenue", "zipcode": "10024"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Orange"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"77787", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"administrator","mgr":1029,"hiredate":{"$date":"1981-11-03T00:00:00.000Z"},"sal":3500,"comm":null,"deptno":50,"phone":["9850884228","9822884228"]}', now());
+insert into empj values( default, '{"empid":1043,"ename":"dinesh","address": {"building": "730", "coord": [-73.96805719999999, 40.7925587], "street": "Columbus Avenue", "zipcode": "10025"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Navy Blue"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"77789", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"programmer","mgr":1021,"hiredate":{"$date":"1981-11-04T00:00:00.000Z"},"sal":3500,"comm":null,"deptno":50,"phone":["020-25420200",{"$numberLong":"9822336644"}],"skills":{"languages":["C++","JAVA"],"web":["php","java","jquery"]}}', now());
+insert into empj values( default, '{"empid":1044,"ename":"rudra","address": {"building": "18", "coord": [-73.996984, 40.72589], "street": "West Houston Street", "zipcode": "10012"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Lime"], "fruit": ["Indian Fig"],"cards": [ { "aadhar":{"aadhar-No" :"55543", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"programmer","mgr":1021,"hiredate":{"$date":"1981-11-04T00:00:00.000Z"},"sal":2400,"comm":null,"deptno":50,"phone":"020-25420212","skills":{"web":["php","java","jquery"],"database":["oracle","ms-sql server","mongodb"]}}', now());
+insert into empj values( default, '{"empid":1045,"ename":"pankaj","address": {"building": "531", "coord": [-73.9634876, 40.6940001], "street": "Myrtle Avenue", "zipcode": "11205"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["White"], "fruit": ["Peach"],"cards": [ { "aadhar":{"aadhar-No" :"55565", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"programmer","mgr":1023,"hiredate":{"$date":"1980-02-17T00:00:00.000Z"},"sal":3600,"comm":null,"deptno":40,"phone":"022-2548345","skills":{"language":".NET","database":"ms-sql server"}}', now());
+insert into empj values( default, '{"empid":1046,"ename":"anoop","address": {"building": "103-05", "coord": [-73.8642349, 40.75356], "street": "37 Avenue", "zipcode": "11368"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Navy Blue"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"83722", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"programmer","mgr":1029,"hiredate":{"$date":"1980-02-17T00:00:00.000Z"},"sal":2300,"comm":1200,"deptno":50,"phone":"022-2548345","skills":{"language":[".NET","java"],"database":"oracle","web":["json","jquery","javascript"]}}', now());
+insert into empj values( default, '{"empid":1047,"ename":"nitish","address": {"building": "60", "coord": [-74.0085357, 40.70620539999999], "street": "Wall Street", "zipcode": "10005"},"isDocActive": true,"gender": "male","canVote": true, "canDrive":true,"color": ["Coral","Cream"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"99890", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"programmer","mgr":1039,"hiredate":{"$date":"1980-03-14T00:00:00.000Z"},"sal":1300,"comm":1200,"deptno":50,"phone":"022-2548345","skills":{"language":[".NET","java"],"database":{"rdbms":["oracle","db2"],"nosql":["mongodb","hive"]},"web":["json","jquery","javascript","php"]}}', now());
+insert into empj values( default, '{"empid":1048,"ename":"neel","address": {"building": "195", "coord": [-73.9246028, 40.6522396], "street": "East   56 Street", "zipcode": "11203"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Orange"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"99099", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"programmer","mgr":1039,"hiredate":{"$date":"1980-03-14T00:00:00.000Z"},"sal":1800,"comm":1400,"deptno":50,"phone":"022-2534565","skills":{"language":"ruby","database":{"rdbms":["oracle","db2"],"nosql":["mongodb","hive","hbase"]}}}', now());
+insert into empj values( default, '{"empid":1049,"ename":"arjun","address": {"building": "107", "coord": [-74.00920839999999, 40.7132925], "street": "Church Street", "zipcode": "10007"},"isDocActive": true,"gender": "male","canVote": true, "canDrive":true,"color": ["Sky Blue","Navy Blue","Blue"], "fruit": ["Lychee"],"cards": [ { "aadhar":{"aadhar-No" :"55434", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"auditor","mgr":1020,"hiredate":{"$date":"1984-05-05T00:00:00.000Z"},"sal":3200,"comm":null,"hra":1500,"da":1200,"deptno":20}', now());
+insert into empj values( default, '{"empid":1050,"ename":"amol","address": {"building": "1006", "coord": [-73.84856870000002, 40.8903781], "street": "East 233 Street", "zipcode": "10466"},"isDocActive": false,"gender": "male","canVote": true, "canDrive":true,"color": ["Snow White"], "fruit": ["Orange"],"cards": [ { "aadhar":{"aadhar-No" :"44445", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"auditor","mgr":1047,"hiredate":{"$date":"1984-05-06T00:00:00.000Z"},"sal":3800,"comm":null,"hra":1000,"da":900,"deptno":20}', now());
+insert into empj values( default, '{"empid":1051,"ename":"sangita","address": {"building": "56", "coord": [-73.991495, 40.692273], "street": "Court Street", "zipcode": "11201"},"isDocActive": false,"gender": "female","canVote": true, "canDrive":true,"color": ["White"], "fruit": ["Papaya"],"cards": [ { "aadhar":{"aadhar-No" :"99983", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"auditor","mgr":1040,"hiredate":{"$date":"1984-03-30T00:00:00.000Z"},"sal":3100,"comm":null,"hra":1000,"da":1500,"deptno":20}', now());
+insert into empj values( default, '{"empid":1052,"ename":"gita","address": {"building": "7615", "coord": [-74.0228449, 40.6281815], "street": "5 Avenue", "zipcode": "11209"},"isDocActive": true,"gender": "female","canVote": true, "canDrive":true,"color": ["Indian Red"], "fruit": ["Kiwi"],"cards": [ { "aadhar":{"aadhar-No" :"44460", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"writer","language":["english","hindi"],"mgr":1049,"hiredate":{"$date":"1984-03-29T00:00:00.000Z"},"sal":2150,"comm":750,"hra":1300,"da":1700,"deptno":40}', now());
+insert into empj values( default, '{"empid":1053,"ename":"sita","address": {"building": "120", "coord": [-73.9998042, 40.7251256], "street": "Prince Street", "zipcode": "10012"},"isDocActive": false,"gender": "female","canVote": true, "canDrive":true,"color": ["Snow White"], "fruit": ["Guava"],"cards": [ { "aadhar":{"aadhar-No" :"12233", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"writer","language":["english","hindi","marathi"],"mgr":1049,"hiredate":{"$date":"1984-03-30T00:00:00.000Z"},"sal":3755,"comm":750,"hra":1100,"da":1100,"deptno":40}', now());
+insert into empj values( default, '{"empid":2001,"ename":"pinky","address": {"building": "1236", "coord": [-73.8893654, 40.81376179999999], "street": "238 Spofford Ave", "zipcode": "10474"},"isDocActive": true,"gender": "female","canVote": true, "canDrive":true,"color": ["India Green"], "fruit": ["banana","Jackfruit"],"cards": [ { "aadhar":{"aadhar-No" :"33434", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}}, {"voter":{"voterID":"Ind03o3", "isActive":true}},{"licence":{"licence-No":"LMV9478","issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}], "job":"Computer Programmer","mgr":1039, "hiredate":{"$date":"1983-07-17T00:00:00.000Z"}, "sal":3500,"comm":null,"deptno":10}', now());
+insert into empj values( default, '{"empid":2002,"ename":"priti","address": {"building": "625", "coord": [-73.990494, 40.7569545], "street": "8 Avenue", "zipcode": "10018"},"isDocActive": false,"gender": "female","canVote": true, "canDrive":true,"color": ["Violet"], "fruit": [],"cards": [ { "aadhar":{"aadhar-No" :"55565", "isActive":true}}, {"PAN":{"PAN-No" :"Kinj093", "isActive":false}},{"voter":{"voterID":"Ind03o3", "isActive":true}}, {"licence":{"licence-No":"LMV9478", "issueDate":"2020-01-01","expireDate":"2040-01-01", "isActive":true}}],"job":"Computer Programmer", "mgr":1037, "hiredate":{"$date":"1983-07-17T00:00:00.000Z"}, "sal":5500,"comm":null,"deptno":20}', now());
 commit;
-
-
-
-
-
