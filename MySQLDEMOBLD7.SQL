@@ -82,7 +82,8 @@ DROP TABLE IF EXISTS transactions;
 DROP TABLE IF EXISTS empj;
 drop table if EXISTS emp_attendance;
 drop table if EXISTS vote_response;
-drop table if EXISTS quarter_revenue;
+drop table if EXISTS quarterly_revenue;
+drop table if EXISTS yearly_revenue;
 drop table if EXISTS numberString;
 drop table if EXISTS stringNumber;
 
@@ -93,8 +94,60 @@ drop table if EXISTS plumber;
 drop table if EXISTS service;
 drop table if EXISTS plumber_service_map;
 drop table if EXISTS r;
+drop table if EXISTS product_sales;
 
 DROP VIEW IF EXISTS SALES;
+
+CREATE TABLE product_sales (
+  product_name VARCHAR(20),
+  store_location VARCHAR(20),
+  num_sales INT
+);
+
+INSERT INTO product_sales (product_name, store_location, num_sales) VALUES
+('Chair', 'North', 55),
+('Desk', 'Central', 120),
+('Couch', 'Central', 78),
+('Chair', 'South', 23),
+('Chair', 'South', 10),
+('Chair', 'North', 98),
+('Desk', 'West', 61),
+('Couch', 'North', 180),
+('Chair', 'South', 14),
+('Desk', 'North', 45),
+('Chair', 'North', 87),
+('Chair', 'Central', 34),
+('Desk', 'South', 42),
+('Couch', 'West', 58),
+('Couch', 'Central', 27),
+('Chair', 'South', 91),
+('Chair', 'West', 82),
+('Chair', 'North', 37),
+('Desk', 'North', 68),
+('Couch', 'Central', 54),
+('Chair', 'South', 81),
+('Desk', 'North', 25),
+('Chair', 'North', 46),
+('Chair', 'Central', 121),
+('Desk', 'South', 85),
+('Couch', 'North', 43),
+('Desk', 'West', 10),
+('Chair', 'North', 5),
+('Chair', 'Central', 16),
+('Desk', 'South', 9),
+('Couch', 'West', 22),
+('Couch', 'Central', 59),
+('Chair', 'South', 76),
+('Chair', 'West', 48),
+('Chair', 'North', 19),
+('Desk', 'North', 3),
+('Couch', 'West', 63),
+('Chair', 'South', 81),
+('Desk', 'North', 85),
+('Chair', 'North', 90),
+('Chair', 'Central', 47),
+('Desk', 'West', 63),
+('Couch', 'North', 28);
 
 create table server(id int primary key, serverName varchar(20));
 
@@ -214,22 +267,54 @@ insert into plumber_service_map values(19,7);
 insert into plumber_service_map values(19,9);
 insert into plumber_service_map values(19,19);
 
-create table quarter_revenue(id int, year year, quarter varchar(10), amount float(8,2));
+create table quarterly_revenue(id int primary key AUTO_INCREMENT, year year, quarter varchar(10), amount float(8,2));
 
-insert into quarter_revenue values(1, 2020, 'Q1', 45000.57);
-insert into quarter_revenue values(2, 2020, 'Q2', 55000.00);
-insert into quarter_revenue values(3, 2020, 'Q3', 23000.13);
-insert into quarter_revenue values(4, 2020, 'Q4', 66000.00);
+insert into quarterly_revenue values(default, 2017, 'Q1', 45000.57);
+insert into quarterly_revenue values(default, 2017, 'Q2', 55000.00);
+insert into quarterly_revenue values(default, 2017, 'Q3', 23000.13);
+insert into quarterly_revenue values(default, 2017, 'Q4', 66000.00);
+insert into quarterly_revenue values(default, 2020, 'Q1', 45000.57);
+insert into quarterly_revenue values(default, 2020, 'Q2', 55000.00);
+insert into quarterly_revenue values(default, 2020, 'Q3', 23000.13);
+insert into quarterly_revenue values(default, 2020, 'Q4', 66000.00);
+insert into quarterly_revenue values(default, 2018, 'Q1', 45000.57);
+insert into quarterly_revenue values(default, 2018, 'Q2', 55000.00);
+insert into quarterly_revenue values(default, 2018, 'Q3', 23000.13);
+insert into quarterly_revenue values(default, 2018, 'Q4', 66000.00);
+insert into quarterly_revenue values(default, 2019, 'Q1', 45000.57);
+insert into quarterly_revenue values(default, 2019, 'Q2', 55000.00);
+insert into quarterly_revenue values(default, 2019, 'Q3', 23000.13);
+insert into quarterly_revenue values(default, 2019, 'Q4', 66000.00);
+insert into quarterly_revenue values(default, 2020, 'Q1', 45000.57);
+insert into quarterly_revenue values(default, 2020, 'Q2', 55000.00);
+insert into quarterly_revenue values(default, 2020, 'Q3', 23000.13);
+insert into quarterly_revenue values(default, 2020, 'Q4', 66000.00);
+insert into quarterly_revenue values(default, 2021, 'Q1', 12500.35);
+insert into quarterly_revenue values(default, 2021, 'Q2', 15000.55);
+insert into quarterly_revenue values(default, 2021, 'Q3', 17000.27);
+insert into quarterly_revenue values(default, 2021, 'Q4', 27000.35);
+insert into quarterly_revenue values(default, 2022, 'Q1', 15000.45);
+insert into quarterly_revenue values(default, 2022, 'Q2', 25000.64);
+insert into quarterly_revenue values(default, 2022, 'Q3', 33000.73);
+insert into quarterly_revenue values(default, 2022, 'Q4', 46000.75);
+insert into quarterly_revenue values(default, 2023, 'Q1', 56483.65);
+insert into quarterly_revenue values(default, 2023, 'Q2', 53783.78);
+insert into quarterly_revenue values(default, 2023, 'Q3', 87345.67);
+insert into quarterly_revenue values(default, 2023, 'Q4', 98357.00);
 
-insert into quarter_revenue values(5, 2021, 'Q1', 12500.35);
-insert into quarter_revenue values(6, 2021, 'Q2', 15000.55);
-insert into quarter_revenue values(7, 2021, 'Q3', 17000.27);
-insert into quarter_revenue values(8, 2021, 'Q4', 27000.35);
+create table yearly_revenue(id int primary key AUTO_INCREMENT, year year,  amount float(8,2));
 
-insert into quarter_revenue values(9, 2022, 'Q1', 15000.45);
-insert into quarter_revenue values(10, 2022, 'Q2', 25000.64);
-insert into quarter_revenue values(11, 2022, 'Q3', 33000.73);
-insert into quarter_revenue values(12, 2022, 'Q4', 46000.75);
+insert into yearly_revenue values(1, 2014, 7.75);
+insert into yearly_revenue values(2, 2015, 9.23);
+insert into yearly_revenue values(3, 2016, 5.44);
+insert into yearly_revenue values(4, 2017, 7.77);
+insert into yearly_revenue values(5, 2018, 1.68);
+insert into yearly_revenue values(7, 2019, 5.87);
+insert into yearly_revenue values(8, 2020, 3.35);
+insert into yearly_revenue values(9, 2021, 4.61);
+insert into yearly_revenue values(10, 2022, 6.83);
+insert into yearly_revenue values(11, 2023, 2.90);
+
 
 create table vote_response(candidateID int, response varchar(180));
 
@@ -1174,6 +1259,7 @@ CREATE TABLE ITEM  (
 CREATE TABLE PRODUCT (
  PRODID              INT,
  DESCRIP             varchar(30),
+ PRICE				 INT,
  CONSTRAINT PRODUCT_PRIMARY_KEY PRIMARY KEY (PRODID));
 
 CREATE TABLE PRICE (
@@ -1558,36 +1644,24 @@ INSERT INTO PRICE (STDPRICE, STARTDATE, PRODID, MINPRICE, ENDDATE)
 
 CREATE INDEX PRICE_INDEX ON PRICE(PRODID, STARTDATE);
 
-INSERT INTO PRODUCT (PRODID, DESCRIP)
- VALUES ('100860', 'ACE TENNIS RACKET I');
-
-INSERT INTO PRODUCT (PRODID, DESCRIP)
- VALUES ('100861', 'ACE TENNIS RACKET II');
-
-INSERT INTO PRODUCT (PRODID, DESCRIP)
- VALUES ('100870', 'ACE TENNIS BALLS-3 PACK');
-
-INSERT INTO PRODUCT (PRODID, DESCRIP)
- VALUES ('100871', 'ACE TENNIS BALLS-6 PACK');
-
-INSERT INTO PRODUCT (PRODID, DESCRIP)
- VALUES ('100890', 'ACE TENNIS NET');
-
-INSERT INTO PRODUCT (PRODID, DESCRIP)
- VALUES ('101860', 'SP TENNIS RACKET');
-
-INSERT INTO PRODUCT (PRODID, DESCRIP)
- VALUES ('101863', 'SP JUNIOR RACKET');
-
-INSERT INTO PRODUCT (PRODID, DESCRIP)
- VALUES ('102130', 'RH: "GUIDE TO TENNIS"');
-
-INSERT INTO PRODUCT (PRODID, DESCRIP)
- VALUES ('200376', 'SB ENERGY BAR-6 PACK');
-
-INSERT INTO PRODUCT (PRODID, DESCRIP)
- VALUES ('200380', 'SB VITA SNACK-6 PACK');
-
+INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES ('100860', 'ACE TENNIS RACKET I', 110);
+INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES ('100861', 'ACE TENNIS RACKET II', 105);
+INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES ('100870', 'ACE TENNIS BALLS-3 PACK', 125);
+INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES ('100871', 'ACE TENNIS BALLS-6 PACK', 155);
+INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES ('100890', 'ACE TENNIS NET' 150);
+INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES ('101860', 'SP TENNIS RACKET', 110);
+INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES ('101863', 'SP JUNIOR RACKET', 117);
+INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES ('102130', 'RH: "GUIDE TO TENNIS"', 145);
+INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES ('200376', 'SB ENERGY BAR-6 PACK' 110);
+INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES ('200380', 'SB VITA SNACK-6 PACK',110);
+INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES (200455,'ACE TENNIS RACKET I',180);
+INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES (200450,'ACE TENNIS RACKET II',190);
+INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES (300120,'ACE TENNIS BALLS-3 PACK',120);
+INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES (300121,'ACE TENNIS BALLS-3 PACK',500);
+INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES (300075,'ACE TENNIS BALLS-6 PACK',800);
+INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES (300076,'ACE TENNIS BALLS-6 PACK',100);
+INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES (300078,'ACE TENNIS NET',400);
+INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES (300079,'SP TENNIS RACKET',345);
 
 CREATE VIEW SALES AS
 SELECT REPID, ORD.CUSTID, CUSTOMER.NAME CUSTNAME, PRODUCT.PRODID,
