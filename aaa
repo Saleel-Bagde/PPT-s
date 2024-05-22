@@ -1,0 +1,327 @@
+with cte as (select ename, length(ename) - length(replace(ename , ' ', '')) R1, regexp_instr(ename, ' ') firstSpace, regexp_instr(ename, ' ',regexp_instr(ename, ' ') +1 ) secondSpace from fullname) select cte.*, case when R1=0 then ename else substr(ename, 1, firstSpace - 1) end as firstName, case when R1<=1 then null else substr(ename, firstSpace+1, secondSpace - firstSpace -1) end middleName, case when R1=2 then substr(ename,secondSpace+1 ) when R1=1 then substr(ename, firstSpace+1) end lastName from cte order by 2;
+
+---------------------------
+
+with cte as(select sn.id sid, sn.ename sname, tn.id tid, tn.ename tname from sourceNames sn left outer join targetNames tn on sn.id=tn.id union all select sn.id sid, sn.ename sname, tn.id tid, tn.ename tname from sourceNames sn right outer join targetNames tn on sn.id=tn.id), cet2 as( select cte.*, case when (sid,sname)=(tid,tname) then "Common" when sid is null then "New in targer" when tid is null then "New is source" else "Mismatch" end R1 from cte) select * from cet2 where R1<>'common';
+
+-----------------------------------------------------
+
+select  case when sal<=1500 then 'low' when sal >1501 and sal< 3000 then 'medium' when sal >= 3000 then 'high' end R1, count(*)  from emp group by case when sal<=1500 then 'low' when sal >1501 and sal< 3000 then 'medium' when sal >= 3000 then 'high' end;
+-----------------------------------------------------------------
+with cte as (select id, jobRole, sum(case when jobrole is null then 0 else 1 end) over(order by id) R1 from job_list) select jobRole, first_value(jobRole) over(partition by R1 order by id) R2 from cte;
+
+
+select id, row_number() over(), id - row_number() over() from numbers;
+
+
+
+mysql> WITH RECURSIVE emps AS   (SELECT  empno, ename, mgr, ename AS emp_path  FROM emp  WHERE mgr IS NULL   UNION ALL   SELECT a.empno, a.ename, a.mgr,  CONCAT(a.ename, '/', e.emp_path)   FROM emp a INNER JOIN emps e  ON a.mgr = e.empno) SELECT * FROM emps;
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+select now() - interval 6 month, date_add(now() - interval 6 month, interval -DAY(now() - interval 6 month) + 1 DAY);
+
+
+with a as (select channel from sales_channel), b as (select warehouse_Name from warehouse), c as (select channel, warehouse_Name from sales_channel, warehouse where sales_channel.channel_ID=warehouse.channel_id) select * from a,b where not exists (select true from c where (a.channel, b.warehouse_Name) = (c.channel, c.warehouse_Name)) order by 1;
+
+
+drop table if exists rocket
+CREATE TABLE rockets (origin CHAR(20), destination CHAR(20), trip_time INT);
+
+INSERT INTO rockets VALUES ('Earth', 'Venus', 3),('Venus', 'Earth', 3),('Earth', 'Mercury', 1),('Mercury', 'Venus', 3), ('Earth', 'Mars', 2), ('Mars', 'Earth', 2), ('Mars', 'Jupiter', 3), ('Jupiter', 'Saturn', 4), ('Saturn', 'Jupiter', 4), ('Saturn', 'Earth', 9);
+
+
+WITH RECURSIVE all_destinations AS (SELECT destination AS planet FROM rockets WHERE origin='Earth' UNION ALL SELECT r.destination FROM rockets r, all_destinations d WHERE r.origin=d.planet ) SELECT * FROM all_destinations;
+
+SELECT destination AS planet FROM rockets a WHERE origin='Earth' UNION ALL SELECT b.destination FROM rockets b;
+
+
+with a as (select origin, destination from rockets),  b as (select origin, destination from rockets) select a.* from a, b  where a.origin=b.destination and a.destination=b.origin order by 1;
+
+with a as (select origin, destination from rockets),  b as (select origin, destination from rockets) select a.* from a, b  where (a.origin, a.destination) = (b.destination,b.origin) order by 1;
+
+
+
+-------------------------------------- 02-Feb----------------------------------------------
+
+update traintimetable set distance=0 where id=1;
+update traintimetable set distance=262 where id=2;
+update traintimetable set distance=129 where id=3;
+update traintimetable set distance=100 where id=4;
+update traintimetable set distance=130 where id=5;
+update traintimetable set distance=116 where id=6;
+update traintimetable set distance=75 where id=7;
+update traintimetable set distance=0 where id=8;
+update traintimetable set distance=30 where id=9;
+update traintimetable set distance=87.1 where id=10;
+update traintimetable set distance=71 where id=11;
+update traintimetable set distance=61 where id=12;
+update traintimetable set distance=44 where id=13;
+update traintimetable set distance=41.84 where id=14;
+update traintimetable set distance=249 where id=15;
+update traintimetable set distance=728 where id=16;
+update traintimetable set distance=0 where id=17;
+update traintimetable set distance=534 where id=18;
+update traintimetable set distance=131 where id=19;
+update traintimetable set distance=106 where id=20;
+update traintimetable set distance=191 where id=21;
+update traintimetable set distance=2271 where id=22;
+update traintimetable set distance=99.6 where id=23;
+update traintimetable set distance=107 where id=24;
+update traintimetable set distance=65.0 where id=25;
+update traintimetable set distance=49 where id=26;
+update traintimetable set distance=115 where id=27;
+update traintimetable set distance=76 where id=28;
+update traintimetable set distance=115 where id=29;
+update traintimetable set distance=17 where id=30;
+update traintimetable set distance=55 where id=31;
+update traintimetable set distance=31 where id=32;
+update traintimetable set distance=90 where id=33;
+update traintimetable set distance=155.5 where id=34;
+update traintimetable set distance=99 where id=35;
+update traintimetable set distance=155 where id=36;
+update traintimetable set distance=75 where id=37;
+update traintimetable set distance=47 where id=38;
+update traintimetable set distance=54 where id=39;
+update traintimetable set distance=21 where id=40;
+update traintimetable set distance=227 where id=41;
+update traintimetable set distance=746 where id=42;
+update traintimetable set distance=90 where id=43;
+update traintimetable set distance=33 where id=44;
+update traintimetable set distance=14 where id=45;
+update traintimetable set distance=44 where id=46;
+update traintimetable set distance=59 where id=47;
+update traintimetable set distance=104 where id=48;
+update traintimetable set distance=0 where id=49;
+update traintimetable set distance=89 where id=50;
+update traintimetable set distance=21 where id=51;
+update traintimetable set distance=14 where id=52;
+update traintimetable set distance=44 where id=53;
+update traintimetable set distance=46 where id=54;
+update traintimetable set distance=103 where id=55;
+
+
+
+
+insert into d with a(deptno, dname, loc, walletid) as (select deptno, dname, loc, walletid from duplicate) select deptno, dname, loc, walletid from a;
+
+
+with a as (select distinct loc from d), b as(select distinct dname from d), c as(select * from a, b) select * from c where not exists (select true from d where (d.loc, d.dname) = (c.loc, c.dname));
+
+
+with a as (select id, trainid,stationName, timing, lead(stationName) over(partition by trainid order by id) R1, lead(timing) over(partition by trainid order by id) R2 from traintimetable), b as (select lead(stationName) over(partition by trainid order by id) R3, lead(timing) over(partition by trainid order by id) R4 from traintimetable) select * from a, b where (r1, r2) = (r3, r4);
+
+with a as (select ename, deptno, gender from emp a  where not exists(select true from emp b where a.deptno=b.deptno and b.gender='f')), b as (select ename, deptno, gender from emp a  where not exists(select true from emp b where a.deptno=b.deptno and b.gender='m')), c as (select * from a union select * from  b) select * from emp e where not exists (select true from c where (e.deptno, e.gender) = (c.deptno, c.gender));
+
+with train as (select trainid, stationname "From Station", lead(stationname) over(partition by trainid order by trainid) "To Station", distance "From Distance", lead(distance) over(partition by trainid order by trainid) "To Distance", round(abs(distance - lead(distance) over(partition by trainid order by trainid)),2) "Km." from traintimetable) select train.*, "Km." * 12 from train;
+
+select productname,  
+sum(case when storelocation = 'North' then totalsales end) North,
+sum(case when storelocation = 'South' then totalsales end) South,
+sum(case when storelocation = 'East' then totalsales end) East,
+sum(case when storelocation = 'West' then totalsales end) West,
+sum(case when storelocation = 'Central' then totalsales end) Central,
+sum(totalsales) TotalSales
+from pivot_table group by productname;
+
+with a as (select distinct productname from pivot_table), b as (select distinct storelocation from pivot_table), c as (select * from a, b) select * from c where not exists (select true from pivot_table d where (d.productname, d.storelocation) = (c.productname, c.storelocation));
+
+---------------------------------------------------------------------
+select productname, sum(case when storelocation='west' then totalsales end) 'West Zone', sum(case when storelocation='east' then totalsales end) 'East Zone', sum(case when storelocation='north' then totalsales end) 'North Zone', sum(case when storelocation='south' then totalsales end) 'South Zone' from pivot_table group by productname;
+
+
+WITH RECURSIVE     category_tree AS (        SELECT            ename,            deptno,            cat_name AS full_name        FROM            emp        UNION ALL         SELECT  c.ename,         c.deptno, CONCAT (ct.full_name, ' > ', c.cat_name)     FROM   emp c       JOIN category_tree ct ON c.deptno = ct.deptno   ) SELECT    * FROM   category_tree;
+
+
+CREATE TABLE  categories ( id int, cat_name varchar(100), parent_category_id int DEFAULT NULL);
+
+INSERT INTO categories VALUES (1, 'Mens', NULL), (2, 'Tops', 1),(3, 'Jerseys', 2), (4, 'England', 3);
+
+
+
+WITH RECURSIVE emps AS
+  (SELECT emp_id, job_title, reports_to, 
+    1 AS emp_tier, CAST(emp_id AS CHAR(50)) AS emp_path
+  FROM airline_emps
+  WHERE reports_to IS NULL
+  UNION ALL
+  SELECT a.emp_id, a.job_title, a.reports_to, 
+    e.emp_tier + 1, 
+    CONCAT(a.emp_id, ' / ', e.emp_path)
+  FROM airline_emps a INNER JOIN emps e
+    ON a.reports_to = e.emp_id)
+SELECT * FROM emps
+ORDER BY emp_tier, emp_id;
+
+
+WITH RECURSIVE emps AS   (SELECT  empno, ename, mgr, ename AS emp_path  FROM emp  WHERE mgr IS NULL   UNION ALL   SELECT a.empno, a.ename, a.mgr,  CONCAT(a.ename, '/', e.emp_path)   FROM emp a INNER JOIN emps e  ON a.mgr = e.empno) SELECT * FROM emps;
+
+
+with recursive a as(select empno, ename, mgr, ename as  R1 from emp where mgr is null  union select b.empno,b.ename, b.mgr, concat(b.ename,'-', a.R1) from emp b, a where a.mgr=b.empno) select * from a;
+
+
+
+
+WITH RECURSIVE emps AS   (SELECT  id, fromphone, tophone, space(16000) AS path  FROM phonecall  UNION ALL   SELECT a.id, a.fromphone, a.tophone,  CONCAT(a.tophone, '/', e.path)   FROM phonecall  a INNER JOIN emps e  ON a.tophone = e.fromphone) SELECT * FROM emps;
+
+
+drop table if exists fullname;
+
+create table fullname(id int primary key auto_increment, ename varchar(100));
+
+insert into fullname values(default, 'saleel');
+insert into fullname values(default, 'saleel bagde');
+insert into fullname values(default, 'saleel sudheer bagde');
+insert into fullname values(default, 'sharmin bagde');
+insert into fullname values(default, 'vrushali bagde');
+insert into fullname values(default, 'vrushali saleel bagde');
+insert into fullname values(default, 'sharmin sudheer bagde');
+insert into fullname values(default, 'sharmin');
+insert into fullname values(default, 'kaushal sudheer bagde');
+insert into fullname values(default, 'ruhan bagde');
+insert into fullname values(default, 'natasha kaushal bagde');
+
+with cte as(select id, ename, replace(ename,' ' ,''), length(ename) - length(replace(ename,' ' ,'')) R1 ,regexp_instr(ename,' ') firstS
+pace, regexp_instr(ename,' ', regexp_instr(ename,' ') + 1,1) secondSpace from fullname) select * from cte;
+
+
+
+with x as (select b.id, b.bookname, count(*) over(partition by bookname) R1 from books b), y as (select nb.id, nb.bookname, count(*) over(partition by bookname) R2 from newbooks nb)  select * from x left join y on x.bookname=y.bookname union all select * from x right join y on x.bookname=y.bookname ;
+
+
+drop table if exists phonecall;
+
+create table phonecall(id int primary key auto_increment, fromphone bigint, tophone bigint, calldate date, fromtime time, totime time, duration int);
+
+truncate table phonecall;
+
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884330, 9933898994, '2020-04-19', '04:30:00', '04:39:00');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884330, 9933898994, '2020-04-20', '16:30:10', '17:39:27');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9922050696, 9850884330, '2020-01-12', '14:12:00', '14:24:27');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9922050696, 9922987810, '2020-01-12', '12:03:06', '12:06:19');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850272629, 7570815432, '2020-01-07', '11:00:06', '11:09:19');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9922050696, '2020-01-08', '10:17:20', '10:27:19');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9840556372, 9922050696, '2020-01-07', '10:47:14', '10:59:00');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9922050696, '2020-01-10', '08:00:00', '08:14:26');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884779, 9922050696, '2020-01-10', '17:00:43', '17:17:06');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9922050696, '2020-01-10', '08:17:00', '08:21:26');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9922050696, '2020-01-10', '11:07:00', '11:14:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9665814327, 9850884228, '2020-01-11', '11:07:00', '11:14:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9665814327, '2020-01-11', '15:29:31', '15:32:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9850778812, '2020-01-02', '15:29:31', '15:32:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(7555284570, 9665814327, '2020-01-02', '08:02:31', '08:07:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(7555337795, 8555599169, '2020-01-02', '08:02:31', '08:07:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(8555599169, 9665814327, '2020-01-02', '08:02:31', '08:07:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 8555384318, '2020-01-02', '15:29:31', '15:32:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(8555384318, 8555599169, '2020-01-02', '15:29:31', '15:32:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850778812, 9850884228, '2020-01-02', '19:34:09' , '19:39:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(8555526091, 9933898994, '2020-01-03', '09:32:00' , '09:42:00');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884330, 9933898994, '2020-01-03', '16:30:10' , '17:39:27');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9922050696, 9850884330, '2020-01-03', '14:12:00' , '14:24:27');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9922050696, 9922987810, '2020-01-03', '12:03:06' , '12:06:19');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850272629, 7570815432, '2020-01-03', '11:00:06' , '11:09:19');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9922050696, '2020-01-03', '10:17:20' , '10:27:19');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(8555599169, 9840556372, '2020-01-03', '10:47:14' , '10:59:00');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9922050696, '2020-01-03', '08:00:00' , '08:14:26');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884779, 9922050696, '2020-01-03', '17:00:43' , '17:17:06');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9922050696, '2020-01-03', '08:17:00' , '08:21:26');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9840556372, '2020-01-03', '11:07:00' , '11:14:16');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9665814327, 9850884228, '2020-01-03', '11:19:00' , '11:34:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9665814327, '2020-01-03', '15:25:28' , '15:49:13');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9850778812, '2020-01-03', '15:29:31' , '15:32:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(7555284570, 9665814327, '2020-01-03', '08:02:31' , '08:18:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(7555337795, 8555599169, '2020-01-03', '12:02:31' , '12:07:45');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(8555599169, 9840556372, '2020-01-03', '18:02:31' , '16:09:32');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 8555384318, '2020-01-03', '15:29:31' , '15:32:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(8555384318, 8555599169, '2020-01-03', '10:00:31' , '10:32:54');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850778812, 9850884228, '2020-01-03', '19:34:09' , '19:39:37');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884330, 9933898994, '2020-01-04', '21:12:00', '21:45:26');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884330, 9933898994, '2020-01-04', '16:30:10', '17:39:27');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9922050696, 9850884330, '2020-01-04', '14:12:00', '14:24:27');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9922050696, 9922987810, '2020-01-04', '12:03:06', '12:06:19');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850272629, 7570815432, '2020-01-04', '11:00:06', '12:09:19');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9922050696, '2020-01-04', '10:17:20', '10:27:19');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9840556372, 9922050696, '2020-01-04', '10:47:14', '10:59:00');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9922050696, '2020-01-04', '08:00:00', '08:14:26');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884779, 9922050696, '2020-01-04', '17:00:43', '17:17:06');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9922050696, '2020-01-04', '08:17:00', '08:21:26');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(7555362937, 9922050696, '2020-01-04', '11:07:00', '11:14:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9665814327, 9850884228, '2020-01-04', '11:07:00', '11:14:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9665814327, '2020-01-04', '15:29:31', '15:32:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(7555362937, 9850778812, '2020-01-04', '15:29:31', '15:32:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(7555284570, 9665814327, '2020-01-04', '08:02:31', '08:07:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(7555337795, 8555599169, '2020-01-04', '08:02:31', '09:07:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(8555599169, 9665814327, '2020-01-04', '08:02:31', '08:07:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 8555384318, '2020-01-04', '15:29:31', '15:32:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(8555384318, 8555599169, '2020-01-04', '15:29:31', '15:32:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850778812, 9850884228, '2020-01-04', '19:34:09', '19:39:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(8555526091, 7555362937, '2020-01-04', '09:32:00', '09:42:00');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884330, 9933898994, '2020-01-04', '16:30:10', '17:39:27');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9922050696, 9850884330, '2020-01-04', '21:12:00', '21:36:27');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9922050696, 9922987810, '2020-01-04', '12:03:06', '12:06:19');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850272629, 7570815432, '2020-01-04', '11:00:06', '13:09:19');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(7555362937, 9922050696, '2020-01-04', '10:17:20', '10:27:19');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(8555599169, 9840556372, '2020-01-04', '10:47:14', '10:59:00');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9922050696, '2020-01-04', '08:00:00', '08:14:26');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884779, 7555515425, '2020-01-04', '17:00:43', '17:17:06');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 7555362937, '2020-01-04', '08:17:00', '08:21:26');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(7555515425, 9840556372, '2020-01-04', '11:07:00', '11:14:16');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9922050696, 9850884228, '2020-01-04', '11:19:00', '11:34:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9665814327, '2020-01-04', '15:25:28', '15:49:13');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(7555515425, 9850778812, '2020-01-04', '15:29:31', '15:32:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(7555284570, 9665814327, '2020-01-04', '08:02:31', '08:18:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(7555337795, 8555599169, '2020-01-04', '12:02:31', '12:07:45');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(8555599169, 9840556372, '2020-01-04', '18:02:31', '16:09:32');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 8555384318, '2020-01-04', '15:29:31', '15:32:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(8555384318, 8555599169, '2020-01-04', '23:00:31', '23:47:54');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850778812, 7555515425, '2020-01-04', '19:34:09', '19:39:37');
+
+
+select  case when sal<=1500 then 'low' when sal >1501 and sal< 3000 then 'medium' when sal >= 3000 then 'high' end R1, count(*)  from emp group by case when sal<=1500 then 'low' when sal >1501 and sal< 3000 then 'medium' when sal >= 3000 then 'high' end;
+
+
+drop table if exists sourceNames;
+drop table if exists targetNames;
+
+create table sourceNames(id int primary key auto_increment, ename varchar(10));
+insert into sourceNames values(1, 'A');
+insert into sourceNames values(2, 'B');
+insert into sourceNames values(3, 'C');
+insert into sourceNames values(4, 'D');
+
+create table targetNames(id int primary key auto_increment, ename varchar(10));
+
+insert into targetNames values(1, 'A');
+insert into targetNames values(2, 'B');
+insert into targetNames values(3, 'X');
+insert into targetNames values(5, 'D');
+
+with cte as (select sourceNames.id sourceID, sourceNames.ename sourceName, targetNames.id targetID, targetNames.ename targetName from sourceNames right outer join targetNames on sourceNames.id=targetNames.id union all select sourceNames.id sourceID, sourceNames.ename sourceName, targetNames.id targetID, targetNames.ename targetName from sourceNames left outer join targetNames on sourceNames.id=targetNames.id), cte2 as ( select sourceID, sourcename, targetId, targetname from cte) select cte2.*, case when (sourceId,sourceName )=(targetid,targetName) then 'OK' when sourceID is null then 'New in sourceName Table' when targetID is null then 'New in targetName Table' end Review from cte2;
+
+
+
+
+
+create table numbers(id int);
+
+insert into numbers values(1);
+insert into numbers values(2);
+insert into numbers values(3);
+insert into numbers values(4);
+insert into numbers values(6);
+insert into numbers values(7);
+insert into numbers values(8);
+insert into numbers values(9);
+insert into numbers values(15);
+insert into numbers values(16);
+insert into numbers values(19);
+insert into numbers values(20);
+insert into numbers values(21);
+insert into numbers values(22);
+insert into numbers values(25);
+insert into numbers values(26);
+insert into numbers values(27);
+
+create table numbers(id int);
