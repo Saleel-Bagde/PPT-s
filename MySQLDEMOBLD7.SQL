@@ -1,4 +1,4 @@
-﻿DROP TABLE IF EXISTS PRODUCTS;
+DROP TABLE IF EXISTS PRODUCTS;
 DROP TABLE IF EXISTS A;
 DROP TABLE IF EXISTS B;
 DROP TABLE IF EXISTS EMP;
@@ -95,8 +95,567 @@ drop table if EXISTS service;
 drop table if EXISTS plumber_service_map;
 drop table if EXISTS r;
 drop table if EXISTS product_sales;
+drop table if exists leadtable;
+drop table if exists traintimetable;
+drop table if exists pivot_table;
+drop table if exists orderDetails;
+
+drop table if exists prescription;
+drop table if exists doctorVisits;
+drop table if exists patient;
+drop table if exists doctor;
+drop table if exists labTestList;
+drop table if exists medicineList;
+
+drop table if EXISTS rocket;
 
 DROP VIEW IF EXISTS SALES;
+
+drop table if exists job_list;
+drop table if exists overtime;
+
+drop table if exists sourceNames;
+drop table if exists targetNames;
+drop table if exists phonecall;
+drop table if exists fullname;
+drop table if exists numbers;
+
+
+create table numbers(id int);
+
+insert into numbers values(1);
+insert into numbers values(2);
+insert into numbers values(3);
+insert into numbers values(4);
+insert into numbers values(6);
+insert into numbers values(7);
+insert into numbers values(8);
+insert into numbers values(9);
+insert into numbers values(15);
+insert into numbers values(16);
+insert into numbers values(19);
+insert into numbers values(20);
+insert into numbers values(21);
+insert into numbers values(22);
+insert into numbers values(25);
+insert into numbers values(26);
+insert into numbers values(27);
+
+create table fullname(id int primary key auto_increment, ename varchar(100));
+
+insert into fullname values(default, 'saleel');
+insert into fullname values(default, 'saleel bagde');
+insert into fullname values(default, 'saleel sudheer bagde');
+insert into fullname values(default, 'sharmin bagde');
+insert into fullname values(default, 'vrushali bagde');
+insert into fullname values(default, 'vrushali saleel bagde');
+insert into fullname values(default, 'sharmin sudheer bagde');
+insert into fullname values(default, 'sharmin');
+insert into fullname values(default, 'kaushal sudheer bagde');
+insert into fullname values(default, 'ruhan bagde');
+insert into fullname values(default, 'natasha kaushal bagde');
+
+create table phonecall(id int primary key auto_increment, fromphone bigint, tophone bigint, calldate date, fromtime time, totime time, duration int);
+
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884330, 9933898994, '2020-01-19', '04:30:00', '04:39:00');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884330, 9933898994, '2020-01-20', '16:30:10', '17:39:27');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9922050696, 9850884330, '2020-01-12', '14:12:00', '14:24:27');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9922050696, 9922987810, '2020-01-12', '12:03:06', '12:06:19');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850272629, 7570815432, '2020-01-07', '17:20:15', '17:27:19');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9922050696, '2020-01-08', '10:17:20', '10:27:19');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9840556372, 9922050696, '2020-01-07', '10:47:14', '10:59:00');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9922050696, '2020-01-10', '08:10:00', '08:14:26');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884779, 9922050696, '2020-01-10', '17:00:43', '17:17:06');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9922050696, '2020-01-10', '08:17:00', '08:21:26');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9922050696, '2020-01-10', '11:07:00', '11:14:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9665814327, 9850884228, '2020-01-11', '11:07:00', '11:14:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9665814327, '2020-01-11', '15:29:31', '15:32:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9850778812, '2020-01-02', '15:29:31', '15:32:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(7555284570, 9665814327, '2020-01-02', '13:02:31', '13:07:44');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(7555337795, 8555599169, '2020-01-02', '08:02:31', '08:07:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(8555599169, 9665814327, '2020-01-02', '08:02:31', '08:07:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 8555384318, '2020-01-02', '18:29:31', '18:32:35');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(8555384318, 8555599169, '2020-01-02', '15:29:31', '15:32:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850778812, 9850884228, '2020-01-02', '19:34:09' , '19:39:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(8555526091, 9933898994, '2020-01-03', '09:32:00' , '09:42:00');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884330, 9933898994, '2020-01-03', '16:30:10' , '17:39:27');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9922050696, 9850884330, '2020-01-03', '14:12:00' , '14:24:27');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9922050696, 9922987810, '2020-01-03', '12:03:06' , '12:06:19');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850272629, 7570815432, '2020-01-03', '11:00:06' , '11:09:19');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9922050696, '2020-01-03', '10:17:20' , '10:27:19');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(8555599169, 9840556372, '2020-01-03', '10:47:14' , '10:59:00');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9922050696, '2020-01-03', '08:00:00' , '08:14:26');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884779, 9922050696, '2020-01-03', '17:00:43' , '17:17:06');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9922050696, '2020-01-03', '08:17:00' , '08:21:26');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9840556372, '2020-01-03', '11:07:00' , '11:14:16');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9665814327, 9850884228, '2020-01-03', '11:19:00' , '11:34:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9665814327, '2020-01-03', '15:25:28' , '15:49:13');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9850778812, '2020-01-03', '15:29:31' , '15:32:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(7555284570, 9665814327, '2020-01-03', '08:02:31' , '08:18:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(7555337795, 8555599169, '2020-01-03', '12:02:31' , '12:07:45');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(8555599169, 9840556372, '2020-01-03', '18:02:31' , '19:09:32');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 8555384318, '2020-01-03', '15:29:31' , '15:32:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(8555384318, 8555599169, '2020-01-03', '10:00:31' , '10:32:54');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850778812, 9850884228, '2020-01-03', '19:34:09' , '19:39:37');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884330, 9933898994, '2020-01-04', '21:12:00', '21:45:26');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884330, 9933898994, '2020-01-04', '22:30:10', '22:39:27');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9922050696, 9850884330, '2020-01-04', '14:12:00', '14:24:27');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9922050696, 9922987810, '2020-01-04', '12:03:06', '12:06:19');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850272629, 7570815432, '2020-01-04', '11:23:06', '12:09:19');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9922050696, '2020-01-04', '10:17:20', '10:27:19');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9840556372, 9922050696, '2020-01-04', '10:47:14', '10:59:00');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9922050696, '2020-01-04', '10:00:00', '10:14:26');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884779, 9922050696, '2020-01-04', '17:00:43', '17:17:06');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9922050696, '2020-01-04', '08:17:00', '08:21:26');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(7555362937, 9922050696, '2020-01-04', '11:07:00', '11:14:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9665814327, 9850884228, '2020-01-04', '11:07:00', '11:14:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9665814327, '2020-01-04', '15:29:31', '15:32:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(7555362937, 9850778812, '2020-01-04', '15:29:31', '15:32:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(7555284570, 9665814327, '2020-01-04', '13:02:31', '13:07:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(7555337795, 8555599169, '2020-01-04', '08:02:31', '09:07:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(8555599169, 9665814327, '2020-01-04', '08:02:31', '08:07:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 8555384318, '2020-01-04', '19:29:31', '19:32:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(8555384318, 8555599169, '2020-01-04', '15:29:31', '15:32:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850778812, 9850884228, '2020-01-04', '19:34:09', '19:39:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(8555526091, 7555362937, '2020-01-04', '09:32:00', '09:42:00');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884330, 9933898994, '2020-01-04', '16:30:10', '17:39:27');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9922050696, 9850884330, '2020-01-04', '21:12:00', '21:36:27');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9922050696, 9922987810, '2020-01-04', '01:03:06', '01:06:19');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850272629, 7570815432, '2020-01-04', '11:00:06', '13:09:19');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(7555362937, 9922050696, '2020-01-04', '10:17:20', '10:27:19');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(8555599169, 9840556372, '2020-01-04', '10:47:14', '10:59:00');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9922050696, '2020-01-04', '08:00:00', '08:14:26');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884779, 7555515425, '2020-01-04', '17:00:43', '17:17:06');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 7555362937, '2020-01-04', '08:17:00', '08:21:26');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(7555515425, 9840556372, '2020-01-04', '11:07:00', '11:14:16');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9922050696, 9850884228, '2020-01-04', '11:19:00', '11:34:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 9665814327, '2020-01-04', '15:25:28', '15:49:13');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(7555515425, 9850778812, '2020-01-04', '15:29:31', '15:32:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(7555284570, 9665814327, '2020-01-04', '08:02:31', '08:18:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(7555337795, 8555599169, '2020-01-04', '12:02:31', '12:07:45');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(8555599169, 9840556372, '2020-01-04', '18:02:31', '18:09:32');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850884228, 8555384318, '2020-01-04', '15:29:31', '15:32:05');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(8555384318, 8555599169, '2020-01-04', '23:00:31', '23:47:54');
+insert into phonecall(fromphone, tophone, calldate, fromtime, totime) values(9850778812, 7555515425, '2020-01-04', '19:34:09', '19:39:37');
+
+create table sourceNames(id int primary key auto_increment, ename varchar(10));
+
+insert into sourceNames values(1, 'A');
+insert into sourceNames values(2, 'B');
+insert into sourceNames values(3, 'C');
+insert into sourceNames values(4, 'D');
+
+create table targetNames(id int primary key auto_increment, ename varchar(10));
+
+insert into targetNames values(1, 'A');
+insert into targetNames values(2, 'B');
+insert into targetNames values(3, 'X');
+insert into targetNames values(5, 'Z');
+
+create table job_list(id int primary key auto_increment, jobRole varchar(20), skills varchar(20));
+
+insert into job_list values(default, 'Data Engineer', 'SQL');
+insert into job_list values(default, null, 'redis');
+insert into job_list values(default, null, 'mongoDB');
+insert into job_list values(default, null, 'hBase');
+insert into job_list values(default, null, 'Pig');
+insert into job_list values(default, 'Web Developer', 'HTML');
+insert into job_list values(default, null, 'CSS');
+insert into job_list values(default, null, 'nodeJS');
+insert into job_list values(default, null, 'React');
+insert into job_list values(default, null, 'Javascript');
+insert into job_list values(default, null, 'Angular');
+insert into job_list values(default, null, 'Express');
+insert into job_list values(default, 'Data Scientsst', 'Python');
+insert into job_list values(default, null, 'ML');
+insert into job_list values(default, null, 'AI');
+insert into job_list values(default, null, 'Ruby');
+insert into job_list values(default, null, 'Power BI');
+insert into job_list values(default, null, 'Excel');
+
+CREATE TABLE overtime (employee_name VARCHAR(50) NOT NULL, department VARCHAR(50) NOT NULL, hours INT NOT NULL, PRIMARY KEY (employee_name , department));
+INSERT INTO overtime(employee_name, department, hours) VALUES('Diane Murphy','Accounting',37), ('Mary Patterson','Accounting',74), ('Jeff Firrelli','Accounting',40), ('William Patterson','Finance',58), ('Gerard Bondur','Finance',47), ('Anthony Bow','Finance',66), ('Leslie Jennings','IT',90), ('Leslie Thompson','IT',88), ('Julie Firrelli','Sales',81), ('Steve Patterson','Sales',29), ('Foon Yue Tseng','Sales',65), ('George Vanauf','Marketing',89), ('Loui Bondur','Marketing',49), ('Gerard Hernandez','Marketing',66), ('Pamela Castillo','SCM',96), ('Larry Bott','SCM',100), ('Barry Jones','SCM',65);
+
+create table labTestList(id int primary key auto_increment, name varchar(60), rate int);
+
+create table medicineList(medicineID int primary key, name varchar(60), rate float(8,2));
+
+create table patient(id int unique key auto_increment, patientID int primary key,patientName varchar(40),age int,gender char,place varchar(40),phoneNumber bigint);
+
+create table doctor(id int unique key auto_increment, doctorID int primary key,doctorName varchar(40),place varchar(40),phoneNumber bigint);
+
+create table doctorVisits(doctorID int ,patientID int, visitDate date, constraint fk_doctorID foreign key (doctorID) references doctor(doctorID), constraint fk_patientID foreign key(patientID) references patient(patientID));
+
+insert into doctor(doctorID, doctorName, place, phoneNumber) values(1,'sharmin','pune',7050446610);
+insert into doctor(doctorID, doctorName, place, phoneNumber) values(2,'ruhan','pune',6075991628);
+insert into doctor(doctorID, doctorName, place, phoneNumber) values(7,'vrushali','mumbai',9922050696);
+insert into doctor(doctorID, doctorName, place, phoneNumber) values(9,'neel','nashik',9900876931);
+insert into doctor(doctorID, doctorName, place, phoneNumber) values(4,'omkar','baroda',9922878789);
+insert into doctor(doctorID, doctorName, place, phoneNumber) values(21,'omkar','surat',9905606022);
+insert into doctor(doctorID, doctorName, place, phoneNumber) values(22,'ramesh','surat',9890560655);
+insert into doctor(doctorID, doctorName, place, phoneNumber) values(13,'pinky','baroda',9922223311);
+insert into doctor(doctorID, doctorName, place, phoneNumber) values(15,'monika','surat',9905865747);
+insert into doctor(doctorID, doctorName, place, phoneNumber) values(17,'mamta','surat',9890004004);
+
+insert into patient(patientID, patientName, age, gender, place, phoneNumber) values(1,'saleel',32,'m','baroda', 9850884228);
+insert into patient(patientID, patientName, age, gender, place, phoneNumber) values(2,'sangita',45,'f','surat', 9922047878);
+insert into patient(patientID, patientName, age, gender, place, phoneNumber) values(3,'gita',45,'f','surat', 9850881223);
+insert into patient(patientID, patientName, age, gender, place, phoneNumber) values(4,'rajan',27,'m','surat', 9850884003);
+insert into patient(patientID, patientName, age, gender, place, phoneNumber) values(5,'karishma',45,'f','surat', null);
+insert into patient(patientID, patientName, age, gender, place, phoneNumber) values(6,'suraj',54,'m','pune', 9922060503);
+insert into patient(patientID, patientName, age, gender, place, phoneNumber) values(7,'vasant',72,'m','baroda', 9922947389);
+insert into patient(patientID, patientName, age, gender, place, phoneNumber) values(8,'pankaj',53,'m','anand', 9850773992);
+insert into patient(patientID, patientName, age, gender, place, phoneNumber) values(9,'bandish',45,'f','surat', 7075334434);
+insert into patient(patientID, patientName, age, gender, place, phoneNumber) values(10,'supriya',45,'f','surat', 7075878912);
+insert into patient(patientID, patientName, age, gender, place, phoneNumber) values(11,'monika',45,'f','surat', 9922987878);
+insert into patient(patientID, patientName, age, gender, place, phoneNumber) values(12,'ramesh',56,'m','baroda', 9850667668);
+insert into patient(patientID, patientName, age, gender, place, phoneNumber) values(13,'vina',45,'f','surat', null);
+insert into patient(patientID, patientName, age, gender, place, phoneNumber) values(14,'vishal',45,'m','surat', 8800550550);
+
+insert into doctorvisits(doctorID, patientID, visitDate) values(1, 1, '2019-04-07');
+insert into doctorvisits(doctorID, patientID, visitDate) values(2, 4, '2019-01-23');
+insert into doctorvisits(doctorID, patientID, visitDate) values(7, 2, '2019-04-07');
+insert into doctorvisits(doctorID, patientID, visitDate) values(1, 1, '2019-04-11');
+insert into doctorvisits(doctorID, patientID, visitDate) values(4, 5, '2019-01-23');
+insert into doctorvisits(doctorID, patientID, visitDate) values(2, 4, '2019-01-25');
+insert into doctorvisits(doctorID, patientID, visitDate) values(7, 5, '2019-01-25');
+insert into doctorvisits(doctorID, patientID, visitDate) values(1, 1, '2019-05-01');
+insert into doctorvisits(doctorID, patientID, visitDate) values(1, 3, '2019-04-14');
+insert into doctorvisits(doctorID, patientID, visitDate) values(7, 2, '2019-04-11');
+insert into doctorvisits(doctorID, patientID, visitDate) values(9, 3, '2019-04-21');
+insert into doctorvisits(doctorID, patientID, visitDate) values(1, 4, '2019-01-27');
+insert into doctorvisits(doctorID, patientID, visitDate) values(7, 2, '2019-05-12');
+insert into doctorvisits(doctorID, patientID, visitDate) values(9, 5, '2019-01-27');
+insert into doctorvisits(doctorID, patientID, visitDate) values(13, 5, '2019-01-30');
+insert into doctorvisits(doctorID, patientID, visitDate) values(15, 2, '2019-05-16');
+insert into doctorvisits(doctorID, patientID, visitDate) values(7, 3, '2019-04-28');
+insert into doctorvisits(doctorID, patientID, visitDate) values(1, 1, '2019-05-24');
+insert into doctorvisits(doctorID, patientID, visitDate) values(2, 3, '2019-05-05');
+insert into doctorvisits(doctorID, patientID, visitDate) values(1, 1, '2019-05-30');
+insert into doctorvisits(doctorID, patientID, visitDate) values(2, 3, '2019-05-05');
+insert into doctorvisits(doctorID, patientID, visitDate) values(9, 2, '2019-05-19');
+insert into doctorvisits(doctorID, patientID, visitDate) values(1, 2, '2019-06-01');
+insert into doctorvisits(doctorID, patientID, visitDate) values(9, 3, '2019-05-12');
+insert into doctorvisits(doctorID, patientID, visitDate) values(1, 1, '2019-06-01');
+insert into doctorvisits(doctorID, patientID, visitDate) values(9, 3, '2019-05-12');
+insert into doctorvisits(doctorID, patientID, visitDate) values(9, 3, '2019-06-19');
+insert into doctorvisits(doctorID, patientID, visitDate) values(2, 3, '2019-06-20');
+insert into doctorvisits(doctorID, patientID, visitDate) values(1, 3, '2019-05-13');
+insert into doctorvisits(doctorID, patientID, visitDate) values(7, 3, '2019-05-14');
+insert into doctorvisits(doctorID, patientID, visitDate) values(2, 2, '2019-06-21');
+insert into doctorvisits(doctorID, patientID, visitDate) values(7, 2, '2019-06-22');
+insert into doctorvisits(doctorID, patientID, visitDate) values(7, 2, '2019-06-23');
+insert into doctorvisits(doctorID, patientID, visitDate) values(7, 1, '2019-06-07');
+insert into doctorvisits(doctorID, patientID, visitDate) values(1, 1, '2019-06-11');
+insert into doctorvisits(doctorID, patientID, visitDate) values(1, 4, '2019-01-30');
+insert into doctorvisits(doctorID, patientID, visitDate) values(9, 5, '2019-02-09');
+insert into doctorvisits(doctorID, patientID, visitDate) values(13,5, '2019-02-13');
+insert into doctorvisits(doctorID, patientID, visitDate) values(7, 4, '2019-02-07');
+insert into doctorvisits(doctorID, patientID, visitDate) values(9, 2, '2019-07-16');
+insert into doctorvisits(doctorID, patientID, visitDate) values(7, 2, '2019-07-19');
+insert into doctorvisits(doctorID, patientID, visitDate) values(7, 1, '2019-06-23');
+insert into doctorvisits(doctorID, patientID, visitDate) values(9, 1, '2019-07-03');
+insert into doctorvisits(doctorID, patientID, visitDate) values(9, 3, '2019-06-21');
+insert into doctorvisits(doctorID, patientID, visitDate) values(1, 3, '2019-06-22');
+insert into doctorvisits(doctorID, patientID, visitDate) values(2, 3, '2019-06-23');
+insert into doctorvisits(doctorID, patientID, visitDate) values(22, 4, '2019-02-17');
+insert into doctorvisits(doctorID, patientID, visitDate) values(7, 3, '2019-07-06');
+insert into doctorvisits(doctorID, patientID, visitDate) values(17, 5, '2019-02-15');
+insert into doctorvisits(doctorID, patientID, visitDate) values(7, 1, '2019-07-18');
+insert into doctorvisits(doctorID, patientID, visitDate) values(7, 4, '2019-02-26');
+insert into doctorvisits(doctorID, patientID, visitDate) values(13, 2, '2019-07-21');
+insert into doctorvisits(doctorID, patientID, visitDate) values(15, 3, '2019-07-12');
+insert into doctorvisits(doctorID, patientID, visitDate) values(9, 1, '2019-07-21');
+insert into doctorvisits(doctorID, patientID, visitDate) values(15, 5, '2019-02-16');
+insert into doctorvisits(doctorID, patientID, visitDate) values(1, 3, '2019-07-18');
+insert into doctorvisits(doctorID, patientID, visitDate) values(17, 5, '2019-02-17');
+insert into doctorvisits(doctorID, patientID, visitDate) values(17, 5, '2019-02-22');
+insert into doctorvisits(doctorID, patientID, visitDate) values(7, 6, '2019-07-19');
+insert into doctorvisits(doctorID, patientID, visitDate) values(7, 8, '2019-06-23');
+insert into doctorvisits(doctorID, patientID, visitDate) values(9, 7, '2019-07-03');
+insert into doctorvisits(doctorID, patientID, visitDate) values(22, 8, '2019-06-21');
+insert into doctorvisits(doctorID, patientID, visitDate) values(1, 6, '2019-06-22');
+insert into doctorvisits(doctorID, patientID, visitDate) values(2, 7, '2019-06-23');
+insert into doctorvisits(doctorID, patientID, visitDate) values(22, 10, '2019-02-17');
+insert into doctorvisits(doctorID, patientID, visitDate) values(7, 11, '2019-07-06');
+insert into doctorvisits(doctorID, patientID, visitDate) values(9, 7, '2019-02-15');
+insert into doctorvisits(doctorID, patientID, visitDate) values(7, 13, '2019-07-18');
+insert into doctorvisits(doctorID, patientID, visitDate) values(7, 14, '2019-02-27');
+insert into doctorvisits(doctorID, patientID, visitDate) values(9, 12, '2019-07-21');
+insert into doctorvisits(doctorID, patientID, visitDate) values(13, 13, '2019-07-12');
+insert into doctorvisits(doctorID, patientID, visitDate) values(9, 11, '2019-07-21');
+insert into doctorvisits(doctorID, patientID, visitDate) values(4, 9, '2019-02-16');
+insert into doctorvisits(doctorID, patientID, visitDate) values(1, 13, '2019-07-18');
+insert into doctorvisits(doctorID, patientID, visitDate) values(21, 9, '2019-02-17');
+insert into doctorvisits(doctorID, patientID, visitDate) values(21, 9, '2019-02-22');
+insert into doctorvisits(doctorID, patientID, visitDate) values(9, 10, '2019-02-19');
+insert into doctorvisits(doctorID, patientID, visitDate) values(7, 14, '2019-03-11');
+insert into doctorvisits(doctorID, patientID, visitDate) values(7, 14, '2019-03-18');
+insert into doctorvisits(doctorID, patientID, visitDate) values(9, 12, '2019-07-30');
+insert into doctorvisits(doctorID, patientID, visitDate) values(15, 10, '2019-07-21');
+insert into doctorvisits(doctorID, patientID, visitDate) values(9, 11, '2019-07-21');
+insert into doctorvisits(doctorID, patientID, visitDate) values(4, 10, '2019-02-24');
+insert into doctorvisits(doctorID, patientID, visitDate) values(1, 12, '2019-08-08');
+insert into doctorvisits(doctorID, patientID, visitDate) values(21, 14, '2019-03-25');
+insert into doctorvisits(doctorID, patientID, visitDate) values(21,13, '2019-07-23');
+insert into doctorvisits(doctorID, patientID, visitDate) values(4, 10, '2019-08-24');
+
+insert into labtestlist(name, rate) values('Urine Glucose', 150);
+insert into labtestlist(name, rate) values('MDMA Screen Urine', 210);
+insert into labtestlist(name, rate) values('Semen Analysis', 350);
+insert into labtestlist(name, rate) values('Mantoux', 645);
+insert into labtestlist(name, rate) values('Urine Cotinine', 120);
+insert into labtestlist(name, rate) values('UPCR', 750);
+insert into labtestlist(name, rate) values('Arterial Blood Gas', 125);
+insert into labtestlist(name, rate) values('Triple Marker', 155);
+insert into labtestlist(name, rate) values('Double Marker', 240);
+insert into labtestlist(name, rate) values('Stool Elastase', 140);
+insert into labtestlist(name, rate) values('Sweat Chloride', 120);
+insert into labtestlist(name, rate) values('Colonoscopy with Polypectomy Biopsy', 1020);
+insert into labtestlist(name, rate) values('Prostate Biopsy',1200);
+insert into labtestlist(name, rate) values('Liver Biopsy', 1250);
+insert into labtestlist(name, rate) values('Cervix Biopsy',1100);
+insert into labtestlist(name, rate) values('Skin Biopsy', 950);
+insert into labtestlist(name, rate) values('Hair Follicle Drug', 275);
+insert into labtestlist(name, rate) values('Urine Drug', 345);
+insert into labtestlist(name, rate) values('Fetal Fibronectin', 500);
+insert into labtestlist(name, rate) values('First Trimester Screening', 370);
+insert into labtestlist(name, rate) values('Opioid', 220);
+insert into labtestlist(name, rate) values('Stool DNA', 775);
+insert into labtestlist(name, rate) values('Pubic Lice', 480);
+insert into labtestlist(name, rate) values('Synovial Fluid Analysis', 320);
+insert into labtestlist(name, rate) values('10-Panel Drug', 129);
+insert into labtestlist(name, rate) values('Amniocentesis', 645);
+insert into labtestlist(name, rate) values('Bone Marrow Aspiration and Biopsy', 1200);
+insert into labtestlist(name, rate) values('Cerebrospinal Fluid Analysis', 1500);
+insert into labtestlist(name, rate) values('Oral Food Challenge',475);
+insert into labtestlist(name, rate) values('Ova and Parasite', 950);
+insert into labtestlist(name, rate) values('Pericardial Fluid Analysis',1300);
+insert into labtestlist(name, rate) values('Peritoneal Fluid Analysis',1300);
+insert into labtestlist(name, rate) values('Pleural Fluid Analysis',1300);
+
+
+CREATE TABLE rockets (origin CHAR(20), destination CHAR(20), trip_time INT);
+
+INSERT INTO rockets VALUES ('Earth', 'Venus', 3),('Venus', 'Earth', 3),('Earth', 'Mercury', 1),('Mercury', 'Venus', 3), ('Earth', 'Mars', 2), ('Mars', 'Earth', 2), ('Mars', 'Jupiter', 3), ('Jupiter', 'Saturn', 4), ('Saturn', 'Jupiter', 4), ('Saturn', 'Earth', 9);
+
+create table orderDetails (id int primary key auto_increment, orderID int, customerID int , orderDate date, productName varchar(20), qty int, unitCost int);
+
+insert into orderDetails values(default, 1, 2001, '2022-04-10','butter', 2, 65);
+insert into orderDetails values(default, 1, 2001, '2022-04-10','bread', 2, 35);
+insert into orderDetails values(default, 1, 2002, '2022-04-12','tea', 1, 125);
+insert into orderDetails values(default, 1, 2002, '2022-04-12','bread', 3, 35);
+insert into orderDetails values(default, 1, 2002, '2022-04-12','rice', 1, 57);
+insert into orderDetails values(default, 1, 2003, '2022-04-13','jam', 1, 30);
+insert into orderDetails values(default, 1, 2003, '2022-04-13','suger', 3, 45);
+insert into orderDetails values(default, 1, 2004, '2022-04-15','coffee', 2, 65);
+insert into orderDetails values(default, 1, 2004, '2022-04-15','bread', 2, 35);
+insert into orderDetails values(default, 1, 2004, '2022-04-15','rice', 2, 57);
+insert into orderDetails values(default, 1, 2004, '2022-04-15','cheese', 2, 25);
+insert into orderDetails values(default, 1, 2004, '2022-04-15','jam', 1, 30);
+insert into orderDetails values(default, 1, 2005, '2022-04-14','wheat', 1, 60);
+insert into orderDetails values(default, 1, 2005, '2022-04-14','rice', 1, 57);
+insert into orderDetails values(default, 2, 2001, '2022-04-13','cheese', 2, 25);
+insert into orderDetails values(default, 2, 2002, '2022-04-13','coffee', 2, 65);
+insert into orderDetails values(default, 2, 2002, '2022-04-13','wheat', 1, 60);
+insert into orderDetails values(default, 2, 2003, '2022-04-14','wheat', 1, 60);
+insert into orderDetails values(default, 2, 2005, '2022-04-16','wheat', 1, 60);
+insert into orderDetails values(default, 2, 2005, '2022-04-16','suger', 3, 45);
+insert into orderDetails values(default, 2, 2005, '2022-04-16','rice', 2, 57);
+insert into orderDetails values(default, 3, 2001, '2022-04-14','coffee', 2, 65);
+insert into orderDetails values(default, 3, 2001, '2022-04-14','bread', 2, 35);
+insert into orderDetails values(default, 3, 2003, '2022-04-15','rice', 2, 57);
+insert into orderDetails values(default, 3, 2002, '2022-04-18','coffee', 2, 65);
+insert into orderDetails values(default, 3, 2002, '2022-04-18','wheat', 1, 60);
+insert into orderDetails values(default, 4, 2001, '2022-04-16','cheese', 2, 25);
+insert into orderDetails values(default, 4, 2003, '2022-04-16','jam', 1, 30);
+insert into orderDetails values(default, 4, 2003, '2022-04-16','wheat', 1, 60);
+insert into orderDetails values(default, 5, 2001, '2022-04-17','rice', 1, 57);
+insert into orderDetails values(default, 5, 2001, '2022-04-17','wheat', 1, 60);
+insert into orderDetails values(default, 5, 2003, '2022-04-17','suger', 3, 45);
+insert into orderDetails values(default, 5, 2003, '2022-04-17','rice', 2, 57);
+insert into orderDetails values(default, 6, 2003, '2022-04-18','wheat', 1, 60);
+
+alter table orderDetails add total int generated always as (qty*unitCost);
+
+CREATE TABLE pivot_table (
+  id int primary key auto_increment,
+  product_name VARCHAR(100),
+  store_location VARCHAR(50),
+  num_sales INT
+);
+
+INSERT INTO pivot_table (id, product_name, store_location, num_sales) VALUES
+(default, 'Chair', 'North', 55),
+(default, 'Desk', 'Central', 120),
+(default, 'Couch', 'Central', 78),
+(default, 'Chair', 'South', 23),
+(default, 'Chair', 'South', 10),
+(default, 'Chair', 'North', 98),
+(default, 'Desk', 'West', 61),
+(default, 'Couch', 'North', 180),
+(default, 'Chair', 'South', 14),
+(default, 'Desk', 'North', 45),
+(default, 'Chair', 'North', 87),
+(default, 'Chair', 'Central', 34),
+(default, 'Desk', 'South', 42),
+(default, 'Couch', 'West', 58),
+(default, 'Couch', 'Central', 27),
+(default, 'Chair', 'South', 91),
+(default, 'Chair', 'West', 82),
+(default, 'Chair', 'North', 37),
+(default, 'Desk', 'North', 68),
+(default, 'Couch', 'Central', 54),
+(default, 'Chair', 'South', 81),
+(default, 'Desk', 'North', 25),
+(default, 'Chair', 'North', 46),
+(default, 'Chair', 'Central', 121),
+(default, 'Desk', 'South', 85),
+(default, 'Couch', 'North', 43),
+(default, 'Desk', 'West', 10),
+(default, 'Chair', 'North', 5),
+(default, 'Chair', 'Central', 16),
+(default, 'Desk', 'South', 9),
+(default, 'Couch', 'West', 22),
+(default, 'Couch', 'Central', 59),
+(default, 'Chair', 'South', 76),
+(default, 'Chair', 'West', 48),
+(default, 'Chair', 'North', 19),
+(default, 'Desk', 'North', 3),
+(default, 'Couch', 'West', 63),
+(default, 'Chair', 'South', 81),
+(default, 'Desk', 'North', 85),
+(default, 'Chair', 'North', 90),
+(default, 'Chair', 'Central', 47),
+(default, 'Desk', 'West', 63),
+(default, 'Couch', 'North', 28),
+(default, 'Chair', 'East',89),
+(default, 'Chair', 'East',11),
+(default, 'Desk', 'East',110);
+
+alter table pivot_table rename column product_name to productName;
+alter table pivot_table rename column store_location to storeLocation;
+alter table pivot_table rename column num_sales to totalSales;
+
+create table leadtable(c1 int primary key auto_increment, c2 int);
+
+insert into leadtable values(default, 7),(default, 5),(default, 9),(default, 14),(default, 12),(default, 12),(default, 15),(default, 18),(default, 32),(default, 30),(default, 25);
+ 
+create table traintimetable(id int auto_increment primary key, trainID int, stationname varchar(40),distance float, timing time);
+
+insert into traintimetable(id, trainID, stationname, timing) values(default, 22863, 'mumbai central', '08:30:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 22863, 'surat', '12:40:13');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 22863, 'baroda', '14:42:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 22863, 'ahmedabad JN', '17:10:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 22863, 'surendranagar', '20:00:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 22863, 'rajkot JN', '23:40:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 22863, 'hapa', '00:05:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 22868, 'pune JN', '17:20:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 22868, 'uruli', '17:47:13');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 22868, 'daund chord line', '18:27:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 22868, 'ahmadnagar', '20:10:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 22868, 'belapur', '21:15:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 22868, 'kopargaon', '21:57:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 22868, 'manmad JN', '23:25:13');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 22868, 'daund chord line', '18:27:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 22868, 'bhopal', '08:55:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12267, 'mumbai central', '23:00:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12267, 'ahmedabad JN', '05:00:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12267, 'surendranagar', '07:20:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12267, 'rajkot JN', '09:15:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12267, 'hapa', '12:45:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'HOWRAH JN', '23:25:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'BARDDHAMAN JN', '00:31:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'ASANSOL JN', '02:09:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'DHANBAD JN', '03:25:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'PARASNATH', '04:02:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'KODERMA', '04:54:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'GAYA JN', '06:30:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'ANUGRAHA NARAYAN ROAD', '07:20:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'DEHRI ON SONE', '07:40:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'SASARAM', '07:58:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'BHABUA ROAD', '08:38:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'PT DEEN DAYAL UPADHYAYA JN', '09:55:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'MIRZAPUR', '10:55:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'PRAYAGRAJ JN', '12:20:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'FATEHPUR', '13:32:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'KANPUR CENTRAL', '14:55:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'ETAWAH', '16:27:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'TUNDLA JN', '18:35:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'AGRA FORT', '19:30:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'ACHHNERA JN', '20:14:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'BHARATPUR JN', '20:44:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'GAYA JN', '06:30:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'JAIPUR', '00:05:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'NAWA CITY', '01:38:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'KUCHAMAN CITY', '01:55:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'MAKRANA JN', '02:03:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'DEGANA JN', '02:37:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'MERTA ROAD JN', '03:15:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12307, 'JODHPUR JN', '04:20:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12308, 'JAIPUR', '00:05:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12308, 'NAWA CITY', '01:38:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12308, 'KUCHAMAN CITY', '01:55:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12308, 'MAKRANA JN', '02:03:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12308, 'DEGANA JN', '02:37:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12308, 'MERTA ROAD JN', '03:15:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 12308, 'JODHPUR JN', '04:20:00');
+
+update traintimetable set distance=0 where id=1;
+update traintimetable set distance=262 where id=2;
+update traintimetable set distance=129 where id=3;
+update traintimetable set distance=100 where id=4;
+update traintimetable set distance=130 where id=5;
+update traintimetable set distance=116 where id=6;
+update traintimetable set distance=75 where id=7;
+update traintimetable set distance=0 where id=8;
+update traintimetable set distance=30 where id=9;
+update traintimetable set distance=87.1 where id=10;
+update traintimetable set distance=71 where id=11;
+update traintimetable set distance=61 where id=12;
+update traintimetable set distance=44 where id=13;
+update traintimetable set distance=41.84 where id=14;
+update traintimetable set distance=249 where id=15;
+update traintimetable set distance=728 where id=16;
+update traintimetable set distance=0 where id=17;
+update traintimetable set distance=534 where id=18;
+update traintimetable set distance=131 where id=19;
+update traintimetable set distance=106 where id=20;
+update traintimetable set distance=191 where id=21;
+update traintimetable set distance=2271 where id=22;
+update traintimetable set distance=99.6 where id=23;
+update traintimetable set distance=107 where id=24;
+update traintimetable set distance=65.0 where id=25;
+update traintimetable set distance=49 where id=26;
+update traintimetable set distance=115 where id=27;
+update traintimetable set distance=76 where id=28;
+update traintimetable set distance=115 where id=29;
+update traintimetable set distance=17 where id=30;
+update traintimetable set distance=55 where id=31;
+update traintimetable set distance=31 where id=32;
+update traintimetable set distance=90 where id=33;
+update traintimetable set distance=155.5 where id=34;
+update traintimetable set distance=99 where id=35;
+update traintimetable set distance=155 where id=36;
+update traintimetable set distance=75 where id=37;
+update traintimetable set distance=47 where id=38;
+update traintimetable set distance=54 where id=39;
+update traintimetable set distance=21 where id=40;
+update traintimetable set distance=227 where id=41;
+update traintimetable set distance=746 where id=42;
+update traintimetable set distance=90 where id=43;
+update traintimetable set distance=33 where id=44;
+update traintimetable set distance=14 where id=45;
+update traintimetable set distance=44 where id=46;
+update traintimetable set distance=59 where id=47;
+update traintimetable set distance=104 where id=48;
+update traintimetable set distance=0 where id=49;
+update traintimetable set distance=89 where id=50;
+update traintimetable set distance=21 where id=51;
+update traintimetable set distance=14 where id=52;
+update traintimetable set distance=44 where id=53;
+update traintimetable set distance=46 where id=54;
+update traintimetable set distance=103 where id=55;
 
 CREATE TABLE product_sales (
   product_name VARCHAR(20),
@@ -148,6 +707,8 @@ INSERT INTO product_sales (product_name, store_location, num_sales) VALUES
 ('Chair', 'Central', 47),
 ('Desk', 'West', 63),
 ('Couch', 'North', 28);
+
+
 
 create table server(id int primary key, serverName varchar(20));
 
@@ -519,28 +1080,31 @@ create table key_parts(c1 int, c2 int);
 
 insert into key_parts values row(2,3), row(7,5), row(5,7), row(3,8), row(9,4), row(10,19), row(20,16), row(6,14), row(7,12), row(12,5), row(9,17), row(17,9), row(10,10), row(20,3), row(17,15), row(19,16), row(3,8), row(9,9), row(10,19), row(20,16), row(6,14), row(7,12), row(12,5), row(9,17), row(17,9), row(10,10);
 
-CREATE TABLE books (bookID int, 
+CREATE TABLE books (ID int primary key auto_increment, 
 bookName varchar(45), 
 Type varchar(45), 
 Cost int);
 
-INSERT INTO books VALUES(1, 'DS', 'Hardcover', '950');
-INSERT INTO books VALUES(1, 'DS', 'Hardcover', '950');
-INSERT INTO books VALUES (2, 'JavaScript', 'Paperback', '700');
-INSERT INTO books VALUES (2, 'JavaScript', 'Paperback', '700');
-INSERT INTO books VALUES(3, 'Hbase','Paperback',760);
+INSERT INTO books VALUES(default, 'DS', 'Hardcover', '950');
+INSERT INTO books VALUES(default, 'DS', 'Hardcover', '950');
+INSERT INTO books VALUES (default, 'JavaScript', 'Paperback', '700');
+INSERT INTO books VALUES (default, 'JavaScript', 'Paperback', '700');
+INSERT INTO books VALUES(default, 'Hbase','Paperback',760);
+INSERT INTO books VALUES(default, 'Python','Hardcover',980);
+INSERT INTO books VALUES(8, 'SQL','Hardcover',980);
 
-CREATE TABLE newbooks (bookID int, 
+CREATE TABLE newbooks (ID int primary key auto_increment, 
 bookName varchar(45), 
 Type varchar(45), 
 Cost int);
 
-INSERT INTO newbooks VALUES (1, 'Redis', 'Paperback', '850');
-INSERT INTO newbooks VALUES (1, 'Redis', 'Paperback', '850');
-INSERT INTO newbooks VALUES (2, 'JavaScript', 'Paperback', '700');
-INSERT INTO newbooks VALUES (2, 'JavaScript', 'Paperback', '700');
-INSERT INTO newbooks VALUES(4,'Hbase','Paperback',760);
-
+INSERT INTO newbooks VALUES (default, 'Redis', 'Paperback', '850');
+INSERT INTO newbooks VALUES (default, 'Redis', 'Paperback', '850');
+INSERT INTO newbooks VALUES (default, 'JavaScript', 'Paperback', '700');
+INSERT INTO newbooks VALUES (default, 'JavaScript', 'Paperback', '700');
+INSERT INTO newbooks VALUES(default,'Hbase','Paperback',760);
+INSERT INTO newbooks VALUES(7,'HTML','Paperback',900);
+INSERT INTO newbooks VALUES(9,'CSS','Paperback',740);
 
 
 CREATE TABLE runners (id int, name varchar(20));
@@ -889,13 +1453,19 @@ RATE INT);
 INSERT INTO SOFTDRINK VALUES (1, 'Coca-Cola' , 45 ), (2, 'Mello Yello' , 75 ), (3, 'Diet Coke' , 60), (4, 'Frozen Fanta Cherry ' , 65 ), (5, 'Iced Tea' , 35 );
 
 
-CREATE TABLE STATUS (id INT, status varchar(12));
+CREATE TABLE STATUS (id int primary key auto_increment, statusid INT, status varchar(12));
 
-INSERT into STATUS values(1,'New');
-INSERT into STATUS values(2,'Draft');
-INSERT into STATUS values(4,'Approved');
-INSERT into STATUS values(8,'Rejected');
-INSERT into STATUS values(16,'Cancle');
+INSERT into STATUS values(default, 1,'New');
+INSERT into STATUS values(default, 2,'Draft');
+INSERT into STATUS values(default, 4,'Approved');
+INSERT into STATUS values(default, 8,'Rejected');
+INSERT into STATUS values(default, 16,'Cancle');
+insert into STATUS values(default, 32,'In Process');
+insert into STATUS values(default, 64,'Send');
+insert into STATUS values(default, 128,'Hold');
+insert into STATUS values(default, 256,'Selected');
+insert into STATUS values(default, 512,'Received');
+insert into STATUS values(default, 1024,'More');
 
 CREATE TABLE NULLIF
 (
@@ -1240,7 +1810,8 @@ CREATE TABLE ORD  (
  COMMPLAN            varchar(1),
  CUSTID              INT NOT NULL,
  SHIPDATE            datetime,
- STATUS 			 VARCHAR(45),
+ STATUSDATE          datetime,
+ STATUS 	     VARCHAR(45),
  TOTAL               float (8,2),
  CONSTRAINT TOTAL_ZERO CHECK (TOTAL >= 0),
  CONSTRAINT ORD_FOREIGN_KEY FOREIGN KEY (CUSTID) REFERENCES CUSTOMER (CUSTID),
@@ -1334,68 +1905,86 @@ VALUES ('55649', 'MN', '7844', '566-9123',
  'NORTH WOODS HEALTH AND FITNESS SUPPLY CENTER',
  '108', '8000', 'HIBBING', '612', '98 LONE PINE WAY', null);
 
-INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
- VALUES ('101.4', '1987-01-08', '610', '1987-01-07', '101', 'A');
+INSERT INTO ORD (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('101.4', '1987-01-08', NULL, '610', '1987-01-07', '101', 'A');
 
-INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
- VALUES ('45', '1987-01-11', '611', '1987-01-11', '102', 'B');
+INSERT INTO ORD (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('45', '1987-01-11', NULL, '611', '1987-01-11', '102', 'B');
 
-INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
- VALUES ('5860', '1987-01-20', '612', '1987-01-15', '104', 'C');
+INSERT INTO ORD (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('5860', '1987-01-20', '1987-01-21', '612', '1987-01-15', '104', 'C');
 
-INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
- VALUES ('2.4', '1986-05-30', '601', '1986-05-01', '106', 'A');
+INSERT INTO ORD (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('2.4', '1986-05-30', NULL, '601', '1986-05-01', '106', 'A');
 
-INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
- VALUES ('56', '1986-06-20', '602', '1986-06-05', '102', 'B');
+INSERT INTO ORD (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('56', '1986-06-20','1986-07-09', '602', '1986-06-05', '102', 'B');
 
-INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
- VALUES ('698', '1986-06-30', '604', '1986-06-15', '106', 'A');
+INSERT INTO ORD (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('698', '1986-05-30', '1986-07-04', '604', '1986-06-15', '106', 'A');
 
-INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
- VALUES ('8324', '1986-07-30', '605', '1986-07-14', '106', 'A');
+INSERT INTO ORD (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('8324', '1986-07-30', '1986-08-02', '605', '1986-07-14', '106', 'A');
 
-INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
- VALUES ('3.4', '1986-07-30', '606', '1986-07-14', '100', 'A');
+INSERT INTO ORD (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('3.4', '1986-07-30', NULL, '606', '1986-07-14', '100', 'A');
 
-INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
- VALUES ('97.5', '1986-08-15', '609', '1986-08-01', '100', 'B');
+INSERT INTO ORD (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('97.5', '1986-08-15','1986-08-19', '609', '1986-08-01', '100', 'B');
 
-INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
- VALUES ('5.6', '1986-07-18', '607', '1986-07-18', '104', 'C');
+INSERT INTO ORD (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('5.6', '1986-07-18', NULL, '607', '1986-07-18', '104', 'C');
 
-INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
- VALUES ('35.2', '1986-07-25', '608', '1986-07-25', '104', 'C');
+INSERT INTO ORD (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('35.2', '1986-07-25', NULL, '608', '1986-07-25', '104', 'C');
 
-INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
- VALUES ('224', '1986-06-05', '603', '1986-06-05', '102', null);
+INSERT INTO ORD (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('224', '1986-06-05', '1986-06-10', '603', '1986-06-05', '102', null);
 
-INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
- VALUES ('4450', '1987-03-12', '620', '1987-03-12', '100', null);
+INSERT INTO ORD (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('4450', '1987-03-12', '1987-03-12', '620', '1987-03-12', '100', null);
 
-INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
- VALUES ('6400', '1987-02-01', '613', '1987-02-01', '108', null);
+INSERT INTO ORD (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('6400', '1987-02-01', NULL, '613', '1987-02-01', '108', null);
 
-INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
- VALUES ('23940', '1987-02-05', '614', '1987-02-01', '102', null);
+INSERT INTO ORD (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('23940', '1987-02-05', NULL, '614', '1987-02-01', '102', null);
 
-INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
- VALUES ('764', '1987-02-10', '616', '1987-02-03', '103', null);
+INSERT INTO ORD (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('764', '1987-02-10', '1987-02-10', '616', '1987-02-03', '103', null);
 
-INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
- VALUES ('1260', '1987-02-04', '619', '1987-02-22', '104', null);
+INSERT INTO ORD (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('1260', '1987-02-04', NULL, '619', '1987-02-22', '104', null);
 
-INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
- VALUES ('46370', '1987-03-03', '617', '1987-02-05', '105', null);
+INSERT INTO ORD (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('46370', '1987-03-03', NULL, '617', '1987-02-05', '105', null);
 
-INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
- VALUES ('710', '1987-02-06', '615', '1987-02-01', '107', null);
+INSERT INTO ORD (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('710', '1987-02-06', NULL, '615', '1987-02-01', '107', null);
 
-INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
- VALUES ('3510.5', '1987-03-06', '618', '1987-02-15', '102', 'A');
+INSERT INTO ORD (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('3510.5', '1987-03-06', '1987-03-16', '618', '1987-02-15', '102', 'A');
 
-INSERT INTO ORD (TOTAL, SHIPDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
- VALUES ('730', '1987-01-01', '621', '1987-03-15', '100', 'A');
+INSERT INTO ORD (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
+ VALUES ('730', '1987-03-014',NULL, '621', '1987-03-15', '100', 'A');
+
+INSERT INTO ord (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)  
+VALUES ('1125', '1987-01-01', '1987-01-06', '622', '1986-12-31', '105', 'a');
+  
+INSERT INTO ord (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)  
+VALUES ('145', '1987-04-08', '1987-04-13', '1987-04-07', '105', null);
+ 
+ INSERT INTO ord (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)  
+VALUES ('189', '1987-01-06', '1987-01-09', '624', '1987-01-06', '105', 'c');
+  
+INSERT INTO ord (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)  
+VALUES ('1255', '1987-01-10', '1987-01-16', '625', '1987-01-09', '105', null);
+ 
+ INSERT INTO ord (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)  
+VALUES ('1675', '1987-02-01', '1987-02-06', '626', '1987-01-31', '107', null);
+ 
+INSERT INTO ord (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)  
+VALUES ('250', '1987-02-14', '1987-02-22', '627', '1987-02-13', '100', null);
 
 
 INSERT INTO ITEM (QTY, PRODID, ORDID, ITEMTOT, ITEMID, ACTUALPRICE)
@@ -1648,11 +2237,11 @@ INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES ('100860', 'ACE TENNIS RACK
 INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES ('100861', 'ACE TENNIS RACKET II', 105);
 INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES ('100870', 'ACE TENNIS BALLS-3 PACK', 125);
 INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES ('100871', 'ACE TENNIS BALLS-6 PACK', 155);
-INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES ('100890', 'ACE TENNIS NET' 150);
+INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES ('100890', 'ACE TENNIS NET', 150);
 INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES ('101860', 'SP TENNIS RACKET', 110);
 INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES ('101863', 'SP JUNIOR RACKET', 117);
 INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES ('102130', 'RH: "GUIDE TO TENNIS"', 145);
-INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES ('200376', 'SB ENERGY BAR-6 PACK' 110);
+INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES ('200376', 'SB ENERGY BAR-6 PACK', 110);
 INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES ('200380', 'SB VITA SNACK-6 PACK',110);
 INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES (200455,'ACE TENNIS RACKET I',180);
 INSERT INTO PRODUCT (PRODID, DESCRIP, PRICE)  VALUES (200450,'ACE TENNIS RACKET II',190);
@@ -2236,6 +2825,12 @@ UPDATE ord SET STATUS = 'Cancelled' WHERE (ORDID = '612');
 UPDATE ord SET STATUS = 'Cancelled' WHERE (ORDID = '620');
 UPDATE ord SET STATUS = 'In Process' WHERE (ORDID = '614');
 UPDATE ord SET STATUS = 'Resolved' WHERE (ORDID = '616');
+UPDATE ord SET STATUS = 'Delivered' WHERE (ORDID = '622');
+UPDATE ord SET STATUS = 'Delivered' WHERE (ORDID = '623');
+UPDATE ord SET STATUS = 'Delivered' WHERE (ORDID = '624');
+UPDATE ord SET STATUS = 'Delivered' WHERE (ORDID = '625');
+UPDATE ord SET STATUS = 'shipped' WHERE (ORDID = '626');
+UPDATE ord SET STATUS = 'Delivered' WHERE (ORDID = '627');
 
 update EMP set `user name` = ename;
 update EMP set `user name` = upper("Always Teste") where empno = 7499;
