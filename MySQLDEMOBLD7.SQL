@@ -119,9 +119,60 @@ drop table if exists targetNames;
 drop table if exists phonecall;
 drop table if exists fullname;
 drop table if exists numbers;
-
+drop table if exists shop;
 
 create table numbers(id int);
+
+create table shop (itemName varchar(20), color varchar(20),size varchar(20), quantity int);
+
+insert into shop values("skirt", "dark", "small", 2);
+insert into shop values("skirt", "dark", "medium", 5);
+insert into shop values("skirt", "dark", "large", 1);
+insert into shop values("skirt", "pastel", "small", 11);
+insert into shop values("skirt", "pastel", "medium", 9);
+insert into shop values("skirt", "pastel", "large", 15);
+insert into shop values("skirt", "white", "small", 2);
+insert into shop values("skirt", "white", "medium", 5);
+insert into shop values("skirt", "white", "large", 3);
+insert into shop values("dress", "dark", "small", 2);
+insert into shop values("dress", "dark", "medium", 6);
+insert into shop values("dress", "dark", "large", 12);
+insert into shop values("dress", "pastel", "small", 4);
+insert into shop values("dress", "pastel", "medium", 3);
+insert into shop values("dress", "pastel", "large", 3);
+insert into shop values("dress", "white", "small", 2);
+insert into shop values("dress", "white", "medium", 3);
+insert into shop values("dress", "white", "large", 0);
+insert into shop values("shirt", "dark", "small", 2);
+insert into shop values("shirt", "dark", "medium", 6);
+insert into shop values("shirt", "dark", "large", 6);
+insert into shop values("shirt", "pastel", "small", 4);
+insert into shop values("shirt", "pastel", "medium", 1);
+insert into shop values("shirt", "pastel", "large", 2);
+insert into shop values("shirt", "white", "small", 17);
+insert into shop values("shirt", "white", "medium", 1);
+insert into shop values("shirt", "white", "large", 10);
+insert into shop values("pants", "dark", "small", 14);
+insert into shop values("pants", "dark", "medium", 6);
+insert into shop values("pants", "dark", "large", 0);
+insert into shop values("pants", "pastel", "small", 1);
+insert into shop values("pants", "pastel", "medium", 0);
+insert into shop values("pants", "pastel", "large", 1);
+insert into shop values("pants", "white", "small", 3);
+insert into shop values("pants", "white", "medium", 0);
+insert into shop values("pants", "white", "large", 2);
+insert into shop values("pants", "brown", "medium", 12);
+insert into shop values("pants", "brown", "large", 13);
+insert into shop values("Jeans", "blue", "medium", 7);
+insert into shop values("Jeans", "black", "medium", 4);
+insert into shop values("Jeans", "white", "medium", 6);
+insert into shop values("Jeans", "denim", "medium", 3);
+insert into shop values("Jeans", "blue", "small", 8);
+insert into shop values("Jeans", "black", "small", 9);
+insert into shop values("Jeans", "white", "small", 23);
+insert into shop values("Jeans", "grey", "small", 12);
+insert into shop values("Jeans", "grey", "medium", 7);
+
 
 insert into numbers values(1);
 insert into numbers values(2);
@@ -2718,7 +2769,8 @@ insert into tablebb values (5,7), (3,8), (1,4), (8,7), (Null,10), (11,12);
 
 CREATE TABLE SALESPEOPLE (SNUM INT PRIMARY KEY, SNAME VARCHAR(10), CITY VARCHAR(10), COMM FLOAT);
 CREATE TABLE CUSTOMERS (CNUM INT  PRIMARY KEY, CNAME VARCHAR (10), CITY VARCHAR (10), RATING FLOAT, SNUM INT, CONSTRAINT FK_SNUM FOREIGN KEY(SNUM) REFERENCES SALESPEOPLE(SNUM));
-CREATE TABLE ORDERS (ONUM INT PRIMARY KEY, AMT FLOAT, ODATE DATETIME, CNUM INT , SNUM INT, type varchar(10),  CONSTRAINT FK_CNUM FOREIGN KEY(CNUM) REFERENCES CUSTOMERS(CNUM) , CONSTRAINT FK_ORDERS_SNUM FOREIGN KEY(SNUM) REFERENCES SALESPEOPLE(SNUM));
+
+CREATE TABLE ORDERS (ONUM INT PRIMARY KEY, AMT FLOAT, ODATE DATETIME, CNUM INT , SNUM INT, type varchar(10), paymentType varchar(20),  CONSTRAINT FK_CNUM FOREIGN KEY(CNUM) REFERENCES CUSTOMERS(CNUM) , CONSTRAINT FK_ORDERS_SNUM FOREIGN KEY(SNUM) REFERENCES SALESPEOPLE(SNUM));
 
 INSERT into SALESPEOPLE(SNUM, SNAME, CITY, COMM) values (1001,'Rajan','London',.12);
 INSERT into SALESPEOPLE(SNUM, SNAME, CITY, COMM) values (1002,'Natasha','San Jose',.13);
@@ -2741,67 +2793,67 @@ INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2009,'Smith','Ber
 INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2010,'ADAMS','Berlin',250,1007);
 
 
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3001,18.69,'1996-10-03 12:30', 2008, 1007, 'Online');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3003,767.19,'1996-10-03 13:45', 2001, 1001, 'Online');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3002,1900.10,'1996-10-03 12:05',2007,1004, 'Online');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3005,5160.45,'1996-10-03 14:00',2003,1002, 'Online');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3006,1098.16,'1996-10-03 13:37',2008,1007, 'Online');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3009,1713.23,'1996-10-04 15:21',2002,1003, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3001,18.69,'1996-10-03 12:30', 2008, 1007, 'Online','Credit Cards');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3003,767.19,'1996-10-03 13:45', 2001, 1001, 'Online','Debit Cards');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3002,1900.10,'1996-10-03 12:05',2007,1004, 'Online','Wallets');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3005,5160.45,'1996-10-03 14:00',2003,1002, 'Online','Debit Cards');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3006,1098.16,'1996-10-03 13:37',2008,1007, 'Online','Wallets');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3009,1713.23,'1996-10-04 15:21',2002,1003, 'Online','Credit Cards');
 /*
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (6601,1900.10,'1996-11-03 12:05',null,1004, 'direct');
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (6602,5160.45,'1996-10-03 14:00',null,1002, 'direct');
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (6603,1098.16,'1996-10-03 13:37',null,1007, 'direct');
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (6604,1713.23,'1996-11-04 15:21',null,1003, 'direct');
 */
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3007,75.75,'1996-10-04 16:02',2002,1003, 'Online');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3008,4723.00,'1996-10-05 12:07',2006,1001, 'Online');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3010,1309.95,'1996-10-06 13:12',2004,1002, 'Online');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3011,9891.88,'1996-10-06 13:09',2006,1001, 'Online');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3012,3455.78,'1996-10-04 15:21',2002,1003, 'Online');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3013,1245.98,'1996-10-04 16:32',2002,1003, 'Online');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3014,3721.53,'1996-10-05 12:45',2006,1001, 'Online');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3015,734.50,'1996-10-06 13:16',2004,1002, 'Online');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3016,1729.67,'1996-10-06 13:07',2006,1001, 'Online');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3017,18.69,'1996-10-03 12:30', 2001, 1007, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3007,75.75,'1996-10-04 16:02',2002,1003, 'Online', 'Credit Cards');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3008,4723.00,'1996-10-05 12:07',2006,1001, 'Online','COD');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3010,1309.95,'1996-10-06 13:12',2004,1002, 'Online','EMI Options');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3011,9891.88,'1996-10-06 13:09',2006,1001, 'Online','EMI Options');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3012,3455.78,'1996-10-04 15:21',2002,1003, 'Online','COD');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3013,1245.98,'1996-10-04 16:32',2002,1003, 'Online','EMI Options');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3014,3721.53,'1996-10-05 12:45',2006,1001, 'Online','COD');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3015,734.50,'1996-10-06 13:16',2004,1002, 'Online','EMI Options');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3016,1729.67,'1996-10-06 13:07',2006,1001, 'Online','Wallets');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3017,18.69,'1996-10-03 12:30', 2001, 1007, 'Online','Credit Cards');
 
 /*INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (6605,1900.10,'1996-10-03 12:05',null,1004, 'direct');
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (6606,5160.45,'1996-10-03 14:00',null,1002, 'direct');
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (6607,1098.16,'1996-11-03 13:37',null,1007, 'direct');
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (6608,1713.23,'1996-11-04 15:21',null,1003, 'direct');
 */
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3018,767.19,'1996-10-03 13:45', 2002, 1001, 'Online');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3019,1900.10,'1996-10-03 12:05',2007,1004, 'Online');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3020,5160.45,'1996-10-03 14:00',2003,1007, 'Online');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3021,1098.16,'1996-10-03 13:37',2008,1007, 'Online');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3022,1713.23,'1996-10-04 15:21',2002,1003, 'Online');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3023,75.75,'1996-10-04 16:02',2002,1004, 'Online');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3024,4723.00,'1996-10-05 12:07',2006,1002, 'Online');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3025,1309.95,'1996-10-06 13:12',2002,1002, 'Online');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3026,9891.88,'1996-10-06 13:09',2006,1001, 'Online');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3027,3455.78,'1996-10-04 15:21',2002,1003, 'Online');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3028,1245.98,'1996-10-04 16:32',2002,1003, 'Online');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3029,3721.53,'1996-10-05 12:45',2006,1001, 'Online');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3030,734.50,'1996-10-06 13:16',2004,1002, 'Online');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) values (3031,1729.67,'1996-10-06 13:07',2006,1007, 'Online');
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (3032, 3434, '1996-01-26 17:09:12', 2006,1007, 'Online');
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (3033, 522, '1996-12-24 14:23:00', 2002,1002, 'Online');
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (3074, 457, '1996-04-19 05:13:00', 2008,1007, 'Online');
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (3049, 500, '1996-03-14 07:45:19', 2001,1003, 'Online');
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (3119, 125, '1996-07-26 18:37:00', 2007,1001, 'Online');
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (4001, 145, '1996-05-13 20:47:00', 2008,1003, 'Online');
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (4012, 245, '1996-03-06 13:07:00', 2001,1002, 'Online');
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (4021, 600, '1996-08-12 13:07:00', 2001,1002, 'Online');
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (4054, 1200, '1996-11-22 13:07:00',2004,1003, 'Online');
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (5015, 2133, '1996-06-23 13:07:00',2004,1007, 'Online');
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (5053, 1500, '1996-01-01 13:07:00',2006,1007, 'Online');
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (5099, 790, '1996-04-24 13:07:00', 2002,1007, 'Online');
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (5014, 980, '1996-08-23 13:07:00', 2002,1007, 'Online');
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (5016, 1000, '1996-03-12 13:07:00',2002,1007, 'Online');
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (6501, 125, '1996-06-13 13:07:00', 2001,1001, 'Online');
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (5011, 138, '1996-09-14 13:07:00', 2001,1007, 'Online');
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (6502, 535, '1996-08-24 13:07:00', 2006,1004, 'Online');
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (6503, 1100, '1996-07-26 13:07:00',2006,1007, 'Online');
-INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE) VALUES (6504, 1350, '1996-07-21 13:07:00',2008,1007, 'Online');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3018,767.19,'1996-10-03 13:45', 2002, 1001, 'Online','Wallets');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3019,1900.10,'1996-10-03 12:05',2007,1004, 'Online','EMI Options');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3020,5160.45,'1996-10-03 14:00',2003,1007, 'Online','COD');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3021,1098.16,'1996-10-03 13:37',2008,1007, 'Online','Debit Cards');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3022,1713.23,'1996-10-04 15:21',2002,1003, 'Online','COD');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3023,75.75,'1996-10-04 16:02',2002,1004, 'Online','Wallets');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3024,4723.00,'1996-10-05 12:07',2006,1002, 'Online','Credit Cards');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3025,1309.95,'1996-10-06 13:12',2002,1002, 'Online','Wallets');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3026,9891.88,'1996-10-06 13:09',2006,1001, 'Online','Wallets');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3027,3455.78,'1996-10-04 15:21',2002,1003, 'Online','COD');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3028,1245.98,'1996-10-04 16:32',2002,1003, 'Online','Debit Cards');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3029,3721.53,'1996-10-05 12:45',2006,1001, 'Online','Credit Cards');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3030,734.50,'1996-10-06 13:16',2004,1002, 'Online','COD');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3031,1729.67,'1996-10-06 13:07',2006,1007, 'Online','Wallets');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) VALUES (3032, 3434, '1996-01-26 17:09:12', 2006,1007, 'Online','Wallets');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) VALUES (3033, 522, '1996-12-24 14:23:00', 2002,1002, 'Online','COD');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) VALUES (3074, 457, '1996-04-19 05:13:00', 2008,1007, 'Online','EMI Options');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) VALUES (3049, 500, '1996-03-14 07:45:19', 2001,1003, 'Online','COD');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) VALUES (3119, 125, '1996-07-26 18:37:00', 2007,1001, 'Online','Wallets');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) VALUES (4001, 145, '1996-05-13 20:47:00', 2008,1003, 'Online','EMI Options');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) VALUES (4012, 245, '1996-03-06 13:07:00', 2001,1002, 'Online','Wallets');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) VALUES (4021, 600, '1996-08-12 13:07:00', 2001,1002, 'Online','Wallets');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) VALUES (4054, 1200, '1996-11-22 13:07:00',2004,1003, 'Online','COD');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) VALUES (5015, 2133, '1996-06-23 13:07:00',2004,1007, 'Online','EMI Options');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) VALUES (5053, 1500, '1996-01-01 13:07:00',2006,1007, 'Online','EMI Options');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) VALUES (5099, 790, '1996-04-24 13:07:00', 2002,1007, 'Online','EMI Options');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) VALUES (5014, 980, '1996-08-23 13:07:00', 2002,1007, 'Online','Wallets');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) VALUES (5016, 1000, '1996-03-12 13:07:00',2002,1007, 'Online','COD');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) VALUES (6501, 125, '1996-06-13 13:07:00', 2001,1001, 'Online','EMI Options');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) VALUES (5011, 138, '1996-09-14 13:07:00', 2001,1007, 'Online','COD');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) VALUES (6502, 535, '1996-08-24 13:07:00', 2006,1004, 'Online','COD');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) VALUES (6503, 1100, '1996-07-26 13:07:00',2006,1007, 'Online','Wallets');
+INSERT INTO orders(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) VALUES (6504, 1350, '1996-07-21 13:07:00',2008,1007, 'Online','COD');
 
 
 UPDATE ord SET STATUS = 'In Process' WHERE (ORDID = '601');
