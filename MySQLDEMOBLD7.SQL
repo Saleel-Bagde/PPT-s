@@ -120,6 +120,10 @@ drop table if exists phonecall;
 drop table if exists fullname;
 drop table if exists numbers;
 drop table if exists shop;
+drop table if exists leading_zeroes;
+
+create table leading_zeroes(c1 int); 
+insert into leading_zeroes values(7), (18), (299);
 
 create table numbers(id int);
 
