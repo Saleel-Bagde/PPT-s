@@ -98,6 +98,7 @@ drop table if EXISTS product_sales;
 drop table if exists leadtable;
 drop table if exists traintimetable;
 drop table if exists pivot_table;
+drop table if exists unpivot_table;
 drop table if exists orderDetails;
 
 drop table if exists prescription;
@@ -121,6 +122,26 @@ drop table if exists fullname;
 drop table if exists numbers;
 drop table if exists shop;
 drop table if exists leading_zeroes;
+drop table if exists COALESCE2;
+
+CREATE TABLE COALESCE2 (
+    CenterID VARCHAR(10),
+    Case_ID INT,
+    Stage1 DATE,
+    Stage2 DATE,
+    Stage3 DATE,
+    Stage4 DATE,
+    Stage5 DATE
+);
+
+INSERT INTO COALESCE2 (CenterID, Case_ID, Stage1, Stage2, Stage3, Stage4, Stage5) VALUES
+('C1', 1, '2024-01-01', NULL, NULL, '2024-01-13', NULL),
+('C1', 2, '2024-01-05', '2024-01-10', NULL, NULL, NULL),
+('C2', 3, NULL, '2024-01-10', NULL, NULL, '2024-01-20'),
+('C3', 4, '2024-01-05',  '2024-01-12', '2024-01-12', '2024-01-14', '2024-01-20'),
+('C3', 5, '2024-01-10', '2024-01-15', NULL, NULL, NULL),
+('C3', 6, NULL, NULL, NULL, '2024-01-15', NULL);
+
 
 create table leading_zeroes(c1 int); 
 insert into leading_zeroes values(7), (18), (299);
@@ -535,12 +556,12 @@ alter table orderDetails add total int generated always as (qty*unitCost);
 
 CREATE TABLE pivot_table (
   id int primary key auto_increment,
-  product_name VARCHAR(100),
-  store_location VARCHAR(50),
-  num_sales INT
+  productName VARCHAR(100),
+  storeLocation VARCHAR(50),
+  totalSales INT
 );
 
-INSERT INTO pivot_table (id, product_name, store_location, num_sales) VALUES
+INSERT INTO pivot_table (id, productName, storeLocation, totalSales) VALUES
 (default, 'Chair', 'North', 55),
 (default, 'Desk', 'Central', 120),
 (default, 'Couch', 'Central', 78),
@@ -588,9 +609,87 @@ INSERT INTO pivot_table (id, product_name, store_location, num_sales) VALUES
 (default, 'Chair', 'East',11),
 (default, 'Desk', 'East',110);
 
-alter table pivot_table rename column product_name to productName;
-alter table pivot_table rename column store_location to storeLocation;
-alter table pivot_table rename column num_sales to totalSales;
+CREATE TABLE unpivot_table (
+  id int primary key auto_increment,
+  productName VARCHAR(100),
+  northStore INT,
+  southStore INT,
+  eastStore INT,
+  westStore INT,
+  centralStore INT
+);
+
+insert into unpivot_table(productName, northStore, southStore, eastStore, westStore,  centralStore) values('Chair', 55, null, null, null,null );
+
+insert into unpivot_table(productName, northStore, southStore, eastStore, westStore,  centralStore) values('Desk', null, null, null, null, 120);
+
+insert into unpivot_table(productName, northStore, southStore, eastStore, westStore,  centralStore) values('Couch', null, null, null, null, 78);
+
+insert into unpivot_table(productName, northStore, southStore, eastStore, westStore,  centralStore) values('Chair', null, 23, null, null, null);
+
+insert into unpivot_table(productName, northStore, southStore, eastStore, westStore,  centralStore) values('Chair', null, 10, null, null, null);
+
+insert into unpivot_table(productName, northStore, southStore, eastStore, westStore,  centralStore) values('Chair', 98, null, null, null, null);
+
+insert into unpivot_table(productName, northStore, southStore, eastStore, westStore,  centralStore) values('Desk', null, null, null, 61, null);
+
+
+insert into unpivot_table(productName, northStore, southStore, eastStore, westStore,  centralStore) values('Couch', 180, null, null, null, null);
+
+insert into unpivot_table(productName, northStore, southStore, eastStore, westStore,  centralStore) values('Chair', null, 14, null, null, null);
+
+insert into unpivot_table(productName, northStore, southStore, eastStore, westStore,  centralStore) values('Desk', 45, null, null, null, null);
+
+insert into unpivot_table(productName, northStore, southStore, eastStore, westStore,  centralStore) values('Chair', 87, null, null, null, null);
+
+
+insert into unpivot_table(productName, northStore, southStore, eastStore, westStore,  centralStore) values('Chair', null, null, null, null, 34);
+
+insert into unpivot_table(productName, northStore, southStore, eastStore, westStore,  centralStore) values('Desk', null, 42, null, null, null);
+
+
+insert into unpivot_table(productName, northStore, southStore, eastStore, westStore,  centralStore) values('Couch', null, null, null, 58, null);
+
+
+insert into unpivot_table(productName, northStore, southStore, eastStore, westStore,  centralStore) values('Couch', null, null, null, null, 27);
+
+insert into unpivot_table(productName, northStore, southStore, eastStore, westStore,  centralStore) values('Chair', null, 91, null, null, null);
+
+insert into unpivot_table(productName, northStore, southStore, eastStore, westStore,  centralStore) values('Chair', null, null, null, 82, null);
+
+insert into unpivot_table(productName, northStore, southStore, eastStore, westStore,  centralStore) values('Chair', 37, null, null, null, null);
+
+insert into unpivot_table(productName, northStore, southStore, eastStore, westStore,  centralStore) values('Desk', 68, null, null, null, null);
+
+insert into unpivot_table(productName, northStore, southStore, eastStore, westStore,  centralStore) values('Couch', null, null, null, null, 54);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 create table leadtable(c1 int primary key auto_increment, c2 int);
 
@@ -2858,8 +2957,11 @@ INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE, paymentType) values (5020
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE, paymentType) values (5034,120.16,'1996-11-03 13:37',null,1003, 'Direct', 'COD');
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE, paymentType) values (5001,325.23,'1996-11-04 15:21',null,1002, 'Direct', 'GPay');
 
+update orders set type='Online';
+update orders set type='Cash' where paymentType='COD';
+
 update orders set registered=true where type='Online';
-update orders set registered=false where type='Direct';
+update orders set registered=false where type='Cash';
 
 UPDATE ord SET STATUS = 'In Process' WHERE (ORDID = '601');
 UPDATE ord SET STATUS = 'On Hold' WHERE (ORDID = '602');
