@@ -122,25 +122,88 @@ drop table if exists fullname;
 drop table if exists numbers;
 drop table if exists shop;
 drop table if exists leading_zeroes;
-drop table if exists COALESCE2;
+drop table if exists stages;
+drop table if exists order_items;
+drop table if exists Teams;
+DROP TABLE IF EXISTS batch_schedule;
+DROP TABLE IF EXISTS city;
+DROP TABLE IF EXISTS cricket_Teams;
+DROP TABLE IF EXISTS order1;
+DROP TABLE IF EXISTS sales1;
+DROP TABLE IF EXISTS null1;
+DROP TABLE IF EXISTS null2;
+DROP TABLE IF EXISTS ClassAndSubjects;
+DROP TABLE IF EXISTS swapCity;
+DROP TABLE IF EXISTS atm;
+DROP TABLE IF EXISTS sourceCity;
+DROP TABLE IF EXISTS targetCity;
 
-CREATE TABLE COALESCE2 (
-    CenterID VARCHAR(10),
-    Case_ID INT,
-    Stage1 DATE,
-    Stage2 DATE,
-    Stage3 DATE,
-    Stage4 DATE,
-    Stage5 DATE
-);
 
-INSERT INTO COALESCE2 (CenterID, Case_ID, Stage1, Stage2, Stage3, Stage4, Stage5) VALUES
-('C1', 1, '2024-01-01', NULL, NULL, '2024-01-13', NULL),
-('C1', 2, '2024-01-05', '2024-01-10', NULL, NULL, NULL),
-('C2', 3, NULL, '2024-01-10', NULL, NULL, '2024-01-20'),
-('C3', 4, '2024-01-05',  '2024-01-12', '2024-01-12', '2024-01-14', '2024-01-20'),
-('C3', 5, '2024-01-10', '2024-01-15', NULL, NULL, NULL),
-('C3', 6, NULL, NULL, NULL, '2024-01-15', NULL);
+create table sourceCity(id int, cityName varchar(10));
+create table targetCity(id int, cityName varchar(10));
+
+insert into sourceCity values(1,'Baroda'),(2,'Surat'),(3,'Rajkot'),(4,'Anand');
+insert into targetCity values(1,'Baroda'),(2,'Surat'),(4,'Bharuch'),(5,'Bhuj');
+
+Create table atm (transactionID int, merchantID int, credit_card_id int, amount int);
+
+insert into atm values (1, 101, 1, 100), (2, 101, 1, 100), (3, 101, 1, 100), (4, 102, 2, 300), (5, 102, 2, 400), (6, 103, 1, 150), (7, 103, 2, 225), (8, 104, 1, 127), (9, 104, 3, 145);
+
+create table swapCity(id int, ename varchar(10), cityName varchar(10));
+
+insert into swapCity values(1,'Saleel','Baroda'), (2,'Sharmin','Rajkot'), (3,'Vrushali','Surat'), (4,'Ruhan','Bharuch'), (5,'Nitish','Jamnagar'), (6,'Deep','Anand'), (7,'Neel','Bhuj');
+
+create table ClassAndSubjects (class char, subjects varchar(10));
+insert into ClassAndSubjects values('A','Maths'), ('B','English'), ('A','Science'), ('B','History'), ('A','Physics'), ('B','Maths'), ('A','Biology'), ('B','Social'), ('A','English'), ('B','Chemistry');
+
+create table null1(id int, productName varchar(10));
+create table null2(id int, price int);
+
+insert into null1 values(1, 'Bread'),(2, 'Cheese'), (3, 'Butter'), (null, 'Jam');
+insert into null2 values(1, 45),(2, 175), (3, 125), (null, 120), (null, 140);
+
+CREATE TABLE sales1 (salesID INT PRIMARY KEY, customerName VARCHAR(100), amount DECIMAL(10,2), status_flags INT);
+
+INSERT INTO sales1 VALUES (1, 'Saleel', 100.00, 3);
+INSERT INTO sales1 VALUES (2, 'Sharmin', 80.00, 5);
+INSERT INTO sales1 VALUES (3, 'Vrishali', 120.00, 19);
+INSERT INTO sales1 VALUES (4, 'Ruhan', 1134.00, 7);
+INSERT INTO sales1 VALUES (5, 'Bandish', 534.00, 9);
+INSERT INTO sales1 VALUES (6, 'Supriya', 153.00, 4);
+INSERT INTO sales1 VALUES (7, 'Nitish', 102.00, 2);
+INSERT INTO sales1 VALUES (8, 'Neel', 78.00, 4);
+INSERT INTO sales1 VALUES (9, 'KAushal', 38.00, 6);
+
+CREATE TABLE order1 (CustomerId INT, ItemId INT, ItemName VARCHAR(100), Quantity INT, Price INT);
+
+INSERT INTO order1 VALUES(1,1,'Butter',3,35), (1,2,'Bread',1,20), (1,3,'Soap',4,23), (1,4,'Biscuit',2,15), (2,10,'Chocolate',8,10), (2,11,'Ice-Cream',1,40), (2,12,'Almonds',2,110), (2,13,'Coke',5,25), (3,12,'Almonds',7,110), (3,13,'Coke',8,25);
+
+CREATE TABLE cricket_Teams (Team_Names Varchar(100));
+
+INSERT INTO cricket_Teams VALUES ('India'),('Pakistan'),('Australia'),('Afghanistan');
+
+Create table city(id int, CityName varchar(100));
+
+insert into city(id ,CityName) values (1,'Baroda'), (2,'Surat'), (3,'Bharuch'), (4,'Rajkot'), (5,'Jamnagar');
+
+create table batch_schedule(batchID int primary key auto_increment, batchName varchar(10), startDate date, endDate date);
+
+insert into batch_schedule values(default, 'Batch-1','2015-02-01', '2015-02-04'), (default, 'Batch-1','2015-02-02', '2015-02-05'),(default, 'Batch-1',  '2015-02-03', '2015-02-07'), (default, 'Batch-1','2015-02-04', '2015-02-06'), (default, 'Batch-1',  '2015-02-06', '2015-02-09'), (default, 'Batch-1','2015-02-08', '2015-02-10'), (default, 'Batch-1','2015-02-10', '2015-02-11');
+
+
+CREATE TABLE Teams (TeamID INT PRIMARY KEY, Members TEXT);
+
+INSERT INTO Teams (TeamID, Members) VALUES(1, 'Chris, Evan, Marty, Eva'),(2, 'Jake, Olivia'),(3, 'Sophia, Liam, Noah, Emma'),(4, 'Ava, Lucas, Mia, Ethan, Amelia'),(5, 'Benjamin, Charlotte'),(6, 'Harper, Henry, Evelyn, Daniel, Ella'),(7, 'Michael, Emily, Alexander'),(8, 'James, Abigail, William, Isabella, Jack, Grace'),(9, 'Sebastian, Chloe'),(10, 'David, Lily, Samuel, Madison');
+
+
+CREATE TABLE order_items (orderdate DATE, item VARCHAR(255));
+
+INSERT INTO order_items (orderdate, item) VALUES ('2024-03-01', 'Apple'), ('2024-03-01', 'Banana'), ('2024-03-01', 'Apple'), ('2024-03-02', 'Orange'), ('2024-03-02', 'Orange'), ('2024-03-02', 'Mango'), ('2024-03-03', 'Banana'), ('2024-03-03', 'Banana'), ('2024-03-03', 'Mango'), ('2024-03-03', 'Mango'),('2024-03-01', 'Grapes'), ('2024-03-01', 'Grapes'), ('2024-03-01', 'Banana'), ('2024-03-02', 'Orange'), ('2024-03-02', 'Kiwi'), ('2024-03-02', 'Mango'), ('2024-03-03', 'Kiwi'), ('2024-03-03', 'Banana'), ('2024-03-03', 'Kiwi'), ('2024-03-03', 'Grapes');
+
+
+CREATE TABLE stages(CenterID VARCHAR(10), Case_ID INT, Stage1 DATE, Stage2 DATE, Stage3 DATE, Stage4 DATE, Stage5 DATE);
+
+INSERT INTO stages(CenterID, Case_ID, Stage1, Stage2, Stage3, Stage4, Stage5) VALUES ('C1', 1, '2024-01-01', NULL, NULL, '2024-01-13', NULL), ('C1', 2, '2024-01-05', '2024-01-10', NULL, NULL, NULL), ('C2', 3, NULL, '2024-01-10', NULL, NULL, '2024-01-20'), ('C3', 4, '2024-01-05',  '2024-01-12', '2024-01-12', '2024-01-14', '2024-01-20'), ('C3', 5, '2024-01-10', '2024-01-15', NULL, NULL, NULL), ('C3', 6, NULL, NULL, NULL, '2024-01-15', NULL);
 
 
 create table leading_zeroes(c1 int); 
@@ -874,8 +937,8 @@ insert into runningServer values(6,'server-6'), (9,'server-9'), (7,'server-7'), 
 
 
 
-create table r(c1 int); 
-insert into r values(-2), (1),(2),(-1),(3),(-2), (1), (2), (1);
+create table r(id int primary key auto_increment, c1 int); 
+insert into r(c1) values(-2), (null),(1),(2),(-1),(null),(3),(-2),(null), (1), (5), (2), (null), (1),(null);
 
 
 create table plumber(pid int, name varchar(20));
@@ -2139,6 +2202,11 @@ VALUES ('1675', '1987-02-01', '1987-02-06', '626', '1987-01-31', '107', null);
  
 INSERT INTO ord (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)  
 VALUES ('250', '1987-02-14', '1987-02-22', '627', '1987-02-13', '100', null);
+
+INSERT INTO ord VALUES (628, '1987-03-13 00:00:00', 'A', 100, '1987-03-14 00:00:00','1987-03-15 00:00:00', 'Shipped', 473.93);
+INSERT INTO ord VALUES (629, '1987-03-14 00:00:00', 'A', 100, '1987-03-16 00:00:00','1987-03-17 00:00:00', 'Shipped', 289.99);
+INSERT INTO ord VALUES (630, '1987-02-21 00:00:00', 'D', 104, '1987-02-22 00:00:00','1987-02-23 00:00:00', 'Delivered', 362.12);
+INSERT INTO ord VALUES (631, '1987-02-23 00:00:00', 'F', 104, '1987-02-23 00:00:00','1987-02-24 00:00:00', 'Delivered', 232.87);
 
 
 INSERT INTO ITEM (QTY, PRODID, ORDID, ITEMTOT, ITEMID, ACTUALPRICE)
