@@ -122,12 +122,14 @@ drop table if exists fullname;
 drop table if exists numbers;
 drop table if exists shop;
 drop table if exists leading_zeroes;
+
+/* ------------------------------ */
 drop table if exists stages;
 drop table if exists order_items;
 drop table if exists Teams;
 DROP TABLE IF EXISTS batch_schedule;
 DROP TABLE IF EXISTS city;
-DROP TABLE IF EXISTS cricket_Teams;
+DROP TABLE IF EXISTS ipl;
 DROP TABLE IF EXISTS order1;
 DROP TABLE IF EXISTS sales1;
 DROP TABLE IF EXISTS null1;
@@ -135,9 +137,185 @@ DROP TABLE IF EXISTS null2;
 DROP TABLE IF EXISTS ClassAndSubjects;
 DROP TABLE IF EXISTS swapCity;
 DROP TABLE IF EXISTS atm;
+
 DROP TABLE IF EXISTS sourceCity;
 DROP TABLE IF EXISTS targetCity;
 
+DROP TABLE IF EXISTS cricketWinnerTeam;
+DROP TABLE IF EXISTS brands;
+
+DROP TABLE IF EXISTS food_category_tags;
+DROP TABLE IF EXISTS food_items;
+
+DROP TABLE IF EXISTS Activity;
+
+DROP TABLE IF EXISTS bitwise;
+DROP TABLE IF EXISTS airline_seats;
+
+DROP TABLE IF EXISTS Facebook;
+DROP TABLE IF EXISTS LinkedIn;
+DROP TABLE IF EXISTS student;
+DROP TABLE IF EXISTS room_assigned;
+DROP TABLE IF EXISTS overlapping_dates;
+
+create table overlapping_dates(id int primary key auto_increment ,start_Date date, end_Date date);
+
+insert into overlapping_Dates values(default, '2025-01-01','2025-01-12');
+insert into overlapping_Dates values(default, '2025-01-18','2025-01-22');
+insert into overlapping_Dates values(default, '2025-01-07','2025-01-15');
+insert into overlapping_Dates values(default, '2025-01-23','2025-01-26');
+insert into overlapping_Dates values(default, '2025-01-26','2025-01-28');
+create table room_assigned(studentID int, roomNumber int, startDate date, endDate date);
+
+insert into room_assigned values(1001,1,'2025-02-19','2025-03-14'); 
+insert into room_assigned values(1002,2,'2025-04-13','2025-05-18'); 
+insert into room_assigned values(1003,3,'2025-03-23','2025-06-23'); 
+insert into room_assigned values(1005,4,'2025-06-14','2025-07-07'); 
+insert into room_assigned values(1006,1,'2025-04-09','2025-06-19');
+insert into room_assigned values(1007,2,'2025-03-08','2025-03-31'); 
+insert into room_assigned values(1008,3,'2025-06-28','2025-07-29'); 
+insert into room_assigned values(1009,5,'2025-07-21','2025-09-13'); 
+insert into room_assigned values(1010,6,'2025-05-16','2025-06-30'); 
+insert into room_assigned values(1011,5,'2025-11-05','2025-12-25'); 
+insert into room_assigned values(1012,4,'2025-06-05','2025-07-29');
+insert into room_assigned values(1013,9,'2025-08-03','2025-09-17');
+
+insert into room_assigned values(1005,4,'2024-06-14','2025-07-07'); 
+insert into room_assigned values(1006,1,'2024-04-09','2024-12-19');
+insert into room_assigned values(1007,2,'2024-03-08','2024-11-30'); 
+insert into room_assigned values(1008,3,'2024-06-28','2025-03-12'); 
+insert into room_assigned values(1009,5,'2024-01-21','2025-01-27'); 
+
+create table airline_seats(seat_id int, flight_id int, seat_number varchar(20), features int );
+
+INSERT INTO airline_seats (seat_id, flight_id, seat_number, features) VALUES (101, 456, '12A', 73);
+INSERT INTO airline_seats (seat_id, flight_id, seat_number, features) VALUES (102, 456, '01F', 521);
+INSERT INTO airline_seats (seat_id, flight_id, seat_number, features) VALUES (103, 346, '17G', 50);
+INSERT INTO airline_seats (seat_id, flight_id, seat_number, features) VALUES (104, 101, '15H', 521);
+INSERT INTO airline_seats (seat_id, flight_id, seat_number, features) VALUES (105, 204, '09L', 336);
+INSERT INTO airline_seats (seat_id, flight_id, seat_number, features) VALUES (106, 876, '24J', 141);
+INSERT INTO airline_seats (seat_id, flight_id, seat_number, features) VALUES (107, 683, '34K', 1034);
+INSERT INTO airline_seats (seat_id, flight_id, seat_number, features) VALUES (108, 386, '13A', 73);
+
+INSERT INTO airline_seats (seat_id, flight_id, seat_number, features) VALUES (109, 372, '10K', 87);
+INSERT INTO airline_seats (seat_id, flight_id, seat_number, features) VALUES (110, 372, '11K', 91);
+INSERT INTO airline_seats (seat_id, flight_id, seat_number, features) VALUES (111, 372, '12K', 102);
+INSERT INTO airline_seats (seat_id, flight_id, seat_number, features) VALUES (112, 372, '13K', 17);
+INSERT INTO airline_seats (seat_id, flight_id, seat_number, features) VALUES (113, 372, '14K', 259);
+INSERT INTO airline_seats (seat_id, flight_id, seat_number, features) VALUES (114, 372, '15K', 105);
+
+
+INSERT INTO airline_seats (seat_id, flight_id, seat_number, features) VALUES (115, 502, '12K', 1);
+INSERT INTO airline_seats (seat_id, flight_id, seat_number, features) VALUES (116, 502, '13K', 128);
+INSERT INTO airline_seats (seat_id, flight_id, seat_number, features) VALUES (117, 502, '14K', 1);
+INSERT INTO airline_seats (seat_id, flight_id, seat_number, features) VALUES (118, 502, '15K', 128);
+INSERT INTO airline_seats (seat_id, flight_id, seat_number, features) VALUES (119, 503, '12K', 1);
+INSERT INTO airline_seats (seat_id, flight_id, seat_number, features) VALUES (120, 503, '13K', 128);
+INSERT INTO airline_seats (seat_id, flight_id, seat_number, features) VALUES (121, 503, '14K', 1);
+INSERT INTO airline_seats (seat_id, flight_id, seat_number, features) VALUES (122, 503, '15K', 128);
+
+create table bitwise(features varchar(30), bitvalue int);
+
+insert into bitwise values('Window seat',1), ('Aisle seat',2), ('Exit row',4), ('Extra legroom',8), ('Near restroom',16), ('Power outlet available',32), ('USB charging',64), ('Reclining seat',128), ('Frist class seat',256), ('Business class seat',512), ('Economy class seat',1024);
+
+CREATE TABLE Activity (machine_id INT, process_id INT, activity_type VARCHAR(10), timestamp DECIMAL(10,3));
+
+INSERT INTO Activity (machine_id, process_id, activity_type, timestamp) VALUES (0, 0, 'start', 0.712), (0, 0, 'end', 1.520), (0, 1, 'start', 3.140), (0, 1, 'end', 4.120), (1, 0, 'start', 0.550), (1, 0, 'end', 1.550), (1, 1, 'start', 0.430), (1, 1, 'end', 1.420), (2, 0, 'start', 4.100), (2, 0, 'end', 4.512), (2, 1, 'start', 2.500), (2, 1, 'end', 5.000);
+
+create table food_category_tags(tag int, type varchar(20));
+
+/* 
+fresh fruits		1 		   			- 1				= 1		(Perishable)
+vegetables			1 	        		- 1 			= 1		(Perishable)
+meat				1 and 64 and 1024  	- 1 + 64 + 1024 = 1089  (Perishable, Frozen, Meat)
+fish				1 and 64		    - 1 + 64 		= 65    (Perishable, Frozen)
+chicken				1 and 64 and 2048  	- 1 + 64 + 2048 = 2113  (Perishable, Frozen, Poultry)
+juice				2 		    		- 2				= 2		(Beverage) 
+tea					2 		    		- 2				= 2		(Beverage)
+coffee          	2 		   			- 2				= 2		(Beverage)
+coke     			2 		    		- 2				= 2		(Beverage)
+bread				4 and 32    		- 4 + 32		= 36	(Bakery, Packaged)
+cakes				4 and 32		    - 4 + 32		= 36	(Bakery, Packaged)
+butter				16 and 32 			- 16 + 32		= 48	(Dairy, Packaged)
+cheese          	16 and 32   		- 16 + 32		= 48	(Dairy, Packaged)
+cookies         	4 and 32   		    - 4 + 32		= 36	(Bakery, Packaged)
+bun					4					- 4				= 4		(Bakery)
+milk				1 and 16   		    - 1 + 16		= 17	(Perishable, Dairy)
+biscuits	    	32		    		- 32			= 32	(Packaged)
+noodles				32		    		- 32			= 32	(Packaged)
+frozen beans		64				    - 64			= 64	(Frozen)
+chicken nuggets		64					- 64			= 64	(Frozen)
+ice cream           64					- 64			= 64	(Frozen)
+pie 				4					- 4				= 4		(Bakery)
+instant noodles		512					- 512			= 512	(Instant)
+ready rotis			512					- 512			= 512	(Instant)
+frozen meals        512					- 512			= 512	(Instant)
+namkeen				256					- 256 			= 256	(Snacks)
+ladoos				1 and 256			- 1 + 256		= 257	(Perishable, Snacks)
+chips				256					- 256			= 256	(Snacks)
+samosa				256					- 256			= 256	(Snacks)
+*/
+
+insert into food_category_tags values(1,'Perishable'), (2,'Beverage'), (4,'Bakery'), (8,'Staple'), (16,'Dairy'), (32,'Packaged'), (64,'Frozen'), (128,'Spices'), (256,'Snacks'), (512,'Instant'), (1024,'Meat'), (2048,'Poultry');
+
+create table food_items(category varchar(20), tag int, type varchar(40));
+
+insert into food_items values('fresh fruits',1, '(Perishable)');
+insert into food_items values('vegetables', 1, '(Perishable)');
+insert into food_items values('meat', 1089, '(Perishable, Frozen, Meat)'); 
+insert into food_items values('fish', 65, '(Perishable, Frozen)'); 
+insert into food_items values('chicken', 2113,  '(Perishable, Frozen, Poultry)'); 
+insert into food_items values('juice', 2, '(Beverage)'); 
+insert into food_items values('tea', 2, '(Beverage)'); 
+insert into food_items values('coffee', 2, '(Beverage)'); 
+insert into food_items values('coke', 2, '(Beverage)'); 
+insert into food_items values('bread', 36, '(Bakery, Packaged)'); 
+insert into food_items values('cakes', 36,  '(Bakery, Packaged)'); 
+insert into food_items values('butter', 48 ,'(Dairy, Packaged)'); 
+insert into food_items values('cheese', 48, '(Dairy, Packaged)'); 
+insert into food_items values('cookies', 36, '(Bakery, Packaged)'); 
+insert into food_items values('milk', 17, '(Perishable, Dairy)'); 
+insert into food_items values('biscuits', 32, '(Packaged)'); 
+insert into food_items values('noodles', 32, '(Packaged)'); 
+insert into food_items values('frozen beans', 64, '(Frozen)'); 
+insert into food_items values('chicken nuggets', 64, '(Frozen)'); 
+insert into food_items values('ice cream', 64, '(Frozen)'); 
+insert into food_items values('instant noodles',  512, '(Instant)'); 
+insert into food_items values('ready rotis', 512, '(Instant)'); 
+insert into food_items values('frozen meals', 512, '(Instant)');
+insert into food_items values('namkeen', 256, '(Snacks)'); 
+insert into food_items values('ladoos', 257, '(Perishable, Snacks)'); 
+insert into food_items values('chips', 256, '(Snacks)'); 
+insert into food_items values('samosa', 256, '(Snacks)');
+insert into food_items values('bun', 4, '(Bakery)');
+insert into food_items values('pai', 4, '(Bakery)');
+insert into food_items values('rice', 8, '(Staple)');
+insert into food_items values('wheat', 8, '(Staple)');
+
+
+create table brands(category varchar(20), brandName varchar(20));
+
+insert into brands values('chocolates','5-star'),(null,'dairy milk'),(null,'perk'),(null,'eclair'),('Biscuits','britannia'),(null,'good day'),(null,'boost');
+
+create table cricketWinnerTeam(Team1 varchar(20), Team2 varchar(20), winner varchar(20));
+
+INSERT INTO cricketWinnerTeam values('India','SL','India');
+INSERT INTO cricketWinnerTeam values('SL','Aus','Aus');
+INSERT INTO cricketWinnerTeam values('SA','Eng','Eng');
+INSERT INTO cricketWinnerTeam values('Eng','NZ','NZ');
+INSERT INTO cricketWinnerTeam values('Aus','India','India');
+
+CREATE TABLE student(studentID INT PRIMARY KEY, name VARCHAR(45));
+
+CREATE TABLE Facebook(facebookID INT PRIMARY KEY, studentID INT, name VARCHAR(45), location VARBINARY(45));
+
+CREATE TABLE LinkedIn(linkedInID INT PRIMARY KEY, studentID INT, name VARCHAR(45), location VARBINARY(45));
+
+insert into student values(1001, 'Saleel'), (1002, 'Sharmin'), (1003, 'Vrushali'), (1005, 'Ruhan'), (1006, 'Neel'), (1007, 'Deep'), (1008, 'Nitish'), (1009, 'Gau'), (1010, 'Mai'), (1011, 'Bipin'), (1012, 'Natasha'), (1013, 'Bandish');
+
+insert into Facebook values(1, 1006, 'Gabbar Singh', 'Nasik'), (2, 1008, 'Shadow King', 'Pune'), (3, 1009, 'FB Star', 'Pune'), (4, 1010, 'ʛʜost Ʀiɗɘʀ', 'Pune'), (5, 1011, 'The Rockstar', 'Pune');
+
+insert into LinkedIn values(1, 1006, 'Neel Save', 'Nasik'), (2, 1008, 'Nitish Patil', 'Pune'), (3, 1009, 'Gaurav', 'Pune'), (4, 1001, 'Saleel', 'Baroda'), (5, 1002, 'Sharmin', 'Pune');
 
 create table sourceCity(id int, cityName varchar(10));
 create table targetCity(id int, cityName varchar(10));
@@ -178,9 +356,9 @@ CREATE TABLE order1 (CustomerId INT, ItemId INT, ItemName VARCHAR(100), Quantity
 
 INSERT INTO order1 VALUES(1,1,'Butter',3,35), (1,2,'Bread',1,20), (1,3,'Soap',4,23), (1,4,'Biscuit',2,15), (2,10,'Chocolate',8,10), (2,11,'Ice-Cream',1,40), (2,12,'Almonds',2,110), (2,13,'Coke',5,25), (3,12,'Almonds',7,110), (3,13,'Coke',8,25);
 
-CREATE TABLE cricket_Teams (Team_Names Varchar(100));
+CREATE TABLE ipl (Team_Names Varchar(100));
 
-INSERT INTO cricket_Teams VALUES ('India'),('Pakistan'),('Australia'),('Afghanistan');
+INSERT INTO ipl VALUES ('PBKS'),('RCB'),('GT'),('MI');
 
 Create table city(id int, CityName varchar(100));
 
@@ -405,7 +583,7 @@ insert into job_list values(default, null, 'React');
 insert into job_list values(default, null, 'Javascript');
 insert into job_list values(default, null, 'Angular');
 insert into job_list values(default, null, 'Express');
-insert into job_list values(default, 'Data Scientsst', 'Python');
+insert into job_list values(default, 'Data Scientists', 'Python');
 insert into job_list values(default, null, 'ML');
 insert into job_list values(default, null, 'AI');
 insert into job_list values(default, null, 'Ruby');
@@ -763,14 +941,14 @@ create table traintimetable(id int auto_increment primary key, trainID int, stat
 insert into traintimetable(id, trainID, stationname, timing) values(default, 22863, 'mumbai central', '08:30:00');
 insert into traintimetable(id, trainID, stationname, timing) values(default, 22863, 'surat', '12:40:13');
 insert into traintimetable(id, trainID, stationname, timing) values(default, 22863, 'baroda', '14:42:00');
-insert into traintimetable(id, trainID, stationname, timing) values(default, 22863, 'ahmedabad JN', '17:10:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 22863, 'ahmednagar JN', '17:10:00');
 insert into traintimetable(id, trainID, stationname, timing) values(default, 22863, 'surendranagar', '20:00:00');
 insert into traintimetable(id, trainID, stationname, timing) values(default, 22863, 'rajkot JN', '23:40:00');
 insert into traintimetable(id, trainID, stationname, timing) values(default, 22863, 'hapa', '00:05:00');
 insert into traintimetable(id, trainID, stationname, timing) values(default, 22868, 'pune JN', '17:20:00');
 insert into traintimetable(id, trainID, stationname, timing) values(default, 22868, 'uruli', '17:47:13');
 insert into traintimetable(id, trainID, stationname, timing) values(default, 22868, 'daund chord line', '18:27:00');
-insert into traintimetable(id, trainID, stationname, timing) values(default, 22868, 'ahmadnagar', '20:10:00');
+insert into traintimetable(id, trainID, stationname, timing) values(default, 22868, 'ahmednagar', '20:10:00');
 insert into traintimetable(id, trainID, stationname, timing) values(default, 22868, 'belapur', '21:15:00');
 insert into traintimetable(id, trainID, stationname, timing) values(default, 22868, 'kopargaon', '21:57:00');
 insert into traintimetable(id, trainID, stationname, timing) values(default, 22868, 'manmad JN', '23:25:13');
@@ -1676,7 +1854,7 @@ INSERT into STATUS values(default, 1,'New');
 INSERT into STATUS values(default, 2,'Draft');
 INSERT into STATUS values(default, 4,'Approved');
 INSERT into STATUS values(default, 8,'Rejected');
-INSERT into STATUS values(default, 16,'Cancle');
+INSERT into STATUS values(default, 16,'Cancel');
 insert into STATUS values(default, 32,'In Process');
 insert into STATUS values(default, 64,'Send');
 insert into STATUS values(default, 128,'Hold');
@@ -1933,7 +2111,7 @@ INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BO
 INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7369,'SMITH','M','CLERK',7902,'1980-12-17',800,NULL,20,2, false);
 INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7788,'SCOTT','M','ANALYST',7566,'1982-12-09',3000,NULL,20,3,true);
 INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7876,'ADAMS','M','CLERK',7788,'1983-01-12',1100,NULL,20,1, true);
-INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7934,'MILLER','M','CLERK',7782,'1982-01-23',1300,NULL,10,2, false);
+INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7934,'MILLER','M','CLERK',7782,'1982-01-23',1300,1300,10,2, false);
 INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7949,'ALEX','M','MANAGER',7698,'1982-01-24',1250,500,30,5, true);
 INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7945,'AARUSH','M','SALESMAN',7902,'1980-02-14',1350,2700,30,NULL,false);
 INSERT INTO EMP (EMPNO, ENAME, GENDER, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO, BONUSID, isActive) VALUES (7415,'AARAV','M','CLERK',7902,'1981-12-31',3350,NULL,10,null,false);
