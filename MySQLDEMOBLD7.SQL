@@ -121,7 +121,7 @@ drop table if exists fullname;
 drop table if exists numbers;
 drop table if exists shop;
 drop table if exists leading_zeroes;
-
+drop table if exists x;
 /* ------------------------------ */
 drop table if exists stages;
 drop table if exists order_items;
@@ -173,6 +173,52 @@ DROP TABLE IF EXISTS rooms;
 DROP TABLE IF EXISTS room_staff;
 
 DROP TABLE IF EXISTS fruits;
+
+DROP TABLE IF EXISTS years;
+DROP TABLE IF EXISTS year_of_service;
+
+CREATE TABLE years (c1 year);
+
+INSERT into years with recursive cte as(select 2000 n union select n + 1 from cte where n <  year(curdate())) select * from cte;
+
+CREATE TABLE year_of_service(id int primary key auto_increment, year_of_service date);
+truncate table year_of_service;
+
+INSERT into year_of_service VALUES (default, '2021-05-30');
+INSERT into year_of_service VALUES (default, '2022-09-12');
+INSERT into year_of_service VALUES (default, '2023-11-19');
+INSERT into year_of_service VALUES (default, '2024-02-01');
+INSERT into year_of_service VALUES (default, '2025-08-04');
+INSERT into year_of_service VALUES (default, '2024-07-21');
+INSERT into year_of_service VALUES (default, '2022-12-18');
+INSERT into year_of_service VALUES (default, '2020-02-07');
+INSERT into year_of_service VALUES (default, '2027-09-23');
+INSERT into year_of_service VALUES (default, '2030-11-01');
+INSERT into year_of_service VALUES (default, '2024-06-19');
+INSERT into year_of_service VALUES (default, '2025-05-18');
+INSERT into year_of_service VALUES (default, '2023-01-30');
+INSERT into year_of_service VALUES (default, '2028-11-18');
+INSERT into year_of_service VALUES (default, '2026-02-07');
+INSERT into year_of_service VALUES (default, '2026-03-26');
+INSERT into year_of_service VALUES (default, '2021-03-12');
+INSERT into year_of_service VALUES (default, '2024-05-19');
+INSERT into year_of_service VALUES (default, '2026-11-01');
+INSERT into year_of_service VALUES (default, '2027-05-04');
+INSERT into year_of_service VALUES (default, '2026-06-21');
+INSERT into year_of_service VALUES (default, '2023-11-01');
+INSERT into year_of_service VALUES (default, '2022-05-04');
+INSERT into year_of_service VALUES (default, '2024-06-21');
+INSERT into year_of_service VALUES (default, '2029-05-04');
+INSERT into year_of_service VALUES (default, '2027-06-21');
+INSERT into year_of_service VALUES (default, '2028-11-18');
+INSERT into year_of_service VALUES (default, '2029-02-07');
+INSERT into year_of_service VALUES (default, '2030-03-26');
+INSERT into year_of_service VALUES (default, '2026-09-23');
+INSERT into year_of_service VALUES (default, '2023-11-18');
+INSERT into year_of_service VALUES (default, '2020-02-07');
+INSERT into year_of_service VALUES (default, '2023-03-26');
+INSERT into year_of_service VALUES (default, '2020-09-23');
+
 
 CREATE TABLE fruits(product varchar(15), amount int, country varchar(10)); 
 
@@ -3454,9 +3500,6 @@ insert into stringNumber values('vrushali56731');
 insert into stringNumber values('bandish836379');
 insert into stringNumber values('ajay7657822');
 
+CREATE TABLE x(c1 date);
+
 commit;
-
-
-
-
-
