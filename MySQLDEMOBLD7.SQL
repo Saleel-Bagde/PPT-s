@@ -177,6 +177,13 @@ DROP TABLE IF EXISTS fruits;
 DROP TABLE IF EXISTS years;
 DROP TABLE IF EXISTS year_of_service;
 
+DROP TABLE IF EXISTS category;
+
+CREATE TABLE category(Category varchar(50), SubCategory varchar(50), Price int);
+
+INSERT into category values('Chips', 'Bingo', 10), ('Chips', 'Lays', 40), ('Chips', 'Kurkure', 60), ('Chocolate', 'Dairy Milk', 120), ('Chocolate', 'Five Star', 40), ('Chocolate', 'Perk', 25), ('Chocolate', 'Munch', 5), ('Biscuits', 'Oreo', 120), ('Sauce','Kissan', 30);
+
+
 CREATE TABLE years (c1 year);
 
 INSERT into years with recursive cte as(select 2000 n union select n + 1 from cte where n <  year(curdate())) select * from cte;
