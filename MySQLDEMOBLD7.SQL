@@ -179,6 +179,26 @@ DROP TABLE IF EXISTS year_of_service;
 
 DROP TABLE IF EXISTS category;
 
+DROP TABLE IF EXISTS cashPayments;
+DROP TABLE IF EXISTS cardPayments;
+
+DROP TABLE IF EXISTS repeatingNumbers;
+
+CREATE TABLE repeatingNumbers(num int);
+
+INSERT into repeatingNumbers values(1),(2),(3),(4);
+
+CREATE TABLE cashPayments(student_id int, student_name varchar(10), amount int);
+
+CREATE TABLE cardPayments(student_id int, student_name varchar(10), amount int);
+
+INSERT into cashPayments values(27,'saleel',4000),(43,'sharmin',2000),(25,'ruhan',2600),(41,'vrushali',2200),(20,'nitish',3200),(7,'neel',3400),(14,'bandish',3200),(17,'naresh',3400),(27,'saleel',4000);
+
+INSERT into cardPayments values(43,'sharmin',2300),(9,'bhuru',3200),(63,'bhavin',3000),(39,'boy',3400),(20,'nitish',1200),(27,'saleel',4000),(27,'saleel',4000);
+
+
+
+
 CREATE TABLE category(Category varchar(50), SubCategory varchar(50), Price int);
 
 INSERT into category values('Chips', 'Bingo', 10), ('Chips', 'Lays', 40), ('Chips', 'Kurkure', 60), ('Chocolate', 'Dairy Milk', 120), ('Chocolate', 'Five Star', 40), ('Chocolate', 'Perk', 25), ('Chocolate', 'Munch', 5), ('Biscuits', 'Oreo', 120), ('Sauce','Kissan', 30);
@@ -3306,13 +3326,16 @@ INSERT into SALESPEOPLE(SNUM, SNAME, CITY, COMM) values (1009,'Leo','Wells',.26)
 
 INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2001,'Santosh','London',100,1001);
 INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2002,'Joe','Rome',200,1003);
+INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (1001,'Saleel','Baroda',250,1007);
 INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2003,'Raj','San Jose',200,1002);
 INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2004,'Grass','Berlin',300,1002);
 INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2006,'Raja','London',100,1001);
+INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (1037,'Nitish','Pune',250,1007);
 INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2008,'William','San Jose',300,1007);
 INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2007,'Jackson','Rome',100,1004);
 INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2009,'Smith','Berlin',300,1007);
 INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2010,'ADAMS','Berlin',250,1007);
+
 
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3001,18.69,'1996-10-03 12:30', 2008, 1007, 'Online','Credit Cards');
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3003,767.19,'1996-10-03 13:45', 2001, 1001, 'Online','Debit Cards');
