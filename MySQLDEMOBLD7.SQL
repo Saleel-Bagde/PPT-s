@@ -184,6 +184,15 @@ DROP TABLE IF EXISTS cardPayments;
 
 DROP TABLE IF EXISTS repeatingNumbers;
 
+DROP TABLE IF EXISTS cNumbers;
+
+
+
+CREATE TABLE cNumbers(id INT PRIMARY KEY auto_increment,num INT);
+  
+insert into cNumbers values (default, 1),(default, 1),(default, 1),(default, 2),(default, 1),(default, 2),(default, 2),(default, 7),(default, 7),(default, 7),(default, 5),(default, 5),(default, 2),(default, 4),(default, 4),(default, 4);
+
+
 CREATE TABLE repeatingNumbers(num int);
 
 INSERT into repeatingNumbers values(1),(2),(3),(4);
