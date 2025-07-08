@@ -118,7 +118,7 @@ drop table if exists sourceNames;
 drop table if exists targetNames;
 drop table if exists phonecall;
 drop table if exists fullname;
-drop table if exists numbers;
+drop table if exists missingNumbers;
 drop table if exists shop;
 drop table if exists leading_zeroes;
 drop table if exists x;
@@ -186,7 +186,23 @@ DROP TABLE IF EXISTS repeatingNumbers;
 
 DROP TABLE IF EXISTS cNumbers;
 
+DROP TABLE IF EXISTS fedex;
+DROP TABLE IF EXISTS ups;
+DROP TABLE IF EXISTS dhl;
 
+create table fedex(tracking_id varchar(20), carrier varchar(20), status varchar(20), delivery_date date);
+
+create table dhl(tracking_id varchar(20), carrier varchar(20), status varchar(20), delivery_date date);
+
+create table ups(tracking_id varchar(20), carrier varchar(20), status varchar(20), delivery_date date);
+
+INSERT INTO FEDEX(tracking_id, carrier, status, delivery_date) VALUES ('FEDEX100001', 'FedEx', 'Dispatched', '2025-07-04'), ('FEDEX100002', 'FedEx', 'In Transit', '2025-07-05'), ('FEDEX100003 ', 'FedEx', 'Delivered', '2025-07-03'), ('FEDEX100004', 'FedEx', 'Out for Delivery', '2025-07-07'), ('FEDEX100005', 'FedEx', 'Delayed', '2025-07-08');
+
+
+INSERT INTO dhl(tracking_id, carrier, status, delivery_date) VALUES ('DHL100021', 'DHL', 'Delivered', '2025-07-04'), ('DHL100022', 'DHL', 'In Transit', '2025-07-05'), ('DHL100023', 'DHL', 'Dispatched', '2025-07-06'), ('DHL100024', 'DHL', 'Out for Delivery', '2025-07-07'), ('DHL100025', 'DHL', 'Delayed', '2025-07-08'), ('DHL100026', 'DHL', 'In Transit', '2025-07-03');
+
+
+INSERT INTO ups(tracking_id, carrier, status, delivery_date) VALUES  ('UPS100032', 'UPS', 'Delivered', '2025-07-01'), ('UPS100033', 'UPS', 'Dispatched', '2025-07-07'), ('UPS100034', 'UPS', 'Out for Delivery', '2025-07-08'), ('UPS100035', 'UPS', 'Delayed', '2025-07-09'), ('UPS100036', 'UPS', 'In Transit', '2025-07-03'), ('UPS100037', 'UPS', 'Delivered', '2025-07-05'), ('UPS100038', 'UPS', 'Dispatched', '2025-07-06'), ('UPS100039', 'UPS', 'Out for Delivery', '2025-07-04'), ('UPS100040', 'UPS', 'Delayed', '2025-07-12');
 
 CREATE TABLE cNumbers(id INT PRIMARY KEY auto_increment,num INT);
   
@@ -585,7 +601,7 @@ INSERT INTO stages(CenterID, Case_ID, Stage1, Stage2, Stage3, Stage4, Stage5) VA
 create table leading_zeroes(c1 int); 
 insert into leading_zeroes values(7), (18), (299);
 
-create table numbers(id int);
+
 
 create table shop (itemName varchar(20), color varchar(20),size varchar(20), quantity int);
 
@@ -637,24 +653,25 @@ insert into shop values("Jeans", "white", "small", 23);
 insert into shop values("Jeans", "grey", "small", 12);
 insert into shop values("Jeans", "grey", "medium", 7);
 
+create table missingNumbers(id int);
 
-insert into numbers values(1);
-insert into numbers values(2);
-insert into numbers values(3);
-insert into numbers values(4);
-insert into numbers values(6);
-insert into numbers values(7);
-insert into numbers values(8);
-insert into numbers values(9);
-insert into numbers values(15);
-insert into numbers values(16);
-insert into numbers values(19);
-insert into numbers values(20);
-insert into numbers values(21);
-insert into numbers values(22);
-insert into numbers values(25);
-insert into numbers values(26);
-insert into numbers values(27);
+insert into missingNumbers values(1);
+insert into missingNumbers values(2);
+insert into missingNumbers values(3);
+insert into missingNumbers values(4);
+insert into missingNumbers values(6);
+insert into missingNumbers values(7);
+insert into missingNumbers values(8);
+insert into missingNumbers values(9);
+insert into missingNumbers values(15);
+insert into missingNumbers values(16);
+insert into missingNumbers values(19);
+insert into missingNumbers values(20);
+insert into missingNumbers values(21);
+insert into missingNumbers values(22);
+insert into missingNumbers values(25);
+insert into missingNumbers values(26);
+insert into missingNumbers values(27);
 
 create table fullname(id int primary key auto_increment, ename varchar(100));
 
