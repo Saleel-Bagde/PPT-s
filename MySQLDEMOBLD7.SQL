@@ -139,6 +139,7 @@ DROP TABLE IF EXISTS sales1;
 DROP TABLE IF EXISTS null1;
 DROP TABLE IF EXISTS null2;
 
+
 DROP TABLE IF EXISTS ClassAndSubjects;
 
 DROP TABLE IF EXISTS swapCity;
@@ -192,11 +193,23 @@ DROP TABLE IF EXISTS repeatingNumbers;
 
 DROP TABLE IF EXISTS countNumbers;
 
+DROP TABLE IF EXISTS countNulls;
+
 DROP TABLE IF EXISTS cNumbers;
+
 
 DROP TABLE IF EXISTS fedex;
 DROP TABLE IF EXISTS ups;
 DROP TABLE IF EXISTS dhl;
+
+
+create table countNulls(id int primary key AUTO_INCREMENT, ename varchar(10), city varchar(20), phone int);
+
+insert into countNulls(ename, city, phone) values('saleel','baroda',null);
+insert into countNulls(ename, city, phone) values('sharmin','pune',null);
+insert into countNulls(ename, city, phone) values('ruhan',null,1111);
+insert into countNulls(ename, city, phone) values('vrushali', null, 2222);
+insert into countNulls(ename, city, phone) values('neel',null,3333);
 
 
 Create table countNumbers(id int primary key auto_increment, c1 int);
