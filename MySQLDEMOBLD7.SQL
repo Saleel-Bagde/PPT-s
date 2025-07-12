@@ -133,6 +133,7 @@ DROP TABLE IF EXISTS batch_schedule;
 DROP TABLE IF EXISTS city;
 
 DROP TABLE IF EXISTS ipl;
+
 DROP TABLE IF EXISTS order1;
 DROP TABLE IF EXISTS sales1;
 
@@ -596,6 +597,8 @@ CREATE TABLE order1 (CustomerId INT, ItemId INT, ItemName VARCHAR(100), Quantity
 
 INSERT INTO order1 VALUES(1,1,'Butter',3,35), (1,2,'Bread',1,20), (1,3,'Soap',4,23), (1,4,'Biscuit',2,15), (2,10,'Chocolate',8,10), (2,11,'Ice-Cream',1,40), (2,12,'Almonds',2,110), (2,13,'Coke',5,25), (3,12,'Almonds',7,110), (3,13,'Coke',8,25);
 
+
+
 CREATE TABLE ipl (Team_Names Varchar(100));
 
 INSERT INTO ipl VALUES ('PBKS'),('RCB'),('GT'),('MI');
@@ -611,7 +614,7 @@ insert into batch_schedule values(default, 'Batch-1','2015-02-01', '2015-02-04')
 
 CREATE TABLE Teams (TeamID INT PRIMARY KEY, Members TEXT);
 
-INSERT INTO Teams (TeamID, Members) VALUES(1, 'Chris, Evan, Marty, Eva'),(2, 'Jake, Olivia, Brooke'),(3, 'Sophia, Brooke, Liam, Noah, Emma'),(4, 'Ava, Lucas, Mia, Ethan, Amelia'),(5, 'Benjamin, Charlotte'),(6, 'Harper, Henry, Evelyn, Daniel, Ella'),(7, 'Michael, Emily, Alexander'),(8, 'James, Abigail, William, Isabella, Jack, Grace'),(9, 'Sebastian, Chloe'),(10, 'David, Lily, Samuel, Madison');
+INSERT INTO Teams (TeamID, Members) VALUES(1, 'Saleel, Sharmin, Vrushali, Gau'),(2, 'Kaushal, Natsha, Ruhan'),(3, 'Lalu, Brooke, Boy, Naru, Bhavin'),(4, 'Bhuru, Baba, Anoop, Meera, Boy'),(5, 'Dilu, Fredy'),(6, 'Daigo, Harshil, Boy, Raju, Bothyo'),(7, 'Bandish, Supriya, Sangita'),(8, 'Monika, Karishma, William, Varsha, Jack, Grace'),(9, 'Vasant, Neel'),(10, 'Nitish, Bipin, Mai, Didi');
 
 
 CREATE TABLE order_items (orderdate DATE, item VARCHAR(255));
@@ -2445,40 +2448,44 @@ CREATE TABLE CUSTOMER (
  CONSTRAINT CUSTID_ZERO CHECK (CUSTID > 0));
 
 CREATE TABLE ORD  (
- ORDID               INT NOT NULL,
- ORDERDATE           datetime,
- COMMPLAN            varchar(1),
- CUSTID              INT NOT NULL,
- SHIPDATE            datetime,
- STATUSDATE          datetime,
- STATUS 	     VARCHAR(45),
- TOTAL               float (8,2),
+ ORDID INT NOT NULL,
+ ORDERDATE datetime,
+ COMMPLAN varchar(1),
+ CUSTID INT,
+ SHIPDATE datetime,
+ STATUSDATE datetime,
+ STATUS VARCHAR(45),
+ TOTAL float (8,2),
  CONSTRAINT TOTAL_ZERO CHECK (TOTAL >= 0),
  CONSTRAINT ORD_FOREIGN_KEY FOREIGN KEY (CUSTID) REFERENCES CUSTOMER (CUSTID),
  CONSTRAINT ORD_PRIMARY_KEY PRIMARY KEY (ORDID));
 
 CREATE TABLE ITEM  (
- ORDID               INT NOT NULL,
- ITEMID              INT NOT NULL,
- PRODID              INT,
- ACTUALPRICE         float (8,2),
- QTY                 INT,
- ITEMTOT             float (8,2),
+ ORDID INT NOT NULL,
+ ITEMID INT NOT NULL,
+ PRODID INT,
+ ACTUALPRICE float (8,2),
+ QTY INT,
+ ITEMTOT float (8,2),
  CONSTRAINT ITEM_FOREIGN_KEY FOREIGN KEY (ORDID) REFERENCES ORD (ORDID),
  CONSTRAINT ITEM_PRIMARY_KEY PRIMARY KEY (ORDID,ITEMID));
 
 CREATE TABLE PRODUCT (
- PRODID              INT,
- DESCRIP             varchar(30),
- PRICE				 INT,
+ PRODID INT,
+ DESCRIP varchar(30),
+ PRICE INT,
  CONSTRAINT PRODUCT_PRIMARY_KEY PRIMARY KEY (PRODID));
 
 CREATE TABLE PRICE (
- PRODID              INT NOT NULL,
- STDPRICE            float (8,2),
- MINPRICE            float (8,2),
- STARTDATE           datetime,
- ENDDATE             datetime);
+ PRODID INT NOT NULL,
+ STDPRICE float (8,2),
+ MINPRICE float (8,2),
+ STARTDATE datetime,
+ ENDDATE datetime);
+ 
+INSERT INTO CUSTOMER VALUES(109, 'Saleel Sports', '8 Vaibhav', 'baroda', 'GJ', '411038', 362, '9850-0483',2002, 8000, 'Very Good people');
+
+INSERT INTO CUSTOMER VALUES(110, 'Raj Sports Center', '00-22 Kala Ghoda', 'baroda', 'GJ', '411038', 232, '9833-0434',2342, 25000, 'Very Good people');
 
 INSERT INTO CUSTOMER (ZIP, STATE, REPID, PHONE, NAME, CUSTID, CREDITLIMIT,
   CITY, AREA, ADDRESS, COMMENTS)
@@ -2533,17 +2540,10 @@ VALUES ('94301', 'CA', '7521', '364-9777',
 
 INSERT INTO CUSTOMER (ZIP, STATE, REPID, PHONE, NAME, CUSTID, CREDITLIMIT,
   CITY, AREA, ADDRESS, COMMENTS)
-VALUES ('93301', 'CA', '7499', '967-4398',
- 'WOMENS SPORTS',
- '107', '10000', 'SUNNYVALE', '408', 'VALCO VILLAGE',
- 'First sporting goods store geared exclusively towards women. Unusual promotion
-al style and very willing to take chances towards new products!');
+VALUES ('93301', 'CA', '7499', '967-4398',  'WOMENS SPORTS',  '107', '10000', 'SUNNYVALE', '408', 'VALCO VILLAGE',  'First sporting goods store geared exclusively towards women. Unusual promotional style and very willing to take chances towards new products!');
 
 INSERT INTO CUSTOMER (ZIP, STATE, REPID, PHONE, NAME, CUSTID, CREDITLIMIT,
-  CITY, AREA, ADDRESS, COMMENTS)
-VALUES ('55649', 'MN', '7844', '566-9123',
- 'NORTH WOODS HEALTH AND FITNESS SUPPLY CENTER',
- '108', '8000', 'HIBBING', '612', '98 LONE PINE WAY', null);
+  CITY, AREA, ADDRESS, COMMENTS) VALUES ('55649', 'MN', '7844', '566-9123',  'NORTH WOODS', '108', '8000', 'HIBBING', '612', '98 LONE PINE WAY', null);
 
 INSERT INTO ORD (TOTAL, SHIPDATE, STATUSDATE, ORDID, ORDERDATE, CUSTID, COMMPLAN)
  VALUES ('101.4', '1987-01-08', NULL, '610', '1987-01-07', '101', 'A');
@@ -2630,6 +2630,12 @@ INSERT INTO ord VALUES (628, '1987-03-13 00:00:00', 'A', 100, '1987-03-14 00:00:
 INSERT INTO ord VALUES (629, '1987-03-14 00:00:00', 'A', 100, '1987-03-16 00:00:00','1987-03-17 00:00:00', 'Shipped', 289.99);
 INSERT INTO ord VALUES (630, '1987-02-21 00:00:00', 'D', 104, '1987-02-22 00:00:00','1987-02-23 00:00:00', 'Delivered', 362.12);
 INSERT INTO ord VALUES (631, '1987-02-23 00:00:00', 'F', 104, '1987-02-23 00:00:00','1987-02-24 00:00:00', 'Delivered', 232.87);
+
+
+INSERT INTO ord VALUES (632, '1987-03-13 00:00:00', 'A', Null, '1987-03-14 00:00:00','1987-03-15 00:00:00', 'Shipped', 473.93);
+INSERT INTO ord VALUES (633, '1987-03-14 00:00:00', 'A', Null, '1987-03-16 00:00:00','1987-03-17 00:00:00', 'Shipped', 289.99);
+INSERT INTO ord VALUES (634, '1987-02-21 00:00:00', 'D', Null, '1987-02-22 00:00:00','1987-02-23 00:00:00', 'Delivered', 362.12);
+INSERT INTO ord VALUES (635, '1987-02-23 00:00:00', 'F', Null, '1987-02-23 00:00:00','1987-02-24 00:00:00', 'Delivered', 232.87);
 
 
 INSERT INTO ITEM (QTY, PRODID, ORDID, ITEMTOT, ITEMID, ACTUALPRICE)
