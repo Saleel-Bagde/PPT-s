@@ -204,6 +204,19 @@ DROP TABLE IF EXISTS ups;
 DROP TABLE IF EXISTS dhl;
 
 
+DROP TABLE IF EXISTS trains;
+DROP TABLE IF EXISTS reservations;
+
+
+CREATE TABLE trains(trainID INT PRIMARY KEY, trainName VARCHAR(50), source VARCHAR(50), destination VARCHAR(50));
+
+CREATE TABLE reservations(reservationID INT PRIMARY KEY, trainID INT, passengerName VARCHAR(50), status VARCHAR(20));
+
+
+INSERT INTO trains(trainID, trainName, source, destination) VALUES (1, 'Rajdhani', 'Delhi', 'Mumbai'), (2, 'Shatabdi', 'Delhi', 'Bhopal'), (3, 'Duronto', 'Mumbai', 'Kolkata'), (4, 'Intercity', 'Chennai', 'Bangalore'), (5, 'Deccan Queen', 'Pune', 'Mumbai'), (6, 'Ahmedabad SF Express', 'Baroda', 'Pune'), (7, 'Bikaner Express', 'Baroda', 'Pune');
+
+INSERT INTO reservations(reservationID, trainID, passengerName, status) VALUES (201, 1, 'Saleel', 'Confirmed'),(202, 8, 'Sharmin', 'Cancelled'),(203, 9, 'Vrushali', 'Confirmed'), (204, 5, 'Ruhan', 'Confirmed'), (205, 5, 'Nitish', 'Confirmed'), (206, 8, 'Gau', 'Confirmed');
+
 create table countNulls(id int primary key AUTO_INCREMENT, ename varchar(10), city varchar(20), phone int);
 
 insert into countNulls(ename, city, phone) values('saleel','baroda',null);
