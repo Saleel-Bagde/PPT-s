@@ -215,7 +215,7 @@ CREATE TABLE reservations(reservationID INT PRIMARY KEY, trainID INT, passengerN
 
 INSERT INTO trains(trainID, trainName, source, destination) VALUES (1, 'Rajdhani', 'Delhi', 'Mumbai'), (2, 'Shatabdi', 'Delhi', 'Bhopal'), (3, 'Duronto', 'Mumbai', 'Kolkata'), (4, 'Intercity', 'Chennai', 'Bangalore'), (5, 'Deccan Queen', 'Pune', 'Mumbai'), (6, 'Ahmedabad SF Express', 'Baroda', 'Pune'), (7, 'Bikaner Express', 'Baroda', 'Pune');
 
-INSERT INTO reservations(reservationID, trainID, passengerName, status) VALUES (201, 1, 'Saleel', 'Confirmed'),(202, 8, 'Sharmin', 'Cancelled'),(203, 9, 'Vrushali', 'Confirmed'), (204, 5, 'Ruhan', 'Confirmed'), (205, 5, 'Nitish', 'Confirmed'), (206, 8, 'Gau', 'Confirmed');
+INSERT INTO reservations(reservationID, trainID, passengerName, status) VALUES (201, 1, 'Saleel', 'Confirmed'),(202, 8, 'Sharmin', 'Cancelled'),(203, 9, 'Vrushali', 'Confirmed'), (204, 5, 'Ruhan', 'Confirmed'), (205, 5, 'Nitish', 'Confirmed'), (206, 8, 'Gau', 'Confirmed'),(207, 1, 'Boy', 'Cancelled');
 
 create table countNulls(id int primary key AUTO_INCREMENT, ename varchar(10), city varchar(20), phone int);
 
@@ -257,9 +257,9 @@ CREATE TABLE cashPayments(student_id int, student_name varchar(10), amount int);
 
 CREATE TABLE cardPayments(student_id int, student_name varchar(10), amount int);
 
-INSERT into cashPayments values(27,'saleel',4000),(43,'sharmin',2000),(25,'ruhan',2600),(41,'vrushali',2200),(20,'nitish',3200),(7,'neel',3400),(14,'bandish',3200),(17,'naresh',3400),(27,'saleel',4000);
+INSERT into cashPayments values(27,'saleel',4000),(43,'sharmin',2000),(25,'ruhan',2600),(41,'vrushali',2200),(20,'nitish',3200),(7,'neel',3400),(14,'bandish',3200),(17,'naresh',3400),(27,'saleel',2500);
 
-INSERT into cardPayments values(43,'sharmin',2300),(9,'bhuru',3200),(63,'bhavin',3000),(39,'boy',3400),(20,'nitish',1200),(27,'saleel',4000),(27,'saleel',4000);
+INSERT into cardPayments values(43,'sharmin',2300),(9,'bhuru',3200),(63,'bhavin',3000),(39,'boy',3400),(20,'nitish',1200),(27,'saleel',4000),(27,'saleel',3500);
 
 
 
@@ -567,9 +567,9 @@ CREATE TABLE LinkedIn(linkedInID INT PRIMARY KEY, studentID INT, name VARCHAR(45
 
 insert into student values(1001, 'Saleel'), (1002, 'Sharmin'), (1003, 'Vrushali'), (1005, 'Ruhan'), (1006, 'Neel'), (1007, 'Deep'), (1008, 'Nitish'), (1009, 'Gau'), (1010, 'Mai'), (1011, 'Bipin'), (1012, 'Natasha'), (1013, 'Bandish');
 
-insert into Facebook values(1, 1006, 'Gabbar Singh', 'Nasik'), (2, 1008, 'Shadow King', 'Pune'), (3, 1009, 'FB Star', 'Pune'), (4, 1010, 'ʛʜost Ʀiɗɘʀ', 'Pune'), (5, 1011, 'The Rockstar', 'Pune');
+insert into Facebook values(1, 1006, 'Gabbar Singh', 'Nasik'), (2, 1008, 'Shadow King', 'Pune'), (3, 1009, 'FB Star', 'Bombay'), (4, 1010, 'Ghost Rider', 'Surat'), (5, 1011, 'The Rockstar', 'Pune'), (6, 1009, 'Star-Track', 'Pune'), (7, 1010, 'Rider-gate', 'Surat'), (8, 1006, 'self-hosted', 'Baroda');
 
-insert into LinkedIn values(1, 1006, 'Neel Save', 'Nasik'), (2, 1008, 'Nitish Patil', 'Pune'), (3, 1009, 'Gaurav', 'Pune'), (4, 1001, 'Saleel', 'Baroda'), (5, 1002, 'Sharmin', 'Pune');
+insert into LinkedIn values(1, 1006, 'Neel Save', 'Nasik'), (2, 1008, 'Nitish Patil', 'Pune'), (3, 1010, 'Gaurav', 'Anand'), (4, 1001, 'Saleel', 'Baroda'), (5, 1002, 'Sharmin', 'Nera'), (6, 1009, 'Rupal', 'Baroda'), (7, 1008, 'Akash', 'Baroda');
 
 create table sourceCity(id int, cityName varchar(10));
 create table targetCity(id int, cityName varchar(10));
@@ -1017,27 +1017,32 @@ create table orderDetails (id int primary key auto_increment, orderID int, custo
 
 insert into orderDetails values(default, 1, 2001, '2022-04-10','butter', 2, 65);
 insert into orderDetails values(default, 1, 2001, '2022-04-10','bread', 2, 35);
-insert into orderDetails values(default, 1, 2002, '2022-04-12','tea', 1, 125);
-insert into orderDetails values(default, 1, 2002, '2022-04-12','bread', 3, 35);
-insert into orderDetails values(default, 1, 2002, '2022-04-12','rice', 1, 57);
-insert into orderDetails values(default, 1, 2003, '2022-04-13','jam', 1, 30);
-insert into orderDetails values(default, 1, 2003, '2022-04-13','suger', 3, 45);
-insert into orderDetails values(default, 1, 2004, '2022-04-15','coffee', 2, 65);
-insert into orderDetails values(default, 1, 2004, '2022-04-15','bread', 2, 35);
-insert into orderDetails values(default, 1, 2004, '2022-04-15','rice', 2, 57);
-insert into orderDetails values(default, 1, 2004, '2022-04-15','cheese', 2, 25);
-insert into orderDetails values(default, 1, 2004, '2022-04-15','jam', 1, 30);
-insert into orderDetails values(default, 1, 2005, '2022-04-14','wheat', 1, 60);
-insert into orderDetails values(default, 1, 2005, '2022-04-14','rice', 1, 57);
-insert into orderDetails values(default, 2, 2001, '2022-04-13','cheese', 2, 25);
 insert into orderDetails values(default, 2, 2002, '2022-04-13','coffee', 2, 65);
 insert into orderDetails values(default, 2, 2002, '2022-04-13','wheat', 1, 60);
-insert into orderDetails values(default, 2, 2003, '2022-04-14','wheat', 1, 60);
+
+insert into orderDetails values(default, 2, 2001, '2022-04-13','cheese', 2, 25);
+insert into orderDetails values(default, 1, 2002, '2022-04-12','tea', 1, 125);
+
+insert into orderDetails values(default, 1, 2004, '2022-04-15','cheese', 2, 25);
+insert into orderDetails values(default, 1, 2005, '2022-04-14','rice', 1, 57);
 insert into orderDetails values(default, 2, 2005, '2022-04-16','wheat', 1, 60);
-insert into orderDetails values(default, 2, 2005, '2022-04-16','suger', 3, 45);
-insert into orderDetails values(default, 2, 2005, '2022-04-16','rice', 2, 57);
 insert into orderDetails values(default, 3, 2001, '2022-04-14','coffee', 2, 65);
+insert into orderDetails values(default, 1, 2002, '2022-04-12','rice', 1, 57);
+insert into orderDetails values(default, 1, 2003, '2022-04-13','jam', 1, 30);
+insert into orderDetails values(default, 5, 2001, '2022-04-17','wheat', 1, 60);
+insert into orderDetails values(default, 5, 2003, '2022-04-17','suger', 3, 45);
 insert into orderDetails values(default, 3, 2001, '2022-04-14','bread', 2, 35);
+insert into orderDetails values(default, 2, 2003, '2022-04-14','wheat', 1, 60);
+insert into orderDetails values(default, 1, 2004, '2022-04-15','coffee', 2, 65);
+insert into orderDetails values(default, 1, 2003, '2022-04-13','suger', 3, 45);
+insert into orderDetails values(default, 1, 2004, '2022-04-15','rice', 2, 57);
+insert into orderDetails values(default, 1, 2002, '2022-04-12','bread', 3, 35);
+insert into orderDetails values(default, 1, 2004, '2022-04-15','jam', 1, 30);
+insert into orderDetails values(default, 1, 2005, '2022-04-14','wheat', 1, 60);
+insert into orderDetails values(default, 6, 2003, '2022-04-18','wheat', 1, 60);
+insert into orderDetails values(default, 2, 2005, '2022-04-16','suger', 3, 45);
+insert into orderDetails values(default, 1, 2004, '2022-04-15','bread', 2, 35);
+insert into orderDetails values(default, 2, 2005, '2022-04-16','rice', 2, 57);
 insert into orderDetails values(default, 3, 2003, '2022-04-15','rice', 2, 57);
 insert into orderDetails values(default, 3, 2002, '2022-04-18','coffee', 2, 65);
 insert into orderDetails values(default, 3, 2002, '2022-04-18','wheat', 1, 60);
@@ -1045,10 +1050,8 @@ insert into orderDetails values(default, 4, 2001, '2022-04-16','cheese', 2, 25);
 insert into orderDetails values(default, 4, 2003, '2022-04-16','jam', 1, 30);
 insert into orderDetails values(default, 4, 2003, '2022-04-16','wheat', 1, 60);
 insert into orderDetails values(default, 5, 2001, '2022-04-17','rice', 1, 57);
-insert into orderDetails values(default, 5, 2001, '2022-04-17','wheat', 1, 60);
-insert into orderDetails values(default, 5, 2003, '2022-04-17','suger', 3, 45);
 insert into orderDetails values(default, 5, 2003, '2022-04-17','rice', 2, 57);
-insert into orderDetails values(default, 6, 2003, '2022-04-18','wheat', 1, 60);
+
 
 alter table orderDetails add total int generated always as (qty*unitCost);
 
