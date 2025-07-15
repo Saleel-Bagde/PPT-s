@@ -191,7 +191,7 @@ DROP TABLE IF EXISTS cashPayments;
 DROP TABLE IF EXISTS cardPayments;
 
 DROP TABLE IF EXISTS onlineOrders;
-DROP TABLE IF EXISTS storeOrders;
+DROP TABLE IF EXISTS fromStoreOrders;
 
 DROP TABLE IF EXISTS repeatingNumbers;
 
@@ -221,15 +221,16 @@ INSERT INTO onlineorders VALUES('1005', 'C005', 'Sneakers', 'Footwear', '1', '20
 INSERT INTO onlineorders VALUES('1006', 'C006', 'Book', 'Books', '2', '2025-07-04');
 INSERT INTO onlineorders VALUES('1007', 'C001', 'Power Bank', 'Electronics', '1', '2025-07-04');
 
-CREATE TABLE storeOrders(orderID int primary key, customerID varchar(10), product varchar(20), category varchar(20), quantity int, orderDate date);
+CREATE TABLE fromStoreOrders(orderID int primary key, customerID varchar(10), product varchar(20), category varchar(20), quantity int, orderDate date);
 
-INSERT INTO storeorders VALUES('2001', 'C001', 'T-shirt', 'Clothing', '2', '2025-07-01');
-INSERT INTO storeorders VALUES('2002', 'C003', 'Smartphone', 'Electronics', '1', '2025-07-01');
-INSERT INTO storeorders VALUES('2003', 'C007', 'Formal Shoes', 'Footwear', '1', '2025-07-02');
-INSERT INTO storeorders VALUES('2004', 'C004', 'Jeans', 'Clothing', '1', '2025-07-03');
-INSERT INTO storeorders VALUES('2005', 'C008', 'Book', 'Books', '3', '2025-07-04');
-INSERT INTO storeorders VALUES('2006', 'C002', 'Laptop', 'Electronics', '1', '2025-07-04');
-INSERT INTO storeorders VALUES('2007', 'C009', 'Power Bank', 'Electronics', '1', '2025-07-05');
+INSERT INTO fromStoreOrders VALUES('2001', 'C001', 'T-shirt', 'Clothing', '2', '2025-07-01');
+INSERT INTO fromStoreOrders VALUES('2002', 'C003', 'Smartphone', 'Electronics', '1', '2025-07-01');
+INSERT INTO fromStoreOrders VALUES('2003', 'C007', 'Formal Shoes', 'Footwear', '1', '2025-07-02');
+INSERT INTO fromStoreOrders VALUES('2004', 'C004', 'Jeans', 'Clothing', '1', '2025-07-03');
+INSERT INTO fromStoreOrders VALUES('2005', 'C008', 'Book', 'Books', '3', '2025-07-04');
+INSERT INTO fromStoreOrders VALUES('2006', 'C002', 'Laptop', 'Electronics', '1', '2025-07-04');
+INSERT INTO fromStoreOrders VALUES('2007', 'C009', 'Power Bank', 'Electronics', '1', '2025-07-05');
+insert into fromStoreOrders values('2008', 'c021', 'Mouse', 'Electronics', 7, '2025-07-09');
 
 
 CREATE TABLE trains(trainID INT PRIMARY KEY, trainName VARCHAR(50), source VARCHAR(50), destination VARCHAR(50));
