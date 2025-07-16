@@ -231,6 +231,7 @@ INSERT INTO fromStoreOrders VALUES('2005', 'C008', 'Book', 'Books', '3', '2025-0
 INSERT INTO fromStoreOrders VALUES('2006', 'C002', 'Laptop', 'Electronics', '1', '2025-07-04', 93500);
 INSERT INTO fromStoreOrders VALUES('2007', 'C009', 'Power Bank', 'Electronics', '1', '2025-07-05', 1800);
 insert into fromStoreOrders values('2008', 'C021', 'Mouse', 'Electronics', 7, '2025-07-09', 350);
+INSERT INTO fromStoreOrders VALUES('2009', 'C002', 'Smartphone', 'Electronics', '1', '2025-07-02', 82000);
 
 
 CREATE TABLE trains(trainID INT PRIMARY KEY, trainName VARCHAR(50), source VARCHAR(50), destination VARCHAR(50));
