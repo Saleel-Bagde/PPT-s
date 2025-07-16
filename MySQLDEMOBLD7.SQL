@@ -211,26 +211,26 @@ DROP TABLE IF EXISTS trains;
 DROP TABLE IF EXISTS reservations;
 
 
-CREATE TABLE onlineOrders(orderID int primary key, customerID varchar(10), product varchar(20), category varchar(20), quantity int, orderDate date);
+CREATE TABLE onlineOrders(orderID int primary key, customerID varchar(10), product varchar(20), category varchar(20), quantity int, orderDate date, amount int);
 
-INSERT INTO onlineorders VALUES('1001', 'C001', 'Laptop', 'Electronics', '1', '2025-07-01');
-INSERT INTO onlineorders VALUES('1002', 'C002', 'Smartphone', 'Electronics', '2', '2025-07-02');
-INSERT INTO onlineorders VALUES('1003', 'C003', 'Headphones', 'Electronics', '1', '2025-07-02');
-INSERT INTO onlineorders VALUES('1004', 'C004', 'T-shirt', 'Clothing', '3', '2025-07-03');
-INSERT INTO onlineorders VALUES('1005', 'C005', 'Sneakers', 'Footwear', '1', '2025-07-03');
-INSERT INTO onlineorders VALUES('1006', 'C006', 'Book', 'Books', '2', '2025-07-04');
-INSERT INTO onlineorders VALUES('1007', 'C001', 'Power Bank', 'Electronics', '1', '2025-07-04');
+INSERT INTO onlineorders VALUES('1001', 'C001', 'Laptop', 'Electronics', '1', '2025-07-01', 83000);
+INSERT INTO onlineorders VALUES('1002', 'C002', 'Smartphone', 'Electronics', '2', '2025-07-02', 47000);
+INSERT INTO onlineorders VALUES('1003', 'C003', 'Headphones', 'Electronics', '1', '2025-07-02', 2500);
+INSERT INTO onlineorders VALUES('1004', 'C004', 'T-shirt', 'Clothing', '3', '2025-07-03', 1200);
+INSERT INTO onlineorders VALUES('1005', 'C005', 'Sneakers', 'Footwear', '1', '2025-07-03', 3200);
+INSERT INTO onlineorders VALUES('1006', 'C006', 'Book', 'Books', '2', '2025-07-04', 800);
+INSERT INTO onlineorders VALUES('1007', 'C001', 'Power Bank', 'Electronics', '1', '2025-07-04', 1700);
 
-CREATE TABLE fromStoreOrders(orderID int primary key, customerID varchar(10), product varchar(20), category varchar(20), quantity int, orderDate date);
+CREATE TABLE fromStoreOrders(orderID int primary key, customerID varchar(10), product varchar(20), category varchar(20), quantity int, orderDate date, amount int);
 
-INSERT INTO fromStoreOrders VALUES('2001', 'C001', 'T-shirt', 'Clothing', '2', '2025-07-01');
-INSERT INTO fromStoreOrders VALUES('2002', 'C003', 'Smartphone', 'Electronics', '1', '2025-07-01');
-INSERT INTO fromStoreOrders VALUES('2003', 'C007', 'Formal Shoes', 'Footwear', '1', '2025-07-02');
-INSERT INTO fromStoreOrders VALUES('2004', 'C004', 'Jeans', 'Clothing', '1', '2025-07-03');
-INSERT INTO fromStoreOrders VALUES('2005', 'C008', 'Book', 'Books', '3', '2025-07-04');
-INSERT INTO fromStoreOrders VALUES('2006', 'C002', 'Laptop', 'Electronics', '1', '2025-07-04');
-INSERT INTO fromStoreOrders VALUES('2007', 'C009', 'Power Bank', 'Electronics', '1', '2025-07-05');
-insert into fromStoreOrders values('2008', 'c021', 'Mouse', 'Electronics', 7, '2025-07-09');
+INSERT INTO fromStoreOrders VALUES('2001', 'C001', 'T-shirt', 'Clothing', '2', '2025-07-01', 1200);
+INSERT INTO fromStoreOrders VALUES('2002', 'C003', 'Smartphone', 'Electronics', '1', '2025-07-01', 35000);
+INSERT INTO fromStoreOrders VALUES('2003', 'C007', 'Formal Shoes', 'Footwear', '1', '2025-07-02', 2000);
+INSERT INTO fromStoreOrders VALUES('2004', 'C004', 'Jeans', 'Clothing', '1', '2025-07-03', 3500);
+INSERT INTO fromStoreOrders VALUES('2005', 'C008', 'Book', 'Books', '3', '2025-07-04', 700);
+INSERT INTO fromStoreOrders VALUES('2006', 'C002', 'Laptop', 'Electronics', '1', '2025-07-04', 93500);
+INSERT INTO fromStoreOrders VALUES('2007', 'C009', 'Power Bank', 'Electronics', '1', '2025-07-05', 1800);
+insert into fromStoreOrders values('2008', 'C021', 'Mouse', 'Electronics', 7, '2025-07-09', 350);
 
 
 CREATE TABLE trains(trainID INT PRIMARY KEY, trainName VARCHAR(50), source VARCHAR(50), destination VARCHAR(50));
