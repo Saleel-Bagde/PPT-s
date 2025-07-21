@@ -210,6 +210,13 @@ DROP TABLE IF EXISTS dhl;
 DROP TABLE IF EXISTS trains;
 DROP TABLE IF EXISTS reservations;
 
+DROP TABLE IF EXISTS bankLoan;
+
+
+CREATE TABLE bankLoan(loadID BIGINT AUTO_INCREMENT PRIMARY KEY, bankName VARCHAR(100),    accountNumber VARCHAR(30) NOT NULL, riskStatus int);
+
+INSERT INTO bankLoan (bankName, accountNumber, riskStatus) VALUES ('State Bank of India', 'SBIN00012345', 0), ('HDFC Bank', 'HDFC00067890', 2), ('ICICI Bank', 'ICIC00054321', 1), ('Axis Bank', 'AXIS00098765', 0), ('Bank of Baroda', 'BARB0123456', 3), ('Canara Bank', 'CNRB0067890', 1), ('Punjab National Bank', 'PUNB0011223', 4), ('Kotak Mahindra Bank', 'KKBK0099887', 0);
+
 
 CREATE TABLE onlineOrders(orderID int primary key, customerID varchar(10), product varchar(20), category varchar(20), quantity int, orderDate date, amount int);
 
@@ -585,13 +592,13 @@ INSERT INTO cricketWinnerTeam values('SA','Eng','Eng');
 INSERT INTO cricketWinnerTeam values('Eng','NZ','NZ');
 INSERT INTO cricketWinnerTeam values('Aus','India','India');
 
-CREATE TABLE student(studentID INT PRIMARY KEY, name VARCHAR(45));
+CREATE TABLE student(studentID INT PRIMARY KEY, name VARCHAR(45), rnk int);
 
 CREATE TABLE Facebook(facebookID INT PRIMARY KEY, studentID INT, name VARCHAR(45), location VARBINARY(45));
 
 CREATE TABLE LinkedIn(linkedInID INT PRIMARY KEY, studentID INT, name VARCHAR(45), location VARBINARY(45));
 
-insert into student values(1001, 'Saleel'), (1002, 'Sharmin'), (1003, 'Vrushali'), (1005, 'Ruhan'), (1006, 'Neel'), (1007, 'Deep'), (1008, 'Nitish'), (1009, 'Gau'), (1010, 'Mai'), (1011, 'Bipin'), (1012, 'Natasha'), (1013, 'Bandish');
+insert into student values(1001, 'Saleel', 1), (1002, 'Sharmin', 1), (1003, 'Vrushali', 2), (1005, 'Ruhan', 3), (1006, 'Neel', 2), (1007, 'Deep', 1), (1008, 'Nitish', 4), (1009, 'Gau', 5), (1010, 'Mai', 4), (1011, 'Bipin', 5), (1012, 'Natasha', 3), (1013, 'Bandish', 2);
 
 insert into Facebook values(1, 1006, 'Gabbar Singh', 'Nasik'), (2, 1008, 'Shadow King', 'Pune'), (3, 1009, 'FB Star', 'Bombay'), (4, 1010, 'Ghost Rider', 'Surat'), (5, 1011, 'The Rockstar', 'Pune'), (6, 1009, 'Star-Track', 'Pune'), (7, 1010, 'Rider-gate', 'Surat'), (8, 1006, 'self-hosted', 'Baroda');
 
