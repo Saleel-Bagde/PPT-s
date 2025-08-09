@@ -212,6 +212,41 @@ DROP TABLE IF EXISTS reservations;
 
 DROP TABLE IF EXISTS bankLoan;
 
+DROP TABLE IF EXISTS population;
+
+CREATE TABLE population(ID int primary key,	city varchar(40), area int, ward int, population int);
+
+INSERT INTO population VALUES (1, 'Ahmedabad', '530', '48', '8253000');
+INSERT INTO population VALUES (2, 'Surat', '462', '30', '7490000');
+INSERT INTO population VALUES (3, 'Vadodara', '220', '19', '2233000');
+INSERT INTO population VALUES (4, 'Rajkot', '170', '18', '1934000');
+INSERT INTO population VALUES (5, 'Bhavnagar', '108', '13', '771000');
+INSERT INTO population VALUES (6, 'Jamnagar', '126', '16', '623000');
+INSERT INTO population VALUES (7, 'Junagadh', '160', '20', '415000');
+INSERT INTO population VALUES (8, 'Gandhinagar', '326', '13', '410000');
+INSERT INTO population VALUES (9, 'Anand', '48', '13', '374000');
+INSERT INTO population VALUES (10, 'Navsari', '44', '13', '367000');
+INSERT INTO population VALUES (11, 'Surendranagar', '59', '13', '329000');
+INSERT INTO population VALUES (12, 'Morbi', '47', '13', '327000');
+INSERT INTO population VALUES (13, 'Gandhidham', '63', '13', '322000');
+INSERT INTO population VALUES (14, 'Nadiad', '45', '13', '292000');
+INSERT INTO population VALUES (15, 'Bharuch', '44', '11', '290000');
+INSERT INTO population VALUES (16, 'Patan', '44', '11', '283000');
+INSERT INTO population VALUES (17, 'Porbandar', '38', '13', '282000');
+INSERT INTO population VALUES (18, 'Mehsana', '31', '13', '247000');
+INSERT INTO population VALUES (19, 'Bhuj', '56', '11', '244000');
+INSERT INTO population VALUES (20, 'Veraval', '40', '11', '241000');
+INSERT INTO population VALUES (21, 'Vapi', '22', '13', '223000');
+INSERT INTO population VALUES (22, 'Valsad', '24', '11', '221000');
+INSERT INTO population VALUES (23, 'Godhra', '20', '11', '211000');
+INSERT INTO population VALUES (24, 'Palanpur', '40', '11', '182000');
+INSERT INTO population VALUES (25, 'Himmatnagar', '21', '11', '181000');
+INSERT INTO population VALUES (26, 'Kalol', '25', '11', '174000');
+INSERT INTO population VALUES (27, 'Botad', '10', '11', '169000');
+INSERT INTO population VALUES (28, 'Amreli', '65', '11', '153000');
+INSERT INTO population VALUES (29, 'Gondal', '74', '11', '145000');
+INSERT INTO population VALUES (30, 'Jetpur', '23', '11', '153000');
+INSERT INTO population VALUES (31, 'Deesa', '20', '11', '111160');
 
 CREATE TABLE bankLoan(loadID BIGINT AUTO_INCREMENT PRIMARY KEY, bankName VARCHAR(100),    accountNumber VARCHAR(30) NOT NULL, riskStatus int);
 
