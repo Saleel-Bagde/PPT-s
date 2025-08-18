@@ -214,6 +214,15 @@ DROP TABLE IF EXISTS bankLoan;
 
 DROP TABLE IF EXISTS population;
 
+DROP TABLE IF EXISTS Managers;
+DROP TABLE IF EXISTS Trainers;
+
+create table Managers(emp_id int, name varchar(10));
+insert into Managers VALUES(1,'saleel'), (2, 'sharmin'), (3, 'vrushali');
+
+CREATE TABLE Trainers(emp_id int, name varchar(10));
+INSERT INTO Trainers VALUES(1,'ruhan'), (2, 'sharmin'),(3, 'saleel');
+
 CREATE TABLE population(ID int primary key,	city varchar(40), area int, ward int, population int);
 
 INSERT INTO population VALUES (1, 'Ahmedabad', '530', '48', '8253000');
