@@ -218,7 +218,7 @@ DROP TABLE IF EXISTS Managers;
 DROP TABLE IF EXISTS Trainers;
 
 create table Managers(emp_id int, name varchar(10));
-insert into Managers VALUES(1,'saleel'), (2, 'sharmin'), (3, 'vrushali');
+insert into Managers VALUES(1,'saleel'), (2, 'sharmin'), (3, 'vrushali'), (null,'neel');
 
 CREATE TABLE Trainers(emp_id int, name varchar(10));
 INSERT INTO Trainers VALUES(1,'ruhan'), (2, 'sharmin'),(3, 'saleel');
