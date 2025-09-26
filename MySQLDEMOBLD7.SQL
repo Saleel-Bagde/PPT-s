@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS PRODUCTS;
+
 DROP TABLE IF EXISTS A;
 DROP TABLE IF EXISTS B;
 DROP TABLE IF EXISTS EMP;
@@ -10,8 +10,7 @@ DROP TABLE IF EXISTS DUMMY;
 DROP TABLE IF EXISTS ITEM;
 DROP TABLE IF EXISTS PRICE;
 DROP TABLE IF EXISTS PRODUCT;
-DROP TABLE IF EXISTS ORD;
-DROP TABLE IF EXISTS CUSTOMER;
+
 DROP TABLE IF EXISTS EMP_Cards;
 DROP TABLE IF EXISTS emp_phone;
 DROP TABLE IF EXISTS EMP1;
@@ -98,6 +97,10 @@ drop table if exists leadtable;
 drop table if exists traintimetable;
 drop table if exists pivot_table;
 drop table if exists unpivot_table;
+
+DROP TABLE IF EXISTS PRODUCTS;
+DROP TABLE IF EXISTS ORD;
+DROP TABLE IF EXISTS CUSTOMER;
 drop table if exists orderDetails;
 
 drop table if exists prescription;
@@ -313,13 +316,13 @@ create table dhl(tracking_id varchar(20), carrier varchar(20), status varchar(20
 
 create table ups(tracking_id varchar(20), carrier varchar(20), status varchar(20), delivery_date date);
 
-INSERT INTO FEDEX(tracking_id, carrier, status, delivery_date) VALUES ('FEDEX100001', 'FedEx', 'Dispatched', '2025-07-04'), ('FEDEX100002', 'FedEx', 'In Transit', '2025-07-05'), ('FEDEX100003 ', 'FedEx', 'Delivered', '2025-07-03'), ('FEDEX100004', 'FedEx', 'Out for Delivery', '2025-07-07'), ('FEDEX100005', 'FedEx', 'Delayed', '2025-07-08');
+INSERT INTO FEDEX(tracking_id, carrier, status, delivery_date) VALUES ('FEDEX100001', 'FedEx', 'Dispatched', '2025-07-04'), ('FEDEX100002', 'FedEx', 'In Transit', '2025-07-05'), ('FEDEX100006', 'FedEx', 'Pending', '2025-06-29'), ('FEDEX100003 ', 'FedEx', 'Delivered', '2025-07-03'), ('FEDEX100004', 'FedEx', 'Out for Delivery', '2025-07-07') , ('FEDEX100007', 'FedEx', 'Pending', '2025-01-09'), ('FEDEX100005', 'FedEx', 'Delayed', '2025-07-08');
 
 
-INSERT INTO dhl(tracking_id, carrier, status, delivery_date) VALUES ('DHL100021', 'DHL', 'Delivered', '2025-07-04'), ('DHL100022', 'DHL', 'In Transit', '2025-07-05'), ('DHL100023', 'DHL', 'Dispatched', '2025-07-06'), ('DHL100024', 'DHL', 'Out for Delivery', '2025-07-07'), ('DHL100025', 'DHL', 'Delayed', '2025-07-08'), ('DHL100026', 'DHL', 'In Transit', '2025-07-03');
+INSERT INTO dhl(tracking_id, carrier, status, delivery_date) VALUES ('DHL100021', 'DHL', 'Delivered', '2025-07-04'), ('DHL100027', 'DHL', 'Pending', '2025-07-23'), ('DHL100022', 'DHL', 'In Transit', '2025-07-05'), ('DHL100023', 'DHL', 'Dispatched', '2025-07-06'), ('DHL100028', 'DHL', 'Pending', '2025-12-23') , ('DHL100024', 'DHL', 'Out for Delivery', '2025-07-07'), ('DHL100025', 'DHL', 'Delayed', '2025-07-08'), ('DHL100026', 'DHL', 'In Transit', '2025-07-03');
 
 
-INSERT INTO ups(tracking_id, carrier, status, delivery_date) VALUES  ('UPS100032', 'UPS', 'Delivered', '2025-07-01'), ('UPS100033', 'UPS', 'Dispatched', '2025-07-07'), ('UPS100034', 'UPS', 'Out for Delivery', '2025-07-08'), ('UPS100035', 'UPS', 'Delayed', '2025-07-09'), ('UPS100036', 'UPS', 'In Transit', '2025-07-03'), ('UPS100037', 'UPS', 'Delivered', '2025-07-05'), ('UPS100038', 'UPS', 'Dispatched', '2025-07-06'), ('UPS100039', 'UPS', 'Out for Delivery', '2025-07-04'), ('UPS100040', 'UPS', 'Delayed', '2025-07-12');
+INSERT INTO ups(tracking_id, carrier, status, delivery_date) VALUES  ('UPS100032', 'UPS', 'Delivered', '2025-07-01'), ('UPS100042', 'UPS', 'Pending', '2025-11-11'), ('UPS100033', 'UPS', 'Dispatched', '2025-07-07'), ('UPS100034', 'UPS', 'Out for Delivery', '2025-07-08'), ('UPS100035', 'UPS', 'Delayed', '2025-07-09'), ('UPS100036', 'UPS', 'In Transit', '2025-07-03'), ('UPS100037', 'UPS', 'Delivered', '2025-07-05'), ('UPS100038', 'UPS', 'Dispatched', '2025-07-06'), ('UPS100039', 'UPS', 'Out for Delivery', '2025-07-04'), ('UPS100040', 'UPS', 'Delayed', '2025-07-12');
 
 CREATE TABLE cNumbers(id INT PRIMARY KEY auto_increment,num INT);
   
