@@ -220,6 +220,66 @@ DROP TABLE IF EXISTS population;
 DROP TABLE IF EXISTS Managers;
 DROP TABLE IF EXISTS Trainers;
 
+DROP TABLE IF EXISTS betweenSalary;
+
+DROP TABLE IF EXISTS categories;
+DROP TABLE IF EXISTS bus_stops;
+
+
+CREATE TABLE bus_stops(stop_id INT PRIMARY KEY, stop_name VARCHAR(100), route_no VARCHAR(10), city VARCHAR(50), next_stop_id INT, distance_to_next_km DECIMAL(4,1));
+
+INSERT INTO bus_stops (stop_id, stop_name, route_no, city, next_stop_id, distance_to_next_km) VALUES (1, 'Central Bus Station', 'R101', 'Pune', 2, 1.5),(2, 'Deccan Gymkhana', 'R101', 'Pune', 3, 2.0),(3, 'Kothrud Depot', 'R101', 'Pune', 4, 1.8),(4, 'Warje Naka', 'R101', 'Pune', 5, 2.4),(5, 'Chandani Chowk', 'R101', 'Pune', NULL, NULL),(6, 'Swargate', 'R102', 'Pune', 7, 2.3),(7, 'Camp', 'R102', 'Pune', 8, 1.7),(8, 'Koregaon Park', 'R102', 'Pune', 9, 2.5),(9, 'Kalyani Nagar', 'R102', 'Pune', 10, 3.0),(10, 'Viman Nagar', 'R102', 'Pune', NULL, NULL),(11, 'Shivajinagar', 'R103', 'Pune', 12, 1.2),(12, 'Aundh', 'R103', 'Pune', 13, 1.8),(13, 'Baner', 'R103', 'Pune', 14, 2.2),(14, 'Balewadi Stadium', 'R103', 'Pune', 15, 3.1),(15, 'Hinjewadi Phase 1', 'R103', 'Pune', NULL, NULL),(16, 'Thane Station', 'R104', 'Mumbai', 17, 2.0),(17, 'Teen Hath Naka', 'R104', 'Mumbai', 18, 1.3),(18, 'Mulund Check Naka', 'R104', 'Mumbai', 19, 3.5),(19, 'Vikhroli', 'R104', 'Mumbai', 20, 4.0),(20, 'Ghatkopar', 'R104', 'Mumbai', NULL, NULL),(21, 'Borivali Station', 'R105', 'Mumbai', 22, 1.7),(22, 'Kandivali', 'R105', 'Mumbai', 23, 2.4),(23, 'Malad', 'R105', 'Mumbai', 24, 1.9),(24, 'Goregaon', 'R105', 'Mumbai', 25, 2.6),(25, 'Andheri', 'R105', 'Mumbai', NULL, NULL),(26, 'Kharadi', 'R106', 'Pune', 27, 2.2),(27, 'Magarpatta', 'R106', 'Pune', 28, 2.5),(28, 'Hadapsar', 'R106', 'Pune', 29, 3.0),(29, 'Saswad Road', 'R106', 'Pune', 30, 4.1),(30, 'Uruli Kanchan', 'R106', 'Pune', NULL, NULL);
+
+
+CREATE TABLE categories (category_id INT PRIMARY KEY, category_name VARCHAR(50),parent_id INT);
+
+INSERT INTO categories (category_id, category_name, parent_id) VALUES
+(1, 'Electronics', NULL),
+(2, 'Home Appliances', NULL),
+(3, 'Fashion', NULL),
+(4, 'Books', NULL),
+(5, 'Sports', NULL),
+
+
+(6, 'Mobiles', 1),
+(7, 'Laptops', 1),
+(8, 'Accessories', 1),
+(9, 'Refrigerators', 2),
+(10, 'Washing Machines', 2),
+(11, 'Men', 3),
+(12, 'Women', 3),
+(13, 'Fiction', 4),
+(14, 'Non-Fiction', 4),
+(15, 'Outdoor', 5),
+
+
+(16, 'Android Phones', 6),
+(17, 'iPhones', 6),
+(18, 'Gaming Laptops', 7),
+(19, 'Ultrabooks', 7),
+(20, 'Chargers', 8),
+(21, 'Headphones', 8),
+(22, 'Single Door', 9),
+(23, 'Double Door', 9),
+(24, 'Front Load', 10),
+(25, 'Top Load', 10),
+(26, 'Shirts', 11),
+(27, 'Trousers', 11),
+(28, 'Dresses', 12),
+(29, 'Jewelry', 12),
+(30, 'Adventure', 15),
+
+
+(31, 'Budget Android', 16),
+(32, 'Flagship Android', 16),
+(33, 'Smart Watches', 8),
+(34, 'Mountain Gear', 30),
+(35, 'Camping Equipment', 30);
+
+
+create table betweenSalary (id int, sal int);
+INSERT INTO betweenSalary VALUES(1, 2000);
+
 create table Managers(emp_id int, name varchar(10));
 insert into Managers VALUES(1,'saleel'), (2, 'sharmin'), (3, 'vrushali'), (null,'neel');
 
