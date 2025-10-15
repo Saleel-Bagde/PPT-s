@@ -3566,25 +3566,25 @@ INSERT into CUSTOMERS(CNUM, CNAME, CITY, RATING, SNUM) values (2010,'ADAMS','Ber
 
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3001,18.69,'1996-10-03 12:30', 2008, 1007, 'Online','Credit Cards');
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3003,767.19,'1996-10-03 13:45', 2001, 1001, 'Online','Debit Cards');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3002,1900.10,'1996-10-03 12:05',2007,1004, 'Online','Wallets');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3002,1900.10,'1996-10-03 12:30',2007,1004, 'Online','Wallets');
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3005,5160.45,'1996-10-03 14:00',2003,1002, 'Online','Debit Cards');
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3006,1098.16,'1996-10-03 13:37',2008,1007, 'Online','Wallets');
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3009,1713.23,'1996-10-04 15:21',2002,1003, 'Online','Credit Cards');
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE, paymentType) values (3050,1900.10,'1996-10-03 12:05',null,1004, 'Direct', 'PhonePe');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3007,75.75,'1996-10-04 16:02',2002,1003, 'Online', 'Credit Cards');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3007,75.75,'1996-10-04 15:21',2002,1003, 'Online', 'Credit Cards');
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3008,4723.00,'1996-10-05 12:07',2006,1001, 'Online','COD');
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3010,1309.95,'1996-10-06 13:12',2004,1002, 'Online','EMI Options');
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3011,9891.88,'1996-10-06 13:09',2006,1001, 'Online','EMI Options');
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE, paymentType) values (2322, 750.10,'1996-10-03 12:05',null,1004, 'Direct', 'PhonePe');
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE, paymentType) values (2475, 750.10,'1996-10-03 12:05',null,1004, 'Direct', 'PhonePe');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE, paymentType) values (2364, 750.10,'1996-10-03 12:05',null,1004, 'Direct', 'PhonePe');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE, paymentType) values (2364, 750.10,'1996-10-03 12:07',null,1004, 'Direct', 'PhonePe');
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3012,3455.78,'1996-10-04 15:21',2002,1003, 'Online','COD');
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3013,1245.98,'1996-10-04 16:32',2002,1003, 'Online','EMI Options');
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3014,3721.53,'1996-10-05 12:45',2006,1001, 'Online','COD');
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3015,734.50,'1996-10-06 13:16',2004,1002, 'Online','EMI Options');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3016,1729.67,'1996-10-06 13:07',2006,1001, 'Online','Wallets');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3016,1729.67,'1996-10-06 13:18',2006,1001, 'Online','Wallets');
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3017,18.69,'1996-10-03 12:30', 2001, 1007, 'Online','Credit Cards');
-INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3018,767.19,'1996-10-03 13:45', 2002, 1001, 'Online','Wallets');
+INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3018,767.19,'1996-10-03 12:05', 2002, 1001, 'Online','Wallets');
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3019,1900.10,'1996-10-03 12:05',2007,1004, 'Online','EMI Options');
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3020,5160.45,'1996-10-03 14:00',2003,1007, 'Online','COD');
 INSERT into ORDERS(ONUM, AMT, ODATE, CNUM, SNUM, TYPE,paymentType) values (3021,1098.16,'1996-10-03 13:37',2008,1007, 'Online','Debit Cards');
@@ -3631,6 +3631,7 @@ update orders set type='Cash' where paymentType='COD';
 
 update orders set registered=true where type='Online';
 update orders set registered=false where type='Cash';
+update orders set registered=0 where cnum is null;
 
 UPDATE ord SET STATUS = 'In Process' WHERE (ORDID = '601');
 UPDATE ord SET STATUS = 'On Hold' WHERE (ORDID = '602');
