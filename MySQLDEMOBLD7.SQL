@@ -223,13 +223,47 @@ DROP TABLE IF EXISTS Trainers;
 DROP TABLE IF EXISTS betweenSalary;
 
 DROP TABLE IF EXISTS categories;
+
 DROP TABLE IF EXISTS bus_stops;
+DROP TABLE IF EXISTS pune_metro_stations;
 
-
-CREATE TABLE bus_stops(stop_id INT PRIMARY KEY, stop_name VARCHAR(100), route_no VARCHAR(10), city VARCHAR(50), next_stop_id INT, distance_to_next_km DECIMAL(4,1));
+CREATE TABLE bus_stops(stop_id INT PRIMARY KEY, stop_name VARCHAR(100), route_no VARCHAR(10), city VARCHAR(50), next_stop_id INT, distance_to_next_km DECIMAL(4,2));
 
 INSERT INTO bus_stops (stop_id, stop_name, route_no, city, next_stop_id, distance_to_next_km) VALUES (1, 'Central Bus Station', 'R101', 'Pune', 2, 1.5),(2, 'Deccan Gymkhana', 'R101', 'Pune', 3, 2.0),(3, 'Kothrud Depot', 'R101', 'Pune', 4, 1.8),(4, 'Warje Naka', 'R101', 'Pune', 5, 2.4),(5, 'Chandani Chowk', 'R101', 'Pune', NULL, NULL),(6, 'Swargate', 'R102', 'Pune', 7, 2.3),(7, 'Camp', 'R102', 'Pune', 8, 1.7),(8, 'Koregaon Park', 'R102', 'Pune', 9, 2.5),(9, 'Kalyani Nagar', 'R102', 'Pune', 10, 3.0),(10, 'Viman Nagar', 'R102', 'Pune', NULL, NULL),(11, 'Shivajinagar', 'R103', 'Pune', 12, 1.2),(12, 'Aundh', 'R103', 'Pune', 13, 1.8),(13, 'Baner', 'R103', 'Pune', 14, 2.2),(14, 'Balewadi Stadium', 'R103', 'Pune', 15, 3.1),(15, 'Hinjewadi Phase 1', 'R103', 'Pune', NULL, NULL),(16, 'Thane Station', 'R104', 'Mumbai', 17, 2.0),(17, 'Teen Hath Naka', 'R104', 'Mumbai', 18, 1.3),(18, 'Mulund Check Naka', 'R104', 'Mumbai', 19, 3.5),(19, 'Vikhroli', 'R104', 'Mumbai', 20, 4.0),(20, 'Ghatkopar', 'R104', 'Mumbai', NULL, NULL),(21, 'Borivali Station', 'R105', 'Mumbai', 22, 1.7),(22, 'Kandivali', 'R105', 'Mumbai', 23, 2.4),(23, 'Malad', 'R105', 'Mumbai', 24, 1.9),(24, 'Goregaon', 'R105', 'Mumbai', 25, 2.6),(25, 'Andheri', 'R105', 'Mumbai', NULL, NULL),(26, 'Kharadi', 'R106', 'Pune', 27, 2.2),(27, 'Magarpatta', 'R106', 'Pune', 28, 2.5),(28, 'Hadapsar', 'R106', 'Pune', 29, 3.0),(29, 'Saswad Road', 'R106', 'Pune', 30, 4.1),(30, 'Uruli Kanchan', 'R106', 'Pune', NULL, NULL);
 
+CREATE TABLE pune_metro_stations LIKE bus_stops;
+
+insert into pune_metro_stations(stop_id, stop_name, route_no, city, next_stop_id, distance_to_next_km) values(1,'Vanaz','pink line', 'pune', 2, 1.7);
+
+insert into pune_metro_stations(stop_id, stop_name, route_no, city, next_stop_id, distance_to_next_km) values(2,'Anand Nagar','pink line', 'pune', 3, 0.89 );
+
+insert into pune_metro_stations(stop_id, stop_name, route_no, city, next_stop_id, distance_to_next_km) values(3,'Ideal Colony','pink line', 'pune', 4, 1.7 );
+
+insert into pune_metro_stations(stop_id, stop_name, route_no, city, next_stop_id, distance_to_next_km) values(4,'Nal Stop','pink line', 'pune', 5,1.1 );
+
+insert into pune_metro_stations(stop_id, stop_name, route_no, city, next_stop_id, distance_to_next_km) values(5,'Garware College','pink line', 'pune', 6, 1.8 );
+
+insert into pune_metro_stations(stop_id, stop_name, route_no, city, next_stop_id, distance_to_next_km) values(6,'Deccan Gymkhana','pink line', 'pune', 7, 1.5);
+
+insert into pune_metro_stations(stop_id, stop_name, route_no, city, next_stop_id, distance_to_next_km) values(7,'Chhatrapati Sambhaji Udyan','pink line', 'pune', 8, 1.8 );
+
+insert into pune_metro_stations(stop_id, stop_name, route_no, city, next_stop_id, distance_to_next_km) values(8,'PMC Bhavan','pink line', 'pune', 9, 1.2);
+
+insert into pune_metro_stations(stop_id, stop_name, route_no, city, next_stop_id, distance_to_next_km) values(9,'Civil Court (interchange station with the Purple Line)','pink line', 'pune', 10, 1.7);
+
+insert into pune_metro_stations(stop_id, stop_name, route_no, city, next_stop_id, distance_to_next_km) values(10,'Mangalwar Peth','pink line', 'pune', 11,1.0 );
+
+insert into pune_metro_stations(stop_id, stop_name, route_no, city, next_stop_id, distance_to_next_km) values(11,'Pune Railway Station','pink line', 'pune', 12, 1.4);
+
+insert into pune_metro_stations(stop_id, stop_name, route_no, city, next_stop_id, distance_to_next_km) values(12,'Ruby Hall Clinic','pink line', 'pune', 13, 1.34 );
+
+insert into pune_metro_stations(stop_id, stop_name, route_no, city, next_stop_id, distance_to_next_km) values(13,'Bund Garden','pink line', 'pune', 14, .89);
+
+insert into pune_metro_stations(stop_id, stop_name, route_no, city, next_stop_id, distance_to_next_km) values(14,'Yerawada','pink line', 'pune', 15, 1.56 );
+
+insert into pune_metro_stations(stop_id, stop_name, route_no, city, next_stop_id, distance_to_next_km) values(15,'Kalyani Nagar','pink line', 'pune', 16, .90);
+
+insert into pune_metro_stations(stop_id, stop_name, route_no, city, next_stop_id, distance_to_next_km) values(16,'Ramwadi','pink line', 'pune', NULL, 1.2 );
 
 CREATE TABLE categories (category_id INT PRIMARY KEY, category_name VARCHAR(50),parent_id INT);
 
