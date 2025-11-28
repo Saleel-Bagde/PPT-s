@@ -114,6 +114,7 @@ drop table if EXISTS rocket;
 
 DROP VIEW IF EXISTS SALES;
 
+drop table if exists cars;
 drop table if exists job_list;
 drop table if exists overtime;
 
@@ -226,6 +227,11 @@ DROP TABLE IF EXISTS categories;
 
 DROP TABLE IF EXISTS bus_stops;
 DROP TABLE IF EXISTS pune_metro_stations;
+
+CREATE TABLE cars(car VARCHAR(10), day VARCHAR(10),  cumulative_distance int);
+
+insert into cars values ('car1','day1',50), ('car2','day1',175), ('car1','day2',120), ('car3','day1',133), ('car1','day3',39), ('car2','day2',27), ('car1','day4',104), ('car3','day2',120), ('car2','day3',80), ('car2','day4',27), ('car1','day5',104), ('car3','day4',120), ('car2','day5',80);
+
 
 CREATE TABLE bus_stops(stop_id INT PRIMARY KEY, stop_name VARCHAR(100), route_no VARCHAR(50), city VARCHAR(50), next_stop_id INT, distance_to_next_km DECIMAL(4,2));
 
