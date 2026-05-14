@@ -1,4 +1,3 @@
-
 DROP TABLE IF EXISTS A;
 DROP TABLE IF EXISTS B;
 DROP TABLE IF EXISTS EMP;
@@ -227,6 +226,35 @@ DROP TABLE IF EXISTS categories;
 
 DROP TABLE IF EXISTS bus_stops;
 DROP TABLE IF EXISTS pune_metro_stations;
+
+DROP TABLE IF EXISTS security;
+DROP TABLE IF EXISTS bank;
+
+DROP TABLE IF EXISTS login_count;
+
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS user_attempte
+DROP TABLE IF EXISTS product_visit_log;
+DROP TABLE IF EXISTS product_views;
+
+CREATE TABLE product_visit_log(visit_id INT AUTO_INCREMENT PRIMARY KEY, product_id INT, user_id INT, visit_time DATETIME DEFAULT CURRENT_TIMESTAMP);
+
+CREATE TABLE product_views(product_id INT PRIMARY KEY, total_views INT DEFAULT 1);
+
+create table users (user_id int, user_name varchar(10));
+
+create table user_attempte (user_id int primary key , attempte int default 1);
+
+CREATE TABLE `login_count`(`userID` int NOT NULL, `loginCount` int DEFAULT NULL, `loginDate` datetime DEFAULT NULL, PRIMARY KEY (`userID`));
+
+create table security(ID int primary key auto_increment, securityName varchar(10));
+
+insert into security(securityName) values('Gopal'),('Ramesh'),('Nitin'),('Ramlal'),('Ravi'),('Saleel');
+
+create table bank (ID int primary key auto_increment, bankName varchar(10));
+
+insert into bank(bankName) values('BoI'),('BoB'),('ICICI');
+
 
 CREATE TABLE cars(car VARCHAR(10), day VARCHAR(10),  cumulative_distance int);
 
@@ -844,6 +872,7 @@ CREATE TABLE Facebook(facebookID INT PRIMARY KEY, studentID INT, name VARCHAR(45
 CREATE TABLE LinkedIn(linkedInID INT PRIMARY KEY, studentID INT, name VARCHAR(45), location VARBINARY(45));
 
 insert into student values(1001, 'Saleel', 1, 'saleel.songs@gmail.com', 'saleel.songs@gmail.com'), (1002, 'Sharmin', 1, 'sharmin@gmail.com', 'sharmin@gmail.com'), (1003, 'Vrushali', 2, 'vrusha@hotmail.com', 'vrushali@hotmail.com'), (1005, 'Ruhan', 3, 'ru@live.com', 'ruhan.live.com'), (1006, 'Neel', 2, 'nil@gmail.com', 'neel@gmail.com'), (1007, 'Deep', 1, 'deep@gmail.com', 'deep@gmail.com'), (1008, 'Nitish', 4, 'nity@live.com', 'nitish@live.com'), (1009, 'Gau', 5, 'gaurav@gmail.com', 'gau@gmail.com'), (1010, 'Mai', 4, 'mai@gmail.com', 'mai@gmail.com'), (1011, 'Bipin', 5, 'bipin@gmail.com', 'bipinpatil@gmail.com'), (1012, 'Natasha', 3, null, null), (1013, 'Bandish', 2, null, null);
+insert into student values(1017, 'sanchali', 1, null,'sanchaliJ@gmail.com');
 
 insert into Facebook values(1, 1006, 'Gabbar Singh', 'Nasik'), (2, 1008, 'Shadow King', 'Pune'), (3, 1009, 'FB Star', 'Bombay'), (4, 1010, 'Ghost Rider', 'Surat'), (5, 1011, 'The Rockstar', 'Pune'), (6, 1009, 'Star-Track', 'Pune'), (7, 1010, 'Rider-gate', 'Surat'), (8, 1006, 'self-hosted', 'Baroda');
 
@@ -3772,7 +3801,13 @@ update orders set registered=true where type='Online';
 update orders set registered=false where type='Cash';
 update orders set registered=0 where cnum is null;
 
-alter table orders add column delivery_partner varchar(12);
+ALTER TABLE orders ADD COLUMN delivery_partner varchar(12);
+ALTER TABLE orders ADD COLUMN discount_flag VARCHAR(20);
+ALTER TABLE orders ADD COLUMN reward_points INT DEFAULT 0;
+ALTER TABLE orders ADD COLUMN customer_tag VARCHAR(20);
+ALTER TABLE orders ADD COLUMN cashback DECIMAL(10,2);
+ALTER TABLE orders ADD COLUMN fraud_risk VARCHAR(20);
+
 
 UPDATE ord SET STATUS = 'In Process' WHERE (ORDID = '601');
 UPDATE ord SET STATUS = 'On Hold' WHERE (ORDID = '602');
