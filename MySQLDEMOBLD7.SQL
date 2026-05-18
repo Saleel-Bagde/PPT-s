@@ -236,6 +236,13 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS user_attempte
 DROP TABLE IF EXISTS product_visit_log;
 DROP TABLE IF EXISTS product_views;
+DROP TABLE IF EXISTS page_logs;
+DROP TABLE IF EXISTS page_counter;
+
+CREATE TABLE page_logs(log_id INT PRIMARY KEY AUTO_INCREMENT, user_id INT, page_url VARCHAR(255) NOT NULL, visit_time DATETIME DEFAULT CURRENT_TIMESTAMP,    ip_address VARCHAR(45), device_type VARCHAR(50), browser VARCHAR(50), stay_duration INT DEFAULT 0, status_code INT DEFAULT 200, referrer_url VARCHAR(255));
+
+CREATE TABLE page_counter(page_url VARCHAR(255) PRIMARY KEY, visits INT DEFAULT 1);
+
 
 CREATE TABLE product_visit_log(visit_id INT AUTO_INCREMENT PRIMARY KEY, product_id INT, user_id INT, visit_time DATETIME DEFAULT CURRENT_TIMESTAMP);
 
