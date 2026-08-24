@@ -1,3 +1,7 @@
+DROP DATABASE IF EXISTS db1;
+CREATE DATABASE IF NOT EXISTS db1;
+USE db1;
+
 DROP TABLE IF EXISTS A;
 DROP TABLE IF EXISTS B;
 DROP TABLE IF EXISTS EMP;
@@ -205,11 +209,6 @@ DROP TABLE IF EXISTS countNulls;
 DROP TABLE IF EXISTS cNumbers;
 
 
-DROP TABLE IF EXISTS fedex;
-DROP TABLE IF EXISTS ups;
-DROP TABLE IF EXISTS dhl;
-
-
 DROP TABLE IF EXISTS trains;
 DROP TABLE IF EXISTS reservations;
 
@@ -233,7 +232,7 @@ DROP TABLE IF EXISTS bank;
 DROP TABLE IF EXISTS login_count;
 
 DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS user_attempte
+DROP TABLE IF EXISTS user_attempte;
 DROP TABLE IF EXISTS product_visit_log;
 DROP TABLE IF EXISTS product_views;
 DROP TABLE IF EXISTS page_logs;
@@ -259,7 +258,7 @@ DROP TABLE IF EXISTS ccatStudents_log;
 DROP TABLE IF EXISTS subscription;
 
 
-CREATE TABLE subscription (subscription_id BIGINT AUTO_INCREMENT PRIMARY KEY, customer_id BIGINT NOT NULL, plan_name VARCHAR(50) NOT NULL, subscription_type ENUM('Monthly', 'Quarterly', 'Yearly') NOT NULL, start_date DATE NOT NULL, expiration_date DATE NOT NULL, amount DECIMAL(10,2) NOT NULL, payment_status ENUM('Paid', 'Pending', 'Failed', 'Refunded') DEFAULT 'Pending', subscription_status ENUM('Active', 'Expired', 'Cancelled', 'Suspended', 'Trial') DEFAULT 'Trial', auto_renew BOOLEAN DEFAULT TRUE, renewal_date DATE NULL, last_payment_date DATE NULL, next_billing_date DATE NULL, grace_period_days INT DEFAULT 7, reminder_sent BOOLEAN DEFAULT FALSE,    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP);
+CREATE TABLE subscription (subscription_id BIGINT AUTO_INCREMENT PRIMARY KEY, customer_id BIGINT NOT NULL, plan_name VARCHAR(50) NOT NULL, subscription_type ENUM('Monthly', 'Quarterly', 'Yearly', 'Trial') NOT NULL, start_date DATE NOT NULL, expiration_date DATE NOT NULL, amount DECIMAL(10,2) NOT NULL, payment_status ENUM('Paid', 'Pending', 'Failed', 'Refunded') DEFAULT 'Pending', subscription_status ENUM('Active', 'Expired', 'Cancelled', 'Suspended', 'Trial','Ex') DEFAULT 'Trial', auto_renew BOOLEAN DEFAULT TRUE, renewal_date DATE NULL, last_payment_date DATE NULL, next_billing_date DATE NULL, grace_period_days INT DEFAULT 7, reminder_sent BOOLEAN DEFAULT FALSE, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP);
 
 
 INSERT INTO subscription (customer_id, plan_name, subscription_type, start_date, expiration_date, amount, payment_status, subscription_status, auto_renew, renewal_date,  last_payment_date, next_billing_date, grace_period_days, reminder_sent) 
@@ -357,13 +356,14 @@ INSERT INTO subscription (customer_id, plan_name, subscription_type, start_date,
 
 (1046,'Business','Quarterly','2026-08-20','2026-11-20',2499.00,'Paid','Active',TRUE,'2026-11-20','2026-08-20','2026-11-20',10,FALSE),
 
-(1047,'Enterprise','Yearly','2026-08-25','2027-08-25',14999.00,'Paid','Active',TRUE,'2027-08-25','2026-08-25','2027-08-25',15,FALSE);
+(1047,'Enterprise','Monthly','2026-08-25','2027-08-25',14999.00, NULL,'Trial',TRUE,'2027-08-25','2026-08-25','2027-08-25',15, FALSE),
+
+/* Insert new record in subscription table before the last record */
+
+(1048,'Enterprise','Yearly','2026-08-25','2027-08-25',14999.00,'Paid','Active',TRUE,'2027-08-25','2026-08-25','2027-08-25',15,FALSE);
 
 
-UPDATE subscription SET  start_date = '2026-06-10' WHERE subscription_id=44;
-
-UPDATE subscription SET  expiration_date = '2026-07-10' WHERE subscription_id=44;
-
+UPDATE subscription SET  start_date = '2026-06-10', expiration_date = '2027-06-10' WHERE subscription_id = (SELECT subscription_id FROM (SELECT MAX(subscription_id) subscription_id FROM subscription) t);
 
 
 CREATE TABLE ccatStudents(id INT PRIMARY KEY AUTO_INCREMENT, formNumber VARCHAR(20), studentName VARCHAR(40), status VARCHAR(30) DEFAULT 'Pending', processed CHAR(1) DEFAULT 'N');
@@ -880,9 +880,16 @@ INSERT INTO countNumbers(c1) VALUES(1), (NULL), (NULL),(NULL),(NULL), (2), (NULL
 
 CREATE TABLE fedex(tracking_id varchar(20), carrier varchar(20), status varchar(20), delivery_date date);
 
+CREATE TABLE IF NOT EXISTS fedex_shipments (shipment_id INT PRIMARY KEY AUTO_INCREMENT, tracking_number VARCHAR(30) UNIQUE NOT NULL, customer_name VARCHAR(100) NOT NULL, origin_city VARCHAR(50) NOT NULL, destination_city VARCHAR(50) NOT NULL, shipment_type VARCHAR(30), weight_kg DECIMAL(8,2), shipping_cost DECIMAL(10,2), shipment_date DATE, expected_delivery DATE, status VARCHAR(20));
+
 CREATE TABLE dhl(tracking_id varchar(20), carrier varchar(20), status varchar(20), delivery_date date);
 
+CREATE TABLE IF NOT EXISTS dhl_shipments (shipment_id INT PRIMARY KEY AUTO_INCREMENT, tracking_number VARCHAR(30) UNIQUE NOT NULL, customer_name VARCHAR(100) NOT NULL, origin_city VARCHAR(50) NOT NULL, destination_city VARCHAR(50) NOT NULL, shipment_type VARCHAR(30), weight_kg DECIMAL(8,2), shipping_cost DECIMAL(10,2), shipment_date DATE, expected_delivery DATE, status VARCHAR(20));
+
 CREATE TABLE ups(tracking_id varchar(20), carrier varchar(20), status varchar(20), delivery_date date);
+
+CREATE TABLE IF NOT EXISTS ups_shipments (shipment_id INT PRIMARY KEY AUTO_INCREMENT, tracking_number VARCHAR(30) UNIQUE NOT NULL, customer_name VARCHAR(100) NOT NULL, origin_city VARCHAR(50) NOT NULL, destination_city VARCHAR(50) NOT NULL, shipment_type VARCHAR(30), weight_kg DECIMAL(8,2), shipping_cost DECIMAL(10,2), shipment_date DATE, expected_delivery DATE, status VARCHAR(20));
+
 
 INSERT INTO FEDEX(tracking_id, carrier, status, delivery_date) VALUES ('FEDEX100001', 'FedEx', 'Dispatched', '2025-07-04'), ('FEDEX100002', 'FedEx', 'In Transit', '2025-07-05'), ('FEDEX100006', 'FedEx', 'Pending', '2025-06-29'), ('FEDEX100003 ', 'FedEx', 'Delivered', '2025-07-03'), ('FEDEX100004', 'FedEx', 'Out for Delivery', '2025-07-07') , ('FEDEX100007', 'FedEx', 'Pending', '2025-01-09'), ('FEDEX100005', 'FedEx', 'Delayed', '2025-07-08');
 
@@ -892,9 +899,60 @@ INSERT INTO dhl(tracking_id, carrier, status, delivery_date) VALUES ('DHL100021'
 
 INSERT INTO ups(tracking_id, carrier, status, delivery_date) VALUES  ('UPS100032', 'UPS', 'Delivered', '2025-07-01'), ('UPS100042', 'UPS', 'Pending', '2025-11-11'), ('UPS100033', 'UPS', 'Dispatched', '2025-07-07'), ('UPS100034', 'UPS', 'Out for Delivery', '2025-07-08'), ('UPS100035', 'UPS', 'Delayed', '2025-07-09'), ('UPS100036', 'UPS', 'In Transit', '2025-07-03'), ('UPS100037', 'UPS', 'Delivered', '2025-07-05'), ('UPS100038', 'UPS', 'Dispatched', '2025-07-06'), ('UPS100039', 'UPS', 'Out for Delivery', '2025-07-04'), ('UPS100040', 'UPS', 'Delayed', '2025-07-12');
 
+INSERT INTO dhl_shipments
+(tracking_number, customer_name, origin_city, destination_city,
+ shipment_type, weight_kg, shipping_cost, shipment_date,
+ expected_delivery, status)
+VALUES
+('DHL100001','Rahul Sharma','Pune','Mumbai','Express',2.50,850.00,'2026-08-01','2026-08-02','Delivered'),
+('DHL100002','Priya Patil','Mumbai','Delhi','Standard',5.20,1200.00,'2026-08-02','2026-08-05','In Transit'),
+('DHL100003','Amit Kumar','Delhi','Bangalore','Express',1.80,950.00,'2026-08-03','2026-08-04','Delivered'),
+('DHL100004','Sneha Joshi','Pune','Hyderabad','International',8.40,3500.00,'2026-08-04','2026-08-08','In Transit'),
+('DHL100005','Vikas Singh','Bangalore','Chennai','Standard',3.60,750.00,'2026-08-05','2026-08-07','Pending'),
+('DHL100006','Neha Deshmukh','Delhi','Pune','Express',4.10,1450.00,'2026-08-06','2026-08-07','Delivered'),
+('DHL100007','Rohit Mehta','Mumbai','Kolkata','Standard',6.75,1800.00,'2026-08-06','2026-08-10','In Transit'),
+('DHL100008','Karan Shah','Hyderabad','Pune','Express',2.20,900.00,'2026-08-07','2026-08-08','Pending'),
+('DHL100009','Anjali Verma','Chennai','Delhi','Standard',7.30,2100.00,'2026-08-08','2026-08-12','In Transit'),
+('DHL100010','Suresh Rao','Pune','Bangalore','Express',1.25,650.00,'2026-08-09','2026-08-10','Delivered');
+
+
+INSERT INTO ups_shipments
+(tracking_number, customer_name, origin_city, destination_city,
+ shipment_type, weight_kg, shipping_cost, shipment_date,
+ expected_delivery, status)
+VALUES
+('UBS100001','Arjun Mehta','Mumbai','Pune','Express',2.10,800.00,'2026-08-01','2026-08-02','Delivered'),
+('UBS100002','Pooja Sharma','Pune','Delhi','Standard',4.80,1150.00,'2026-08-02','2026-08-05','In Transit'),
+('UBS100003','Rohan Patel','Delhi','Mumbai','Express',3.20,1000.00,'2026-08-03','2026-08-04','Delivered'),
+('UBS100004','Sneha Kulkarni','Bangalore','Hyderabad','Standard',6.50,1500.00,'2026-08-04','2026-08-07','In Transit'),
+('UBS100005','Vivek Joshi','Pune','Chennai','International',9.20,3800.00,'2026-08-05','2026-08-10','Pending'),
+('UBS100006','Neha Singh','Mumbai','Kolkata','Express',2.70,950.00,'2026-08-06','2026-08-08','Delivered'),
+('UBS100007','Aakash Verma','Delhi','Pune','Standard',5.90,1350.00,'2026-08-07','2026-08-10','In Transit'),
+('UBS100008','Karan Rao','Hyderabad','Mumbai','Express',1.90,850.00,'2026-08-08','2026-08-09','Pending'),
+('UBS100009','Anjali Shah','Chennai','Bangalore','Standard',7.10,1750.00,'2026-08-09','2026-08-12','In Transit'),
+('UBS100010','Suresh Kumar','Pune','Delhi','Express',3.50,1100.00,'2026-08-10','2026-08-11','Delivered');
+
+
+INSERT INTO fedex_shipments
+(tracking_number, customer_name, origin_city, destination_city,
+ shipment_type, weight_kg, shipping_cost, shipment_date,
+ expected_delivery, status)
+VALUES
+('FDX100001','Rajesh Gupta','Pune','Mumbai','Express',2.30,820.00,'2026-08-01','2026-08-02','Delivered'),
+('FDX100002','Priya Nair','Mumbai','Delhi','Standard',5.40,1250.00,'2026-08-02','2026-08-05','In Transit'),
+('FDX100003','Amit Verma','Delhi','Bangalore','Express',1.60,900.00,'2026-08-03','2026-08-04','Delivered'),
+('FDX100004','Sneha Rao','Pune','Hyderabad','International',8.70,3600.00,'2026-08-04','2026-08-09','In Transit'),
+('FDX100005','Vikas Patel','Bangalore','Chennai','Standard',3.90,780.00,'2026-08-05','2026-08-07','Pending'),
+('FDX100006','Neha Joshi','Delhi','Pune','Express',4.30,1400.00,'2026-08-06','2026-08-07','Delivered'),
+('FDX100007','Rohit Sharma','Mumbai','Kolkata','Standard',6.40,1750.00,'2026-08-07','2026-08-10','In Transit'),
+('FDX100008','Karan Mehta','Hyderabad','Pune','Express',2.40,920.00,'2026-08-08','2026-08-09','Pending'),
+('FDX100009','Anjali Patil','Chennai','Delhi','Standard',7.50,2150.00,'2026-08-09','2026-08-13','In Transit'),
+('FDX100010','Suresh Desai','Pune','Bangalore','Express',1.40,680.00,'2026-08-10','2026-08-11','Delivered');
+
+
 CREATE TABLE cNumbers(id INT PRIMARY KEY auto_increment,num INT);
   
-INSERT INTO cNumbers values (default, 1),(default, 1),(default, 1),(default, 2),(default, 1),(default, 2),(default, 2),(default, 7),(default, 7),(default, 7),(default, 5),(default, 5),(default, 2),(default, 4),(default, 4),(default, 4);
+INSERT INTO cNumbers values (default, 1),(default, 1),(default, 1),(default, 2),(default, 1),(default, 2),(default, 2),(default, 7),(default, 7),(default, 7),(default, 5),(default, 5),(default, 3),(default, 3),(default, 3),(default, 3),(default, 2),(default, 4),(default, 4),(default, 4),(default, 9),(default, 9),(default, 9),(default, 9),(default, 9);
 
 
 CREATE TABLE repeatingNumbers(num int);
